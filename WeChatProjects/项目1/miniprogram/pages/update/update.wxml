@@ -1,0 +1,18 @@
+<!-- 固件更新 -->
+<view class="title">
+  <view class="title-1">{{device_name}}</view>
+  <view class="title-end" style="margin-bottom:30rpx">
+    <view class="title-body-1">当前版本：</view>
+    <view class="title-end-2" style="margin-left">
+      <view>版本V{{version}}</view>
+      <view class="title-end-2-text">{{createTime}}</view>
+    </view>
+  </view>
+  <view class="title-end">
+    <view class="title-end-1">选择版本：</view>
+    <view class="title-end-2">
+      <view>版本V{{version}}</view>
+      <view class="title-end-2-text">{{createTime}}</view>
+    </view>
+  </view>
+</view>

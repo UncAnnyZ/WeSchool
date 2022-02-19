@@ -1,0 +1,5 @@
+<!-- 检验真伪 -->
+<view class="title">
+  <view class="title-1">{{device_name}}</view>
+  <view class="title-2" bindtap="btn">开始验真</view>
+</view>

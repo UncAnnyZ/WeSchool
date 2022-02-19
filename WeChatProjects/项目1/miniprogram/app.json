@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/device_management/device management",
+    "pages/login/login",
+    "pages/device_detail/device_detail",
+    "pages/checkout/checkout",
+    "pages/update/update",
+    "pages/navigate/navigate",
+    "pages/data_show/data_show"
+
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "设备云DCLOUD",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#6eaddf",
+    "list": [
+      {
+        "pagePath": "pages/device_management/device management",
+        "iconPath": "/images/设备.png",
+        "selectedIconPath": "/images/设备_sel.png",
+        "text": "设备"
+      },
+      {
+        "pagePath": "pages/navigate/navigate",
+        "iconPath": "/images/配置.png",
+        "selectedIconPath": "/images/配置_sel.png",
+        "text": "配置"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

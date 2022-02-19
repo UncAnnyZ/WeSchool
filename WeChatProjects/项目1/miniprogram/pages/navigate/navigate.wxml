@@ -1,0 +1,9 @@
+<view class="search">
+  <input type="text" class="search-input" bindinput="input" value="{{input_text}}" > </input>
+  <view class="search-right" bindtap="search">
+    <image src="./image/search_.png" class="search-img" ></image>
+  </view>
+</view>
+<view class="body" bindtap='scanCode'>
+  扫码绑定设备
+</view>

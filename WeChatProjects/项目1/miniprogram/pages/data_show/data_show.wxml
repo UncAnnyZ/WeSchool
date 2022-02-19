@@ -1,0 +1,6 @@
+<view class="container">  
+  <ec-canvas id="mychart-dom" class="mychart" canvas-id="mychart" ec="{{ec}}"></ec-canvas>
+</view>
+<view class="choose" style="display:{{state==1?'':'none'}}">
+  <view wx:for="{{choose_Label}}" bindtap="choose" id="{{index}}" class="choose-item">{{item.describe}}</view>
+</view>

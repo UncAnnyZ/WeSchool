@@ -1,0 +1,13 @@
+<view class="title">设备云DCLOUD登录系统</view>
+<view class="form">
+  <view class="form-user-pwd" >
+    <text>账号</text> 
+    <input type="text" value="{{user}}"  id="user"  placeholder="请输入你的账号" bindinput="input"></input>
+  </view>
+  <view class="form-user-pwd" >
+  <text >密码</text>
+    <input type="text" value="{{pwd}}" id="pwd" placeholder="请输入你的密码" password bindinput="input"></input></view>
+</view>
+<button bindtap="login" class="login" >
+  登录
+</button >

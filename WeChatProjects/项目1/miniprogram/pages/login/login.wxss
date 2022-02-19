@@ -1,0 +1,34 @@
+/* pages/login/login.wxss */
+page{
+  background-color: #F6F6F6;
+}
+
+.title{
+  margin:0px auto;
+  margin-top: 90rpx;
+  margin-bottom: 80rpx;
+  font-size: 46rpx;
+  font-weight: 800;
+}
+
+.form-user-pwd{
+  display: flex;
+  margin-bottom: 8px;
+  border: 1rpx solid #e7e7e7;
+  padding: 30rpx;
+  background-color: #fff;
+
+}
+.login{
+  margin-top:50rpx
+}
+button{
+  background-color:#4379CC  ;
+  color:white
+}
+text{
+  margin-right:5px;
+  border-right:1rpx solid #BBBBBB;
+  padding-right:20rpx;
+  font-size: 34rpx;
+}

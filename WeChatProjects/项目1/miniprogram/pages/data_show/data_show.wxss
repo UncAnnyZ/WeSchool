@@ -1,0 +1,24 @@
+/* pages/data_show/data_show.wxss */
+.container{
+  width: 100%;
+  height: 800rpx;
+  display: flex;
+  justify-content: center;
+}
+.mychart{
+  width: 100%;
+  height: 100%;
+}
+.choose{
+  display: flex;
+  justify-content: center;
+}
+.choose-item{
+  margin-left: 80rpx;
+  padding: 20rpx;
+  background-color: rgba(67,121,204);
+  color:white;
+  font-size: 26rpx;
+  border-radius: 18rpx;
+
+}

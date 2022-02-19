@@ -1,0 +1,46 @@
+<!-- 详情页 -->
+<view class="title">
+  <view class="title-left">
+    <view class="title-left-1">{{device_name}}</view>
+    <view class="title-left-2">{{device_type_name}}</view>
+  </view>
+  <view class="title-right">
+    <view class="title-right-1" bindtap="checkout"> 检验真伪<image class="title-img" src="./image/right.png"></image></view>
+    <view class="title-right-1" bindtap="update">更新固件<image class="title-img"  src="./image/right.png"></image></view>
+  </view>
+</view>
+<view class="body">
+  <view class="body-fri" wx:for = "{{device_list}}"    bindtap="visual" id="{{index}}">
+    <view class="body-fri-head" >{{item.name}}</view>
+   <view class="body-fri-top">
+    <view class="body-fri-center">{{item.state?item.state:"--"}}</view>
+    <view class="body-right">
+      {{item.date?item.date:"--"}}
+      <image src="./image/add.png"></image>
+    </view>
+   </view>
+   </view> 
+  
+</view>
+<view class="body-center">
+  <view class="table" wx:for="{{device_list}}">
+    <view class="end" style=" margin-top:{{index==0?'10rpx':'20rpx'}}">
+      <view>{{item.name}}</view>
+      <!-- <view class="end-row"> -->
+          <input index="{{index}}" type="text" class="device_input" id="input{{index}}" placeholder="请输入数字" bindinput="input"></input><view bindtap="submit" id="{{index}}" class="sumbit">发送</view>
+      <!-- </view> -->
+    </view>
+  </view>
+</view>
+<view class="big_input">
+  <view class="big_input_1">
+    <view style="font-weight:800;color:rgba(0,0,0,0.6)">收到的数据</view>
+    <textarea disabled="true" class="receive" value="{{send_value}}"  name="" id="" cols="30" rows="10"></textarea>
+  </view>
+  <view class="big_input_2">
+    <view  style="font-weight:800;color:rgba(0,0,0,0.6)">发送的数据</view>
+    <textarea  name="" id="" placeholder="请输入发送的数据" cols="30" rows="10" bindinput="input_send"></textarea>
+  </view>
+  <view class="btn" bindtap="send">发送</view>
+</view>
+
