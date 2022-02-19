@@ -1,0 +1,1 @@
+"C:\Users\86158\Desktop\微信web开发者工具\cli.bat" cloud functions deploy --e yun1-5gy3a6uw4b2f28e8 --n functions --r  --project C:\Users\86158\WeChatProjects\项目1 --report
