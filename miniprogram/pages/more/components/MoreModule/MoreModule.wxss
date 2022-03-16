@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1030rpx;
+    height: 220rpx;
+    background-color: #fff;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    font-size: 29rpx;
+    letter-spacing: 1rpx;
+    color: black;
+    background-color: rgb(244,244,244);
+}
+
+.first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160rpx;
+    height: 200rpx;
+    background-color: pink;
+    border-radius: 15rpx;
+    background: #ee9ca7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #ffdde1, #ee9ca7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ffdde1, #ee9ca7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.second {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 20rpx;
+    width: 810rpx;
+    height: 200rpx;
+}
+
+.second .second_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250rpx;
+    height: 90rpx;
+    background-color: green;
+    border-radius: 15rpx;
+    margin: 0 20rpx 20rpx 0
+}
+
+.second .note {
+    background: #7F7FD5;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.second .game {
+    background: #4e54c8;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #8f94fb, #4e54c8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.second .zanju {
+    background: #D3959B;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #BFE6BA, #D3959B);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #BFE6BA, #D3959B);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.second .tucao {
+    background: #1D976C;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #93F9B9, #1D976C);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #93F9B9, #1D976C);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}

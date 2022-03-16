@@ -1,5 +1,5 @@
 
-<scroll-view  scroll-y="true"  style="height:{{height}}; background-color: rgba(153, 153, 153, 0.11);" bindscrolltolower="onReachBottom" lower-threshold="0" bindscrolltoupper="onPullDownRefresh" upper-threshold="-10" enable-back-to-top fast-deceleration paging-enabled>
+<scroll-view  scroll-y="{{ifScroll}}"  style="height:{{height}}; background-color: rgba(153, 153, 153, 0.11);" bindscrolltolower="onReachBottom" lower-threshold="0" bindscrolltoupper="onPullDownRefresh" upper-threshold="-10" enable-back-to-top fast-deceleration paging-enabled>
 
   <view class='content' style="opacity: {{list[0] ? 1 : 0}};">
     <view class="left">

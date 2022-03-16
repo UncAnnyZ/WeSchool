@@ -1,0 +1,101 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+/* 公示栏 */
+.container .inform {
+    width: 100%;
+    height: 300rpx;
+    background-color: #ccc;
+    border-radius: 15rpx;
+}
+
+/* 小纸条 */
+.container .noteBox {
+    width: 100%;
+    min-height: 200rpx;
+    background-color: pink;
+    border-radius: 15rpx;
+    margin: 20rpx 0;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+/* 时间和举报 */
+.container .noteBox .first_line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 29rpx;
+    margin-bottom: 10rpx;
+}
+.first_line .time {
+    font-size: 26rpx;
+    font-weight: 550;
+}
+.first_line .jubao {
+    padding: 3rpx 10rpx;
+    font-size: 25rpx;
+    letter-spacing: 1rpx;
+    border: 1rpx solid #9b9b9b48;
+    border-radius: 20rpx;
+}
+.container .noteBox .Line{
+    background: #9b9b9b48;
+    width: 100%;
+    height: 1rpx;
+  }
+/* 第二列 */
+.container .noteBox .second_line {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10rpx;
+}
+/* 头像 */
+.container .noteBox .second_line .userInfo_avatar {
+    border: 5rpx solid rgba(171, 199, 233, 0.6);
+}
+.userInfo_avatar,
+.userInfo_avatar image {
+    overflow: hidden;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+/* 昵称和内容 */
+.container .noteBox .second_line .userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+}
+.container .noteBox .second_line .userInfo .nickName {
+    font-size: 26rpx;
+    color: rgb(77, 76, 76);
+}
+.container .noteBox .second_line .userInfo .content {
+    font-size: 27rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* 发送留言 */
+.container .send_note {
+    position: absolute;
+    bottom: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60rpx;
+    background-color: green;
+    box-sizing: border-box;
+    border-radius: 60rpx;
+}

@@ -1,17 +1,6 @@
 let args = wx.getStorageSync('args')
 var app = getApp()
 
-// 旋转初始化
-const _ANIMATION_TIME = 400; // 动画播放一次的时长ms
-var _animation = wx.createAnimation({
-  duration: _ANIMATION_TIME,
-  timingFunction: 'linear',
-  delay: 0,
-  transformOrigin: '50% 50% 0'
-})
-var _animationIndex = 0; // 动画执行次数index（当前执行了多少次）
-var _animationIntervalId = -1; // 动画定时任务id，通过setInterval来达到无限旋转，记录id，用于结束定时任务
-
 Page({
   data: {
     // 配置
@@ -74,15 +63,15 @@ Page({
   canWaterScroll() {
     console.log(123);
     let allList = this.data.allList;
-    for(let i in allList) {
-      this.selectComponent(`#waterFlowCards${i}`).setData({ifScroll:true})
+    for (let i in allList) {
+      this.selectComponent(`#waterFlowCards${i}`).setData({ ifScroll: true })
     }
   },
   cannotWaterScroll() {
     console.log(123);
     let allList = this.data.allList;
-    for(let i in allList) {
-      this.selectComponent(`#waterFlowCards${i}`).setData({ifScroll:false})
+    for (let i in allList) {
+      this.selectComponent(`#waterFlowCards${i}`).setData({ ifScroll: false })
     }
   },
   // 卡片内外部渲染一致
@@ -136,7 +125,13 @@ Page({
   },
   // 1. 跳转页面
   navigate(e) {
-    let url = e.currentTarget.id;
+    let url;
+    if(e.detail.id) {
+      // 为兼容模块里二跳的写法
+      url = e.detail.id
+    }else {
+      url = e.currentTarget.id
+    }
     switch (url) {
       case 'myself':
         wx.switchTab({
@@ -246,7 +241,24 @@ Page({
       }
     })
   },
-
+  getNoteData() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: "NewCampusCircle",
+      data: {
+        url: "Note_module",
+        type: "read",
+        username: args.username,
+        School: args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName,
+      },
+      success(res) {
+        let dmList = res.result.data;
+        that.setData({
+          dmList
+        })
+      }
+    })
+  },
   // 3. 搜索框逻辑 
   search_Input: function (e) {
     const { value } = e.detail  //拿到输入框中的值
@@ -313,32 +325,6 @@ Page({
       }
     }
 
-  },
-
-  // 4. 动效
-  rotateAni: function (n) { // 实现image旋转动画，每次旋转 120*n度         
-    _animation.rotate(120 * (n)).step()
-    this.setData({
-      animation: _animation.export()
-    })
-  },
-  // 开始旋转
-  startAnimationInterval: function () {
-    let that = this;
-    that.rotateAni(++_animationIndex); // 进行一次旋转
-
-    _animationIntervalId = setInterval(function () {
-      that.rotateAni(++_animationIndex);
-    }, _ANIMATION_TIME); // 每间隔_ANIMATION_TIME进行一次旋转
-    console.log("begin旋转")
-  },
-  // 停止旋转
-  stopAnimationInterval: function () {
-    if (_animationIntervalId > 0) {
-      clearInterval(_animationIntervalId);
-      _animationIntervalId = 0;
-      console.log("stop旋转")
-    }
   },
 
   // 滑动选择标签   (与下方 setTab 不可合并，选择标签同时会滑动屏幕，导致连续两次请求数据库)
@@ -433,10 +419,6 @@ Page({
       iconUrl: args.iconUrl,     // 获取头像
       school: args.school        // 获取学校
     })
-    // 初始化动画
-    _animationIndex = 0;
-    _animationIntervalId = -1;
-    this.data.animation = '';
   },
   onLoad: function () {
     this.init()
@@ -453,6 +435,7 @@ Page({
   onPullDownRefresh() {
     // 在标题栏中显示加载
     wx.showNavigationBarLoading();
+    // 初始化定时器
     clearTimeout(this.TimeOut);
     // 开启动画
     this.setData({
@@ -462,14 +445,14 @@ Page({
     let currentTab = this.data.currentTab;
     this.selectComponent(`#waterFlowCards${currentTab}`).setData({ currentPage: 0 });
     this.selectComponent(`#waterFlowCards${currentTab}`).setData({ loadAll: false });
-    // 加载动画
-    this.startAnimationInterval();
     // 定时器防抖
     this.TimeOut = setTimeout(() => {
       console.log("下拉刷新")
       // 清空瀑布流内容，并再次请求数据库
       this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
       this.selectComponent(`#waterFlowCards${currentTab}`).getData();
+      // 获取小纸条
+      this.getNoteData();
       // 在标题栏中停止加载
       wx.hideNavigationBarLoading()
       // 停止动画

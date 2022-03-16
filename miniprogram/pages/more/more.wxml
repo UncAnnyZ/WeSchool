@@ -5,23 +5,15 @@
   <view style="height: {{statusBarHeight}}px;" />
   <!-- 导航栏 -->
   <view class="head_second" style="height: {{lineHeight}}px;">
-    <!-- 头像 -->
-    <view class="avatarBox">
-      <image src="{{iconUrl}}" catchtap="navigate" id="myself"></image>
-    </view>
-    <!-- 搜索框 -->
-    <view class="searchFrame">
-      <image src="../../images/search.png" />
-      <input value="{{search}}" bindinput="search_Input" />
-    </view>
+    <image src="./images/search.png"></image>
+    <view class="title">校园圈</view>
     <!-- 消息列表 -->
-    <view class="newInfo">
+    <!-- <view class="newInfo">
       <image src="../../images/information.png" bindtap="navigate" id="NewInfo"></image>
-      <!-- 消息提示 - 数字 -->
       <view class="newInfo_redPoint" id="NewInfo" catchtap="navigate" wx:if="{{NewInfo}}">
         <text>{{NewInfo}}</text>
       </view>
-    </view>
+    </view> -->
   </view>
 
 </view>
@@ -29,35 +21,15 @@
 <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
 
 <scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}"  bindscrolltoupper="onPullDownRefresh" upper-threshold="0">
+  <!-- 小纸条 - 弹幕 -->
+  <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->
-  <!-- <view class="naviModule_box">
-    <view class="naviModule">
-      <view class="module module1" id="Game" bindtap="navigate">
-        <text>电子游戏</text>
-        <view>{{m1.canIScroll}}</view>
-      </view>
-      <view class="module module2">
-        <text>商家接入</text>
-      </view>
-      <view class="module module3">
-        <text>恋爱匹配</text>
-      </view>
-      <view class="module module4">
-        <text>攒局</text>
-      </view>
-    </view>
-    <view class="leaderBoard">
-      <text>热度榜</text>
-    </view>
-  </view> -->
-
-  
-
-  <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" showTab="true" />
-
+  <MoreModule bind:navigate="navigate" />
+  <!-- 标签 -->
+  <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
+  <!-- 瀑布流 -->
   <scroll-view bindscrolltoupper="onPullDownRefresh" upper-threshold="0" wx:if="{{campus_account!=true}}" class="page">
     <Loading wx:if="{{showLoading==0}}"></Loading>
-    <!-- <image class="showLoading" mode="aspectFit" animation="{{animation}}" src='../../images/loading.png' wx:if="{{showLoading==0}}"></image> -->
     <!-- bindtransition="waterTransition" bindanimationfinish="waterAnimationFinish" -->
     <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{windowHeight - statusBarHeight - lineHeight - 28}}px;">
 
@@ -68,6 +40,8 @@
       </block>
 
     </swiper>
+
+
 
     <!-- 发布按钮 -->
     <view class="img-button content_btn content_btn_add" style="display:{{school=='游客登录'?'none':'fixed'}}" bindtap="showPopUps" id="PublishContent">

@@ -1,10 +1,8 @@
 /* pages/more/more.wxss */
 .container {
-  /* overflow: hidden; */
+  position: relative;
 }
-.TabScroll_Fixed {
-  position: fixed;
-}
+
 .page{
   width: 100%;
   margin: 0;
@@ -18,74 +16,21 @@
 
 }
 .head_second {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 30rpx;
   width: 100vw;
 }
-.avatarBox {
-  display: flex;
-  align-items: center;
-  padding-left: 20rpx;
+.head_second image {
+  position: absolute;
+  left: 20rpx;
+  width: 45rpx;
+  height: 45rpx;
 }
-.avatarBox image{
-  width: 65rpx;
-  height: 65rpx;
-  border-radius: 50%;
-}
-/* 更多模块 */
-.naviModule_box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.naviModule {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-.module {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 330rpx;
-  height: 50px;
-  margin: 7.5px;
-  border-radius: 20rpx;
-  border: 1rpx solid #ccc;
-}
-.leaderBoard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 690rpx;
-  height: 100rpx;
-  border-radius: 20rpx;
-  border: 1rpx solid #ccc;
-}
-.searchFrame{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50rpx;
-  width: 47%;
-  font-size: 25rpx;
-  border-radius: 15rpx;
-  background-color: rgba(202, 202, 202, 0.342);
-  margin-left: 20rpx;
-}
-.searchFrame image {
-  margin: 10rpx;
-  width: 30rpx;
-  height: 30rpx;
-}
-.searchFrame input{
-  width:95%;
-  padding:0rpx 3rpx;
-  color: rgb(142, 142, 142);
+.head_second .title {
+  letter-spacing: 5rpx;
 }
 
 .newInfo {
@@ -172,6 +117,9 @@
 }
 .swiperItem {
   height: auto !important;
+}
+.TabScroll {
+  margin: 20rpx 0;
 }
 /* 弹窗 */
 .popUps {

@@ -3,7 +3,9 @@
     "TabScroll": "./components/TabScroll/TabScroll",
     "waterFlowCards": "./components/waterFlowCards/waterFlowCards",
     "QuickPublish": "./components/QuickPublish/QuickPublish",
-    "Loading": "./components/Loading/Loading"
+    "Loading": "./components/Loading/Loading",
+    "danmu": "./components/danmu/danmu",
+    "MoreModule": "./components/MoreModule/MoreModule"
   },
   "navigationStyle":"custom",
   "enablePullDownRefresh": true

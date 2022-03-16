@@ -271,19 +271,17 @@ Page({
       })
     },
     onLoad: function (options) {
-
+      let args = wx.getStorageSync('args');
       // 兼容打卡一键分享
       let photo = [{
         imageHeight:options.imageHeight,
         imageWidth:options.imageWidth,
         tempFilePath:options.tempFiles
       }]
-      console.log(options);
-      console.log(photo);
       if(photo[0].tempFilePath){
-        let Input_Title = "模板标题";
-        let Input_Text = "模板文字";
-        let choosenLabel = "日常";
+        let Input_Title = `${args.nickName}今日已打卡~`;
+        let Input_Text = "每天都要坚持打卡哦！";
+        let choosenLabel = "打卡";
         this.setData({
           photo,
           Input_Title,
@@ -292,7 +290,7 @@ Page({
         })
         
       }
-      let args = wx.getStorageSync('args');
+      
       let theme = wx.getStorageSync('theme');
       let menu_ = args.tabitem
       // menu_.push("寻物发布")

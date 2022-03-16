@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Loading": "../../components/Loading/Loading"
+  },
+  "navigationBarTitleText": "小纸条·留言墙"
+}

@@ -1,0 +1,38 @@
+<view class="container">
+    <view class="title">
+        小纸条
+    </view>
+    <!-- top -->
+    <view class='dmGroup top' style="animation: dmAnimation2 10s  linear infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index == 0 }}" wx:key="*this">
+            <view class='dm'>
+                <view class='avatarBox'>
+                    <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+                </view>
+                <text class='content'>{{ item.content }}</text>
+            </view>
+        </view>
+    </view>
+    <!-- mid -->
+    <view class='dmGroup mid' style="animation: dmAnimation2 10s 0.5s linear infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index == 1 }}" wx:key="*this">
+            <view class='dm'>
+                <view class='avatarBox'>
+                    <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+                </view>
+                <text class='content'>{{ item.content }}</text>
+            </view>
+        </view>
+    </view>
+    <!-- btm -->
+    <view class='dmGroup btm' style="animation: dmAnimation2 10s 1s linear infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index ==2 }}" wx:key="*this">
+            <view class='dm'>
+                <view class='avatarBox'>
+                    <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+                </view>
+                <text class='content'>{{ item.content }}</text>
+            </view>
+        </view>
+    </view>
+</view>

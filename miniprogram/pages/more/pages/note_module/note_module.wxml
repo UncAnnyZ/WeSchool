@@ -1,0 +1,31 @@
+<view class="container">
+    <!-- 加载动效 -->
+    <Loading wx:if="{{showLoading == 0}}" />
+
+    <scroll-view style="height: 100%;" bindscrolltoupper="onPullDownRefresh" upper-threshold="0" bindscrolltolower="onReachBottom" lower-threshold="200" scroll-y>
+        <view class="inform"></view>
+        <block wx:for="{{noteList}}">
+            <view class="noteBox">
+                <view class="first_line">
+                    <view class="time">{{item._createTime}}</view>
+                    <view class="jubao">举报</view>
+                </view>
+
+                <view class="Line"></view>
+
+                <view class="second_line">
+                    <view class="userInfo_avatar">
+                        <image src="{{item.iconUrl}}" />
+                    </view>
+                    <view class="userInfo">
+                        <view class="nickName">{{item.nickName}}</view>
+                        <view class="content">{{item.content}}</view>
+                    </view>
+                </view>
+
+            </view>
+        </block>
+    </scroll-view>
+
+    <view class="send_note">发送留言</view>
+</view>
