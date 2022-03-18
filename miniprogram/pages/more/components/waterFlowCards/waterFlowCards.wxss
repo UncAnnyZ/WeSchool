@@ -2,20 +2,22 @@
 .content{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     /* justify-content: center; */
     /* align-items: center; */
     overflow: hidden;
-    margin: 10rpx;
+    /* margin: 10rpx; */
+    margin: 30rpx;
     box-sizing: border-box;
     transition: all 0.3s ease 0s;
   }
 
 .left{
-    width: 360rpx;
+    width: 330rpx;
 }
 
 .right{
-    width: 360rpx;
+    width: 330rpx;
     margin-left: 10rpx;
 }
 

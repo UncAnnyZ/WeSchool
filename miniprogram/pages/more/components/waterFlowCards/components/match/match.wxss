@@ -6,19 +6,19 @@
   margin: 10rpx;
 }
 .left {
-  width: 360rpx;
+  width: 330rpx;
 }
 .right {
-  width: 360rpx;
+  width: 330rpx;
   margin-left: 10rpx;
 }
 .Show_Image {
-  width: 360rpx;
+  width: 330rpx;
   background-color: #ebebebd8;
 }
 .pic {
   border-radius: 10rpx;
-  width: 360rpx;
+  width: 330rpx;
   background-color: #ffffff;
   margin-bottom: 10rpx;
   overflow: hidden;

@@ -2,15 +2,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 1030rpx;
+    width: 1050rpx;
     height: 220rpx;
     background-color: #fff;
-    padding: 0 20rpx;
+    padding: 0 30rpx;
     box-sizing: border-box;
     font-size: 29rpx;
     letter-spacing: 1rpx;
     color: black;
-    background-color: rgb(244,244,244);
+    background-color: rgb(255, 255, 255);
 }
 
 .first {
@@ -21,7 +21,7 @@
     height: 200rpx;
     background-color: pink;
     border-radius: 15rpx;
-    background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
+    background-image: linear-gradient( 135deg, #fa9e3c 10%, #FD6585 100%);
 }
 
 .second {
@@ -45,7 +45,7 @@
 }
 
 .second .note {
-    background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);
+    background-image: linear-gradient( 135deg, #3fe07a 10%, #465EFB 100%);
 
 }
 

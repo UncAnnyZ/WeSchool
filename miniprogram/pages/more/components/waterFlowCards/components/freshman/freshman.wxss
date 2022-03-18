@@ -1,13 +1,13 @@
 .pic {
   border-radius: 10rpx;
-  width: 360rpx;
+  width: 330rpx;
   background-color: #ffffff;
   margin-bottom: 10rpx;
   overflow: hidden;
   background-image: linear-gradient(#ecf1fc, #f0f5ff);
 }
 .pic .Show_Image {
-  width: 360rpx;
+  width: 330rpx;
 }
 .pic .back .pic_Title {
   color: #000000;

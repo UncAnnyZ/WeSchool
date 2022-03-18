@@ -1,6 +1,6 @@
 page {
     height: 100vh;
-    background: #f6f6f6;
+    background: #ffffff;
     font-size: 28rpx;
     color: #333;
     box-sizing: border-box;

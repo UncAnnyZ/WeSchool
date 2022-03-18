@@ -2,10 +2,11 @@
   position: relative;
   width:100%;
   height:29px;
-  background-color: rgba(244,244,244);
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 20rpx;
 }
 
 .Choose_Label .underLineBox {
