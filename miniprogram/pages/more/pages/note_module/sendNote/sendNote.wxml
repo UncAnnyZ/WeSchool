@@ -1,0 +1,42 @@
+
+<view class="container">
+    <view class="inform">
+        文明交流，畅所欲言！
+    </view>
+    <form bindsubmit="formSubmit">
+
+        <view class="main">
+            <!-- 暗号 -->
+            <view class="signal">
+                <view class="text">暗号：</view>
+                <input placeholder="试着输入TA的名字" placeholder-class="placeholder_class" value="{{Input_anhao}}" name="signal" bindinput="bindinput_anhao">
+                <view class="text_length">{{Input_anhao.length}}/10</view>
+                </input>
+            </view>
+            <!-- 留言 -->
+            <view class="content">
+                <view class="text">留言：</view>
+                <textarea name="content" placeholder-class="placeholder_class" placeholder="在此输入你对TA的留言，要求200字以内" auto-height value="{{Input_liuyan}}"></textarea>
+                <view class="Line"></view>
+            </view>
+            <!-- 规范 -->
+            <view class="safe">
+                <image src="./images/Remind.png"></image>
+                <text>留言要注意文明规范噢！</text>
+            </view>
+            <!-- 匿名/发送留言 -->
+            <view class="send">
+                <view class="niming">
+                    <radio-group name="niming">
+                        <radio class="radio" name="niming" value="{{radioChecked}}" checked="{{radioChecked}}"bindtap="changeRadio" />
+                    </radio-group>
+                    
+                    <text>以匿名身份留言</text>
+                </view>
+                <button form-type="submit" hover-class="btn_hover">发送留言</button>
+            </view>
+        </view>
+
+    </form>
+
+</view>

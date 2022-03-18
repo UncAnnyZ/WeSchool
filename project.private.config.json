@@ -155,6 +155,18 @@
                     "pathName": "pages/more/pages/note_module/note_module",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "发送留言页面",
+                    "pathName": "pages/more/pages/note_module/sendNote/sendNote",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "举报页面",
+                    "pathName": "pages/more/pages/JuBao/JuBao",
+                    "query": "_id=d4107ab16232e9a600333ec658813256",
+                    "scene": null
                 }
             ]
         }

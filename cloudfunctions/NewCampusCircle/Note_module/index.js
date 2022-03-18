@@ -12,13 +12,16 @@ exports.main = async (event) => {
         case "read":
             data = await read(event); //  
             break;
+        case "write":
+            data = await write(event);
+            break;
     }
     return data
 }
 
 async function read(event) {
     // 从校园圈首页读小纸条时, 没有currentPage
-    if(!event.currentPage) {
+    if (!event.currentPage) {
         event["currentPage"] = 0;
     }
     var skipPage = event.currentPage * 10;
@@ -26,9 +29,27 @@ async function read(event) {
         School: event.School
     }
     try {
-        return await db.collection('Note_module').orderBy('_createTime', 'desc').where(obj).skip(skipPage).limit(30).get();
+        return await db.collection('Note_module').orderBy('_createTime', 'desc').where(obj).skip(skipPage).limit(30).field({
+            'School': false,
+            'signal': false,
+            'username': false
+        }).get();
     } catch (e) {
         console.error(e);
+    }
+}
+
+async function write(event) {
+    let { signal, content, niming, username, School, iconUrl, nickName, Time } = event;
+    console.log(Time);
+    try {
+        return await db.collection('Note_module').add({
+            data: {
+                signal, content, niming, username, School, iconUrl, nickName, Time
+            }
+        })
+    } catch (e) {
+
     }
 }
 

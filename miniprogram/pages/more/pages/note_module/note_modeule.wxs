@@ -1,0 +1,17 @@
+var funcA = function(e, ins) {
+    var index = e.target.id;
+    var instance = ins.selectComponent('.content'+ index);
+
+    
+    if(instance.hasClass('content_zhankai')) {
+        instance.removeClass('content_zhankai');
+        return false
+    }else {
+        instance.addClass('content_zhankai');
+        return true
+    }
+}
+
+module.exports = {
+    funcA: funcA
+}

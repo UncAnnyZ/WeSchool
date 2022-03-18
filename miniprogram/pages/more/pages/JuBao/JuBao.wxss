@@ -1,0 +1,122 @@
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.inform {
+    width: 100%;
+    padding: 20rpx;
+    font-size: 25rpx;
+    background-color: rgb(240, 238, 238);
+    border-radius: 15rpx;
+    color: rgb(133, 131, 131);
+    box-sizing: border-box;
+    letter-spacing: 2rpx;
+    line-height: 35rpx;
+    margin-top: 20rpx;
+}
+
+.placeholder_class {
+    color: rgb(165, 165, 165);
+    letter-spacing: 2rpx;
+    font-size: 26rpx;
+}
+
+/* 暗号 */
+.signal .text {
+    font-size: 28rpx;
+    font-weight: 550;
+    margin: 30rpx 0;
+}
+
+.signal input {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 15rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    color: rgb(80,80,80)
+}
+
+.signal input .text_length {
+    color: rgb(165, 165, 165);
+    position: absolute;
+    top: 25rpx;
+    right: 20rpx;
+}
+
+/* 留言 */
+.content .text {
+    font-size: 28rpx;
+    font-weight: 550;
+    margin: 30rpx 0;
+}
+
+.content textarea {
+    width: 100%;
+    margin: 30rpx 0;
+    color: rgb(80,80,80);
+    font-size: 28rpx;
+    
+}
+
+.content .Line {
+    background: #9b9b9b48;
+    width: 100%;
+    height: 1rpx;
+}
+
+/* 规范 */
+.main image {
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+}
+
+.main .safe {
+    margin-top: 15rpx;
+    font-size: 25rpx;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    letter-spacing: 3rpx;
+    color: #3883c2;
+}
+
+/* 匿名/发送 */
+.send {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 150rpx;
+    /* background-color: green; */
+}
+
+button {
+    font-size: 30rpx;
+    letter-spacing: 2rpx;
+    color: #fff;
+    background: transparent;
+    border-radius: 0;
+}
+
+button::after {
+    border-color: transparent;
+}
+
+.send button {
+    width: 90% !important;
+    border-radius: 60rpx;
+    /* background-color: #fff; */
+    background: #9ef5c1;
+}

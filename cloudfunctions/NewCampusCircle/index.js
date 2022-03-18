@@ -5,6 +5,7 @@ cloud.init()
 const CommentControl = require('./CommentControl/index');
 const Card = require('./Card/index');
 const Note_module = require('./Note_module/index');
+const JuBao = require('./JuBao/index')
 
 exports.main = async (event, context) => {
 
@@ -21,5 +22,10 @@ exports.main = async (event, context) => {
   if(event.url === 'Note_module') {
     data = await Note_module.main(event)
   }
+  // 举报
+  if(event.url === 'JuBao') {
+    data = await JuBao.main(event)
+  }
+
   return data
 }

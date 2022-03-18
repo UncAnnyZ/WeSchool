@@ -1,0 +1,23 @@
+
+<view class="container">
+    <view class="inform">
+        举报内容属实,被举报者将会受到严肃处理！
+    </view>
+    <form bindsubmit="formSubmit">
+
+        <view class="main">
+            <!-- 举报理由 -->
+            <view class="content">
+                <view class="text">举报理由：</view>
+                <textarea name="content" placeholder-class="placeholder_class" placeholder="低俗 / 暴力 / 政治内容...." auto-height value="{{Input_reason}}"></textarea>
+                <view class="Line"></view>
+            </view>
+            <!-- 提交 -->
+            <view class="send">
+                <button form-type="submit" hover-class="btn_hover">提交</button>
+            </view>
+        </view>
+
+    </form>
+
+</view>

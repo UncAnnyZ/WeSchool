@@ -85,7 +85,9 @@
                 "LoseDetailContent/LoseDetailContent",
                 "Game/Game",
                 "UserCenter/index",
-                "note_module/note_module"
+                "note_module/note_module",
+                "note_module/sendNote/sendNote",
+                "JuBao/JuBao"
             ]
         },
         {

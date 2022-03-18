@@ -9,21 +9,38 @@
 /* 公示栏 */
 .container .inform {
     width: 100%;
-    height: 300rpx;
-    background-color: #ccc;
+    padding: 20rpx;
+    font-size: 25rpx;
+    background-color: rgb(240, 238, 238);
     border-radius: 15rpx;
+    color: rgb(133, 131, 131);
+    box-sizing: border-box;
+    letter-spacing: 2rpx;
+    line-height: 35rpx;
+    margin-top: 20rpx;
+    margin-bottom: 15rpx;
+}
+
+.container .main_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 小纸条 */
 .container .noteBox {
-    width: 100%;
+    width: 92vw;
     min-height: 200rpx;
-    background-color: pink;
+    /* background-color: pink; */
     border-radius: 15rpx;
-    margin: 20rpx 0;
+    margin: 15rpx 0;
     padding: 20rpx;
     box-sizing: border-box;
+    box-shadow: rgb(194, 194, 194) 0 0 5rpx;
+    /* background-image: linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%); */
 }
+
 /* 时间和举报 */
 .container .noteBox .first_line {
     display: flex;
@@ -34,32 +51,39 @@
     font-size: 29rpx;
     margin-bottom: 10rpx;
 }
+
 .first_line .time {
-    font-size: 26rpx;
+    font-size: 25rpx;
     font-weight: 550;
 }
+
 .first_line .jubao {
-    padding: 3rpx 10rpx;
+    padding: 3rpx 15rpx;
     font-size: 25rpx;
     letter-spacing: 1rpx;
     border: 1rpx solid #9b9b9b48;
     border-radius: 20rpx;
 }
-.container .noteBox .Line{
+
+.container .noteBox .Line {
     background: #9b9b9b48;
     width: 100%;
     height: 1rpx;
-  }
+}
+
 /* 第二列 */
 .container .noteBox .second_line {
     display: flex;
     flex-direction: row;
     margin-top: 10rpx;
+
 }
+
 /* 头像 */
 .container .noteBox .second_line .userInfo_avatar {
     border: 5rpx solid rgba(171, 199, 233, 0.6);
 }
+
 .userInfo_avatar,
 .userInfo_avatar image {
     overflow: hidden;
@@ -67,35 +91,100 @@
     height: 80rpx;
     border-radius: 50%;
 }
+
 /* 昵称和内容 */
 .container .noteBox .second_line .userInfo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-left: 20rpx;
+    width: 80%;
 }
+
+
 .container .noteBox .second_line .userInfo .nickName {
     font-size: 26rpx;
-    color: rgb(77, 76, 76);
+    color: rgb(133, 131, 131);
 }
+
 .container .noteBox .second_line .userInfo .content {
-    font-size: 27rpx;
+    font-size: 26rpx;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    letter-spacing: 1rpx;
+    transition: all 1s linear ;
 }
+
+.content_zhankai {
+    font-size: 27rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 9999 !important;
+    -webkit-box-orient: vertical;
+    transition: all 1s linear ;
+}
+
+.container .noteBox .second_line .userInfo .content .zhankai {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60rpx;
+    height: 30rpx;
+    background-color: rgb(71, 81, 171);
+    color: #fff;
+    font-size: 23rpx;
+    letter-spacing: 3rpx;
+    border-radius: 6rpx;
+    clear: both;
+}
+.container .noteBox .second_line .userInfo .content::before {
+    content: '';
+    float: right;
+    height: calc(100% - 30rpx);
+    transition: all 1s linear ;
+}
+.container .DataNull {
+    font-size: 26rpx;
+    color: #2c2c2cb4;
+    display: flex;
+    justify-content: center;
+}
+
 /* 发送留言 */
+.container .send_noteBox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 220rpx;
+    box-sizing: border-box;
+    background: linear-gradient(0deg, #fff, transparent);
+}
+
 .container .send_note {
     position: absolute;
+    left: 20rpx;
+    right: 20rpx;
     bottom: 20rpx;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 60rpx;
-    background-color: green;
+    height: 70rpx;
     box-sizing: border-box;
-    border-radius: 60rpx;
+    border-radius: 50rpx;
+    font-size: 26rpx;
+    letter-spacing: 2rpx;
+    color: #fff;
+    background: #C6FFDD;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
