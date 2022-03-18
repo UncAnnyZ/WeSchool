@@ -1,10 +1,10 @@
 <wxs module="note_module" src="./note_modeule.wxs"></wxs>
-
-<view class="container">
+<view class="bisContainer">
+    <view class="container">
     <!-- 加载动效 -->
     <Loading wx:if="{{showLoading == 0}}" />
 
-    <scroll-view style="height: 100%;" bindscrolltoupper="onPullDownRefresh" upper-threshold="0" bindscrolltolower="onReachBottom" lower-threshold="200" scroll-y>
+    <scroll-view style="height: 100%;" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="50" scroll-y>
         <view class="inform">我们会保留一段属于你的回忆：可以是年少的欢喜、穿越时间的旅行，亦或不为人说的秘密....
             未来某天，也许有人会收到它，翻阅起这段回忆.</view>
         <view class="main_body">
@@ -42,4 +42,5 @@
         <view class="send_note" bindtap="send_note">我来留言</view>
     </view>
 
+</view>
 </view>

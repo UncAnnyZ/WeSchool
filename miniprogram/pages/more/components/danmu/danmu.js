@@ -6,7 +6,13 @@ Component({
             type:Array
         }
     },
+    lifetimes: {
+        ready() {
+            const dmList = this.data.dmList;
 
+            
+        },
+    },
     data: {
 
     },

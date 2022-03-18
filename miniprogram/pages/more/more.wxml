@@ -20,7 +20,7 @@
 <!-- 填充 -->
 <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
 
-<scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}"  bindscrolltoupper="onPullDownRefresh" upper-threshold="0">
+<scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" bounces="{{false}}" show-scrollbar="{{false}}"  bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" >
   <!-- 小纸条 - 弹幕 -->
   <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->
@@ -28,7 +28,7 @@
   <!-- 标签 -->
   <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
   <!-- 瀑布流 -->
-  <scroll-view bindscrolltoupper="onPullDownRefresh" upper-threshold="0" wx:if="{{campus_account!=true}}" class="page">
+  <scroll-view wx:if="{{campus_account!=true}}" class="page">
     <Loading wx:if="{{showLoading==0}}"></Loading>
     <!-- bindtransition="waterTransition" bindanimationfinish="waterAnimationFinish" -->
     <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{windowHeight - statusBarHeight - lineHeight - 28}}px;">

@@ -129,9 +129,16 @@ Page({
             title: '加载更多中',
             mask: true
         })
+        // 没有更多数据了
+        if(this.data.loadAll) {
+            wx.showToast({
+              title: '没有更多了~',
+              icon: 'none'
+            })
+            return;
+        }
         // 请求数据库
         this.getData();
-        wx.hideLoading();
     },
 
     /**

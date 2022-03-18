@@ -1,9 +1,15 @@
+.bisContainer {
+    width: 100%;
+    height: vh;
+}
+
 .container {
     position: relative;
     width: 100%;
     height: 100vh;
     padding: 20rpx;
     box-sizing: border-box;
+    /* margin: 20rpx; */
 }
 
 /* 公示栏 */
@@ -37,7 +43,7 @@
     margin: 15rpx 0;
     padding: 20rpx;
     box-sizing: border-box;
-    box-shadow: rgb(194, 194, 194) 0 0 5rpx;
+    box-shadow: rgb(228, 227, 227) 2rpx 2rpx 5rpx;
     /* background-image: linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%); */
 }
 
@@ -145,7 +151,8 @@
 .container .noteBox .second_line .userInfo .content::before {
     content: '';
     float: right;
-    height: calc(100% - 30rpx);
+    /* height: calc(100% - 30rpx); */
+    /* height: 30rpx; */
     transition: all 1s linear ;
 }
 .container .DataNull {
@@ -163,14 +170,14 @@
     bottom: 0;
     height: 220rpx;
     box-sizing: border-box;
-    background: linear-gradient(0deg, #fff, transparent);
+    background: linear-gradient(0deg, #fff, rgb(255,255,255,0));
 }
 
 .container .send_note {
     position: absolute;
     left: 20rpx;
     right: 20rpx;
-    bottom: 20rpx;
+    bottom: 30rpx;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -222,7 +222,7 @@ button::after {
 
 .dmItem {
     display: inline-flex;
-    margin-right: 60rpx;
+    margin-right: 160rpx;
     white-space: nowrap;
 }
 
@@ -268,7 +268,7 @@ button::after {
 
 .dmItem .dm .content {
     display: inline-block;
-    max-width: 440rpx;
+    max-width: 400rpx;
     height: 50rpx;
     line-height: 50rpx;
     margin-right: 10rpx;

@@ -21,12 +21,7 @@
     height: 200rpx;
     background-color: pink;
     border-radius: 15rpx;
-    background: #ee9ca7;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #ffdde1, #ee9ca7);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #ffdde1, #ee9ca7);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
 }
 
 .second {
@@ -50,31 +45,16 @@
 }
 
 .second .note {
-    background: #7F7FD5;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);
 
 }
 
 .second .game {
-    background: #4e54c8;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #8f94fb, #4e54c8);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient( 135deg, #F0FF00 10%, #58CFFB 100%);
 }
 
 .second .zanju {
-    background: #D3959B;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #BFE6BA, #D3959B);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #BFE6BA, #D3959B);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient( 135deg, #E8D07A 10%, #5312D6 100%);
 }
 
 .second .tucao {
