@@ -25,6 +25,8 @@
   <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
+  <!-- 填充 -->
+  <view style="height: 30rpx;"></view>
   <!-- 标签 -->
   <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
   <!-- 瀑布流 -->

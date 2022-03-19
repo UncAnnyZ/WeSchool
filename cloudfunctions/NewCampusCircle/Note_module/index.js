@@ -24,12 +24,13 @@ async function read(event) {
     if (!event.currentPage) {
         event["currentPage"] = 0;
     }
+    console.log(event);
     var skipPage = event.currentPage * 10;
     var obj = {
         School: event.School
     }
     try {
-        return await db.collection('Note_module').orderBy('_createTime', 'desc').where(obj).skip(skipPage).limit(30).field({
+        return await db.collection('Note_module').orderBy('Time', 'desc').where(obj).skip(skipPage).limit(30).field({
             'School': false,
             'signal': false,
             'username': false

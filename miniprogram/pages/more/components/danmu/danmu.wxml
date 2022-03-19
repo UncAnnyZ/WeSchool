@@ -9,7 +9,7 @@
                 <view class='avatarBox'>
                     <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
                 </view>
-                <text class='content'>{{ item.content }}</text>
+                <text class='content'>{{ item.content }}123</text>
             </view>
         </view>
     </view>

@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 1050rpx;
-    height: 220rpx;
+    width: 1282rpx;
+    height: 250rpx;
     background-color: #fff;
     padding: 0 30rpx;
     box-sizing: border-box;
@@ -17,8 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 160rpx;
-    height: 200rpx;
+    width: 220rpx;
+    height: 250rpx;
     background-color: pink;
     border-radius: 15rpx;
     background-image: linear-gradient( 135deg, #fa9e3c 10%, #FD6585 100%);
@@ -28,20 +28,20 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 20rpx;
-    width: 810rpx;
-    height: 200rpx;
+    margin-left: 15rpx;
+    width: 990rpx;
+    height: 250rpx;
 }
 
 .second .second_box {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250rpx;
-    height: 90rpx;
+    width: 300rpx;
+    height: 118rpx;
     background-color: green;
     border-radius: 15rpx;
-    margin: 0 20rpx 20rpx 0
+    margin: 0 15rpx 15rpx 0
 }
 
 .second .note {
@@ -64,5 +64,4 @@
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #93F9B9, #1D976C);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }

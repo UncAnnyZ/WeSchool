@@ -167,6 +167,12 @@
                     "pathName": "pages/more/pages/JuBao/JuBao",
                     "query": "_id=d4107ab16232e9a600333ec658813256",
                     "scene": null
+                },
+                {
+                    "name": "认领留言",
+                    "pathName": "pages/more/pages/note_module/renLingNote/renLingNote",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

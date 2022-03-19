@@ -22,6 +22,11 @@ Page({
         ]
     },
     TimeOut: 1,
+    naviToRenLing(){
+        wx.navigateTo({
+          url: `./renLingNote/renLingNote`,
+        })
+    },
     navitoJuBao(e) {
         console.log(e);
         let _id = e.currentTarget.dataset.id;

@@ -87,7 +87,8 @@
                 "UserCenter/index",
                 "note_module/note_module",
                 "note_module/sendNote/sendNote",
-                "JuBao/JuBao"
+                "JuBao/JuBao",
+                "note_module/renLingNote/renLingNote"
             ]
         },
         {

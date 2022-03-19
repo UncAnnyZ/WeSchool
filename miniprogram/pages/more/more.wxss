@@ -119,7 +119,7 @@
   height: auto !important;
 }
 .TabScroll {
-  margin: 30rpx 0 20rpx 0;
+  margin: 50rpx 0 20rpx 0;
 }
 /* 弹窗 */
 .popUps {

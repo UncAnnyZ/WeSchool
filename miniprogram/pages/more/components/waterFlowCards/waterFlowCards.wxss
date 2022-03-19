@@ -7,18 +7,18 @@
     /* align-items: center; */
     overflow: hidden;
     /* margin: 10rpx; */
-    margin: 30rpx;
+    margin: 30rpx 20rpx 20rpx 20rpx;
     box-sizing: border-box;
     transition: all 0.3s ease 0s;
   }
 
 .left{
-    width: 330rpx;
+    width: 343rpx;
 }
 
 .right{
-    width: 330rpx;
-    margin-left: 10rpx;
+    width: 343rpx;
+    /* margin-left: 10rpx; */
 }
 
 .DataNull{

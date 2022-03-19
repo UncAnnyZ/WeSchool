@@ -26,7 +26,18 @@
     margin-top: 20rpx;
     margin-bottom: 15rpx;
 }
-
+.container .inform .choose_anhao {
+    text-align: center;
+    width: 150rpx;
+    height: 40rpx;
+    margin-top: 15rpx;
+    text-decoration: underline;
+    color: #2c2c2cb4;
+}
+.container .inform .choose_anhao_active {
+    font-size: 23rpx;
+    color: #5f5e5eb4;
+}
 .container .main_body {
     display: flex;
     flex-direction: column;

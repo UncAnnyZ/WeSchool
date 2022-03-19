@@ -7,22 +7,22 @@
 }
  
 .left{
-  width: 330rpx;
+  width: 343rpx;
 }
  
 .right{
-  width: 330rpx;
+  width: 343rpx;
   margin-left: 10rpx;
 }
  .Show_Image{
-   width:330rpx;
+   width:343rpx;
    background-color: #ebebebd8;
  }
 .pic{
   border-radius: 10rpx;
-  width: 330rpx;
+  width: 343rpx;
   background-color: rgb(255, 255, 255);
-  margin-bottom: 15rpx;
+  margin-bottom: 20rpx;
   overflow: hidden;
 }
 .pic_Label{

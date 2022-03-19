@@ -186,6 +186,7 @@ Page({
   },
 
   onShow: function (options) {
+    console.log(util.getweekString(),"whichWeek");
     this.kb(util.getweekString());
     this.initWeek();
     this.initWlistPoint();
