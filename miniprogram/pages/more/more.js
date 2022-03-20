@@ -252,6 +252,7 @@ Page({
         School: args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName,
       },
       success(res) {
+        if(!res.result) return;
         let dmList = res.result.data;
         that.setData({
           dmList

@@ -68,7 +68,9 @@ Page({
                     let noteList = that.data.noteList;
                     // 处理时间
                     res.result.data.forEach(item => {
-                        item.Time = util.timeago(item.Time)
+                        console.log(item.Time);
+                        item.Time = util.timeago(item.Time);
+                        console.log( item.Time);
                     })
                     // 添加新数据到 noteList 里 
                     noteList = noteList.concat(res.result.data);

@@ -146,7 +146,7 @@
 }
 
 .container .noteBox .second_line .userInfo .content .zhankai {
-    float: right;
+    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,7 +157,7 @@
     font-size: 23rpx;
     letter-spacing: 3rpx;
     border-radius: 6rpx;
-    clear: both;
+    /* clear: both; */
 }
 .container .noteBox .second_line .userInfo .content::before {
     content: '';

@@ -110,11 +110,12 @@ function timeago(dateTimeStamp, format) {	//这里融合了上面的自定义时
   var monthC = diffValue / month;
   var result = '';
   
+  console.log(minC,hourC,dayC,weekC,monthC);
   if (monthC >= 1) {
     result = "" + parseInt(monthC) + "月前";
   } else if (weekC >= 1) {
     result = "" + parseInt(weekC) + "周前";
-  } else if (dayC >= 1 && dayC <= 3) {
+  } else if (dayC >= 1 && dayC < 7) {
     result = "" + parseInt(dayC) + "天前";
   } else if (hourC >= 1 && hourC <= 24) {
     result = "" + parseInt(hourC) + "小时前";
