@@ -7,7 +7,8 @@
         <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index < dmList.length/3 }}" wx:key="*this">
             <view class='dm'>
                 <view class='avatarBox'>
-                    <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+                    <image wx:if="{{item.niming}}" src='../../../login/image/logo.jpg' class='avatar' mode='aspectFit'></image>
+                    <image wx:else src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
                 </view>
                 <text class='content'>{{ item.content }}123</text>
             </view>

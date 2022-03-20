@@ -24,12 +24,13 @@
 
                         <view class="second_line">
                             <view class="userInfo_avatar">
-                                <image wx:if="{{item.niming}}"></image>
-                                <image wx:else="{{}}" src="{{item.iconUrl}}" />
+                                <image wx:if="{{item.niming}}" src="../../../login/image/logo.jpg"></image>
+                                <image wx:else src="{{item.iconUrl}}" />
                                 
                             </view>
                             <view class="userInfo">
-                                <view class="nickName">{{item.nickName}}</view>
+                                <view wx:if="{{item.niming}}" class="nickName">匿名用户</view>
+                                <view wx:else class="nickName">{{item.nickName}}</view>
                                 <view class="content content{{index}}">
                                     <view class="zhankai" wx:if="{{item.content.length > 35}}" id="{{index}}" catchtap="{{note_module.funcA}}">展开</view>
                                     {{item.content}}

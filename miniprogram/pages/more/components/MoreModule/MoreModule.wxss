@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     width: 1282rpx;
-    height: 250rpx;
+    height: 230rpx;
     background-color: #fff;
     padding: 0 30rpx;
     box-sizing: border-box;
@@ -17,11 +17,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 220rpx;
-    height: 250rpx;
+    width: 200rpx;
+    height: 230rpx;
     background-color: pink;
     border-radius: 15rpx;
-    background-image: linear-gradient( 135deg, #fa9e3c 10%, #FD6585 100%);
+    /* background-image: linear-gradient( 135deg, #fa9e3c 10%, #FD6585 100%); */
 }
 
 .second {
@@ -30,7 +30,7 @@
     flex-wrap: wrap;
     margin-left: 15rpx;
     width: 990rpx;
-    height: 250rpx;
+    height: 230rpx;
 }
 
 .second .second_box {
@@ -38,23 +38,23 @@
     justify-content: center;
     align-items: center;
     width: 300rpx;
-    height: 118rpx;
-    background-color: green;
+    height: 107rpx;
+    background-color: pink;
     border-radius: 15rpx;
     margin: 0 15rpx 15rpx 0
 }
 
 .second .note {
-    background-image: linear-gradient( 135deg, #3fe07a 10%, #465EFB 100%);
+    /* background-image: linear-gradient( 135deg, #3fe07a 10%, #465EFB 100%); */
 
 }
 
 .second .game {
-    background-image: linear-gradient( 135deg, #F0FF00 10%, #58CFFB 100%);
+    /* background-image: linear-gradient( 135deg, #F0FF00 10%, #58CFFB 100%); */
 }
 
 .second .zanju {
-    background-image: linear-gradient( 135deg, #E8D07A 10%, #5312D6 100%);
+    /* background-image: linear-gradient( 135deg, #E8D07A 10%, #5312D6 100%); */
 }
 
 .second .tucao {
