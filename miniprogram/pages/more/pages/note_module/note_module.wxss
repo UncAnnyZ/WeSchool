@@ -1,20 +1,21 @@
-.bisContainer {
-    width: 100%;
-    height: vh;
-}
 
 .container {
     position: relative;
     width: 100%;
     height: 100vh;
-    padding: 20rpx;
+    /* padding: 20rpx; */
     box-sizing: border-box;
     /* margin: 20rpx; */
 }
-
+.container .head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* 公示栏 */
 .container .inform {
-    width: 100%;
+    width: 93%;
     padding: 20rpx;
     font-size: 25rpx;
     background-color: rgb(240, 238, 238);
@@ -47,8 +48,8 @@
 
 /* 小纸条 */
 .container .noteBox {
-    width: 92vw;
-    min-height: 200rpx;
+    width: 93vw;
+    min-height: 150rpx;
     /* background-color: pink; */
     border-radius: 15rpx;
     margin: 15rpx 0;
@@ -90,10 +91,12 @@
 
 /* 第二列 */
 .container .noteBox .second_line {
+    position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-top: 10rpx;
-
 }
 
 /* 头像 */
@@ -116,8 +119,8 @@
     justify-content: space-between;
     margin-left: 20rpx;
     width: 80%;
+    height: calc(100% + 30rpx);
 }
-
 
 .container .noteBox .second_line .userInfo .nickName {
     font-size: 26rpx;
@@ -125,14 +128,15 @@
 }
 
 .container .noteBox .second_line .userInfo .content {
+    position: relative;
+    height: 70rpx;
     font-size: 26rpx;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     letter-spacing: 1rpx;
     transition: all 1s linear ;
+    margin-top: 10rpx;
 }
 
 .content_zhankai {
@@ -145,8 +149,10 @@
     transition: all 1s linear ;
 }
 
-.container .noteBox .second_line .userInfo .content .zhankai {
-    float: left;
+.container .noteBox .second_line .userInfo .zhankai {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,13 +165,7 @@
     border-radius: 6rpx;
     /* clear: both; */
 }
-.container .noteBox .second_line .userInfo .content::before {
-    content: '';
-    float: right;
-    /* height: calc(100% - 30rpx); */
-    /* height: 30rpx; */
-    transition: all 1s linear ;
-}
+
 .container .DataNull {
     font-size: 26rpx;
     color: #2c2c2cb4;

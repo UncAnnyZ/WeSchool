@@ -1,54 +1,56 @@
 <wxs module="note_module" src="./note_modeule.wxs"></wxs>
-<view class="bisContainer">
-    <view class="container">
-        <!-- 加载动效 -->
-        <Loading wx:if="{{showLoading == 0}}" />
 
-        <scroll-view style="height: 100%;" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="50" scroll-y>
+<view class="container">
+    <!-- 加载动效 -->
+    <Loading wx:if="{{showLoading == 0}}" />
+
+    <scroll-view style="height: 100%;" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="50" scroll-y>
+        <view class="head">
             <view class="inform">
-            我们会保留一段属于你的回忆：可以是年少的欢喜、穿越时间的旅行，亦或不为人说的秘密....
+                我们会保留一段属于你的回忆：可以是年少的欢喜、穿越时间的旅行，亦或不为人说的秘密....
                 未来某天，也许有人会收到它，翻阅起这段回忆.
                 <view class="choose_anhao" hover-class="choose_anhao_active" bindtap="naviToRenLing">
                     # 认领留言
                 </view>
             </view>
-            <view class="main_body">
-                <block wx:for="{{noteList}}" wx:key="*this">
-                    <view class="noteBox" id="noteBox{{index}}" style="background-color: {{colorArr[index%10]}};">
-                        <view class="first_line">
-                            <view class="time">{{item.Time}}</view>
-                            <view class="jubao" catchtap="navitoJuBao" data-id="{{item._id}}">举报</view>
-                        </view>
-
-                        <view class="Line"></view>
-
-                        <view class="second_line">
-                            <view class="userInfo_avatar">
-                                <image wx:if="{{item.niming}}" src="../../../login/image/logo.jpg"></image>
-                                <image wx:else src="{{item.iconUrl}}" />
-                                
-                            </view>
-                            <view class="userInfo">
-                                <view wx:if="{{item.niming}}" class="nickName">匿名用户</view>
-                                <view wx:else class="nickName">{{item.nickName}}</view>
-                                <view class="content content{{index}}">
-                                    <view class="zhankai" wx:if="{{item.content.length > 35}}" id="{{index}}" catchtap="{{note_module.funcA}}">展开</view>
-                                    {{item.content}}
-                                </view>
-                            </view>
-                        </view>
-
-                    </view>
-                </block>
-            </view>
-
-            <!-- 边界处理 -->
-            <view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
-        </scroll-view>
-
-        <view class="send_noteBox">
-            <view class="send_note" bindtap="send_note">我来留言</view>
         </view>
 
+        <view class="main_body">
+            <block wx:for="{{noteList}}" wx:key="*this">
+                <view class="noteBox" id="noteBox{{index}}" style="background-color: {{colorArr[index%10]}};">
+                    <view class="first_line">
+                        <view class="time">{{item.Time}}</view>
+                        <view class="jubao" catchtap="navitoJuBao" data-id="{{item._id}}">举报</view>
+                    </view>
+
+                    <view class="Line"></view>
+
+                    <view class="second_line">
+                        <view class="userInfo_avatar">
+                            <image wx:if="{{item.niming}}" src="../../../login/image/logo.jpg"></image>
+                            <image wx:else src="{{item.iconUrl}}" />
+
+                        </view>
+                        <view class="userInfo">
+                            <view wx:if="{{item.niming}}" class="nickName">匿名用户</view>
+                            <view wx:else class="nickName">{{item.nickName}}</view>
+                            <view class="content content{{index}}">
+                                {{item.content}}
+                            </view>
+                            <view class="zhankai" wx:if="{{item.content.length > 35}}" id="{{index}}" catchtap="{{note_module.funcA}}">展开</view>
+                        </view>
+                    </view>
+
+                </view>
+            </block>
+        </view>
+
+        <!-- 边界处理 -->
+        <view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
+    </scroll-view>
+
+    <view class="send_noteBox">
+        <view class="send_note" bindtap="send_note">我来留言</view>
     </view>
+
 </view>

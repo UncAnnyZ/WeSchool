@@ -132,10 +132,6 @@ Page({
     },
     // 上拉触底函数
     onReachBottom: function () {
-        wx.showLoading({
-            title: '加载更多中',
-            mask: true
-        })
         // 没有更多数据了
         if(this.data.loadAll) {
             wx.showToast({
@@ -144,6 +140,10 @@ Page({
             })
             return;
         }
+        wx.showLoading({
+            title: '加载更多中',
+            mask: true
+        })
         // 请求数据库
         this.getData();
     },
