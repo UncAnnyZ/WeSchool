@@ -129,30 +129,21 @@
 
 .container .noteBox .second_line .userInfo .content {
     position: relative;
-    height: 70rpx;
+    max-height: 70rpx;
     font-size: 26rpx;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     letter-spacing: 1rpx;
-    transition: all 1s linear ;
+    /* transition: height 1s linear; */
     margin-top: 10rpx;
 }
 
 .content_zhankai {
-    font-size: 27rpx;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 9999 !important;
-    -webkit-box-orient: vertical;
-    transition: all 1s linear ;
+    max-height: 100vh !important;
 }
 
 .container .noteBox .second_line .userInfo .zhankai {
-    position: absolute;
-    right: 0;
-    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
