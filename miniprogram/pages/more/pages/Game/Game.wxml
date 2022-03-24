@@ -3,7 +3,7 @@
 <scroll-view scroll-y style="height: 100vh;">
     <!-- 顶部banner -->
     <swiper class="banner">
-        <block wx:for="{{imageList}}">
+        <block wx:for="{{imageList}}" wx:key="index">
             <swiper-item>
                 <image src="{{item}}" mode="widthFix"></image>
             </swiper-item>

@@ -1,0 +1,7 @@
+<view class="content">
+  <view class="contentInner showArea {{!onFold ? 'text-clamp' + maxline : ''}}" bindtap="{{foldable ? 'handleFold' : ''}}">{{content || "示例文本"}}</view>
+  <view class="contentInner hideArea">{{content || "示例文本"}}</view>
+  <view class="foldInner {{position === 'right' ? 'flex-end' : 'flex'}}" wx:if="{{showFold}}">
+    <text class="fold" catchtap="handleFold">{{onFold ? "收起" : "全文"}}</text>
+  </view>
+</view>

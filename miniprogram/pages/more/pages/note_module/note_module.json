@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "Loading": "../../components/Loading/Loading"
+    "Loading": "../../components/Loading/Loading",
+    "custom-content": "./components/content"
   },
   "navigationBarTitleText": "小纸条·留言墙"
 }

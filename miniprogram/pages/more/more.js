@@ -60,6 +60,7 @@ Page({
     showModel: false,  // 快速发布显隐
   },
   TimeOut: 1,
+  
   canWaterScroll() {
     console.log(123);
     let allList = this.data.allList;
@@ -132,6 +133,7 @@ Page({
     }else {
       url = e.currentTarget.id
     }
+    
     switch (url) {
       case 'myself':
         wx.switchTab({

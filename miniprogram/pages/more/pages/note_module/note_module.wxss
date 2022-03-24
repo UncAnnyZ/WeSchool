@@ -21,7 +21,18 @@
     margin-top: 20rpx;
     margin-bottom: 15rpx;
 }
-
+.container .inform .choose_anhao {
+    text-align: center;
+    width: 150rpx;
+    height: 40rpx;
+    margin-top: 15rpx;
+    text-decoration: underline;
+    color: #2c2c2cb4;
+}
+.container .inform .choose_anhao_active {
+    font-size: 23rpx;
+    color: #5f5e5eb4;
+}
 .container .main_body {
     display: flex;
     flex-direction: column;
@@ -63,6 +74,7 @@
     font-size: 25rpx;
     letter-spacing: 1rpx;
     border: 1rpx solid #9b9b9b48;
+    color: rgb(82, 81, 81);
     border-radius: 20rpx;
 }
 
@@ -108,50 +120,6 @@
     color: rgb(133, 131, 131);
 }
 
-.container .noteBox .second_line .userInfo .content {
-    font-size: 26rpx;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    letter-spacing: 1rpx;
-    transition: all 1s linear ;
-}
-
-.content_zhankai {
-    font-size: 27rpx;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 9999 !important;
-    -webkit-box-orient: vertical;
-    transition: all 1s linear ;
-}
-
-.container .noteBox .second_line .userInfo .content .zhankai {
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60rpx;
-    height: 30rpx;
-    background-color: rgb(71, 81, 171);
-    color: #fff;
-    font-size: 23rpx;
-    letter-spacing: 3rpx;
-    border-radius: 6rpx;
-    clear: both;
-}
-.container .noteBox .second_line .userInfo .content::before {
-    content: '';
-    float: right;
-    /* height: calc(100% - 30rpx); */
-    height: 38rpx;
-    width: 10rpx;
-    background-color: red;
-    /* clear: both; */
-}
 .container .DataNull {
     font-size: 26rpx;
     color: #2c2c2cb4;

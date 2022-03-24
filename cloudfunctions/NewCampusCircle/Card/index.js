@@ -31,10 +31,6 @@ async function read(event) {
   event.ShowId != "全部" ? obj["Label"] = event.ShowId : '';
   console.log(event);
   try {
-
-    // if(event.School === '茂名职业技术学院'){
-    //   return await db.collection('Campus-Circle').orderBy('indexFront', 'desc').orderBy('Star', 'desc').where(obj).skip(skipPage).limit(10).get();
-    // }
     return await db.collection('Campus-Circle').field({
       'CommentList.InputComment': false,
       'CommentList.CommentTime': false,
@@ -82,11 +78,7 @@ async function read_Game(event) {
   event.ShowId != "全部" ? obj["Label"] = event.ShowId : '';
   console.log(event);
   try {
-
-    // if(event.School === '茂名职业技术学院'){
-    //   return await db.collection('Campus-Circle').orderBy('indexFront', 'desc').orderBy('Star', 'desc').where(obj).skip(skipPage).limit(10).get();
-    // }
-    return await db.collection('Campus-Circle').field({
+    return await db.collection('Campus-Circle-GameModule').field({
       'CommentList.InputComment': false,
       'CommentList.CommentTime': false,
       'CommentList.iconUser': false,

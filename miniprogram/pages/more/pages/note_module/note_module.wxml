@@ -35,13 +35,8 @@
                             <view wx:if="{{item.niming}}" class="nickName">匿名用户</view>
                             <view wx:else class="nickName">{{item.nickName}}</view>
 
-                            <view class="content content{{index}}">
-                                <view style="display: inline;">
-                                    <view class="zhankai" wx:if="{{item.content.length > 35}}" id="{{index}}" catchtap="{{note_module.funcA}}">展开</view>
-                                </view>
-                                {{item.content}}
-                            </view>
-
+                            <custom-content content="{{item.content}}" maxline="2" position="left" foldable="true"></custom-content>
+                            
                         </view>
                     </view>
 

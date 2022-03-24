@@ -7,7 +7,7 @@
         </view>
         <view class="second">
             <view class="second_box note" id="note_module" bindtap="naviToPage">小纸条</view>
-            <view class="second_box game" id="game">电子游戏</view>
+            <view class="second_box game" id="Game" bindtap="naviToPage">电子游戏</view>
             <view class="second_box zanju" id="zanju">攒局</view>
             <view class="second_box tucao" id="tucao">电子游戏</view>
         </view>

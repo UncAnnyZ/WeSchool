@@ -24,7 +24,7 @@ Page({
     TimeOut: 1,
     naviToRenLing(){
         wx.navigateTo({
-          url: `./renLingNote/renLingNote`,
+          url: `./pages/renLingNote/renLingNote`,
         })
     },
     navitoJuBao(e) {
@@ -94,7 +94,7 @@ Page({
     // 发送留言
     send_note() {
         wx.navigateTo({
-          url: './sendNote/sendNote',
+          url: './pages/sendNote/sendNote',
         })
     },
     onLoad: function (options) {
