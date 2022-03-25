@@ -24,7 +24,30 @@
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
   <!-- 填充 -->
-  <image style="width: 100%; height: 280rpx;" src="./images/p2.png"></image>
+  <view style="height: 270rpx;">
+    <view style="overflow: auto; border-radius: 28rpx; background-image: linear-gradient(to right, rgba(212,240,255, 0.4) 25% , rgba(255,198,227, 0.3)); height: 260rpx; margin: 20rpx;  display: flex; ">
+      <view style="position: absolute; flex-direction: row; width: 100%;">
+        <view style="position: absolute; margin-left: 30rpx; margin-top: 20rpx; font-size: 30rpx;">3.4 | </view>
+        <view style="position: absolute; color: #da4776; margin-left: 98rpx; margin-top: 17rpx; font-size: 30rpx;">周五</view>
+        <view style="position: absolute; margin-left: 600rpx; margin-top: 17rpx; font-size: 30rpx;">第5周</view>
+      </view>
+      <view style="color: black; position: absolute; margin-left: 30rpx; margin-top: 70rpx;"> 当前</view>
+      <scroll-view   scroll-x="true" style=" white-space: nowrap; display: flex; height: 120rpx;  margin-left: 30rpx; margin-top: 120rpx;">
+        <view style=" width: 400rpx;display: inline-block; ">
+          <view style="position: absolute; background-color: #986bfd; width: 10rpx; height: 120rpx; border-radius: 40rpx;"></view>
+          <viwe style="color: rgb(66, 66, 66); margin-left: 30rpx;font-weight: bold; font-size: 33rpx;">javaWeb 应用编程</viwe>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx; margin-top: 6rpx; font-size: 26rpx;">二教B-304 李佳澜</view>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx; margin-top: 8rpx;font-size: 26rpx;">15:40-17:40</view>
+        </view>
+        <view style=" width: 400rpx; display: inline-block;">
+          <view style="position: absolute; background-color: #a5c9fa; width: 10rpx; height: 120rpx; border-radius: 40rpx;"></view>
+          <viwe style="color: rgb(66, 66, 66); margin-left: 30rpx;font-weight: bold; font-size: 33rpx;">javaWeb 应用编程</viwe>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx; margin-top: 6rpx; font-size: 26rpx;">二教B-304 李佳澜</view>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx; margin-top: 8rpx;font-size: 26rpx;">15:40-17:40</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
   <!-- <view style="height: 30rpx;"></view> -->
   <!-- 标签 -->
   <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />

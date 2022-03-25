@@ -13,11 +13,11 @@
   }
 
 .left{
-    width: 343rpx;
+    width: 346rpx;
 }
 
 .right{
-    width: 343rpx;
+    width: 346rpx;
     /* margin-left: 10rpx; */
 }
 

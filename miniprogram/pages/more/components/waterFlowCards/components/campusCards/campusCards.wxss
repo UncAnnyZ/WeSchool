@@ -7,20 +7,21 @@
 }
  
 .left{
-  width: 343rpx;
+  width: 346rpx;
 }
  
 .right{
-  width: 343rpx;
+  width: 346rpx;
   margin-left: 10rpx;
 }
  .Show_Image{
-   width:343rpx;
+   border-radius: 15rpx;
+   width:346rpx;
    background-color: #ebebebd8;
  }
 .pic{
-  border-radius: 10rpx;
-  width: 343rpx;
+  border-radius: 15rpx;
+  width: 346rpx;
   background-color: rgb(255, 255, 255);
   margin-bottom: 20rpx;
   overflow: hidden;
@@ -40,17 +41,17 @@
 }
 .pic_Title{
   color:rgb(0, 0, 0);
-
   font-size: 28rpx;
   font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-  line-height: 46rpx;
-  padding:8rpx 21rpx 0rpx 21rpx;
+  line-height: 35rpx;
+  padding: 10rpx 21rpx 0rpx 21rpx;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  letter-spacing: 1rpx;
 }
 .text_user{
   width:35rpx;
