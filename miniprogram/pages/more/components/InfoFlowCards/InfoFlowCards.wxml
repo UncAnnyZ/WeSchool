@@ -5,19 +5,20 @@
             <!-- 头部 -->
             <view class="InfoCard_head">
                 <view class="avatar">
-                    <image src="{{item.iconUrl}}"></image>
+                    <image  src="{{item.iconUrl}}"></image>
                 </view>
                 <view class="head_text">
                     <view class="head_text_title">{{item.nickName}}</view>
-                    <view class="head_text_time">49分钟前</view>
+                    <view class="head_text_time">·49分钟前</view>
                 </view>
+                <view style="color: #78787a; margin-left: -500rpx; margin-top: 40rpx; font-size: 20rpx;">广东石油化工学院</view>
                 <image src="../../../../images/more.png" class="more"></image>
             </view>
             <!-- 内容主体 -->
             <view class="InfoCard_body">
                 <view class="textBody">
                     <text>{{item.Text}}</text>
-                    <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
+                    <!-- <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe> -->
                 </view>
             </view>
             <!-- 底部 -->

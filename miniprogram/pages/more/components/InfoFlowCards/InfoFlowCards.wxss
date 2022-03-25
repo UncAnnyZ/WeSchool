@@ -1,10 +1,10 @@
 
 .InfoCard {
-    width: 100%;
     background-color: #fff;
-    padding: 20rpx;
+    margin: 20rpx;
     box-sizing: border-box;
     margin-bottom: 20rpx;
+    border-radius: 20rpx;
 }
 .InfoCard .InfoCard_head {
     display: flex;
@@ -12,27 +12,29 @@
     align-items: center;
     width: 100%;
     height: 100rpx;
+    margin-left: 20rpx;
     /* background-color: green; */
 }
 /* 头像 */
 .InfoCard .InfoCard_head .avatar {
-    width: 80rpx;
-    height: 80rpx;
+    width: 50rpx;
+    height: 50rpx;
     /* background-color: #fff; */
-    margin-right: 20rpx;
+    /* margin-right: 20rpx; */
 }
 .InfoCard .InfoCard_head .avatar image {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 100rpx;
     /* background-color: pink; */
 }
 /* 头部文本 */
 .InfoCard .InfoCard_head .head_text {
+    margin-left: 10rpx;
     width: 70%;
     height: 80rpx;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 10rpx 0;
     box-sizing: border-box;
 }
@@ -48,25 +50,29 @@
     font-size: 27rpx;
 }
 .head_text .head_text_time {
+    margin-left: -240rpx;
     width: 100%;
     height: 30rpx;
-    font-size: 25rpx;
+    font-size: 23rpx;
     color: #ccc;
 }
 /* 设置icon */
 .InfoCard_head .more {
     position: absolute;
-    top: 10rpx;
+    top: 50rpx;
+    transform: rotate(90deg);
     right: 30rpx;
-    width: 65rpx;
-    height: 65rpx;
+    width: 45rpx;
+    height: 45rpx;
+    filter:brightness(200%);
 }
 /* 主体内容 */
 .InfoCard_body .textBody {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: 30rpx;
+    margin-left: 20rpx;
+    /* margin-top: 30rpx; */
 }
 .InfoCard_body .textBody text{
     min-width: 50%;
