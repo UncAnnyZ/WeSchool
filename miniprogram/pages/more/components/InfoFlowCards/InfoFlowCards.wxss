@@ -1,10 +1,10 @@
 
 .InfoCard {
     width: 100%;
-    height: 400rpx;
     background-color: #fff;
     padding: 20rpx;
     box-sizing: border-box;
+    margin-bottom: 20rpx;
 }
 .InfoCard .InfoCard_head {
     display: flex;
@@ -13,7 +13,6 @@
     width: 100%;
     height: 100rpx;
     /* background-color: green; */
-
 }
 /* 头像 */
 .InfoCard .InfoCard_head .avatar {
@@ -34,23 +33,23 @@
     height: 80rpx;
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    padding: 10rpx 0;
+    box-sizing: border-box;
 }
 .head_text .head_text_title {
     width: 100%;
-    height: 40rpx;
-    margin-bottom: 10rpx;
-    background-color: pink;
+    line-height: 40rpx;
+    /* margin-bottom: 10rpx; */
     font-weight: 550;
     letter-spacing: 2rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 27rpx;
 }
 .head_text .head_text_time {
     width: 100%;
     height: 30rpx;
-    background-color: pink;
     font-size: 25rpx;
     color: #ccc;
 }
@@ -80,7 +79,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: 26rpx;
-    color: #ccc;
+    /* color: #ccc; */
 }
 .InfoCard_body .textBody .imageBox {
     width: 40%;

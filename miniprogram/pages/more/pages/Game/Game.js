@@ -25,7 +25,7 @@ Page({
 
     allList_Game: [
       [{
-      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1…07814679/CampusCircle_images/1648080142699104.png"],
+      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png"],
       Cover: "cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png",
       Label: "日常",
       Other: "",
@@ -42,7 +42,7 @@ Page({
       username: "20034530122",
       _id: "d2fe6f20623bb51001bd55f7209260bd"
     },{
-      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1…07814679/CampusCircle_images/1648080142699104.png"],
+      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png"],
       Cover: "cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png",
       Label: "日常",
       Other: "",
@@ -60,7 +60,7 @@ Page({
       _id: "d2fe6f20623bb51001bd55f7209260bd"
     }],
     [{
-      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1…07814679/CampusCircle_images/1648080142699104.png"],
+      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png"],
       Cover: "cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png",
       Label: "日常",
       Other: "",

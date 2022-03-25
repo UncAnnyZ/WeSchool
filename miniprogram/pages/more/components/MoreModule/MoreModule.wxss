@@ -47,7 +47,6 @@
 
 .second .note {
     background-image: linear-gradient( #f9bdea, #fcd5de);
-
 }
 
 .second .game {

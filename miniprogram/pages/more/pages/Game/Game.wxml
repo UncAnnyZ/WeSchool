@@ -24,10 +24,10 @@
     <!-- 标签 -->
     <TabScroll type="校友圈标签" tabItem="{{tabItem}}" showTab="true" />
     <!-- 信息流 -->
-    <swiper current="{{currentTab}}" bindchange="waterChange">
+    <swiper current="{{currentTab}}" bindchange="waterChange" style="height: {{windowHeight}}px;">
         <block wx:for="{{allList_Game}}" wx:key="*this">
             <swiper-item>
-                <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" height="{{windowHeight}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
+                <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
             </swiper-item>
         </block>
     </swiper>

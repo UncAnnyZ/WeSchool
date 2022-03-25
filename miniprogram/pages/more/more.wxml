@@ -1,14 +1,14 @@
 <wxs module="more" src="./more.wxs"></wxs>
 
 
-<view style="transform:translate(0,-60rpx) ; width: 100%;  position: absolute; height: 300rpx; box-shadow: inset 0rpx 0rpx 80rpx 60rpx rgba(255, 255,255);  background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) );"></view>
-<view class="head" >
+<view style="transform:translate(0,-60rpx) ; width: 100%;  position: absolute; height: 300rpx; box-shadow: inset 0rpx 0rpx 80rpx 60rpx rgba(255, 255,255);  background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) );" />
+<view class="head">
   <!-- 状态栏 -->
   <view style="width: 100%; height: 200rpx; position: absolute;"> </view>
   <view style="height: {{statusBarHeight}}px;" />
   <!-- 导航栏 -->
   <view class="head_second" style="height: {{lineHeight}}px;">
-  <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; "> </input>
+    <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; " />
     <image style="width: 35rpx; height: 35rpx; margin-left:40rpx;" src="./images/search.png"></image>
 
     <!-- 消息列表 -->
@@ -18,7 +18,7 @@
 <!-- 填充 -->
 <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
 <view style=" width: 100%;  position: absolute; height: 400rpx;"></view>
-<scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" bounces="{{false}}" show-scrollbar="{{false}}"  bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" >
+<scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" bounces="{{false}}" show-scrollbar="{{false}}" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50">
   <!-- 小纸条 - 弹幕 -->
   <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->

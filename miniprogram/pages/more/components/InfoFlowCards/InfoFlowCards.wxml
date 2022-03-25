@@ -1,4 +1,4 @@
-<scroll-view scroll-y style="height: {{height}}px;" >
+<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: rgba(230,230,230,0.5);">
 
     <block wx:for="{{list}}" wx:key="*this">
         <view class="InfoCard">
@@ -17,8 +17,7 @@
             <view class="InfoCard_body">
                 <view class="textBody">
                     <text>{{item.Text}}</text>
-                    <jiuGongGe AllPhotot="{{item.AllPhote}}"></jiuGongGe>
-                    <view class="bodyTab"></view>
+                    <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
                 </view>
             </view>
             <!-- 底部 -->
