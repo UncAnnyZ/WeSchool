@@ -219,7 +219,7 @@ Page({
                 title: '加载中',
                 mask: true
               })
-              let AllPhoto = app.globalData.allList[0][NewData].AllPhoto;//用户选的图片    
+              let AllPhoto = app.globalData.allList[0][NewData].AllPhoto || [];//用户选的图片    
               let fileIDs = [];
 
               for (var i = 0; i < AllPhoto.length; i++) {

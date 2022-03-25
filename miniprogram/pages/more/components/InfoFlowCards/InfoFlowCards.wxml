@@ -17,9 +17,7 @@
             <view class="InfoCard_body">
                 <view class="textBody">
                     <text>{{item.Text}}</text>
-                    <view class="imageBox">
-                        <image src="{{item.Cover}}" mode="aspectFill"></image>
-                    </view>
+                    <jiuGongGe AllPhotot="{{item.AllPhote}}"></jiuGongGe>
                     <view class="bodyTab"></view>
                 </view>
             </view>

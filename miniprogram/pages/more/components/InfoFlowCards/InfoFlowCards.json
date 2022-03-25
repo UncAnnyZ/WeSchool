@@ -1,4 +1,6 @@
 {
     "component": true,
-    "usingComponents": {}
+    "usingComponents": {
+        "jiuGongGe": "./components/jiuGongGe/jiuGongGe"
+    }
 }

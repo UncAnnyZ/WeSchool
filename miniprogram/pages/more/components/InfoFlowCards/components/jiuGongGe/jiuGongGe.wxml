@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="imageBox" style="height: {{height}}rpx; width: {{width}}rpx;" wx:for="{{AllPhoto}}">
+        <image wx:if="{{AllPhoto.length == 1}}" src="{{item}}"></image>
+        <image wx:elif="{{AllPhoto.length == 4}}" src="{{item}}"></image>
+        <image wx:else src="{{item}}"></image>
+    </view>
+</view>
