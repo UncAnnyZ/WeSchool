@@ -27,7 +27,7 @@
     <swiper current="{{currentTab}}" bindchange="waterChange">
         <block wx:for="{{allList_Game}}" wx:key="*this">
             <swiper-item>
-                <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
+                <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" height="{{windowHeight}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
             </swiper-item>
         </block>
     </swiper>

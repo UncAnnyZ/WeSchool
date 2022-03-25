@@ -1,7 +1,9 @@
 // pages/more/components/InfoFlowCards/InfoFlowCards.js
 Component({
     properties: {
-
+        list:{
+            type: Array
+        }
     },
 
     data: {
@@ -13,14 +15,14 @@ Component({
     lifetimes: {
         ready(){
             const args = wx.getStorageSync('args');
-            
+            console.log(this.data.list);
             this.setData({
                 iconUrl: args.iconUrl,
-
             })
         }
     },
     methods: {
+        
         init() {
             this.setData({
                 currentPage: 0,

@@ -22,6 +22,62 @@ Page({
     allList_Game: [],
     // 当前选中标签
     currentTab: 0,
+
+    allList_Game: [
+      [{
+      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1…07814679/CampusCircle_images/1648080142699104.png"],
+      Cover: "cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png",
+      Label: "日常",
+      Other: "",
+      School: "广东石油化工学院",
+      ShowHeight: 180,
+      SortTime: 1648088729000,
+      Star_User: [],
+      Text: "六区可以往校外跑，赢麻了，跟女朋友出去逛街",
+      Time: 1648080142506,
+      Title: "",
+      campus: "",
+      iconUrl: "/pages/myself/images/logo.jpg",
+      nickName: "匿名账号",
+      username: "20034530122",
+      _id: "d2fe6f20623bb51001bd55f7209260bd"
+    },{
+      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1…07814679/CampusCircle_images/1648080142699104.png"],
+      Cover: "cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png",
+      Label: "日常",
+      Other: "",
+      School: "广东石油化工学院",
+      ShowHeight: 180,
+      SortTime: 1648088729000,
+      Star_User: [],
+      Text: "六区可以往校外跑，赢麻了，跟女朋友出去逛街",
+      Time: 1648080142506,
+      Title: "",
+      campus: "",
+      iconUrl: "/pages/myself/images/logo.jpg",
+      nickName: "匿名账号",
+      username: "20034530122",
+      _id: "d2fe6f20623bb51001bd55f7209260bd"
+    }],
+    [{
+      AllPhoto: ["cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1…07814679/CampusCircle_images/1648080142699104.png"],
+      Cover: "cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/CampusCircle_images/1648080142699104.png",
+      Label: "日常",
+      Other: "",
+      School: "广东石油化工学院",
+      ShowHeight: 180,
+      SortTime: 1648088729000,
+      Star_User: [],
+      Text: "六区可以往校外跑，赢麻了，跟女朋友出去逛街",
+      Time: 1648080142506,
+      Title: "",
+      campus: "",
+      iconUrl: "/pages/myself/images/logo.jpg",
+      nickName: "匿名账号",
+      username: "20034530122",
+      _id: "d2fe6f20623bb51001bd55f7209260bd"
+    }]
+  ]
   },
   getData(e) { //分页加载数据
     let args = wx.getStorageSync('args');
@@ -100,13 +156,13 @@ Page({
     }) : this.data.tabItem;
 
     // 初始化 allList
-    let allList_Game = tabItem.map((item, index) => {
-      let allList_Game = [];
-      return allList_Game[index] = []
-    });
+    // let allList_Game = tabItem.map((item, index) => {
+    //   let allList_Game = [];
+    //   return allList_Game[index] = []
+    // });
     this.setData({
       tabItem,
-      allList_Game,
+      // allList_Game,
       currentTab: 0,  // 初始化选中第一个标签
     })
   },

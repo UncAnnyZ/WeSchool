@@ -1,14 +1,14 @@
-<scroll-view scroll-y style="height: {{height}}px;">
+<scroll-view scroll-y style="height: {{height}}px;" >
 
     <block wx:for="{{list}}" wx:key="*this">
         <view class="InfoCard">
             <!-- 头部 -->
             <view class="InfoCard_head">
                 <view class="avatar">
-                    <image src="{{iconUrl}}"></image>
+                    <image src="{{item.iconUrl}}"></image>
                 </view>
                 <view class="head_text">
-                    <view class="head_text_title">标题标题标题标题标题标题标题标题标题标题标题标题</view>
+                    <view class="head_text_title">{{item.nickName}}</view>
                     <view class="head_text_time">49分钟前</view>
                 </view>
                 <image src="../../../../images/more.png" class="more"></image>
@@ -16,9 +16,9 @@
             <!-- 内容主体 -->
             <view class="InfoCard_body">
                 <view class="textBody">
-                    <text>哈哈哈哈哈哈哈哈哈哈哈哈哈</text>
+                    <text>{{item.Text}}</text>
                     <view class="imageBox">
-                        <image src=""></image>
+                        <image src="{{item.Cover}}" mode="aspectFill"></image>
                     </view>
                     <view class="bodyTab"></view>
                 </view>

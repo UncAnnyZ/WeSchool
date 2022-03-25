@@ -2,7 +2,7 @@
 .InfoCard {
     width: 100%;
     height: 400rpx;
-    background-color: pink;
+    background-color: #fff;
     padding: 20rpx;
     box-sizing: border-box;
 }
@@ -12,7 +12,7 @@
     align-items: center;
     width: 100%;
     height: 100rpx;
-    background-color: green;
+    /* background-color: green; */
 
 }
 /* 头像 */
@@ -66,7 +66,7 @@
 .InfoCard_body .textBody {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 30rpx;
 }
 .InfoCard_body .textBody text{
@@ -77,7 +77,7 @@
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: 26rpx;
     color: #ccc;
@@ -91,6 +91,7 @@
 .InfoCard_body .textBody .imageBox image{
     width: 100%;
     height: 150rpx;
+    border-radius: 15rpx;
 }
 .InfoCard_body .textBody .bodyTab {
     position: absolute;

@@ -60,7 +60,7 @@ Page({
     showModel: false,  // 快速发布显隐
   },
   TimeOut: 1,
-  
+  timeId: 0,
   canWaterScroll() {
     console.log(123);
     let allList = this.data.allList;
@@ -69,7 +69,7 @@ Page({
     }
   },
   cannotWaterScroll() {
-    console.log(123);
+    console.log(321);
     let allList = this.data.allList;
     for (let i in allList) {
       this.selectComponent(`#waterFlowCards${i}`).setData({ ifScroll: false })
@@ -92,9 +92,8 @@ Page({
         this.selectComponent(`#waterFlowCards${i}`).RightLeftSolution();
       }
     }
-
   },
-  timeId: 0,
+  
   showPopUps() {
     let showPopUps = !this.data.showPopUps;
     this.setData({ showPopUps });

@@ -76,7 +76,6 @@
             "root": "pages/more/pages",
             "pages": [
                 "DetailContent/DetailContent",
-                "2-DetailContent/2-DetailContent",
                 "UserContent/UserContent",
                 "NewInfo/NewInfo",
                 "PublishContent/PublishContent",
