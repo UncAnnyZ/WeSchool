@@ -47,7 +47,7 @@
       </scroll-view>
     </view>
   </view>
-  <view style="height: 15rpx;"></view>
+
   <!-- 标签 -->
   <TabScroll  style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
   <!-- 瀑布流 -->
