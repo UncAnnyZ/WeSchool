@@ -12,7 +12,8 @@
         "pages/curriculum/curriculum",
         "pages/more/more",
         "pages/myself/myself",
-        "pages/test/test"
+        "pages/test/test",
+        "pages/index/guidance/guidance"
     ],
     "subPackages": [
         {

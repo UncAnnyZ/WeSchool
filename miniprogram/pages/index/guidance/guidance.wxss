@@ -1,0 +1,212 @@
+/* pages/index/guidance/guidance.wxss */
+page{
+    background-color:  #f7e0d8;
+}
+.btn{
+    z-index: 999;
+    width: 600rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90rpx;
+    /* background: #2c69a2; */
+    position: fixed;
+    bottom: 30rpx;
+    border-radius: 50rpx;
+    border: 1rpx solid #b8cbd1;
+
+}
+.btn_btn{
+    width: 580rpx;
+    height: 70rpx;
+    background: #2c69a2;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: row;
+}
+.btn_btn >image{
+    margin:10rpx 0 10rpx 260rpx ;
+    width: 50rpx;
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn_btn_text{
+    height: 100%;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    color: #fff;
+    font-size: 26rpx;
+    text-align: center;
+}
+.bg{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.tittlebox{
+    background: #fff;
+    width: 500rpx;
+    height: 150rpx;
+}
+.topbox{
+    margin-top: 20rpx;
+    width: 680rpx;
+    height: 480rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    box-shadow: 0 0 3rpx 0rpx gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.topbox_tittle{
+    width: 433rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    background: #e87a57;
+    font-size: 25rpx;
+    color: #fff;
+    margin-top: 60rpx;
+}
+.topbox_text{
+    line-height: 39rpx;
+    font-size: 20rpx;
+    font-weight: 550;
+    margin-top: 35rpx;
+    width: 600rpx;
+    height: auto;
+    text-align: left;
+}
+.topbox_right_ring{
+    position: absolute;
+    top: 20rpx;
+    right:25rpx;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background: #dddddd;
+    border: 1rpx solid #bdbdbd;
+    z-index: 99;
+}
+.topbox_left_ring{
+    position: absolute;
+    top: 20rpx;
+    left: 25rpx;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background: #dddddd;
+    border: 1rpx solid #bdbdbd;
+    z-index: 99;
+}
+.bottombox{
+    margin-top: 40rpx;
+    width: 680rpx;
+    height: 900rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    box-shadow: 0 0 3rpx 0rpx gray;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bottombox_title{
+    width: 350rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    background: #e87a57;
+    font-size: 25rpx;
+    color: #fff;
+    margin-top: 60rpx;
+}
+.bottombox_string{
+    /* padding-top: 30rpx; */
+    margin-top: 30rpx;
+    width: 600rpx;
+    height: auto;
+    border: 1rpx solid #f1f1f1;
+}
+.bottomboxpost{
+    width: 600rpx;
+    height: auto;
+}
+.bottombox_post{
+    margin-top: 30rpx;
+    position: relative;
+    width: 600rpx;
+    height: 200rpx;
+    /* background: gray; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+.bottombox_post_topbox{
+    /* background: gray; */
+    width: 100%;
+    height: 198rpx;
+    display: flex;
+    flex-direction: row;
+}
+.bottombox_post_left{
+    width: 20%;
+    height: 100%;
+    /* background: gray; */
+}
+.bottombox_post_left_top{
+    background: #ee8484;
+    width: 80rpx;
+    height: 36rpx;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+}
+.bottombox_post_center{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* background: yellow; */
+}
+.bottombox_post_center_title{
+    height: 120rpx;
+    font-size: 26rpx;
+    font-weight: 550;
+    line-height: 40rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.bottombox_post_right_image{
+    float: right;
+    height: 60%;
+    width: 90%;
+}
+.bottombox_post_center_people{
+    padding-top: 26rpx;
+    height: 15%;
+    font-size: 20rpx;
+    color: #878787;
+}
+.bottombox_post_right{
+    height: 100%;
+    width: 30%;
+    /* background: green; */
+}
+.bottombox_post_stringbox{
+    width: 600rpx;
+    height: auto;
+    border: 1rpx solid #f1f1f1;
+}

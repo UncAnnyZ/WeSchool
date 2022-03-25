@@ -1,0 +1,42 @@
+<view class="bg" hidden="{{!show}}">
+<view class="tittlebox"></view>
+<view class="topbox">
+    <view class="topbox_right_ring"></view>
+    <view class="topbox_left_ring"></view>
+    <view class="topbox_tittle">正在兴起的独立高校社区</view>
+    <view class="topbox_text">我们致力于打造属于每个高校自己的互助平台，通过精细化的管理与引导，营造出真诚、友善并温暖人心的社区氛围。</view>
+    <view class="topbox_text">在这里你可以找到同校的其他同学，以及校内生活导航，买卖闲置，自律打卡，八卦吐槽，学业交流...</view>
+    <view class="topbox_text">总之，想即刻尽知校内事，一个We校园就够啦！</view>
+</view>
+<view class="bottombox">
+     <view class="topbox_right_ring"></view>
+     <view class="topbox_left_ring"></view>
+     <view class="bottombox_title">校园圈热帖</view>
+     <view class="bottombox_string"></view>
+     <view class="bottomboxpost" wx:for="{{text}}">
+        <view class="bottombox_post">
+        <view class="bottombox_post_topbox">
+            <view class="bottombox_post_left">
+                <view class="bottombox_post_left_top">Top1</view>
+            </view>
+            <view class="bottombox_post_center">
+               <view class="bottombox_post_center_title">{{item.title}}</view>
+               <view class="bottombox_post_center_people">{{item.people}}</view>
+            </view>
+            <view class="bottombox_post_right">
+                <image class="bottombox_post_right_image" src="{{item.imageurl}}"></image>
+            </view>
+        </view>
+        <view class="bottombox_post_stringbox"></view>
+        </view>
+     </view>
+</view>
+<view class="btn" bindtap="goweschool">
+    <view class="btn_btn">
+        <view class="btn_btn_text">进入  We校园</view>
+        <image src="https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%8F%B3%E7%AE%AD%E5%A4%B4.png?sign=c3a7b5eeeff182b0807fdffc00c069aa&t=1648198299"></image>
+    </view>
+</view>
+</view>
+
+<view hidden="{{show}}" class="selectbg"></view>
