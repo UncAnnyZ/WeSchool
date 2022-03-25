@@ -2,13 +2,13 @@
 
 
 <view style="transform:translate(0,-60rpx) ; width: 100%;  position: absolute; height: 300rpx; box-shadow: inset 0rpx 0rpx 80rpx 60rpx rgba(255, 255,255);  background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) );"></view>
-<view class="head" >
+<view class="head">
   <!-- 状态栏 -->
   <view style="width: 100%; height: 200rpx; position: absolute;"> </view>
   <view style="height: {{statusBarHeight}}px;" />
   <!-- 导航栏 -->
   <view class="head_second" style="height: {{lineHeight}}px;">
-  <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; "> </input>
+    <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; "> </input>
     <image style="width: 35rpx; height: 35rpx; margin-left:40rpx;" src="./images/search.png"></image>
 
     <!-- 消息列表 -->
@@ -18,13 +18,36 @@
 <!-- 填充 -->
 <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
 <view style=" width: 100%;  position: absolute; height: 400rpx;"></view>
-<scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" bounces="{{false}}" show-scrollbar="{{false}}"  bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" >
+<scroll-view class="container" bindscroll="{{more.funcA}}" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y enhanced="{{true}}" bounces="{{false}}" show-scrollbar="{{false}}" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50">
   <!-- 小纸条 - 弹幕 -->
   <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
   <!-- 填充 -->
-  <image style="width: 100%; height: 280rpx;" src="./images/p2.png"></image>
+  <view style="height: 270rpx;">
+    <view style="overflow: auto; border-radius: 28rpx; background-image: linear-gradient(to right, rgba(212,240,255, 0.4) 25% , rgba(255,198,227, 0.3)); height: 260rpx; margin: 20rpx;  display: flex; ">
+      <view style="position: absolute; flex-direction: row; width: 100%;">
+        <view style="position: absolute; margin-left: 30rpx; margin-top: 20rpx; font-size: 30rpx;">3.4 | </view>
+        <view style="position: absolute; color: #da4776; margin-left: 98rpx; margin-top: 17rpx; font-size: 30rpx;">周五</view>
+        <view style="position: absolute; margin-left: 600rpx; margin-top: 17rpx; font-size: 30rpx;">第5周</view>
+      </view>
+      <view style="color: black; position: absolute; margin-left: 30rpx; margin-top: 70rpx;"> 当前</view>
+      <scroll-view   scroll-x="true" style=" white-space: nowrap; display: flex; height: 120rpx;  margin-left: 30rpx; margin-top: 120rpx;">
+        <view style=" width: 400rpx;display: inline-block; ">
+          <view style="position: absolute; background-color: #986bfd; width: 10rpx; height: 120rpx; border-radius: 40rpx;"></view>
+          <viwe style="color: rgb(66, 66, 66); margin-left: 30rpx;font-weight: bold; font-size: 33rpx;">javaWeb 应用编程</viwe>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx;">二教B-304 李佳澜</view>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx;">15:40-17:40</view>
+        </view>
+        <view style=" width: 400rpx; display: inline-block;">
+          <view style="position: absolute; background-color: #a5c9fa; width: 10rpx; height: 120rpx; border-radius: 40rpx;"></view>
+          <viwe style="color: rgb(66, 66, 66); margin-left: 30rpx;font-weight: bold; font-size: 33rpx;">javaWeb 应用编程</viwe>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx;">二教B-304 李佳澜</view>
+          <view style="color: rgb(90, 89, 89);margin-left: 30rpx;">15:40-17:40</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
   <!-- <view style="height: 30rpx;"></view> -->
   <!-- 标签 -->
   <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
