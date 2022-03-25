@@ -7,17 +7,17 @@
     /* align-items: center; */
     overflow: hidden;
     /* margin: 10rpx; */
-    margin: 30rpx 20rpx 20rpx 20rpx;
+    margin: 29rpx;
     box-sizing: border-box;
     transition: all 0.3s ease 0s;
   }
 
 .left{
-    width: 346rpx;
+    width: 338rpx;
 }
 
 .right{
-    width: 346rpx;
+    width: 338rpx;
     /* margin-left: 10rpx; */
 }
 

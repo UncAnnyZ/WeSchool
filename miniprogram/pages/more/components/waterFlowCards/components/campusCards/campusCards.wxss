@@ -7,23 +7,23 @@
 }
  
 .left{
-  width: 346rpx;
+  width: 338rpx;
 }
  
 .right{
-  width: 346rpx;
+  width: 338rpx;
   margin-left: 10rpx;
 }
  .Show_Image{
    border-radius: 15rpx;
-   width:346rpx;
+   width:338rpx;
    background-color: #ebebebd8;
  }
 .pic{
   border-radius: 15rpx;
-  width: 346rpx;
+  width: 338rpx;
   background-color: rgb(255, 255, 255);
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
   overflow: hidden;
 }
 .pic_Label{

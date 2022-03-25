@@ -24,8 +24,8 @@
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
   <!-- 填充 -->
-  <view style="height: 270rpx;">
-    <view style="overflow: auto; border-radius: 28rpx; background-image: linear-gradient(to right, rgba(212,240,255, 0.4) 25% , rgba(255,198,227, 0.3)); height: 260rpx; margin: 20rpx;  display: flex; ">
+  <view style="height: 270rpx; margin: 40rpx 0 40rpx 0;">
+    <view style="overflow: auto; border-radius: 28rpx; background-image: linear-gradient(to right, rgba(212,240,255, 0.4) 25% , rgba(255,198,227, 0.3)); height: 260rpx; margin: 30rpx;  display: flex; ">
       <view style="position: absolute; flex-direction: row; width: 100%;">
         <view style="position: absolute; margin-left: 30rpx; margin-top: 20rpx; font-size: 30rpx;">3.4 | </view>
         <view style="position: absolute; color: #da4776; margin-left: 98rpx; margin-top: 17rpx; font-size: 30rpx;">周五</view>
