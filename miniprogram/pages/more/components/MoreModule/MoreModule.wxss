@@ -19,15 +19,16 @@
     align-items: center;
     width: 200rpx;
     height: 230rpx;
-    background-color: pink;
+    /* background-color: pink; */
     border-radius: 15rpx;
-    /* background-image: linear-gradient( 135deg, #fa9e3c 10%, #FD6585 100%); */
+    background-image: linear-gradient( #90dbfc, #b5ecdf);
 }
 
 .second {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-size: 30rpx;
     margin-left: 15rpx;
     width: 990rpx;
     height: 230rpx;
@@ -37,7 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300rpx;
+    width: 250rpx;
     height: 107rpx;
     background-color: pink;
     border-radius: 15rpx;
@@ -45,12 +46,12 @@
 }
 
 .second .note {
-    /* background-image: linear-gradient( 135deg, #3fe07a 10%, #465EFB 100%); */
+    background-image: linear-gradient( #f9bdea, #fcd5de);
 
 }
 
 .second .game {
-    /* background-image: linear-gradient( 135deg, #F0FF00 10%, #58CFFB 100%); */
+    background-image: linear-gradient( #94c7f5, #aaf8fe);
 }
 
 .second .zanju {
@@ -58,10 +59,11 @@
 }
 
 .second .tucao {
-    background: #1D976C;
+    background-image: linear-gradient( #e0b5f1, #c6d5f3);
+    /* background: #1D976C; */
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #93F9B9, #1D976C);
+    /* background: -webkit-linear-gradient(to top, #93F9B9, #1D976C); */
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #93F9B9, #1D976C);
+    /* background: linear-gradient(to top, #93F9B9, #1D976C); */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

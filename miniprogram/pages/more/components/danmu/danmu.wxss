@@ -5,10 +5,13 @@ page {
     color: #333;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     width: 100%;
+    margin-top: 20rpx;
     height: 310rpx;
 }
+
 .container .title {
     display: flex;
     flex-direction: row;
@@ -178,7 +181,7 @@ button::after {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .1) 100%);
+    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .1) 100%); */
 }
 
 .displayGroup {
@@ -234,24 +237,53 @@ button::after {
     height: 50rpx;
     line-height: 50rpx;
     padding: 0 15rpx 0 5rpx;
-    background: rgba(0, 0, 0, .5);
-    border-radius: 25rpx;
-    overflow: hidden;
+    background: #fff;
+    border-radius: 14rpx;
+    /* overflow: hidden; */
     font-size: 24rpx;
-    color: #fff;
+ 
+    border-bottom: 1px solid #dcdcdc;
+    /* color: #fff; */
 }
 
+.dm::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -11rpx;
+    left: 40rpx;
+    border-left: 20rpx solid #dcdcdc;
+    border-bottom: 10rpx solid transparent;
+}
+
+.dm::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -9rpx;
+    left: 40rpx;
+    border-left: 20rpx solid #fff;
+    border-bottom: 10rpx solid transparent;
+}
+
+
+
 .dmItem .avatarBox {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 40rpx;
     height: 40rpx;
+    /* margin-left: 10rpx; */
     margin-right: 10rpx;
 }
 
 .dmItem .avatarBox .avatar {
-    width: 40rpx;
-    height: 40rpx;
+    width: 25rpx;
+    height: 25rpx;
     border: 0;
     border-radius: 50%;
     overflow: hidden;
@@ -270,6 +302,19 @@ button::after {
     display: inline-block;
     max-width: 400rpx;
     height: 50rpx;
+    line-height: 50rpx;
+    margin-right: 10rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dmItem .dm .user {
+    display: inline-block;
+    max-width: 100rpx;
+    height: 53rpx;
+    color: #a8a6a7;
+    font-size: 23rpx;
     line-height: 50rpx;
     margin-right: 10rpx;
     white-space: nowrap;

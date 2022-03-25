@@ -9,7 +9,7 @@
 }
 .head{
   position:fixed; 
-  background-color: white;
+  /* background-color: white; */
   z-index: 2;
   width: 100%;
 	overflow-x: auto;
