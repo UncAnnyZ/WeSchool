@@ -3,13 +3,17 @@
 <scroll-view scroll-x>
     <view class="container">
         <view class="first">
-            恋爱匹配
+            <text style="margin-top:80rpx;">恋爱匹配</text>
         </view>
         <view class="second">
-            <view class="second_box note" id="note_module" bindtap="naviToPage">小纸条</view>
-            <view class="second_box game" id="game">电子游戏</view>
+            <view class="second_box note" id="note_module" bindtap="naviToPage">
+            <text style="margin-left: -120rpx ;margin-top: -30rpx"> 小纸条</text>
+            </view>
+            <view class="second_box game" id="game">
+                <text style="margin-left: -150rpx ;margin-top: -30rpx">攒局</text></view>
             <view class="second_box zanju" id="zanju">攒局</view>
-            <view class="second_box tucao" id="tucao">电子游戏</view>
+            <view class="second_box tucao" id="tucao">
+                <text style="margin-left: -90rpx ;margin-top: -30rpx">电子游戏</text></view>
         </view>
     </view>
 </scroll-view>
