@@ -173,6 +173,13 @@
                     "pathName": "pages/more/pages/note_module/renLingNote/renLingNote",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "引导页",
+                    "pathName": "pages/index/guidance/guidance",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }
