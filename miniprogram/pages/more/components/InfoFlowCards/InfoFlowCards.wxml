@@ -18,7 +18,7 @@
             <view class="InfoCard_body">
                 <view class="textBody">
                     <text>{{item.Text}}</text>
-                    <!-- <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe> -->
+                    <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
                 </view>
             </view>
             <!-- 底部 -->
