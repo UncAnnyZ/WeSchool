@@ -71,7 +71,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: 20rpx;
+    margin: 0 20rpx;
     /* margin-top: 30rpx; */
 }
 .InfoCard_body .textBody text{
@@ -85,6 +85,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: 26rpx;
+    margin: 20rpx 0;
     /* color: #ccc; */
 }
 .InfoCard_body .textBody .imageBox {
