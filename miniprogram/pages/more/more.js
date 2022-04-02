@@ -152,48 +152,15 @@ Page({
     this.switchTab(currentTab);
   },
 
-  // 下面是未来修左右滑动动效用到的代码
-
-  // waterTransition(e) {
-  //   // dx 表示左右滑动 : dx < 0 表示滑到上一个标签
-  //   const dx = e.detail.dx;
-  //   // console.log(e.detail);
-  //   const currentTab = this.data.currentTab;
-  //   const underLine_left = this.selectComponent("#TabScroll").data.underLine_left;
-  //   const underLine_width = this.selectComponent("#TabScroll").data.underLine_width;
-  //   // 公式计算：滑动屏幕百分比 * 下一段偏移度
-  //   console.log(dx/this.data.windowWidth);
-  //   let offset,offset_width;
-  //   if(dx/this.data.windowWidth > 0) {
-  //     offset = (dx/this.data.windowWidth) * (underLine_left[currentTab+1] - underLine_left[currentTab]) + underLine_left[currentTab];
-
-  //     offset_width = (dx/this.data.windowWidth) * (underLine_width[currentTab+1] - underLine_width[currentTab]) + underLine_width[currentTab];
-  //   }else if( dx/this.data.windowWidth < 0) {
-  //     offset = (dx/this.data.windowWidth) * (underLine_left[currentTab] - underLine_left[currentTab-1]) + underLine_left[currentTab];
-
-  //     offset_width = (dx/this.data.windowWidth) * (underLine_width[currentTab] - underLine_width[currentTab-1]) + underLine_width[currentTab];
-  //   }
-  //   this.selectComponent("#TabScroll").setData({offset,offset_width})
-  // },
-  // waterAnimationFinish(e) {
-  //   const {current:currentTab,source} = e.detail;
-  //   console.log(e.detail,23333);
-  //   this.setTab(currentTab);
-  //   console.log(currentTab);
-  //   // 更新标签组件里的下划线参数
-  //   this.selectComponent("#TabScroll").setData({currentTab,offset:null,offset_width:null})
-  // },
-
   // 2. 操作数据库
   getData(e) { //分页加载数据
-    let args = wx.getStorageSync('args');
-    let { currentPage, currentTab } = e.detail;
-    // 当前选择的标签名字
-    let ShowId = this.data.tabitem[currentTab].title;
-    // 边界处理 - 用户没登录时
-    let School = args.schoolName ? (args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院";
+    let that = this,
+      args = wx.getStorageSync('args'),
+      currentPage = 
+      currentTab = this.data.currentTab,
+      ShowId = this.data.tabitem[currentTab].title, // 当前选择的标签名字
+      School = args.schoolName ? (args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院";     // 边界处理 - 用户没登录时
     // 拉取数据
-    let that = this;
     wx.cloud.callFunction({
       name: "NewCampusCircle",
       data: {

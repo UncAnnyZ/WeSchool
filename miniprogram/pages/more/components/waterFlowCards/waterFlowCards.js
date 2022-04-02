@@ -43,32 +43,7 @@ Component({
     leftH: 0,         // 当前左列表高度
     rightH: 0,        // 当前右列表高度
   },
-  // relations: {
-  //   './components/campusCards': {
-  //     type: 'child', // 关联的目标节点应为子节点
-  //     linked: function(target) {
-  //       // 每次有campusCards被插入时执行，target是该节点实例对象，触发在该节点attached生命周期之后
-  //     },
-  //     linkChanged: function(target) {
-  //       // 每次有campusCards被移动后执行，target是该节点实例对象，触发在该节点moved生命周期之后
-  //     },
-  //     unlinked: function(target) {
-  //       // 每次有campusCards被移除时执行，target是该节点实例对象，触发在该节点detached生命周期之后
-  //     }
-  //   }
-  // },
-  lifetimes: {
-    attached() {
-      // this.RightLeftSolution(true)
-    },
-    ready: function() {
-      // console.log(this.data.list);
-    },
 
-  },
-  /**
-   * 组件的方法列表
-   */
   methods: {
     onReachBottom(){
       console.log("瀑布流 - 上拉触底");
