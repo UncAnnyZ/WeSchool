@@ -43,15 +43,12 @@ Component({
     leftH: 0,         // 当前左列表高度
     rightH: 0,        // 当前右列表高度
   },
-
+  lifetimes: {
+    ready() {
+      this.selectComponent('.content')
+    }
+  },
   methods: {
-    onReachBottom(){
-      console.log("瀑布流 - 上拉触底");
-      this.triggerEvent("onReachBottom");
-    },
-    onPullDownRefresh() {
-      this.triggerEvent("onPullDownRefresh")
-    },
     getData() {
       let e = {
         currentPage:this.data.currentPage,  // 本组件当前第几页
