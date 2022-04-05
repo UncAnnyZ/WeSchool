@@ -1,8 +1,5 @@
 // components/TabScroll/TabScroll.js
 Component({
-    /**
-     * 组件的属性列表
-     */
     properties: {
         type: {                     // 调用组件类型
             type: String,
@@ -18,15 +15,15 @@ Component({
         },
         showTab: {                  // 控制显隐
             type: Boolean,
+        },
+        currentTab: {               // 当前被选中标签的下标 
+            type: Number,
+            value: 0
         }
     },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
-        tabItemConfig: [],             // 每个标签的字符长度
-        currentTab: 0,                 // 当前被选中标签的下标 
+        tabItemConfig: [],             // 每个标签的字符长度             
 
         offset: 0,                     // 下划线滑动时偏移量
         offset_width: 0,               // 下划线滑动时宽度计算量
@@ -74,15 +71,14 @@ Component({
             });
         }
     },
-    /**
-     * 组件的方法列表
-     */
+    observers: {
+        'currentTab': function(val) {
+            console.log(val);
+        }
+    },
     methods: {
         // 校园圈首页选择标签
         setTab(e) {
-            this.setData({
-                currentTab:e.currentTarget.dataset["index"],
-            })
             this.triggerEvent("setTab", e)
         },
         // 发布页面选择标签
