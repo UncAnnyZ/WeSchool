@@ -2,6 +2,7 @@
 
 <!-- 渐变层 -->
 <view class="gradient-layer" style="z-index: {{scrollTop > TabScrollTop-60 ? 2 : ''}};"></view>
+<!-- <view class="gradient-layer" style="background-color: #fff;" style="z-index: {{scrollTop > TabScrollTop-60 ? 2 : ''}};"></view> -->
 
 <view class="head">
   <!-- 状态栏 -->
@@ -25,11 +26,12 @@
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
   <!-- 课表 -->
-  <weimob-curriculum course="{{course}}" msg="{{msg}}" />
+  <weimob-curriculum  course="{{course}}" msg="{{msg}}" />
   
+
   <!-- 标签 -->
-  <weimob-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}">
-    <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
+  <weimob-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}" >
+    <TabScroll style="z-index: 2;" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
   </weimob-sticky>
 
   <!-- 瀑布流 -->

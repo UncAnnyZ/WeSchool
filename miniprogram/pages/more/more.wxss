@@ -6,8 +6,8 @@
 .gradient-layer {
   transform: translate(0, -60rpx);
   width: 100%;
-  position: absolute;
-  height: 120px;
+  position: fixed;
+  height: 150px;
   box-shadow: inset 0rpx 0rpx 80rpx 60rpx rgba(255, 255, 255);
   background-image: linear-gradient(to right, rgba(212, 240, 255, 0.9) 25%, rgba(255, 198, 227, 0.8));
 }
