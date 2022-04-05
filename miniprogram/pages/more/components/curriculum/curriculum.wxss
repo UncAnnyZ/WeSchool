@@ -81,3 +81,10 @@
     padding-top: 8rpx;
     font-size: 24rpx;
 }
+
+.wx-isclass {
+    text-align: center;
+    font-size: 35rpx;
+    color: #1cbbb4;
+    margin-top: 30rpx;
+  }

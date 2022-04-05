@@ -24,12 +24,9 @@
   <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
-  <!-- 填充 -->
-  <weimob-curriculum course="{{course}}">
+  <!-- 课表 -->
+  <weimob-curriculum course="{{course}}" msg="{{msg}}" />
   
-  </weimob-curriculum>
-  
-
   <!-- 标签 -->
   <weimob-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}">
     <TabScroll style="z-index: 2; " type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />

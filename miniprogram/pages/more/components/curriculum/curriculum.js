@@ -7,6 +7,9 @@ Component({
     properties: {
         course: {
             type:Array
+        },
+        msg: {
+            type:String
         }
     },
 

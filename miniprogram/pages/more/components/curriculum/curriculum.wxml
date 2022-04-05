@@ -6,7 +6,7 @@
             <view class="schoolWeek">第{{currWeek}}周</view>
         </view>
         <scroll-view scroll-x="true" class="body">
-            <block wx:for="{{course}}">
+            <block wx:for="{{course}}" wx:key="*this">
                 <view class="bodyCard">
                     <view class="decoration" style="background-color: {{color[index%2]}};"></view>
                     <viwe class="courseName">{{item.name}}</viwe>
@@ -14,6 +14,9 @@
                     <view class="courseTime">{{item.time}}</view>
                 </view>
             </block>
+            <view wx:if="{{msg}}" class="wx-isclass">
+                <text>{{msg}}</text>
+            </view>
         </scroll-view>
     </view>
 </view>
