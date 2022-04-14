@@ -3,18 +3,29 @@
   position: relative;
 }
 
-.page{
+.gradient-layer {
+  transform: translate(0, -60rpx);
+  width: 100%;
+  position: fixed;
+  height: 150px;
+  box-shadow: inset 0rpx 0rpx 80rpx 60rpx rgba(255, 255, 255);
+  background-image: linear-gradient(to right, rgba(212, 240, 255, 0.9) 25%, rgba(255, 198, 227, 0.8));
+}
+
+.page {
   width: 100%;
   margin: 0;
 }
-.head{
-  position:fixed; 
+
+.head {
+  position: fixed;
   /* background-color: white; */
   z-index: 2;
   width: 100%;
-	overflow-x: auto;
+  overflow-x: auto;
 
 }
+
 .head_second {
   position: relative;
   display: flex;
@@ -23,12 +34,14 @@
   font-size: 30rpx;
   width: 100vw;
 }
+
 .head_second image {
   position: absolute;
   left: 20rpx;
   width: 45rpx;
   height: 45rpx;
 }
+
 .head_second .title {
   letter-spacing: 5rpx;
 }
@@ -39,16 +52,18 @@
   margin-left: 10rpx;
 }
 
-.Line{
+.Line {
   background: #9b9b9b48;
   width: 100%;
   height: 1rpx;
 }
+
 /* 新消息提醒 */
 .newInfo image {
   width: 50rpx;
   height: 50rpx;
 }
+
 .newInfo_redPoint {
   position: absolute;
   display: flex;
@@ -58,14 +73,16 @@
   width: 30rpx;
   height: 30rpx;
   border-radius: 50%;
-  background-color:rgba(230,130,130,1);
+  background-color: rgba(230, 130, 130, 1);
 }
+
 .newInfo_redPoint text {
   font-size: 20rpx;
   color: #fff;
 }
+
 /* 小圆圈加载 */
-.showLoading{
+.showLoading {
   width: 45rpx;
   height: 45rpx;
   position: relative;
@@ -78,49 +95,53 @@
   align-items: center;
 }
 
-.content_btn{
+.content_btn {
   position: fixed;
-  width:105rpx;
-  height:80rpx;
-  right:0rpx;
+  width: 105rpx;
+  height: 80rpx;
+  right: 0rpx;
   box-shadow: 0px 0px 4px 0px #c7c7c7;
   border-top-left-radius: 40rpx;
   border-bottom-left-radius: 40rpx;
   background-color: rgba(255, 255, 255, 0.685);
 }
-.content_btn_add{
-  bottom:180rpx;
+
+.content_btn_add {
+  bottom: 180rpx;
   /* display: none; */
 }
-.content_btn_user{
-  bottom:80rpx;
+
+.content_btn_user {
+  bottom: 80rpx;
 }
-.content_btn_add image{
+
+.content_btn_add image {
   width: 48rpx;
   height: 48rpx;
 }
-.content_btn_user image{
+
+.content_btn_user image {
   width: 54rpx;
   height: 54rpx;
 }
 
 
-.chooseImg-btn{
-  width:100%;
-  height:380rpx;
+.chooseImg-btn {
+  width: 100%;
+  height: 380rpx;
   background-color: rgba(241, 229, 201, 0.26);
 }
+
 .swiper_ {
   height: auto !important;
   min-height: 100vh;
   z-index: 5;
 }
+
 .swiperItem {
   height: auto !important;
 }
-.TabScroll {
-  margin: 50rpx 0 20rpx 0;
-}
+
 /* 弹窗 */
 .popUps {
   position: fixed;
@@ -132,6 +153,7 @@
   z-index: -1;
   opacity: 0;
 }
+
 /* .mengban {
   width: 100%;
   height: 100%;
@@ -146,6 +168,7 @@
   z-index: 999 !important;
   opacity: 1 !important;
 }
+
 /* 点击盒子 */
 .bindBoxFlex {
   width: 100%;
@@ -157,6 +180,7 @@
   padding: 20rpx;
   box-sizing: border-box;
 }
+
 .bindBoxFlex .bindBox {
   width: 150rpx;
   height: 150rpx;
@@ -166,6 +190,7 @@
   align-items: center;
   /* background-color: purple; */
 }
+
 .bindBoxFlex .bindBox .imageBox {
   width: 100rpx;
   height: 100rpx;
@@ -175,16 +200,19 @@
   background-color: pink;
   border-radius: 50%;
 }
+
 .bindBoxFlex .bindBox text {
   margin-top: 20rpx;
   font-size: 26rpx;
   letter-spacing: 2rpx;
 }
+
 .bindBoxFlex .bindBox .imageBox image {
   width: 70rpx;
   height: 70rpx;
 
 }
+
 /* 关闭 */
 .popUps .cancelBox {
   width: 100%;
@@ -194,6 +222,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .popUps .cancelBox .cancel {
   width: 60rpx;
   height: 60rpx;
@@ -203,6 +232,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .popUps .cancelBox .cancel image {
   width: 50rpx;
   height: 50rpx;
@@ -210,22 +240,25 @@
 
 @keyframes add_show {
   0% {
-      opacity: 0;
-      transform: translateY(100%);
+    opacity: 0;
+    transform: translateY(100%);
   }
+
   100% {
-      opacity: 1;
-      transform: translateY(0%);
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
+
 @keyframes add_hide {
   0% {
-      opacity: 1;
-      transform: translateY(0%);
+    opacity: 1;
+    transform: translateY(0%);
   }
+
   100% {
-      opacity: 0;
-      transform: translateY(100%);
+    opacity: 0;
+    transform: translateY(100%);
   }
 }
 
@@ -234,43 +267,52 @@
   .container {
     filter: invert(0) !important;
   }
-  image{
+
+  image {
     filter: invert(1) !important;
   }
-  .content_btn{
+
+  .content_btn {
     filter: invert(1) !important;
   }
-  .head{
-    position:fixed; 
+
+  .head {
+    position: fixed;
     background-color: #faf9f9;
   }
-  scroll-view{
+
+  scroll-view {
     filter: invert(100%) !important;
   }
 
   .newInfo_redPoint {
     filter: invert(100%) !important;
   }
+
   /* 发布页面 */
 
   .choosenLabel {
     color: #fff;
     filter: invert(100%) !important;
   }
+
   .edit_pic_Title,
   .edit_background,
   .edit_pic_Text {
     color: #fff;
     filter: invert(100%) !important;
   }
+
   /* 弹窗 */
   .popUps {
-    background-color: rgb(13,13,13);
+    background-color: rgb(13, 13, 13);
   }
+
   .popUps .bindBoxFlex .bindBox text {
     color: #fff;
   }
-  .popUps .cancelBox .cancel{
+
+  .popUps .cancelBox .cancel {
     filter: invert(100%) !important;
   }
 }

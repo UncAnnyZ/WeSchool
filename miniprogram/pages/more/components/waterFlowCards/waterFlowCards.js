@@ -22,81 +22,35 @@ Component({
       currentTab: {
         type: Number
       },
-      // 控制可否滑动
-      ifScroll: {
-        type: Boolean,
-        value: false
-      }
     },
 
   /**
    * 组件的初始数据
    */
   data: {
-
-    currentPage: 0,   // 当前第几页,0代表第一页 
     loadAll: false,   // 状态标志 - 是否加载完所有内容
-    Label: '全部',    // 当前标签
 
     leftList: [],     // 左列表
     rightList: [],    // 右列表
     leftH: 0,         // 当前左列表高度
     rightH: 0,        // 当前右列表高度
   },
-  // relations: {
-  //   './components/campusCards': {
-  //     type: 'child', // 关联的目标节点应为子节点
-  //     linked: function(target) {
-  //       // 每次有campusCards被插入时执行，target是该节点实例对象，触发在该节点attached生命周期之后
-  //     },
-  //     linkChanged: function(target) {
-  //       // 每次有campusCards被移动后执行，target是该节点实例对象，触发在该节点moved生命周期之后
-  //     },
-  //     unlinked: function(target) {
-  //       // 每次有campusCards被移除时执行，target是该节点实例对象，触发在该节点detached生命周期之后
-  //     }
-  //   }
-  // },
-  lifetimes: {
-    attached() {
-      // this.RightLeftSolution(true)
-    },
-    ready: function() {
-      // console.log(this.data.list);
-    },
-
+  observers: {
+    'list': function(val) {
+      // console.log(val,"lwknekonw");
+    }
   },
-  /**
-   * 组件的方法列表
-   */
   methods: {
-    onReachBottom(){
-      console.log("瀑布流 - 上拉触底");
-      this.triggerEvent("onReachBottom");
-    },
-    onPullDownRefresh() {
-      this.triggerEvent("onPullDownRefresh")
-    },
-    getData() {
-      let e = {
-        currentPage:this.data.currentPage,  // 本组件当前第几页
-        currentTab: this.properties.currentTab  // 本组件索引 - 方便标签选择
-      }
-      // 边界处理，拉到最底部时不允许再请求数据库
-      if(this.data.loadAll) return;
-      this.triggerEvent("getData",e);
-      console.log("getData");
-    },
     //处理左右结构
     RightLeftSolution(empty = false) {
       if (empty) {
         this.setData({
-          currentPage: 0,
           leftList: [],
           rightList: [],
           leftH: 0,
           rightH: 0,
           list: [null],
+          loadAll: false
         })
         return
       }
