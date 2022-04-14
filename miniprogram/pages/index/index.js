@@ -44,7 +44,8 @@ Page({
   },
   async onLoad(options) {
     
-
+    // 判断登录
+    app.loginState();
     var that = this;
     wx.onThemeChange(function (e) {
       that.setData({ dark:  e.theme  });

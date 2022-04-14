@@ -10,6 +10,9 @@ App({
   loginState: function () {
     let username = wx.getStorageSync('args').username
     if (!username) {
+      // wx.redirectTo({
+      //   url: '/pages/index/guidance/guidance'
+      // })
       wx.showModal({
         title: '登录提示',
         showCancel: false, //是否显示取消按钮

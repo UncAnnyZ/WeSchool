@@ -1,0 +1,538 @@
+/* pages/testdaka/index/index.wxss */
+page{
+    background-color:  #F4F4F4;
+  }
+  .bg{
+      background-color:  #F4F4F4;
+      /* height: 100vh; */
+      height: auto;
+      /* height: 130vh; */
+      width: 100%;
+      /* position:fixed; */
+  }
+  .dayclock{
+      width: 690rpx;
+      height: auto;
+      background: #FFFFFF;
+      border-radius: 20rpx;
+      margin:0rpx 30rpx 20rpx 30rpx;
+      position: relative;
+      top: 20rpx;
+  }
+  .dayclock .dayclock_title{
+      width: 100%;
+      height: 109rpx;
+      border-bottom: 2rpx solid #E5E5E5;
+  }
+  .dayclock_bottom{
+      height: 30rpx;
+  }
+  .dayclock_column{
+      float: left;
+      width: 33.3%;
+      height: 100%;
+  }
+  .dayclock_column_left{
+      height: 40rpx;
+      width: 40rpx;
+      padding: 35rpx 0 35rpx 26rpx;
+  
+  }
+  .dayclock_column_center{
+      padding: 35rpx 0;
+      text-align: center;
+      font-size: 32rpx;    
+      font-weight: 549;
+      color: #666666;
+  }
+  .dayclock_column_right{
+      height: 40rpx;
+      width: 40rpx;
+      padding: 35rpx 35rpx 35rpx 0;
+      float: right;
+  }
+  .dayclock_column_right_more{
+      height: 40rpx;
+      width: 40rpx;
+      padding: 35rpx 30rpx 35rpx 14rpx;
+  }
+  .dayclock_data{
+      /* padding:10rpx 0 10rpx 0; */
+      position: relative;
+      height: 120rpx;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      overflow: hidden;
+  }
+  /* .dayclock_data .border:after{
+          content: '';
+          position: absolute;
+          left: 157rpx;
+          bottom: 0rpx;
+          height: 2rpx;
+          width: 531rpx;
+          background-color: #E5E5E5;
+  } */
+  .dayclock_data_column_1{
+          float: left;
+          width: 21.9%;
+          height: 100rpx;
+  }
+  .dayclock_data_column_2{
+          float: right;
+          width: 55%;
+          height: 100rpx;
+  }
+  .dayclock_data_column_3{
+          /* padding: 10rpx 0 10rpx 0; */
+          float: right;
+          width: 22.9%;
+          height: 100rpx;
+  }
+  .dayclock_data_slide{
+          margin: 5rpx 0;
+          width: 145rpx;
+          height: 90rpx;
+          background: #74D5D3;
+          border-radius: 0px 45px 45px 0px;
+  }
+  .dayclock_data_slide_image{
+          float: right;
+          margin: 10rpx 10rpx 10rpx auto;
+          height: 70rpx;
+          width: 70rpx;
+  }
+  .dayclock_data_column_text{
+          font-size: 38rpx;
+          font-weight: 800;       
+          color: #F7ECCE;
+          /* padding: 31rpx 0; */
+          /* height: 100rpx; */
+          line-height: 100rpx;
+          /* padding: 24rpx 0; */
+  }
+  .dayclock_data_column_2_task{
+      margin: 13rpx auto 0 22rpx;
+      font-size: 25rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 600;
+      color: #666666;
+  }
+  .dayclock_data_column_2_cycle{
+      margin: 6rpx auto 6rpx 22rpx;
+      padding: 6rpx auto 6rspx 22rpx;
+      font-size: 18rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 500;
+      color: #666666;
+  }
+  .dayclock_data_column_2_cycle_week{
+       float: left;
+       width: auto;
+       padding-right: 20rpx;
+       color: #a8a8a8;
+  }
+  .dayclock_data_column_2_cycle_time{
+      float: left;
+      width: auto;
+      color: #a8a8a8;
+  }
+  .dayclock_data_column_2_cycle_time_start{
+      height:22.4rpx;
+      width: 32rpx;
+  }
+  .operation {
+      border-radius: 50%;
+      position: absolute;
+      top: 4rpx;
+      left: -130rpx;
+      height: 90rpx;
+      text-align: center;
+      line-height: 152rpx;
+      display:flex;
+      padding: 20rpx;
+      box-sizing: border-box;
+      align-items:center;                                                                                            
+    }
+     
+    .operation view {
+      width: 100rpx;
+    }
+    .operation2{
+      border-radius: 50%;
+      position: absolute;
+      top: 4rpx;
+      right: -130rpx;
+      height: 85rpx;
+      text-align: center;
+      /* background-color: #FFFFFF; */
+      line-height: 152rpx;
+      display: flex;
+      padding: 20rpx;
+      box-sizing: border-box;
+      align-items: center;
+    }
+    .operation2 view {
+      width: 100rpx;
+    }
+    .operation_daka_image{
+      height: 45rpx;
+      width: 45rpx;
+    }
+    .operation2_del_image{
+      height: 40rpx;
+      width: 45rpx;
+    }
+    .complete,
+    .complete_bg{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      font-family: unset;
+    }
+    .complete_bg{
+      background-color: rgba(0, 0, 0, 0.349);
+      opacity: 0.6;
+      height: 100%;
+    }
+    .complete_share{
+        z-index: 99999;
+        position: fixed;
+        top: 200rpx;
+        left: 93rpx;
+        /* 93rpx; */
+        width:560rpx;
+        /* 520rpx; */
+        height: 705rpx;
+        /* 600rpx; */
+        /* background-color: rgba(0, 0, 0, 0.116); */
+        /* background-color: gray; */
+        /* border-radius: 40rpx; */
+    }
+    .complete_share_close{
+        height: 70rpx;
+        width: 70rpx;
+        position: fixed;
+        top: 1060rpx;
+        /* 981rpx; */
+        left: 338rpx;
+        z-index: 99999;
+    }
+    .complete_share_image{
+        width: 100%;
+        height: 100%;
+        background-repeat:no-repeat; 
+        background-size:100% 100%;
+        border-radius:40rpx;
+    }
+    .complete_share_box{
+        width: 100%;
+        height: 23%;
+        display: flex;
+        flex-direction:column ;
+        align-items: center;
+        justify-content: center;
+    }
+    .complete_share_box > view{
+      margin: 10rpx;
+      width: 450rpx;
+      height: 90rpx;  
+      text-align: center;
+      line-height: 90rpx;
+    }
+    /* .complete_share_box{
+      width: 100%;
+      height: 41.7%;
+      display: flex;
+      flex-direction:column ;
+      align-items: center;
+      justify-content: center;
+  }
+  .complete_share_box > view{
+    margin: 10rpx;
+    width: 450rpx;
+    height: 90rpx;  
+    text-align: center;
+    line-height: 90rpx;
+  } */
+    .complete_share_box_button{
+      border-radius: 50rpx;
+      color: #fff;
+      background-color: #dadada;
+      /* opacity: 1; #74d5d3*/
+      /* opacity: 0.75; */
+    }
+    /* .complete_share_box_button{
+      border-radius: 50rpx;
+      color: #fff;
+      background-color: #74d5d3;
+    } */
+    .attention_bg{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      font-family: unset;
+      background-color: rgba(0, 0, 0, 0.349);
+      opacity: 0.6;
+      height: 100%;
+    }
+    .attention_text{
+      z-index: 99999;
+      position: fixed;
+      top: 200rpx;
+      left: 88rpx;
+      width: 570rpx;
+      /* height: 700rpx; */
+      background-color: #fff;
+      border-radius: 40rpx;
+      padding-bottom:30rpx;
+    }
+    .attention_close{
+      height: 70rpx;
+      width: 70rpx;
+      position: fixed;
+      top: 1000rpx;
+      left: 338rpx;
+      z-index: 99999;
+    }
+    .operationBgBox {
+      float: left;
+      height: 90rpx;
+      width:100%;
+      background-color: #74D5D3;
+      border-radius: 0px 45px 45px 0px;
+      overflow: hidden;
+      position: absolute;
+      /* top: 0; */
+      color: #fff;
+      margin: 7rpx 0;
+    }
+    .operationBgBoxtrue{
+      float: left;
+      height: 90rpx;
+      width:100%;
+      background-color: #fff;
+      border-radius: 0px 45px 45px 0px;
+      overflow: hidden;
+      position: absolute;
+      /* top: 0; */
+      color: #fff;
+      margin: 7rpx 0;
+    }
+    .operationBox {
+      width: 145rpx;
+      height: 90rpx;
+      background: #74D5D3;
+      border-radius: 0px 45px 45px 0px;   
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .operationBoxtrue{
+      width: 145rpx;
+      height: 90rpx;
+      background: #fff;
+      border-radius: 0px 45px 45px 0px;   
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .operationBox image,.operationBoxtrue image{
+      /* width: 50%;
+      height: 50%; */
+      float: right;
+      margin: 10rpx 10rpx 10rpx auto;
+      height: 70rpx;
+      width: 70rpx;
+    }
+    .graybg{
+      position: relative;
+      height: 100rpx;
+      width: 100%;
+      background-color: gray;
+      z-index: -99999;
+    }
+    .dayclock_data_huadong{
+      padding:10rpx 0 10rpx 0 ;
+      position: absolute;
+      height: 100rpx;
+      width: 100%;
+      background-color: #fff;
+      z-index: 999;
+    }
+    /* 删除键背景 */
+    .dayclock_data_huadong_bg{
+      position: absolute;
+      height: 120rpx;
+      width: 100%;
+      /* background-color:#E7624F; */
+      /* background-color: rgba(255, 0, 0, 0.582); */
+      z-index:0;
+    }
+    /* #FFFFFF */
+    /* 删除键 */
+    .dayclock_data_huadong_bg_bg{
+      /* border-radius: 50%; */
+      position: absolute;
+      /* top: 0rpx; */
+      right: 0rpx;
+      height: 118rpx;
+      text-align: center;
+      /* background-color: rgba(221, 221, 221, 0.349); */
+      line-height: 152rpx;
+      display: flex;
+      padding-right: 33rpx;
+      padding-left: 33rpx;
+      box-sizing: border-box;
+      align-items: center;
+      color: white;
+      background-color: rgba(255, 0, 0, 0.582);
+    }
+    .dayclock_data_huadong_bg_image{
+      height: 40rpx;
+      width: 45rpx;
+    }
+    .dayclock_data_column_text_true{
+      font-size: 38rpx;
+      font-weight: 800;
+      color: #74D5D3;
+      line-height: 100rpx;
+    }
+    .dayclock_data_column_text_false{
+      font-size: 36rpx;
+      font-weight: 800;
+      color: #F7ECCE;
+      line-height: 100rpx;
+    }
+    /* pages/3menu/3menu.wxss */
+  .img-plus-style {
+    height: 100rpx;
+    width: 100rpx;
+    position: fixed;
+    bottom: 300rpx;
+    right: 50rpx;
+    z-index: 999;
+  }
+   
+  .img-style {
+    height: 100rpx;
+    width: 100rpx;
+    position: fixed;
+    bottom: 300rpx;
+    right: 25rpx;
+    opacity: 0;
+    z-index: 999;
+  }
+  .text_time{
+    position: fixed;
+    bottom: 250rpx;
+    right: 70rpx;
+  }
+  .attention_text_title{
+    margin: 40rpx auto;
+    text-align: center;
+  }
+  .attention_text_duanluo{
+    margin: 10rpx 40rpx;
+    text-align: justify;
+  }
+  .attention_text_duanluo >view{
+    line-height: 75rpx;
+  }
+    @media (prefers-color-scheme: dark) {
+      .complete_share_box_button{
+        filter: invert(90%) !important;
+        background: rgb(172, 211, 254);
+        color: #fff;
+      }
+      .operationBgBox{
+        filter: invert(90%) !important;
+        background: rgb(172, 211, 254);
+        /* background: #F77A7A; */
+        /* background: rgb(167, 167, 86); */
+      }
+      .operationBox{
+        filter: invert(0) !important;
+        background-color: rgb(172, 211, 254);
+      }
+      .operationBox image{
+        filter: invert(0) !important;
+      }
+      .dayclock_data_column_text_true{
+        filter: invert(90%) !important;
+        color: rgb(172, 211, 254);
+        /* color: rgb(167, 167, 86); */
+      }
+      .dayclock_data_column_text_false{
+        color: gray;
+        /* color: rgb(167, 167, 86); */
+      }
+      .img-plus-style{
+        filter: invert(0) !important;
+        color: black;
+        position: fixed;
+        bottom: 600rpx;
+        right: 50rpx;
+        z-index: 999;
+      }
+      .img-style{
+        filter: invert(0) !important;
+        color: blanchedalmond;
+        position: fixed;
+        bottom: 600rpx;
+        right: 25rpx;
+        opacity: 0;
+        z-index: 999;
+      }
+      .dayclock_data_huadong_bg_bg{
+        filter: invert(90%) !important;
+        background-color: #fc9090;
+        /* background-color: gray; */
+        color: #fff;
+      }
+      .complete_share_image{
+        filter: invert(1) !important;
+      }
+      .text_time{
+        position: fixed;
+        bottom: 550rpx;
+        right: 70rpx;
+      }
+      .attention_bg{
+        filter: invert(90%) !important;
+      }
+      .operationBoxtrue image{
+        filter: invert(60%) !important;
+      }
+      .dayclock_column_right{
+        filter: invert(60%) !important;
+      }
+      .dayclock_column_left{
+        filter: invert(80%) !important;
+      }
+      .dayclock_data_column_2_task{
+        filter: invert(1) !important;
+        color: #fff;
+      }
+      .dayclock_column_center{
+        filter: invert(1) !important;
+        color: #fff;
+      }
+      .complete_bg{
+        filter: invert(90%) !important;
+      }
+    }
+    
+    

@@ -1,23 +1,44 @@
 <view class="bg" hidden="{{!show}}">
-<view class="tittlebox"></view>
+<view style="height: {{statusBarHeight}}px;" />
+<view style="height: {{lineHeight}}px;"/>
+<view class="tittlebox">
+    <image src="./wetitle.png" style="height: 100%;width: 100%;margin-top: 155rpx;"></image>
+</view>
 <view class="topbox">
     <view class="topbox_right_ring"></view>
     <view class="topbox_left_ring"></view>
-    <view class="topbox_tittle">正在兴起的独立高校社区</view>
+    <view class="topbox_tittle">正在兴起的独立高校社区
+        <view class="leftsanjiao" style="position: absolute;top: -3rpx;"></view>
+        <view class="leftsanjiao" style="position: absolute;top: 20rpx;"></view>
+        <view class="leftsanjiao" style="position: absolute;top: 38rpx;"></view>
+        <view class="rightsanjiao" style="position: absolute;top: -3rpx;right: 0rpx;"></view>
+        <view class="rightsanjiao" style="position: absolute;top: 20rpx;right: 0rpx;"></view>
+        <view class="rightsanjiao" style="position: absolute;top: 38rpx;right: 0rpx;"></view>
+    </view>
     <view class="topbox_text">我们致力于打造属于每个高校自己的互助平台，通过精细化的管理与引导，营造出真诚、友善并温暖人心的社区氛围。</view>
     <view class="topbox_text">在这里你可以找到同校的其他同学，以及校内生活导航，买卖闲置，自律打卡，八卦吐槽，学业交流...</view>
     <view class="topbox_text">总之，想即刻尽知校内事，一个We校园就够啦！</view>
+    <image src="./01yu.png" style="position: absolute;bottom: -30rpx;right: 0;height: 265rpx;width: 515rpx;z-index: 0;"></image>
+    <image src="./welogo.png" style="position: absolute;bottom: 15rpx;right: 10rpx;height: 120rpx;width: 160rpx;z-index: 3;"></image>
+
 </view>
 <view class="bottombox">
      <view class="topbox_right_ring"></view>
      <view class="topbox_left_ring"></view>
-     <view class="bottombox_title">校园圈热帖</view>
+     <view class="bottombox_title">校园圈热帖
+        <view class="leftsanjiao" style="position: absolute;top: -3rpx;"></view>
+        <view class="leftsanjiao" style="position: absolute;top: 20rpx;"></view>
+        <view class="leftsanjiao" style="position: absolute;top: 38rpx;"></view>
+        <view class="rightsanjiao" style="position: absolute;top: -3rpx;right: 0rpx;"></view>
+        <view class="rightsanjiao" style="position: absolute;top: 20rpx;right: 0rpx;"></view>
+        <view class="rightsanjiao" style="position: absolute;top: 38rpx;right: 0rpx;"></view>
+     </view>
      <view class="bottombox_string"></view>
      <view class="bottomboxpost" wx:for="{{text}}">
         <view class="bottombox_post">
         <view class="bottombox_post_topbox">
             <view class="bottombox_post_left">
-                <view class="bottombox_post_left_top">Top1</view>
+                <view class="bottombox_post_left_top" style="background: {{item.color}};"><text>top{{index+1}}</text></view>
             </view>
             <view class="bottombox_post_center">
                <view class="bottombox_post_center_title">{{item.title}}</view>

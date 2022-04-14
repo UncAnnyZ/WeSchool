@@ -1,3 +1,76 @@
-<view>
-  
+
+<view class="bg">
+<view class="dayclock">
+     <!-- 头部，我的每日打卡 -->
+     <view class="dayclock_title">
+         <view class="dayclock_column"><image bindtap="attention" class="dayclock_column_left" src="../images/tishi.png"></image></view>
+         <view class="dayclock_column"><view class="dayclock_column_center">我的每日打卡</view></view>
+         <view class="dayclock_column"><image class="dayclock_column_right" src="../images/tianjia.png" bindtap="add_task"></image></view>
+     </view>
+     <!-- 装渲染数据的最外层盒子 -->
+     <view class="dayclock_data" wx:for="{{taskdata}}" wx:key="*this">
+     <!-- 背景层 删除键#F4F4F4 -->
+     <view class="dayclock_data_huadong_bg">
+          <view class="dayclock_data_huadong_bg_bg"><view id="{{index}}" class="dayclock_data_huadong_bg_del" catchtap="daka_delpromp" >删除</view></view>
+     </view>
+     <!--左右滑动画层 -->
+     <view class="dayclock_data_huadong"  bindtouchstart="touchstartX" bindtap="resetX" bindtouchmove="touchmoveX" bindtouchend="touchendX" animation="{{currentIndex === index ?animation : ''}}" data-index="{{index}}"><view class="border">
+          <!--左右滑动画层--右滑打卡盒子 -->
+          <view id="{{index}}" data-id="{{index}}" class="{{item.task_isDaka==true?  'operationBgBoxtrue' : 'operationBgBox'}}" style="left: {{ -(w + 2) }}px; transform: {{ currentIndex == index ?cssAnimation:'' }};background:{{item.task_isDaka==true?  '#fff' : ''}};">
+               <text>{{ succeedMsg }}</text>
+               <!-- 右滑盒子 -->
+               <view id="{{index}}" style="background:{{item.task_isDaka==true?  '#fff' : ''}};" class="{{item.task_isDaka==true?  'operationBoxtrue' : 'operationBox'}}" catchtouchstart="startFun" catchtouchmove='moveFun' catchtouchend='endFun'>
+               <image src="{{item.task_isDaka==true?  '../images/complete.png' : '../images/right.png'}} "></image>
+               </view>
+          </view>
+         <!-- 左右滑动画层--中间盒子显示打卡信息 -->
+         <!-- style="color: {{ item.task_isDaka==true?  '#74D5D3' : ''}};" -->
+         <view class="dayclock_data_column_3"><view class="{{ item.task_isDaka==true?  'dayclock_data_column_text_true' : 'dayclock_data_column_text_false'}}" >{{item.task_isDaka==true?'已完成':'待完成'}}</view></view>
+         <!-- 左右滑动画层--右边盒子显示是否完成 -->
+         <view class="dayclock_data_column_2">
+              <view class="dayclock_data_column_2_task" data-task="{{item.task_name}}" bindtap="12345">{{item.task_name}}</view>
+              <view class="dayclock_data_column_2_cycle">
+                   <view class="dayclock_data_column_2_cycle_week">{{item.task_cycle}}</view>
+                   <view class="dayclock_data_column_2_cycle_time">{{item.task_start_time}}</view>
+                   <view class="dayclock_data_column_2_cycle_time">- {{item.task_end_time}}</view>
+              </view>
+         </view>
+     </view></view>
+     </view>
+     <view class="dayclock_bottom"></view>
 </view>
+
+</view>
+<!-- 生成图片弹窗 -->
+<view class="complete" wx:if="{{showModel2}}">
+     <view class="complete_bg"></view>
+     <view class="complete_share">
+          <canvas type="2d" class="complete_share_image" id="shareCanvas"></canvas>
+          <view class="complete_share_box">
+               <view class="complete_share_box_button" bindtap="savecanvas">校友圈一键分享</view>
+               <!-- <view class="complete_share_box_button" bindtap="sharecanvas_new">绘图</view> -->
+          </view>
+     </view>
+     <image class="complete_share_close" bindtap="complete_share_close" src="../images/close.png"></image>
+</view>
+<!-- 使用说明弹窗 -->
+<view class="attention" wx:if="{{showModel3}}">
+     <view class="attention_bg"></view>
+     <view class="attention_text">
+          <view class="attention_text_title">使用注意</view>
+          <view class="attention_text_duanluo">
+               <view>1.当新建一个打卡任务时，除了热度榜里的标签可自行选择之外，其他记录打卡的信息都要填写。</view>
+               <view>2.对于同一任务，不能一天打卡两次或以上。</view>
+               <view>注意事项：如发生显示问题，请尝试着刷新页面重新加载。</view>
+               </view>
+     </view>
+     <image class="attention_close" src="../images/close.png" bindtap="attention"></image>
+</view>
+<!-- 番茄时钟入口 -->
+<!-- <view>
+  <image src="../images/rank.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+  <image src="../images/time.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+  <image src="../images/log.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+  <image src="../images/time_2.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+  <text class="text_time">计时</text>
+</view> -->

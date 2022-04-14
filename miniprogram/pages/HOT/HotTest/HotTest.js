@@ -28,18 +28,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 function runCode() {
 
-  var db = wx.cloud.database({ env: 'mall-7gi19fir46652cb4' });
-
   var Page = function Page(page) {
     return page;
   };
   return Page({
-
-    onLoad: function onLoad(options) {
-      options = this.options;
-      this.setdata({});
-    },
-
     parseTag: function parseTag(tag) {
       var res = {
         type1: "tag",
@@ -137,533 +129,70 @@ function runCode() {
     },
 
     setdata: function setdata(dictData) {
+      var _this = this;
 
       for (var i in dictData) {
         this.data[i] = dictData[i];
       }
-      var html = "<view class='bg-red flex justify-center'>\\t<view class='action'>\\t\\t" + (_typeof(this.data.userinfo.userlocation.school) === "object" ? JSON.stringify(this.data.userinfo.userlocation.school) : this.data.userinfo.userlocation.school == _typeof(this.data.sf) === "object" ? JSON.stringify(this.data.sf) : this.data.sf ? "<text >\\u6709\\u95EE\\u9898\\u8054\\u7CFB\\u7535\\u8BDD:xxxxx\\uFF01</text>" : "") + "\\t</view></view><view class='cu-card article'>\\t<view class='cu-item shadow' style='margin:30rpx 30rpx 0 30rpx' bindtap='location'>\\t\\t" + (_typeof(this.data.userinfo.havelocation) === "object" ? JSON.stringify(this.data.userinfo.havelocation) : this.data.userinfo.havelocation ? "<view >\\t\\t\\t<view class='title'>\\t\\t\\t\\t<view class='text-cut text-xl text-black text-bold'>\\t\\t\\t\\t\\t" + (_typeof(this.data.userinfo.userlocation.school) === "object" ? JSON.stringify(this.data.userinfo.userlocation.school) : this.data.userinfo.userlocation.school) + "-" + (_typeof(this.data.userinfo.userlocation.location) === "object" ? JSON.stringify(this.data.userinfo.userlocation.location) : this.data.userinfo.userlocation.location) + "-" + (_typeof(this.data.userinfo.userlocation.sushehao) === "object" ? JSON.stringify(this.data.userinfo.userlocation.sushehao) : this.data.userinfo.userlocation.sushehao) + "</view>\\t\\t\\t</view>\\t\\t\\t<view class='title' style='font-weight:10;line-height:30rpx'>\\t\\t\\t\\t<view class='text-cut'>" + (_typeof(this.data.userinfo.userlocation.name) === "object" ? JSON.stringify(this.data.userinfo.userlocation.name) : this.data.userinfo.userlocation.name) + "-" + (_typeof(this.data.userinfo.userlocation.tell) === "object" ? JSON.stringify(this.data.userinfo.userlocation.tell) : this.data.userinfo.userlocation.tell) + "</view>\\t\\t\\t</view>\\t\\t</view>" : "\\t\\t<view wx:else>\\t\\t\\t<view class='title'>\\t\\t\\t\\t<view class='text-cut text-xl text-black text-bold text-blue'>\\u70B9\\u51FB\\u6DFB\\u52A0\\u5730\\u5740</view>\\t\\t\\t</view>\\t\\t</view>") + "\\t</view></view><view class='cu-card article'>\\t<view class='cu-item shadow' style='margin:10rpx 30rpx;padding-bottom:0'>\\t\\t<view class='title'>\\t\\t\\t<view class='text-cut text text-black'>" + (_typeof(this.data.shop.name) === "object" ? JSON.stringify(this.data.shop.name) : this.data.shop.name) + "</view>\\t\\t</view>\\t\\t" + this.data.buy.buy.map(function (item, index) {
-        return " <view >\\t\\t\\t<view class='padding-xs flex align-center'>\\t\\t\\t\\t<image style='cu-avatar radius lg' src='" + (_typeof(item.img) === "object" ? JSON.stringify(item.img) : item.img) + "' style='font-size: 2em; height: 130rpx; left: 20rpx; width: 130rpx;'></image>\\t\\t\\t\\t<view class='flex-sub' style='padding-left: 30rpx;'>\\t\\t\\t\\t\\t<view class=' text-xl'>\\t\\t\\t\\t\\t\\t<text class='text-black text-bold'>" + (_typeof(item.name) === "object" ? JSON.stringify(item.name) : item.name) + "</text>\\t\\t\\t\\t\\t</view>\\t\\t\\t\\t\\t<view style='font-size: 30rpx;'>\\uFFE5" + (_typeof(item.nowprice) === "object" ? JSON.stringify(item.nowprice) : item.nowprice) + "X" + (_typeof(item.number) === "object" ? JSON.stringify(item.number) : item.number) + "</view>\\t\\t\\t\\t</view>\\t\\t\\t\\t<view class='cu-avatar radius lg' style='background-color: white; font-size: 2em; height: 130rpx; width: 130rpx;'>\\t\\t\\t\\t\\t<text style='color:black;font-size:40rpx'></text>\\t\\t\\t\\t</view>\\t\\t\\t</view>\\t\\t</view>";
-      }) + "\\t\\t<view class='flex title justify-end solids-top' style='font-weight:10'>\\t\\t\\t<view class='text-cut text-xxl'>\\t\\t\\t\\t<text class='text-red text-bold'>\\uFFE5" + (_typeof(this.data.buy.totalprice) === "object" ? JSON.stringify(this.data.buy.totalprice) : this.data.buy.totalprice) + "</text>\\t\\t\\t</view>\\t\\t</view>\\t</view></view><view class='cu-card article'>\\t<view class='cu-item shadow' style='margin:10rpx 30rpx;padding-bottom:0'>\\t\\t<view class='cu-form-group'>\\t\\t\\t<view>\\u9884\\u7EA6\\u60C5\\u51B5</view>\\t\\t\\t<picker bindchange='PickerChange' value='" + (_typeof(this.data.index) === "object" ? JSON.stringify(this.data.index) : this.data.index) + "' range='" + (_typeof(this.data.picker) === "object" ? JSON.stringify(this.data.picker) : this.data.picker) + "'>\\t\\t\\t\\t<view class='picker'>\\t\\t\\t\\t\\t" + (_typeof(this.data.picker[_typeof(this.data.index) === "object" ? JSON.stringify(this.data.index) : this.data.index]) === "object" ? JSON.stringify(this.data.picker[_typeof(this.data.index) === "object" ? JSON.stringify(this.data.index) : this.data.index]) : this.data.picker[_typeof(this.data.index) === "object" ? JSON.stringify(this.data.index) : this.data.index]) + "\\t\\t\\t\\t</view>\\t\\t\\t</picker>\\t\\t</view>\\t</view></view><view class='cu-card article'>\\t<view class='shadow' style='margin:10rpx 60rpx;padding-bottom:0'>\\t\\t<text decode='true'>\\u6CE8\\uFF1A\\u4E0A\\u534811\\u70B9\\u4E4B\\u540E\\u4E0D\\u53EF\\u9884\\u7EA6\\u4ECA\\u5929\\u4E2D\\u5348\\uFF0C&emsp;&emsp;\\u4E0B\\u534817\\u70B9\\u4E4B\\u540E\\u4E0D\\u53EF\\u9884\\u7EA6\\u4ECA\\u5929\\u665A\\u4E0A</text>" + (_typeof(this.data.userinfo.userlocation.school) === "object" ? JSON.stringify(this.data.userinfo.userlocation.school) : this.data.userinfo.userlocation.school == _typeof(this.data.sf) === "object" ? JSON.stringify(this.data.sf) : this.data.sf ? "<text decode='true' >\\u5E08\\u8303:&emsp;&emsp;\\u5468\\u4E00\\u5230\\u5468\\u4E94\\u4E2D\\u5348\\u4E1C\\u95E8\\u81EA\\u53D6&emsp;&emsp;\\u5468\\u4E94\\u4E0B\\u5348\\u5230\\u5468\\u65E5\\u9001\\u5230\\u5BBF\\u820D\\uFF01</text>" : "") + "\\t</view></view><view class='cu-card article'>\\t<view class='cu-item shadow' style='margin:0rpx 30rpx 0 30rpx'>\\t\\t<view class='title'>\\t\\t\\t<view class='text-cut text-xl text-black text-bold'>\\u5907\\u6CE8</view>\\t\\t</view>\\t\\t<view class='cu-form-group'>\\t\\t\\t<textarea bindinput='beizu' style='margin: 0rpx' maxlength='-1' placeholder='\\u8BF7\\u5907\\u6CE8\\u5FCC\\u53E3\\u3001\\u9700\\u6C42'></textarea>\\t\\t</view>\\t</view></view>" + (_typeof(this.data.allok) === "object" ? JSON.stringify(this.data.allok) : this.data.allok ? "<view  class='padding flex flex-direction'>\\t<button bindtap='newpay' class='cu-btn bg-green margin-tb-sm lg'>\\u652F\\u4ED8</button>\\t</view>" : "3");
+      var html = "<view class='bg' style='background-color: #F4F4F4; height: auto; width: 100%;'><view class='dayclock' style='background: #FFFFFF; border-radius: 20rpx; height: auto; margin: 0rpx 30rpx 20rpx 30rpx; position: relative; top: 20rpx; width: 690rpx;'>          <view class='dayclock_title' style='border-bottom: 2rpx solid #E5E5E5; height: 109rpx; width: 100%;'>         <view class='dayclock_column' style='float: left; height: 100%; width: 33.3%;'><image  " + (this.data.dark === 'dark' ? 'style="        filter: invert(80%) !important;      "' : '') + " bindtap='attention' class='dayclock_column_left' src='../images/tishi.png' style='height: 40rpx; padding: 35rpx 0 35rpx 26rpx; width: 40rpx;'></image></view>         <view class='dayclock_column' style='float: left; height: 100%; width: 33.3%;'><view  " + (this.data.dark === 'dark' ? 'style="        filter: invert(1) !important;        color: #fff;      "' : '') + " class='dayclock_column_center' style='color: #666666; font-size: 32rpx; font-weight: 549; padding: 35rpx 0; text-align: center;'>\\u6211\\u7684\\u6BCF\\u65E5\\u6253\\u5361</view></view>         <view class='dayclock_column' style='float: left; height: 100%; width: 33.3%;'><image  " + (this.data.dark === 'dark' ? 'style="        filter: invert(60%) !important;      "' : '') + " class='dayclock_column_right' src='../images/tianjia.png' bindtap='add_task' style='float: right; height: 40rpx; padding: 35rpx 35rpx 35rpx 0; width: 40rpx;'></image></view>     </view>          " + this.data.taskdata.map(function (item, index) {
+        return " <view style='dayclock_data'  wx:key='*this' style='background-color: rgb(255, 255, 255); height: 120rpx; overflow: hidden; position: relative; width: 100%;'>          <view class='dayclock_data_huadong_bg' style='height: 120rpx; position: absolute; width: 100%; z-index: 0;'>          <view  " + (_this.data.dark === 'dark' ? 'style="        filter: invert(90%) !important;        background-color: #fc9090;        /* background-color: gray; */        color: #fff;      "' : '') + " style='dayclock_data_huadong_bg_bg' style='align-items: center; background-color: rgba(255, 0, 0, 0.582); box-sizing: border-box; color: white; display: flex; height: 118rpx; line-height: 152rpx; padding-left: 33rpx; padding-right: 33rpx; position: absolute; right: 0rpx; text-align: center;'><view id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' class='dayclock_data_huadong_bg_del' catchtap='daka_delpromp'>\\u5220\\u9664</view></view>     </view>          <view style='dayclock_data_huadong' bindtouchstart='touchstartX' bindtap='resetX' bindtouchmove='touchmoveX' bindtouchend='touchendX' animation='" + (_typeof(_this.data.currentIndex) === "object" ? JSON.stringify(_this.data.currentIndex) : _this.data.currentIndex === (typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index ? _typeof(_this.data.animation) === "object" ? JSON.stringify(_this.data.animation) : _this.data.animation : "") + "' data-index='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' style='background-color: #fff; height: 100rpx; padding: 10rpx 0 10rpx 0; position: absolute; width: 100%; z-index: 999;'><view class='border'>                    <view id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' data-id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' style='" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? "wx&class                       ;                            float                     :                      left                      ;                            height                     :                      90rpx                      ;                            width                     :                     100  %                        ;                            background-color                     :                      #fff                      ;                            border-radius                     :                      0px 45px 45px 0px                      ;                            overflow                     :                      hidden                      ;                            position                     :                      absolute                      ;                                /        *     top                     :                      0                      ;                           *        /          color                     :                      #fff                      ;                            margin                     :                      7rpx 0                      ;                          " : "wx&class                       ;                            float                     :                      left                      ;                            height                     :                      90rpx                      ;                            width                     :                     100  %                        ;                            background-color                     :                      #74D5D3                      ;                            border-radius                     :                      0px 45px 45px 0px                      ;                            overflow                     :                      hidden                      ;                            position                     :                      absolute                      ;                                /        *     top                     :                      0                      ;                           *        /          color                     :                      #fff                      ;                            margin                     :                      7rpx 0                      ;                          ") + "' style='left: " + -(_typeof(_this.data.w) === "object" ? JSON.stringify(_this.data.w) : _this.data.w + 2) + "px; transform: " + (_typeof(_this.data.currentIndex) === "object" ? JSON.stringify(_this.data.currentIndex) : _this.data.currentIndex == (typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index ? _typeof(_this.data.cssAnimation) === "object" ? JSON.stringify(_this.data.cssAnimation) : _this.data.cssAnimation : "") + ";background:" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? " # fff" : "") + ";'>               <text>" + (_typeof(_this.data.succeedMsg) === "object" ? JSON.stringify(_this.data.succeedMsg) : _this.data.succeedMsg) + "</text>                              <view id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' style='background:" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? " # fff" : "") + ";' style='" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? "wx&class                       ;                            width                     :                      145rpx                      ;                            height                     :                      90rpx                      ;                            background                     :                      #fff                      ;                            border-radius                     :                      0px 45px 45px 0px                      ;                               display                     :                      flex                      ;                            align-items                     :                      center                      ;                            justify-content                     :                      center                      ;                            position                     :                      absolute                      ;                            right                     :                      0                      ;                            top                     :                      0                      ;                          " : "wx&class                       ;                            width                     :                      145rpx                      ;                            height                     :                      90rpx                      ;                            background                     :                      #74D5D3                      ;                            border-radius                     :                      0px 45px 45px 0px                      ;                               display                     :                      flex                      ;                            align-items                     :                      center                      ;                            justify-content                     :                      center                      ;                            position                     :                      absolute                      ;                            right                     :                      0                      ;                            top                     :                      0                      ;                          ") + "' catchtouchstart='startFun' catchtouchmove='moveFun' catchtouchend='endFun'>               <image src='" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? "..    /    images    /    complete.png" : "..    /    images    /    right.png") + " '></image>               </view>          </view>                           <view style='dayclock_data_column_3' style='float: right; height: 100rpx; width: 22.9%;'><view class='" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? "wx&class           ;                font-size         :          38rpx          ;                font-weight         :          800          ;                color         :          #74D5D3          ;                line-height         :          100rpx          ;              " : "wx&class           ;                font-size         :          36rpx          ;                font-weight         :          800          ;                color         :          #F7ECCE          ;                line-height         :          100rpx          ;              ") + "'>" + (_typeof(item.task_isDaka) === "object" ? JSON.stringify(item.task_isDaka) : item.task_isDaka == _typeof(_this.data.true) === "object" ? JSON.stringify(_this.data.true) : _this.data.true ? "已完成" : "待完成") + "</view></view>                  <view class='dayclock_data_column_2' style='float: right; height: 100rpx; width: 55%;'>              <view  " + (_this.data.dark === 'dark' ? 'style="        filter: invert(1) !important;        color: #fff;      "' : '') + " style='dayclock_data_column_2_task' data-task='" + (_typeof(item.task_name) === "object" ? JSON.stringify(item.task_name) : item.task_name) + "' bindtap='12345' style='color: #666666; font-family: Source Han Sans CN; font-size: 25rpx; font-weight: 600; margin: 13rpx auto 0 22rpx;'>" + (_typeof(item.task_name) === "object" ? JSON.stringify(item.task_name) : item.task_name) + "</view>              <view class='dayclock_data_column_2_cycle' style='color: #666666; font-family: Source Han Sans CN; font-size: 18rpx; font-weight: 500; margin: 6rpx auto 6rpx 22rpx; padding: 6rpx auto 6rspx 22rpx;'>                   <view class='dayclock_data_column_2_cycle_week' style='color: #a8a8a8; float: left; padding-right: 20rpx; width: auto;'>" + (_typeof(item.task_cycle) === "object" ? JSON.stringify(item.task_cycle) : item.task_cycle) + "</view>                   <view class='dayclock_data_column_2_cycle_time' style='color: #a8a8a8; float: left; width: auto;'>" + (_typeof(item.task_start_time) === "object" ? JSON.stringify(item.task_start_time) : item.task_start_time) + "</view>                   <view class='dayclock_data_column_2_cycle_time' style='color: #a8a8a8; float: left; width: auto;'>- " + (_typeof(item.task_end_time) === "object" ? JSON.stringify(item.task_end_time) : item.task_end_time) + "</view>              </view>         </view>     </view></view>     </view>";
+      }) + "     <view class='dayclock_bottom' style='height: 30rpx;'></view></view></view>" + (_typeof(this.data.showModel2) === "object" ? JSON.stringify(this.data.showModel2) : this.data.showModel2 ? "<view style='complete'  style='bottom: 0; font-family: unset; left: 0; position: fixed; right: 0; top: 0; z-index: 9999;'>     <view  " + (this.data.dark === 'dark' ? 'style="        filter: invert(90%) !important;      "' : '') + " class='complete_bg' style='background-color: rgba(0, 0, 0, 0.349); bottom: 0; font-family: unset; height: 100%; left: 0; opacity: 0.6; position: fixed; right: 0; top: 0; z-index: 9999;'></view>     <view class='complete_share' style='height: 705rpx; left: 93rpx; position: fixed; top: 200rpx; width: 560rpx; z-index: 99999;'>          <canvas  " + (this.data.dark === 'dark' ? 'style="        filter: invert(1) !important;      "' : '') + " type='2d' class='complete_share_image' id='shareCanvas' style='background-repeat: no-repeat; background-size: 100% 100%; border-radius: 40rpx; height: 100%; width: 100%;'></canvas>          <view class='complete_share_box' style='align-items: center; display: flex; flex-direction: column; height: 23%; justify-content: center; width: 100%;'>               <view  " + (this.data.dark === 'dark' ? 'style="        filter: invert(90%) !important;        background: rgb(172, 211, 254);        color: #fff;      "' : '') + " class='complete_share_box_button' bindtap='savecanvas' style='background-color: #dadada; border-radius: 50rpx; color: #fff; height: 90rpx; line-height: 90rpx; margin: 10rpx; text-align: center; width: 450rpx;'>\\u6821\\u53CB\\u5708\\u4E00\\u952E\\u5206\\u4EAB</view>                         </view>     </view>     <image class='complete_share_close' bindtap='complete_share_close' src='../images/close.png' style='height: 70rpx; left: 338rpx; position: fixed; top: 1060rpx; width: 70rpx; z-index: 99999;'></image></view>" : "") + (_typeof(this.data.showModel3) === "object" ? JSON.stringify(this.data.showModel3) : this.data.showModel3 ? "<view style='attention' >     <view  " + (this.data.dark === 'dark' ? 'style="        filter: invert(90%) !important;      "' : '') + " class='attention_bg' style='background-color: rgba(0, 0, 0, 0.349); bottom: 0; font-family: unset; height: 100%; left: 0; opacity: 0.6; position: fixed; right: 0; top: 0; z-index: 9999;'></view>     <view class='attention_text' style='background-color: #fff; border-radius: 40rpx; left: 88rpx; padding-bottom: 30rpx; position: fixed; top: 200rpx; width: 570rpx; z-index: 99999;'>          <view class='attention_text_title' style='margin: 40rpx auto; text-align: center;'>\\u4F7F\\u7528\\u6CE8\\u610F</view>          <view class='attention_text_duanluo' style='margin: 10rpx 40rpx; text-align: justify;'>               <view style='line-height: 75rpx;'>1.\\u5F53\\u65B0\\u5EFA\\u4E00\\u4E2A\\u6253\\u5361\\u4EFB\\u52A1\\u65F6\\uFF0C\\u9664\\u4E86\\u70ED\\u5EA6\\u699C\\u91CC\\u7684\\u6807\\u7B7E\\u53EF\\u81EA\\u884C\\u9009\\u62E9\\u4E4B\\u5916\\uFF0C\\u5176\\u4ED6\\u8BB0\\u5F55\\u6253\\u5361\\u7684\\u4FE1\\u606F\\u90FD\\u8981\\u586B\\u5199\\u3002</view>               <view style='line-height: 75rpx;'>2.\\u5BF9\\u4E8E\\u540C\\u4E00\\u4EFB\\u52A1\\uFF0C\\u4E0D\\u80FD\\u4E00\\u5929\\u6253\\u5361\\u4E24\\u6B21\\u6216\\u4EE5\\u4E0A\\u3002</view>               <view style='line-height: 75rpx;'>\\u6CE8\\u610F\\u4E8B\\u9879\\uFF1A\\u5982\\u53D1\\u751F\\u663E\\u793A\\u95EE\\u9898\\uFF0C\\u8BF7\\u5C1D\\u8BD5\\u7740\\u5237\\u65B0\\u9875\\u9762\\u91CD\\u65B0\\u52A0\\u8F7D\\u3002</view>               </view>     </view>     <image class='attention_close' src='../images/close.png' bindtap='attention' style='height: 70rpx; left: 338rpx; position: fixed; top: 1000rpx; width: 70rpx; z-index: 99999;'></image></view>" : "2") + "<!-- <view>  <image  " + (this.data.dark === 'dark' ? 'style="        filter: invert(0) !important;        color: blanchedalmond;        position: fixed;        bottom: 600rpx;        right: 25rpx;        opacity: 0;        z-index: 999;      "' : '') + " src='../images/rank.png' style='img-style' animation='" + (_typeof(this.data.animCollect) === "object" ? JSON.stringify(this.data.animCollect) : this.data.animCollect) + "' bindtap='collect'></image>  <image  " + (this.data.dark === 'dark' ? 'style="        filter: invert(0) !important;        color: blanchedalmond;        position: fixed;        bottom: 600rpx;        right: 25rpx;        opacity: 0;        z-index: 999;      "' : '') + " src='../images/time.png' style='img-style' animation='" + (_typeof(this.data.animTranspond) === "object" ? JSON.stringify(this.data.animTranspond) : this.data.animTranspond) + "' bindtap='transpond'></image>  <image  " + (this.data.dark === 'dark' ? 'style="        filter: invert(0) !important;        color: blanchedalmond;        position: fixed;        bottom: 600rpx;        right: 25rpx;        opacity: 0;        z-index: 999;      "' : '') + " src='../images/log.png' style='img-style' animation='" + (_typeof(this.data.animInput) === "object" ? JSON.stringify(this.data.animInput) : this.data.animInput) + "' bindtap='input'></image>  <image  " + (this.data.dark === 'dark' ? 'style="        filter: invert(0) !important;        color: black;        position: fixed;        bottom: 600rpx;        right: 50rpx;        z-index: 999;      "' : '') + " src='../images/time_2.png' style='img-plus-style' animation='" + (_typeof(this.data.animPlus) === "object" ? JSON.stringify(this.data.animPlus) : this.data.animPlus) + "' bindtap='plus'></image>  <text  " + (this.data.dark === 'dark' ? 'style="        position: fixed;        bottom: 550rpx;        right: 70rpx;      "' : '') + " class='text_time'>\\u8BA1\\u65F6</text></view> -->";
       this.setData({ html: this.parse(html) });
     },
 
-    data: {
-      shop: { name: '' },
-      buy: { buy: [] },
-      allok: false,
-      sf: "师范(目前东门自取)",
-      freepay: false,
-      index: '0',
-      beizu: '',
-      picker: ['预约今天中午', '预约今天晚上', '预约明天中午', '预约明天晚上'],
-      userinfo: { userlocation: {} }
+    /**
+     * 页面的初始数据
+     */
+    data: {},
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function onLoad(options) {
+      var _this2 = this;
+
+      options = this.options;this.data.dark = wx.getSystemInfoSync().theme;wx.onThemeChange(function (e) {
+        console.log(e.theme);_this2.setdata({ dark: e.theme });
+      });this.setdata();
+      // wx.navigateTo({
+      //   url: '/pages/HOT/HotTop/HotTop?content=测试',
+      // })
     },
 
-    onShow: function onShow(options) {
-      wx.showLoading({
-        mask: true,
-        title: '获取订单信息...'
-      });
-      var self = this;
-      db.collection('zzzTEXT').doc('test').get().then(function (res) {
-        console.log(res.data.freepay);
-        self.setdata({
-          freepay: res.data.freepay
-        });
-      });
-      wx.cloud.callFunction({
-        // 要调用的云函数名称
-        name: 'time',
-        config: {
-          env: 'mall-7gi19fir46652cb4'
-        },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function onReady() {},
 
-        // 传递给云函数的参数
-        data: {},
-        success: function success(res) {
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function onShow() {},
 
-          var nowtime = dayjs(res.result.time).format('HH:mm');
-          console.log(11);
-          if (nowtime < "11") {
-            self.setdata({
-              oldindex: '0',
-              index: '0'
-            });
-          }
-          console.log(12);
-          if (nowtime >= "11" && nowtime < "17") {
-            self.setdata({
-              oldindex: '1',
-              index: '1'
-            });
-          }
-          console.log(13);
-          if (nowtime >= "17") {
-            self.setdata({
-              oldindex: '2',
-              index: '2'
-            });
-          }
-          console.log(11);
-          wx.getStorage({
-            key: 'userinfo',
-            success: function success(res) {
-              wx.getStorage({
-                key: 'pay',
-                success: function success(pay) {
-                  wx.getStorage({
-                    key: 'shop',
-                    success: function success(shop) {
-                      console.log(shop.data, 233);
-                      console.log(pay.data);
-                      self.setdata({
-                        shop: shop.data,
-                        userinfo: res.data,
-                        buy: pay.data
-                      });
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function onHide() {},
 
-                      wx.hideLoading();
-                      self.setdata({
-                        allok: true
-                      });
-                    }
-                  });
-                }
-              });
-            }
-          });
-        },
-        fail: function fail(err) {
-          // this.onShow();
-        },
-        complete: function complete() {
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function onUnload() {},
 
-          // ...
-        }
-      });
-    },
-    /* onShow(e) {
-      var self = this
-      wx.showLoading({
-        mask:true,
-        title: '加载中...',
-      })
-      
-    }, */
-    /* 备注 */
-    beizu: function beizu(e) {
-      this.setdata({
-        beizu: e.detail.value
-      });
-    },
-    PickerChange: function PickerChange(e) {
-      console.log(e);
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function onPullDownRefresh() {},
 
-      console.log(e.detail.value);
-      var oldindex = this.data.oldindex;
-      console.log("old:" + oldindex);
-      if (oldindex <= e.detail.value) {
-        console.log("更新");
-        this.setdata({
-          index: e.detail.value
-        });
-      } else {
-        wx.showToast({
-          icon: "none",
-          title: '不在规定时间内'
-        });
-      }
-    },
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function onReachBottom() {},
 
-    /* 地址设置 */
-    location: function location(e) {
-      wx.navigateTo({
-        url: '../HotTop/HotTop?content=地址&pay=' + true
-      });
-    },
-    testpay: function testpay(e) {
-      wx.showLoading({
-        mask: true,
-        title: '正在调起支付...'
-      });
-      var self = this;
-      var shopdayin = self.data.dayin;
-      var shop_id = self.data.shop._id; //商铺编号
-      var shopid = self.data.shop.shopid; //商铺编号
-      var shopname = self.data.shop.name; //商铺名称
-      var totalprice = parseFloat(self.data.buy.totalprice).toFixed(2);
-      var aaaa = totalprice.split(".");
-      var price = aaaa[0] + aaaa[1];
-      var outTradeNo = shopid + 'A' + price + "F" + new Date().getTime(); //商户订单号
-      var userinfo = self.data.userinfo;
-      var buy = self.data.buy.buy; //商品内容
-      var totalnumber = self.data.buy.totalnumber; //商品数量
-      //商品价格
-      var day = dayjs().format('YYYY-MM-DD');
-      if (self.data.index > 1) {
-        var day = dayjs().add(1, 'day').format('YYYY-MM-DD');
-      } else {}
-      var yuyue = self.data.picker[self.data.index]; //预约情况
-      var beizu = self.data.beizu; //备注
-      var xxlocation = userinfo.userlocation.location + '-' + userinfo.userlocation.sushehao + '-' + userinfo.userlocation.name + '-' + userinfo.userlocation.tell;
-      if (userinfo.userlocation.tell) {
-        var dingdan = {
-          go: 0, //出单情况  0待出  1已出单
-          day: day, //下单所属日期，预约明天天数加一
-          upday: dayjs().format('YYYY-MM-DD'), //下单日期
-          uptime: dayjs().format('HH:mm:ss'), //下单时间
-          outTradeNo: outTradeNo, //商户订单号
-          school: userinfo.userlocation.school, //地址
-          location: userinfo.userlocation.location, //地址
-          sushehao: userinfo.userlocation.sushehao,
-          name: userinfo.userlocation.name,
-          tell: userinfo.userlocation.tell,
-          shopid: shopid, //商家id
-          shopname: shopname, //商家名字
-          buy: buy, //商品
-          yuyue: yuyue, //预约情况
-          beizu: beizu, //备注
-          totalnumber: totalnumber, //总件数
-          totalprice: parseFloat(parseFloat(totalprice).toFixed(2)) //总价
-        };
-
-        db.collection('dindan').add({
-          data: dingdan,
-          success: function success(res) {
-            wx.cloud.callFunction({
-              // 要调用的云函数名称
-              name: 'goodsyuenumber',
-              config: {
-                env: 'mall-7gi19fir46652cb4'
-              },
-              // 传递给云函数的event参数
-              data: {
-                shopid: shop_id,
-                buy: buy
-              }
-            }).then(function (res) {
-              /* util.test(shopdayin,dingdan,shopname) */
-              console.log(res);
-            }).catch(function (err) {
-              console.log(err);
-            });
-
-            /* wx.cloud.callFunction({
-              // 要调用的云函数名称
-              name: 'goodsdaynumber',
-              // 传递给云函数的event参数
-              data: {
-                shopid: shop_id,
-                buy: buy
-              }
-            }).then(res => {
-              
-            }).catch(err => {
-              console.log(err)
-            }) */
-            wx.hideLoading();
-            wx.reLaunch({
-              url: '../HotTop/HotTop?content=商场&shop_id=' + shop_id
-            });
-          },
-          fail: console.error,
-          complete: console.log
-        });
-      } else {
-        wx.showToast({
-          icon: "none",
-          title: '请添加送餐地址'
-        });
-      }
-      console.log(dingdan);
-    },
-    pay: function pay(e) {
-      wx.showLoading({
-        mask: true,
-        title: '正在调起支付...'
-      });
-      var self = this;
-      var num = self.createNonceStr();
-      var shopdayin = self.data.dayin;
-      var shop_id = self.data.shop._id; //商铺编号
-      var shopid = self.data.shop.shopid; //商铺编号
-      var shopname = self.data.shop.name; //商铺名称
-      var totalprice = parseFloat(self.data.buy.totalprice).toFixed(2); //商品价格
-      var aaaa = totalprice.split(".");
-      var price = aaaa[0] + aaaa[1];
-      var timeStamp = new Date().getTime();
-      var outTradeNo = shopid + 'A' + price + "F" + num; //商户订单号
-      console.log();
-      var userinfo = self.data.userinfo;
-      var buy = self.data.buy.buy; //商品内容
-      var totalnumber = self.data.buy.totalnumber; //商品数量
-      if (self.data.index > 1) {
-        var day = dayjs().add(1, 'day').format('YYYY-MM-DD');
-      } else {
-        var day = dayjs().format('YYYY-MM-DD');
-      }
-      var yuyue = self.data.picker[self.data.index]; //预约情况
-      var beizu = self.data.beizu; //备注
-      var xxlocation = userinfo.userlocation.location + '-' + userinfo.userlocation.sushehao + '-' + userinfo.userlocation.name + '-' + userinfo.userlocation.tell;
-      console.log(userinfo.userlocation.tell);
-      console.log(xxlocation.length);
-      if (userinfo.userlocation.tell) {
-        var dingdan = {
-          go: 0, //出单情况  0待出  1已出单
-          day: day, //下单所属日期，预约明天天数加一
-          upday: dayjs().format('YYYY-MM-DD'), //下单日期
-          uptime: dayjs().format('HH:mm:ss'), //下单时间
-          outTradeNo: outTradeNo, //商户订单号
-          school: userinfo.userlocation.school, //地址
-          location: userinfo.userlocation.location, //地址
-          sushehao: userinfo.userlocation.sushehao,
-          name: userinfo.userlocation.name,
-          tell: userinfo.userlocation.tell,
-          shopid: shopid, //商家id
-          shopname: shopname, //商家名字
-          buy: buy, //商品
-          yuyue: yuyue, //预约情况
-          beizu: beizu, //备注
-          totalnumber: totalnumber, //总件数
-          totalprice: parseFloat(parseFloat(totalprice).toFixed(2)) //总价
-        };
-
-        wx.cloud.callFunction({
-          name: 'pay',
-          config: {
-            env: 'mall-7gi19fir46652cb4'
-          },
-          data: {
-            beizu: beizu,
-            yuyue: yuyue,
-            buy: buy,
-            shangpuname: shopname,
-            outTradeNo: outTradeNo,
-            price: price
-          },
-          success: function success(res) {
-            wx.hideLoading();
-            console.log('获取支付参数成功：', res);
-            var payment = res.result.payment;
-            console.log('获取支付参数成功：', payment);
-
-            wx.requestPayment(Object.assign(payment, {
-              success: function success(res) {
-                console.log('支付成功：', res);
-                db.collection('dindan').add({
-                  data: dingdan,
-                  success: function success(res) {
-                    wx.cloud.callFunction({
-                      // 要调用的云函数名称
-                      name: 'goodsyuenumber',
-                      config: {
-                        env: 'mall-7gi19fir46652cb4'
-                      },
-                      // 传递给云函数的event参数
-                      data: {
-                        shopid: shop_id,
-                        buy: buy
-                      }
-                    }).then(function (res) {
-                      wx.showToast({
-                        title: '成功',
-                        icon: 'success',
-                        duration: 2000
-                      });
-                      setTimeout(function () {
-                        wx.reLaunch({
-                          url: '../HotTop/HotTop?content=商场&shop_id=' + shop_id
-                        });
-                      }, 1500);
-                      wx.hideLoading();
-                    }).catch(function (err) {
-                      console.log(err);
-                    });
-                    /* util.test(shopdayin,dingdan,shopname) */
-                  },
-                  fail: console.error,
-                  complete: console.log
-                });
-              },
-              fail: function fail(err) {
-                console.error('支付失败：', err);
-              }
-            }));
-          },
-          fail: function fail(res) {
-            console.log('获取支付参数失败：' + res);
-          }
-        });
-      } else {
-        wx.hideLoading();
-        wx.showToast({
-          icon: "none",
-          title: '请添加送餐地址'
-        });
-      }
-    },
-    newpay: function newpay(e) {
-      wx.showLoading({
-        mask: true,
-        title: '正在调起支付...'
-      });
-      var self = this;
-      var num = self.createNonceStr();
-      var shopdayin = self.data.dayin;
-      var shop_id = self.data.shop._id; //商铺编号
-      var shopid = self.data.shop.shopid; //商铺编号
-      var shopname = self.data.shop.name; //商铺名称
-      var totalprice = parseFloat(self.data.buy.totalprice).toFixed(2); //商品价格
-      var aaaa = totalprice.split(".");
-      var price = aaaa[0] + aaaa[1];
-      var timeStamp = new Date().getTime();
-      var outTradeNo = "A" + timeStamp + "F" + num; //商户订单号
-      console.log(outTradeNo);
-      var userinfo = self.data.userinfo;
-      var buy = self.data.buy.buy; //商品内容
-      var totalnumber = self.data.buy.totalnumber; //商品数量
-      var day = dayjs().format('YYYY-MM-DD');
-      if (self.data.index > 1) {
-        var day = dayjs().add(1, 'day').format('YYYY-MM-DD');
-      } else {}
-      var yuyue = self.data.picker[self.data.index]; //预约情况
-      var beizu = self.data.beizu; //备注
-      var xxlocation = userinfo.userlocation.location + '-' + userinfo.userlocation.sushehao + '-' + userinfo.userlocation.name + '-' + userinfo.userlocation.tell;
-      console.log(userinfo.userlocation.tell);
-      console.log(xxlocation.length);
-      if (userinfo.userlocation.tell) {
-        var dingdan = {
-          _id: outTradeNo,
-          go: 0, //出单情况  0待出  1已出单
-          day: day, //下单所属日期，预约明天天数加一
-          upday: dayjs().format('YYYY-MM-DD'), //下单日期
-          uptime: dayjs().format('HH:mm:ss'), //下单时间
-          outTradeNo: outTradeNo, //商户订单号
-          location: userinfo.userlocation.location, //地址
-          school: userinfo.userlocation.school,
-          sushehao: userinfo.userlocation.sushehao,
-          name: userinfo.userlocation.name,
-          tell: userinfo.userlocation.tell,
-          shopid: shopid, //商家id
-          shopname: shopname, //商家名字
-          buy: buy, //商品
-          yuyue: yuyue, //预约情况
-          beizu: beizu, //备注
-          totalnumber: totalnumber, //总件数
-          totalprice: parseFloat(parseFloat(totalprice).toFixed(2)) //总价
-        };
-        db.collection('zdindan').add({
-          data: dingdan,
-          success: function success(res) {
-            wx.cloud.callFunction({
-              name: 'newpay',
-              config: {
-                env: 'mall-7gi19fir46652cb4'
-              },
-              data: {
-                buy: buy,
-                dingdan: dingdan,
-                shangpuname: shopname,
-                outTradeNo: outTradeNo,
-                price: price
-              },
-              success: function success(res) {
-                wx.hideLoading();
-                console.log('获取支付参数成功：', res);
-                var payment = res.result.payment;
-                console.log('获取支付参数成功：', payment);
-                wx.requestPayment(Object.assign(payment, {
-                  success: function success(res) {
-                    console.log('支付成功：', res);
-                    db.collection('dindan').where({
-                      _id: outTradeNo
-                    }).count().then(function (res) {
-                      console.log(res.total);
-                      if (res.total == 0) {
-                        db.collection('dindan').add({
-                          data: dingdan,
-                          success: function success(res) {
-                            wx.cloud.callFunction({
-                              // 要调用的云函数名称
-                              name: 'goodsyuenumber',
-                              config: {
-                                env: 'mall-7gi19fir46652cb4'
-                              },
-                              // 传递给云函数的event参数
-                              data: {
-                                shopid: shop_id,
-                                buy: buy
-                              }
-                            }).then(function (res) {
-                              wx.showToast({
-                                title: '成功',
-                                icon: 'success',
-                                duration: 2000
-                              });
-                              setTimeout(function () {
-                                wx.reLaunch({
-                                  url: '../HotTop/HotTop?content=商场&shop_id=' + shop_id
-                                });
-                              }, 1500);
-                              wx.hideLoading();
-                            }).catch(function (err) {
-                              console.log(err);
-                            });
-                            /* util.test(shopdayin,dingdan,shopname) */
-                          },
-                          fail: console.error,
-                          complete: console.log
-                        });
-                      }
-                    });
-                  },
-                  fail: function fail(err) {
-                    db.collection('zdindan').doc(outTradeNo).remove().then(console.log).catch(console.error);
-                    wx.hideLoading();
-                    console.error('支付失败：', err);
-                  }
-                }));
-              },
-              fail: function fail(res) {
-                db.collection('zdindan').doc(outTradeNo).remove().then(console.log).catch(console.error);
-                wx.hideLoading();
-                console.log('获取支付参数失败：' + res);
-              }
-            });
-          },
-          fail: function fail(res) {
-            wx.hideLoading();
-            console.log('获取支付参数失败：' + res);
-          },
-          complete: console.log
-        });
-      } else {
-        wx.hideLoading();
-        wx.showToast({
-          icon: "none",
-          title: '请添加送餐地址'
-        });
-      }
-    },
-
-
-    createNonceStr: function createNonceStr() {
-      var str = "",
-          range = 7,
-          //min
-      arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
-      // 随机产生
-      /* if (true) {
-        range = Math.round(Math.random() * (36 - 20)) + 20;
-      } */
-      for (var i = 0; i < range; i++) {
-        var pos = Math.round(Math.random() * (arr.length - 1));
-        str += arr[pos];
-      }
-      return str;
-    }
-
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function onShareAppMessage() {}
   });
 }
 module.exports = runCode;

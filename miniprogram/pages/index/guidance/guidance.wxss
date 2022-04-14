@@ -1,6 +1,7 @@
 /* pages/index/guidance/guidance.wxss */
 page{
     background-color:  #f7e0d8;
+    background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) );
 }
 .btn{
     z-index: 999;
@@ -49,15 +50,18 @@ page{
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-image: linear-gradient( #b4e6fb , #b6e7fb); */
     /* justify-content: center; */
 }
 .tittlebox{
-    background: #fff;
-    width: 500rpx;
+    /* background: #fff; */
+    width: 425rpx;
     height: 150rpx;
+    position: absolute;
+    z-index: 9;
 }
 .topbox{
-    margin-top: 20rpx;
+    margin-top: 95rpx;
     width: 680rpx;
     height: 480rpx;
     background: #fff;
@@ -73,10 +77,12 @@ page{
     height: 60rpx;
     text-align: center;
     line-height: 60rpx;
-    background: #e87a57;
+    background: #b4e6fb;
+    /* background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) ); */
     font-size: 25rpx;
     color: #fff;
     margin-top: 60rpx;
+    position: relative;
 }
 .topbox_text{
     line-height: 39rpx;
@@ -86,6 +92,7 @@ page{
     width: 600rpx;
     height: auto;
     text-align: left;
+    z-index: 9;
 }
 .topbox_right_ring{
     position: absolute;
@@ -112,7 +119,7 @@ page{
 .bottombox{
     margin-top: 40rpx;
     width: 680rpx;
-    height: 900rpx;
+    height: auto;
     background: #fff;
     border-radius: 10rpx;
     box-shadow: 0 0 3rpx 0rpx gray;
@@ -126,10 +133,12 @@ page{
     height: 60rpx;
     text-align: center;
     line-height: 60rpx;
-    background: #e87a57;
+    background: #b4e6fb;
+    /* background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) ); */
     font-size: 25rpx;
     color: #fff;
     margin-top: 60rpx;
+    position: relative;
 }
 .bottombox_string{
     /* padding-top: 30rpx; */
@@ -209,4 +218,20 @@ page{
     width: 600rpx;
     height: auto;
     border: 1rpx solid #f1f1f1;
+}
+.leftsanjiao{
+    z-index: 99;
+    width:0px;
+    height:0px;
+    border-width:6px;
+    border-style:solid;
+    border-color:transparent transparent  transparent #fff;
+}
+.rightsanjiao{
+    z-index: 99;
+    width:0px;
+    height:0px;
+    border-width:6px;
+    border-style:solid;
+    border-color:transparent #fff transparent  transparent ;
 }
