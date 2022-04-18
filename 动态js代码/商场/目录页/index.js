@@ -24,20 +24,31 @@ Page({
       title: '加载中...',
       mask: true
     });
-    db.collection('shop_m').orderBy('sort', 'desc').get().then(res => {
-      that.setData({
-        shop_m: res.data
-      })
-      console.log(that.data.shop_m)
-      wx.hideLoading({})
-
+    wx.cloud.callFunction({
+      name: 'shopList',
+      env:'mall-7gi19fir46652cb4',
+      success: res => {
+        that.setData({
+          shop_m: res.result.data
+        })
+        wx.hideLoading({})
+      },
+      fail: res => {
+        console.log(res)
+        wx.showToast({
+          icon: 'none',
+          title: "请求错误",
+        })
+      }
     })
+ 
   },
 
   ss: function (e) {
     var that = this;
     console.log(e.detail.value)
-    db.collection('shop_m').where(_.or([{
+    db.collection('shop_m').where(
+      _.or([{
         name: db.RegExp({
           regexp: e.detail.value,
           options: 'i',
@@ -49,7 +60,7 @@ Page({
           options: 'i',
         })
       }
-    ])).orderBy('sort', 'desc').get().then(res => {
+    ])).where({'show':true}).orderBy('sort', 'desc').get().then(res => {
       that.setData({
         shop_m: res.data
       })
