@@ -210,31 +210,9 @@ Page({
   onUnload: function () {
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];
-    if(!!this.data.cardList[this.data.contentIndex] && this.data.out!=true){
-      console.log("enen");
-      prevPage.setData({ 
-        manNum:this.data.cardList[this.data.contentIndex].manNum,
-        womanNum:this.data.cardList[this.data.contentIndex].womanNum,
-        commentList:this.data.cardList[this.data.contentIndex].commentList,
-        my_id:this.data.cardList[this.data.contentIndex]._id
-      })
-    }else{
-      if(this.data.delCard===true){
-        prevPage.setData({ 
-          delCard:this.data.delCard,
-          my_id:this.data.my_id
-        })
-      }
-      if(this.data.out===true){
-        console.log("2333");
-        prevPage.setData({ 
-          manNum:this.data.manNum,
-          womanNum:this.data.womanNum,
-          commentList:this.data.commentList,
-          my_id:this.data.my_id
-        })
-      }
-    }
+    prevPage.setData({ 
+      enterMe:true
+    })
 
   },
 

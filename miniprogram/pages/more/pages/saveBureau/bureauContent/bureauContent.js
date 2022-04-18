@@ -530,7 +530,7 @@ Page({
       womanNum:this.data.womanNum,
       commentList:this.data.commentList,
       delCard:this.data.delCard,
-      my_id:this.data._id
+      my_id:this.data._id,
     })
   },
 

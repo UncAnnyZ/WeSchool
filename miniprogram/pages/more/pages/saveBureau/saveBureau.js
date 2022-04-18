@@ -42,7 +42,6 @@ Page({
     label:null,
     contentIndex:0,
     enterMe:false,
-    timer: ''
   },
   toMyjoined(){
     this.setData({
@@ -59,7 +58,7 @@ Page({
     })
   },
   chooseLabel(e){
-    var index = e.currentTarget.id
+    var index = parseInt(e.currentTarget.id)
     var getIndex=this.data.arry.findIndex(item => item.type===1)    //---判断arry数组里面有没有标签已被选择，没有则getIndex=-1，有则返回已选择的标签索引
     this.data.currentPage=0     //----切换标签对页面进行初始化
     this.data.cardList=[]       //----切换标签对页面进行初始化
@@ -71,7 +70,7 @@ Page({
       }], 200)
       this.data.arry[getIndex].type = 0
       this.data.label=null
-      if(getIndex===parseInt(index)){
+      if(getIndex===index){
         this.readData()
         return
       }
@@ -92,8 +91,6 @@ Page({
       if (!!item) {
         item.time = util.timeago(item.time, 'Y年M月D日')
         var length=item.manNum.length+item.womanNum.length
-        console.log(length);
-        console.log(item.manNum);
         var man2 = item.manNum.filter((num) => {
           return num!=1;
         });
@@ -218,31 +215,26 @@ Page({
    */
   onShow: function () {
     var index=this.data.contentIndex
-    console.log("this.data.my_id",this.data.my_id);
     if(this.data.enterMe===true ){
-      if(this.data.delCard===true){
-        this.data.cardList.splice(this.data.cardList.findIndex(item => item._id === this.data.my_id), 1)
-        this.data.delCard=false
-      }
-      this.data.cardList.forEach(item => {
-        if(item._id===this.data.my_id){
-          item.manNum=this.data.manNum
-          item.womanNum=this.data.womanNum
-          item.commentList=this.data.commentList
-        }
-      })
+      this.data.cardList=[]
+      this.data.currentPage=0
+      this.readData()
+      this.data.enterMe=null
     }else{
-      if(this.data.manNum || this.data.womanNum){
-        this.data.cardList[index].manNum=this.data.manNum
-        this.data.cardList[index].womanNum=this.data.womanNum
-        this.data.cardList[index].commentList=this.data.commentList
-      }
-      if(this.data.delCard===true){
-        this.data.cardList.splice(index,1)
-      }
       if(this.data.addData){
         this.data.addData._id=this.data.res
         this.data.cardList.push(this.data.addData)
+        console.log("this.data.cardList",this.data.cardList);
+      }else{
+        if(this.data.manNum || this.data.womanNum){
+          this.data.cardList[index].manNum=this.data.manNum
+          this.data.cardList[index].womanNum=this.data.womanNum
+          this.data.cardList[index].commentList=this.data.commentList
+        }
+        if(this.data.delCard===true){
+          this.data.cardList.splice(index,1)
+          this.data.delCard=false
+        }
       }
       this.data.addData=null
     }
