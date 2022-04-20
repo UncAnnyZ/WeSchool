@@ -48,7 +48,7 @@ Page({
     ],
     whichWeek: '0',
     wlist: [],
-    dayOfWeek: (new Date()).getDay(),
+    dayOfWeek: (new Date()).getDay() == 0 ? 7 : (new Date()).getDay(),
     // 添加课表
     showAdd: false,
     week: [], // 周数
