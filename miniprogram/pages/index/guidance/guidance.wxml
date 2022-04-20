@@ -39,4 +39,31 @@
 </view>
 </view>
 
-<view hidden="{{show}}" class="selectbg"></view>
+<view class="selectbg">
+    <view class="selectbg_search">
+        <view class="selectbg_search_input">
+            <image class="selectbg_search_input_leftImg" src="https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E6%94%BE%E5%A4%A7%E9%95%9C%20(2).png?sign=ba50e185c77cadf695dbc359e84e4c1c&t=1648282141"></image>
+            <view class="selectbg_search_input_rightInput">
+                <input placeholder="搜索学校" type="text"/>
+            </view>
+        </view>
+    </view>
+    <view class="selectbg_school">
+        <view class="selectbg_school_opened">
+            <view>已开通</view>
+        </view>
+        <view class="selectbg_school_schoolList" wx:for="{{schoolArr}}">
+            <view class="selectbg_school_schoolList_oneSchool">
+                <view class="selectbg_school_schoolList_oneSchool_leftSchoolImg">
+                    <image src="{{item.school_ImgUrl}}"></image>
+                </view>
+                <view class="selectbg_school_schoolList_oneSchool_rightBox">
+                    <view class="selectbg_school_schoolList_oneSchool_name">
+                        <view>{{item.school_name}}</view>
+                    </view>
+                    <view class="selectbg_school_schoolList_oneSchool_status">{{item.school_status == true ? "已开通" : "未开通"}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
