@@ -8,6 +8,7 @@
     "MoreModule": "./components/MoreModule/MoreModule",
     "weimob-sticky": "./components/sticky/index",
     "weimob-curriculum": "./components/curriculum/curriculum"
+
   },
   "navigationStyle":"custom",
   "enablePullDownRefresh": true
