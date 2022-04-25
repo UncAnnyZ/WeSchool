@@ -13,7 +13,7 @@
                 <text style="margin-left: -150rpx ;margin-top: -30rpx">攒局</text></view>
             <view class="second_box zanju" id="zanju">攒局</view>
             <view class="second_box tucao" id="tucao">
-                <text style="margin-left: -90rpx ;margin-top: -30rpx">电子游戏</text></view>
+                <text style="margin-left: -90rpx ;margin-top: -30rpx;">电子游戏</text></view>
         </view>
     </view>
 </scroll-view>
