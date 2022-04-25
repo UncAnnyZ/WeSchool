@@ -1,4 +1,5 @@
 <!-- 校园圈首页标签 -->
+
 <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" wx:if="{{type == '校友圈标签'  && showTab}}" enhanced="{{true}}" show-scrollbar="{{false}}" style="z-index: 3; position: relative;">
     <view class="Choose_Label" scroll-x="true">
         <!-- 下划线 -->

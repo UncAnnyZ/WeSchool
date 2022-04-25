@@ -5,6 +5,7 @@
         "LoseCard":"../LoseCard/LoseCard",
         "loveCards": "./components/loveCards/loveCards",
         "match":"./components/match/match",
-        "freshman":"./components/freshman/freshman"
+        "freshman":"./components/freshman/freshman",
+        "HotComponent": "/components/HotComponent/HotComponent"
     }
 }
