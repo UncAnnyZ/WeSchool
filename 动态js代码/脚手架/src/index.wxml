@@ -1,60 +1,118 @@
-<view class="containers">
-  <image class="bgc" src="cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/bgc.png"></image>
+<view wx:if="{{tabbar}}">
+  <!-- 商铺 -->
+  <view wx:if="{{!shopyesno}}" class="bg-red flex justify-center">
+    <view class="action">
+      <text wx:if="{{!weihu}}">【{{shopname}}】目前已打样</text>
+      <text wx:if="{{weihu}}">聚食集平台23:50-00:00定期维护</text>
+    </view>
+  </view>
+  <view class="top" >
+    <view class="topName">益禾堂</view>
+    <view class="topSold">月售2823  配送约30分钟</view>
+    <view class="topTitle">
+      <view class="topTitlelabel" >官渡奶茶人气榜第一名</view>
+    </view>
+    <view class="topDiscount">
+      <view class="coupon">25减1 | 35减3 | 50减5</view>
+      <view class="coupon">4.88折起</view>
+      <view class="coupon">收藏领一元券</view>
+    </view>
+    <view class="topNotice">公告： 油校学生可以小程序下单备注一下送到南门或西门</view>
+  </view>
+  <view style="display: flex;flex-direction: row; align-items: center; height: 72rpx;width: 100%;position: sticky;background-color: white;top: 0rpx;z-index: 3;">
+    <view class="order" bindtap="order">
+    点菜
+    </view>
+    <view class="comment" bindtap="comment">
+    评论
+    </view>
+    <view class="business" bindtap="business">
+    商家
+    </view>
+  </view>
+  <view style="background-color: #94949438;width: 100%;height: 1rpx;position: sticky;top: 73rpx;z-index: 4;"></view>
+
+  <view class="rotation">
+    <view class="rotationImg">
+    </view>
+  </view>
+
+  <view style="display: flex;flex-direction: row; background-color: white;">
+    <scroll-view scroll-y="true" style="width: 20%;height:100vh;background-color: rgba(230, 230, 230, 0.301);">
+      <view class="recommend">推荐</view>
+      <view class="discount"><image src="../images/labels.png"/><view>折扣</view></view>
+      <view class="consult">品牌咨询</view>
+      <view class="tasteFresh"><image src="../images/Lollipop.png"/><view>新品尝鲜</view></view>
+      <view class="popularity"><image src="../images/fire.png"/><view>人气推荐</view></view>
+      <view class="welfare"><image src="../images/cole.png"/><view>益粉福利</view></view>
+      <view class="mustDrink"><image src="../images/milk.png"/><view>必喝系列</view></view>
+      <view class="coffee"><image src="../images/Coffee.png"/><view>现磨咖啡</view></view>
+    </scroll-view>
+    <view style="width: 80%;display: flex;flex-direction: column;background-color: white;">
+      <view class="sign" >
+        <view class="signContent">
+          <view class="signContentone">招牌</view>
+          <view class="signContenttwo">老板推荐</view>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" scroll-with-animation style="height:100vh;" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+        <view wx:for="{{goods}}" wx:key="id" >
+          <view class="goods">
+            <view class="goodsImg">
+              <image src="{{item.img}}" mode="aspectFill"/>
+            </view>
+            <view class="goodsContent">
+              <view class="goodsName">{{item.name}}</view>
+              <view class="goodsBrief">开胃韩式泡菜 + 五常大米 + 肥牛</view>
+              <view class="goodsSold">月售 {{item.yuenumber}}</view>
+              <view class="goodsPrice">
+                ￥<text class="price">{{item.price}}</text>
+              </view>
+              <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods">
+                <image src="../images/购物车.png"/>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
 </view>
-<view class="title">
-  <!-- <view class="top">MBTI测试</view> -->
-  <view class="model" wx:if="{{id_<=7}}" animation="{{animationData}}">
-    <view class="model-top">{{li[id_].question}}</view>
-    <view class="model-body {{click!=0?'model-body-true':''}}">
-      <view  class="model-body-choose-1 {{click==1?'model-body-choose-1-true':''}}"
-        bindtap="choose_ans" id="1">
-        <text
-          class="model-body-choose-text {{click==1?'model-body-choose-text-1-true':''}}">{{li[id_].answer[0]}}</text>
+
+
+<view  class="box" style="width:100%;position:fixed;bottom:0;z-index:9999">
+
+  <view class="settle" bindtap="showModal">
+    <view class="settleAll">
+      <view class="calcAll">
+          合计：<text>￥{{totalprice==0 ? '0.00':totalprice}}</text>
+          <view class="freight">不含运费</view>
       </view>
-      <view 
-        class="model-body-choose-2 {{click==2?'model-body-choose-2-true':''}}" bindtap="choose_ans" id="2">
-        <text
-          class="model-body-choose-text {{click==2?'model-body-choose-text-2-true':''}}">{{li[id_].answer[1]}}</text>
-      </view>
-    </view>
-    <view class="model-bottom">
-      <view class="model-bottom2">{{id_+1}}/8</view>
+      <view class="goSettle" bindtap="pay">结算</view>
     </view>
   </view>
-  <view class="model-end"  style="display:{{id_==0||id_>=8?'none':'block'}}" bindtap="choose_return">上一题</view>
 
-  <view class="model3" wx:if="{{id_<=6}}" animation="{{animationData2}}">
-    <view class="model-top">{{li[id_+1].question}}</view>
-    <view class="model-body">
-      <view bindtouchstart="touchstartX" class="model-body-choose-1 {{click==1?'model-body-choose-1-true':''}}"
-        bindtap="choose_ans" id="1">
-        <text class="model-body-choose-text">{{li[id_+1].answer[0]}}</text>
-      </view>
-      <view  bindtouchstart="touchstartX" class="model-body-choose-2" bindtap="choose_ans" id="2">
-        <text class="model-body-choose-text">{{li[id_+1].answer[1]}}</text>
+</view>
+
+<view class="EditCom" wx:if="{{modalName}}">
+    <view class="EditCom_background" bindtap="showModal"></view>
+    <view class="EditCom_contain {{payStyle}}" >
+      <view wx:for="{{buy}}">
+        <view class="buy">
+          <view class="buyImg"><image src="{{item.img}}" mode="aspectFill"/></view>
+          <view class="buyContent">
+            <view class="buyName">{{item.name}}</view>
+            <view>
+              <view class="buyPrice">￥{{item.price}}</view>
+              <view class="buyNumber">
+                <view class="numberDel" bindtap="reducenumber" id="{{index}}">-</view>
+                <view class="numberShow">{{item.number}}</view>
+                <view class="numberAdd" bindtap="addgoods" id="{{index}}">+</view>
+              </view>
+            </view>
+          </view>
+        </view>
+          
       </view>
     </view>
-    <view class="model-bottom">
-      <view class="model-bottom2">{{id_+1}}/8</view>
-    </view>
-
-  </view>
-  <view class="model2" wx:elif="{{id_>=8}}">
-    <canvas type="2d" class="model2_canvas" id="shareCanvas"></canvas>
-    <!-- <view class="show">
-    <view class="imgs">
-      <image class="img" src="../images/touxiang.png" mode="widthFix"></image>  
-    </view>
-      <view class="show_title">
-        您的mbti类型为
-        <text class="show_title_text">{{MbtiType}}</text>
-      </view>
-      <view  class="show_body">
-         <text space="ensp">{{describe}}</text>  
-      </view>
-    </view>-->
-    <view class="share" bindtap="share">保存图片</view>
-    <view class="share" bindtap="return">返回首页</view>
-
-  </view>
 </view>
