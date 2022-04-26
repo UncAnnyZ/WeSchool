@@ -37,7 +37,8 @@ Page({
     }],
     photo:[],
     womanNum:[1,1],
-    manNum:[1,1]
+    manNum:[1,1],
+    lastTime:0
   },
   back(){
     wx.navigateBack({
@@ -146,34 +147,9 @@ Page({
       })
     }
   },
-  // chooseSex(){
-  //   const args = wx.getStorageSync('args')
-  //   wx.showModal({
-  //     title: '请选择您的性别',
-  //     content: '*确定后不能更改，请谨慎选择',
-  //     cancelText: '男生',
-  //     cancelColor: '#5D81CF',
-  //     confirmText: '女生',
-  //     confirmColor: '#EC7A73',
-  //     success (res) {
-  //       if (res.confirm) {
-  //         args.sex="woman"
-  //       } else if (res.cancel) {
-  //         args.sex="man"
-  //       }
-  //       wx.setStorage({
-  //         key:"args",
-  //         data:args
-  //       })
-  //     }
-  //   })
-  // },
-
   submit(e){
-    console.log(e);
     const args = wx.getStorageSync('args')
     var fileIDs=[]
-    console.log(args);
     if(this.data.label===undefined){
       wx.showToast({
         title: '请选择主题！',
@@ -200,6 +176,7 @@ Page({
         sex:args.sex
       }
       const upLoaddata = (addData) => {
+        console.log("enter");
         wx.cloud.callFunction({
           name: 'saveBureau',
           data: {
@@ -223,6 +200,12 @@ Page({
           }
         })
       }
+      const antiShake = () => {
+        if(new Date().getTime()-this.data.lastTime>3500){
+          upLoaddata(addData)
+        }
+        this.data.lastTime = new Date().getTime();
+      }
       if(this.data.photo.length!=0){
         this.data.photo.forEach(item => {
           wx.compressImage({
@@ -235,13 +218,13 @@ Page({
               }).then(res => {
                 fileIDs.push(res.fileID);
                 addData.photo=fileIDs
-                upLoaddata(addData)
+                antiShake()
               })
             }
           })
         });
       }else{
-        upLoaddata(addData)
+        antiShake()
       }
     }
   },

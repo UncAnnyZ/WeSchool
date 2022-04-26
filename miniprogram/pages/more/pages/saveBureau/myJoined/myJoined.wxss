@@ -122,9 +122,13 @@ page{
   height: 40rpx;
 }
 .leader{
+  width: 230rpx;
   font-weight: 550;
   font-size: 28rpx;
   color: #0070BC;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .time{
   color: #4B4B4B;

@@ -216,6 +216,10 @@ page{
   font-weight: 550;
   font-size: 28rpx;
   color: #0070BC;
+  width: 230rpx;
+  white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 .time{
   color: #4B4B4B;
