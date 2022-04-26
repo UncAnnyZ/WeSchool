@@ -55,7 +55,6 @@
                         </view>
                     </view>
                 </block>
-
                 <view class="chooseImage" bindtap="chooseImage">   <!-- 放入图片 -->
                     <image src="./images/jia.png"></image>
                 </view>

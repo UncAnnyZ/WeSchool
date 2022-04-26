@@ -222,7 +222,8 @@
           <view class="selfstudy_othergroup_title">
                <view bindtouchstart="cardtouchstart" bindtouchmove="cardtouchmove" bindtouchend="cardtouchend" animation="{{id === 0 ? animationData : '' }}" class="selfstudy_othergroup_title_card card{{ id + 1}}" wx:for="{{cardlist}}" 
                wx:key="unique" wx:for-index="id" wx:for-item="item" data-abc="{{ id === 0 }}">
-                    <view>{{item.cardname}}</view>
+                    <view>{{item.cardname}}让我们一起加入小组吧</view>
+                    <view></view>
                     <!-- 提示滑动的图标 -->
                     <span class="change_icon" bindtap="slidethis" wx:if="{{id === 0}}">
                          <image></image>
@@ -237,20 +238,20 @@
           <view class="selfstudy_othergroup_mygroup">
                <view style="display: flex;flex-direction: row;margin: 41rpx auto;width: 650rpx;height:80rpx ;margin-bottom: 0;">
                     <view style="height: 80rpx;width: 50%;text-align: left;line-height: 80rpx;font-size: 28rpx;font-weight: 550;">我的自习室</view>
-                    <view style="height: 80rpx;width: 50%;text-align: right;line-height: 80rpx;font-size: 23rpx;color: gray;">see more</view>
+                    <view style="height: 80rpx;width: 50%;text-align: right;line-height: 80rpx;font-size: 23rpx;color: gray;">右滑查看更多</view>
                </view>
                <scroll-view class="mygroup_scrollview" scroll-x="true" style=" display: flex">
-                    <view wx:for="{{5}}" class="mygroup_scrollview_data" style="display: inline-block;">
+                    <view wx:for="{{myroomlist}}" class="mygroup_scrollview_data" style="display: inline-block;">
                          <view class="mygroup_scrollview_data_topbox">
-                              <image src="https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334165.jpg?sign=bb6877c505b2096fc8dcdb68d76771ea&t=1648913767"></image>
+                              <image src="{{item.imageurl}}"></image>
                          </view>
                          <view class="mygroup_scrollview_data_bottombox">
                               <view class="mygroup_scrollview_data_bottombox_left">
                                    <view class="mygroup_scrollview_data_bottombox_left_roomname">
-                                        <view>四级</view>
+                                        <view>{{item.roomname}}</view>
                                    </view>
                                    <view class="mygroup_scrollview_data_bottombox_left_introduce">
-                                        <view>每天打卡1小时单词</view>
+                                        <view>{{item.roomintroduce}}</view>
                                    </view>
                               </view>
                               <view class="mygroup_scrollview_data_bottombox_right">
@@ -269,7 +270,7 @@
                     <view wx:for="{{item.roomlist}}" class="lablegroup_scrollview_data"
                      style="display: inline-block;" bindtap="intoshowgroup">
                          <view class="lablegroup_scrollview_data_image">
-                              <image src="https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334168.jpg?sign=e1ad16dec91bf0f9882fefcf735af7e5&t=1648924396"></image>
+                              <image src="{{item.imageurl}}"></image>
                          </view>
                          <view class="lablegroup_scrollview_data_information">
                               <view class="lablegroup_scrollview_data_information_topbox">
@@ -342,7 +343,10 @@
           </view>
      </view>
      <!-- 自习室计时 -->
-     <view wx:elif="{{studynavState==7}}"></view>
+     <view wx:elif="{{studynavState==7}}">
+        
+        
+     </view>
 </view>
 <!-- 生成图片弹窗 -->
 <view class="complete" wx:if="{{showModel2}}">
