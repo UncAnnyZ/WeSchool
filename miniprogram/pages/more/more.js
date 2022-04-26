@@ -417,39 +417,90 @@ Page({
     this.init()
     this.onPullDownRefresh()
   },
+
   onShow: function () {
     let currentTab = this.data.currentTab;
     this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
     //  获取新消息提醒   ------ - 不应每次show该页面时都请求，应每隔一段时间请求一次。
     this.getNewInfo();
-    var that = this;
-    var course = [];
-    var msg = "";
-    var zc = 0;
-    var personalInformation = wx.getStorageSync('personalInformation')
-    var configData = wx.getStorageSync('configData')
-    var curriculum = personalInformation.curriculum;
+    this.handleCourse();
+
+  },
+  handleCourse() {
+    var that = this,
+      course = [],
+      msg = "",
+      zc = 0,
+      personalInformation = wx.getStorageSync('personalInformation'),
+      configData = wx.getStorageSync('configData'),
+      curriculum = personalInformation.curriculum;
+
+    var handleCourseTime = (course) => {
+      if (!course) return;
+
+      const args = wx.getStorageSync('args'),
+        courseTime_school = args.courseTime,
+        courseTime_today = course.map(item => {
+          const index = Number(item.time.replace(/[^\d.]/g, ''));
+          return {
+            start: Number(courseTime_school[index - 1].split(':').join('.')),
+            end: Number(courseTime_school[index].split(':').join('.'))
+          }
+        }),
+        nowTime = Number(`${new Date().getHours()}.${new Date().getMinutes()}`);
+
+      // 在课程时间内时高亮、超出课程时间且小于下个课程开始时间时，则下个课程高亮
+      for (let i = 0; i < course.length; i++) {
+        let item = courseTime_today[i],
+          nextItem = courseTime_today[i + 1];
+
+        if (nowTime < courseTime_today[0].start) {
+          course[0].isHighlight = true;
+          console.log(233);
+          break
+        }
+
+        if (item.start <= nowTime && nowTime <= item.end) {
+          course[i].isHighlight = true;
+          break;
+        } else if (nextItem && item.end < nowTime && nowTime < nextItem.start) {
+          course[i + 1].isHighlight = true;
+          break;
+        } else {
+          course[course.length - 1].isHighlight = true;
+          break;
+        }
+      }
+      console.log(courseTime_today, nowTime, course);
+
+    }
+
     if (!curriculum) {
       that.setData(Object.assign({ msg: '可能学校服务器关闭', }, configData))
       return;
     }
+
     var xq = new Date().getDay();
-    if (xq == 0) { xq = 7; }
+    if (xq == 0) { xq = 7; };
+
     for (var y = 0; y < curriculum.length; y++) {
       zc = curriculum[y].zc
       if (curriculum[y].xq == "7" || curriculum[y].xq == 7) {
         zc = String(Number(curriculum[y].zc) - 1)
         curriculum[y].zc = zc
       }
+
       if (zc == util.getweekString() && curriculum[y].xq == xq) {
-        course.push({ day: '今天', time: '第' + curriculum[y].jcdm[1] + '节', name: curriculum[y].kcmc, site: curriculum[y].jxcdmc, })
+        course.push({ day: '今天', time: '第' + curriculum[y].jcdm[1] + '节', name: curriculum[y].kcmc, site: curriculum[y].jxcdmc, isHighlight: false })
       } course.sort(function (b, a) { return b.time.localeCompare(a.time, 'zh') })
     }
-    personalInformation.curriculum = curriculum;
-    wx.setStorageSync('personalInformation', personalInformation)
-    if (course.length == 0) { msg = "今天没有课哟～" }
-    that.setData(Object.assign({ course: course, show: '', msg: msg, }, configData))
 
+    personalInformation.curriculum = curriculum;
+    wx.setStorageSync('personalInformation', personalInformation);
+    if (course.length == 0) { msg = "今天没有课哟～" }
+
+    handleCourseTime(course);
+    that.setData(Object.assign({ course: course, show: '', msg: msg, }, configData))
   },
   // 下拉刷新
   onPullDownRefresh() {

@@ -1,4 +1,4 @@
-<scroll-view scroll-x>
+
   <view class="container">
     <view class="title">
       <image style="margin-left:20rpx; opacity: 0.85; height: 60rpx; width:250rpx;" src="./字体.png"> </image>
@@ -43,4 +43,3 @@
       </view>
     </view>
   </view>
-</scroll-view>

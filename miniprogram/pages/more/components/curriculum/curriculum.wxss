@@ -22,7 +22,7 @@
 
 .week {
     position: absolute;
-    color: #da4776;
+    /* color: #da4776; */
     margin-left: 110rpx;
     margin-top: 17rpx;
     font-size: 30rpx;
@@ -48,6 +48,7 @@
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
+    
 }
 
 .decoration {
@@ -57,7 +58,9 @@
     height: 120rpx;
     border-radius: 40rpx;
 }
-
+.highlight {
+  color: rgb(145, 158, 235) !important;
+}
 .courseName {
     width: 100rpx;
     color: rgb(66, 66, 66);
