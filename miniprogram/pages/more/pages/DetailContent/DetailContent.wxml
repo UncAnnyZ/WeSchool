@@ -1,3 +1,19 @@
+<wxs module="m1">
+  var getStar = function (kk, args) {
+    var starSrc = '../../../../images/zan1.png'
+    if (kk) {
+      kk.forEach(function (e) {
+        if (e && e.username === args.username) {
+          console.log("e2333",e);
+          starSrc = '../../../../images/zan.png'
+        }
+      })
+    }
+    return starSrc;
+  }
+  module.exports.getStar = getStar;
+</wxs>
+
 <view class="page">
   <view class="contain">
     <view class="user">
@@ -5,7 +21,8 @@
         <image src="{{content.iconUrl}}" class="user_iconUrl"/>
         <span class="user_nickname">{{content.nickName}}</span>
       </view>
-
+      <view class="focusPeople" bindtap="focusPeople" wx:if="{{focus===false && content.nickName!=='匿名账号' && content.username!==args.username}}">关注</view>
+      <view class="focused" bindtap="focusPeople" wx:if="{{focus===true && content.nickName!=='匿名账号' && content.username!==args.username}}">已关注</view>
       <image src="../../../../images/more.png" class="more" wx:if="{{more==1}}" bindtap="More"/>
       <view class="CardMore" wx:if="{{showEdit}}">
         <view class="CardMore_background" bindtap="More"></view>
@@ -50,11 +67,14 @@
       <view class="Show_Commend" wx:for="{{ShowList}}" wx:key="kk" data-item="item"  data-index="{{index}}">  <!-- bindtap从EditComment更改为obtainIndex-->
           <view class="fatherComment" bindtap="EditComment" data-bigindex="{{index}}">
             <image src="{{item.iconUser}}" class="text_user"/>
-            <span class="text_username">{{item.nickName}}
-              <!-- <view class="comment_User">
+            <span class="text_username">
+              <view class="comment_User">
                   <view class="comment_usename" >{{item.nickName}}</view>
-                  <image bindtap="get_Star" src="{{Starurl}}"/>
-              </view> -->
+                  <view class="Star">
+                    <image catchtap="get_Star" src="{{m1.getStar(item.Star_User,args)}}" data-bigindex="{{index}}"/>
+                    <view class="comstarCount">{{item.Star_User?item.Star_User.length:0}}</view>
+                  </view>
+              </view>
               <view class="Comment_Content">{{item.InputContent}}
                 <span class="Comment_Time">{{item.InputTime}}</span>
               </view>
@@ -62,11 +82,15 @@
           </view>
           <view class="showReply" wx:for="{{item.Reply}}" wx:key="hh" data-item="item" wx:for-index="index1" data-index="{{index1}}" bindtap="EditComment" data-bigindex="{{index}}" data-small="{{index1}}">
             <image src="{{item.iconUser}}" class="reply_user"/>
-            <span class="reply_username">{{item.nickName}}
-              <!-- <view class="comment_User">
+            <span class="reply_username">
+              <view class="comment_User">
                   <view class="comment_usename" >{{item.nickName}}</view>
-                  <image bindtap="get_Star" src="{{Starurl}}"/>
-              </view> -->
+                  <view class="Star">
+                    <image catchtap="get_Star" src="{{m1.getStar(item.Star_User,args)}}" data-bigindex="{{index}}" data-small="{{index1}}"/>
+                    <view class="comstarCount">{{item.Star_User?item.Star_User.length:0}}</view>
+                  </view>
+                  <!-- <image bindtap="get_Star" src="{{Starurl}}"/> -->
+              </view>
               <view class="reply_Content">回复 
                 <span class="replied">{{item.Replied}}</span>：{{item.InputReply}}
                 <span class="Comment_Time">{{item.ReplyTime}}</span>
