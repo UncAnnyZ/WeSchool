@@ -39,6 +39,10 @@ exports.main = async (event, context) => {
       return await ReadControlLogs(event); // 读取新消息 New-Info 
     case "LoseStateLogs":
       return await LoseStateLogs(event)
+    case "addFocus":
+      return await addFocus(event)
+    case "delFocus":
+      return await delFocus(event)
   }
 
 }
@@ -342,4 +346,31 @@ async function ReadControlLogs(event) {
     .catch(console.error, "更新失败")
 
   return data
+}
+async function addFocus(event) {
+  try {
+    return await addRecord(event, "关注", "")
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+async function delFocus(event) {
+  try {
+    return await db.collection('New-Information').where({ // 感觉有问题
+      'character.userName': event.username,
+      'be_character.userName': event.be_username,
+      arcticle_id: event.arcticle_id,
+      type: '关注'
+    }).update({
+      data: {
+        status: -1,
+        createTime: event.createTime
+      }
+    }).then((res) => {
+      console.log(res, "取消关注成功");
+    })
+  } catch (e) {
+    console.log(e);
+  }
 }

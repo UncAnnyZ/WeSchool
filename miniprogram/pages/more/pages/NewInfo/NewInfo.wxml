@@ -9,6 +9,7 @@
                <text wx:if="{{item.type == '点赞'}}">赞了我的{{item.arcticle.Label}}</text>
                <text wx:if="{{item.type == '评论'}}">评论了我的{{item.arcticle.Label}}</text>
                <text wx:if="{{item.type == '回复'}}">回复了我的评论</text>
+               <text wx:if="{{item.type == '关注'}}">关注了我</text>
             </view>
             <view class="body" >
                <!-- 点赞 -->

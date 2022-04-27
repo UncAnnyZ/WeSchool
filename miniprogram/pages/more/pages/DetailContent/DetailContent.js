@@ -11,7 +11,8 @@ Page({
     inIndex: -1,          //子评论的索引
     Commentindex: -1,     //主评论的索引
     Starurl: "../../../../images/zan1.png",   //不知道这有啥用，注释掉的话会出现：从主页面取消点赞再进入详细页面，详细页面的点赞图标会没有
-    sendCom:[]    //接受从replyComment组件传递过来的数组，用于增加评论后的渲染
+    sendCom:[],    //接受从replyComment组件传递过来的数组，用于增加评论后的渲染,
+    focus:false,
   },
   callFunction_New: function (type,be_character,Input) {
     const args = wx.getStorageSync('args')
@@ -224,6 +225,106 @@ Page({
       comEdit: !this.data.comEdit
     })
   },
+  
+  addFocus:function(){
+    var addData={
+      username:this.data.content.username,
+      focusNum:[],
+      collectionNum:[]
+    }
+    console.log("addData",addData);
+    wx.cloud.callFunction({
+      name: 'NewCampusCircle',
+      data: {
+        url: 'focusControl',
+        addData:addData,
+        type: "addRecord"
+      },success:res => {
+        console.log("success!!!");
+      }
+    })
+  },
+
+  findFocus:function(){
+    const args = wx.getStorageSync('args')
+    let findResult=false
+    console.log("this.data.content.username",this.data.content.username);
+    wx.cloud.callFunction({
+      name: 'NewCampusCircle',
+      data: {
+        url: 'focusControl',
+        username: this.data.content.username,
+        type: "findFocus"
+      },success:res => {
+        if(res.result.data.length!=0){
+          let arry=res.result.data[0].focusNum
+          findResult = arry.some((item) => {
+            return item.username===args.username
+          })
+        }else{
+          this.addFocus()
+        }
+        if(findResult===true){
+          this.setData({
+            focus:true
+          })
+        }else{
+          this.setData({
+            focus:false
+          })
+        }
+        console.log("findResult",findResult);
+      }
+    })
+  },
+
+  focusPeople:function(){
+    let type="addFocus"
+    const args = wx.getStorageSync('args')
+    let be_character = { // 被点赞者信息
+      userName: this.data.content.username, // 学号来查找
+      iconUrl: this.data.content.iconUrl,
+      nickName: this.data.content.nickName
+    }
+    if(this.data.focus===true){
+      type="delFocus"
+    }
+    
+    wx.cloud.callFunction({
+      name: 'NewCampusCircle',
+      data: {
+        url: 'focusControl',
+        dealData: {username:args.username},
+        username: this.data.content.username,
+        type: type
+      },success:res => {
+        if(type==="addFocus"){
+          wx.showToast({
+            title: '关注成功',
+            icon: 'none'
+          })
+          this.callFunction_New("addFocus",be_character)
+        }
+        else{
+          wx.showToast({
+            title: '取消成功',
+            icon: 'none'
+          })
+          this.callFunction_New("delFocus",be_character)
+        }
+        this.setData({
+          focus:!this.data.focus
+        })
+      },
+      fail:res => {
+        wx.showToast({
+          title: '关注失败',
+          icon: 'none'
+        })
+      }
+    })
+  },
+
   //删除
   DelCard: function () {
     var that = this;
@@ -329,7 +430,12 @@ Page({
     let jsonStr = decodeURIComponent(options.content)
     var content = JSON.parse(jsonStr) // 将JSON帖子信息转成对象
     var more = 0;
-    this.setData({content,args})
+    this.setData({
+      content,
+      args,
+      focus:false
+    })
+    this.findFocus()
     // 被评论者信息
     if (args.username === content.username) {
       more = 1
