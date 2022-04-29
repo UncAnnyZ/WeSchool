@@ -1,11 +1,13 @@
 <view class='content' style="opacity: {{list[0] ? 1 : 0}};">
   <view class="left">
     <view wx:for="{{leftList}}" wx:key="leftList">
+ 
       <!-- <loveCards wx:if="{{item.Title == '闲聊'}}" item="{{item}}" type="left" bind:ShowContent="getBackData"></loveCards> -->
       <LoseCard wx:if="{{item.Label=='寻物发布'}}" item="{{item}}" type="left" currentTab="{{currentTab}}"></LoseCard>
       <freshman wx:if="{{item.Label=='社团招新'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
       <match wx:elif="{{item.Label=='社团赛事'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
-      <campusCards wx:else item="{{item}}" type="left" currentTab="{{currentTab}}" />
+      <!-- <HotComponent></HotComponent> -->
+      <HotComponent wx:else item1="{{item}}" type="left" currentTab="{{currentTab}}" />
     </view>
   </view>
   <view class="right">

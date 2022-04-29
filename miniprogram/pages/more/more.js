@@ -65,13 +65,16 @@ Page({
   TimeOut: 1,
   timeId: 0,
   onScroll(e) {
+
+    let statusBarHeight = this.data.statusBarHeight,
+      lineHeight = this.data.lineHeight;
+
     wx.createSelectorQuery()
       .select('.container')
       .boundingClientRect((res) => {
-        console.log(e.detail.scrollTop);
         this.setData({
           scrollTop: e.detail.scrollTop,
-          offsetTop: res.top,
+          offsetTop: res.top + statusBarHeight + lineHeight,
         });
       })
       .exec();

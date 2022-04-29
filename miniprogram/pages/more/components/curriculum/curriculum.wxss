@@ -23,7 +23,7 @@
 .week {
     position: absolute;
     color: #da4776;
-    margin-left: 98rpx;
+    margin-left: 110rpx;
     margin-top: 17rpx;
     font-size: 30rpx;
 }
