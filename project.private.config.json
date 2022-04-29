@@ -1,19 +1,9 @@
 {
     "setting": {},
     "condition": {
-        "plugin": {
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "gamePlugin": {
-            "list": []
-        },
         "miniprogram": {
             "list": [
                 {
-                    "id": -1,
                     "name": "db guide",
                     "pathName": "pages/databaseGuide/databaseGuide",
                     "query": ""
@@ -178,10 +168,11 @@
                     "name": "引导页",
                     "pathName": "pages/index/guidance/guidance",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
-    }
+    },
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

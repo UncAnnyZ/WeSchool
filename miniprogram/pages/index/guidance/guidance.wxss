@@ -1,6 +1,9 @@
 /* pages/index/guidance/guidance.wxss */
 page{
-    background-color:  #f7e0d8;
+    /* background-color:  #51aba1; */
+    /* background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) ); */
+}
+.bg{
     background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) );
 }
 .btn{
@@ -21,6 +24,7 @@ page{
     width: 580rpx;
     height: 70rpx;
     background: #2c69a2;
+    /* background: #51aba1; */
     border-radius: 50rpx;
     display: flex;
     flex-direction: row;
@@ -57,11 +61,11 @@ page{
     /* background: #fff; */
     width: 425rpx;
     height: 150rpx;
-    position: absolute;
+    /* position: absolute; */
     z-index: 9;
 }
 .topbox{
-    margin-top: 95rpx;
+    margin-top: -55rpx;
     width: 680rpx;
     height: 480rpx;
     background: #fff;
@@ -77,7 +81,9 @@ page{
     height: 60rpx;
     text-align: center;
     line-height: 60rpx;
+    /* background: #51aba1; */
     background: #b4e6fb;
+    background: #e67c57;
     /* background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) ); */
     font-size: 25rpx;
     color: #fff;
@@ -133,7 +139,9 @@ page{
     height: 60rpx;
     text-align: center;
     line-height: 60rpx;
+    /* background: #51aba1; */
     background: #b4e6fb;
+    background: #e67c57;
     /* background-image: linear-gradient(to right, rgba(212,240,255, 0.9) 25% , rgba(255,198,227, 0.8) ); */
     font-size: 25rpx;
     color: #fff;
@@ -235,3 +243,126 @@ page{
     border-style:solid;
     border-color:transparent #fff transparent  transparent ;
 }
+
+.selectbg{
+    height:auto;
+    width: 100%;
+    /* position: relative; */
+    /* background: ; */
+    /* background-color: blue; */
+    display: flex;
+    flex-direction:column;
+}
+
+.selectbg_search{
+    height: 125rpx;
+    width: 100%;
+    /* position: relative; */
+    background: white;
+    display: flex;
+    /* 上下左右居中 */
+    justify-content: center;
+    align-items: center;
+
+}
+
+.selectbg_school{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectbg_search_input{
+    background:#f0f0f0;
+    height: 60%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+}
+
+.selectbg_search_input_leftImg{
+    padding: 16rpx 16rpx 15rpx 15rpx;
+    width: 6%;
+    height: 50%;
+}
+
+.selectbg_search_input_rightInput{
+    width: 90%;
+    height: 100%;
+}
+.selectbg_search_input_rightInput > input{
+    width: 100%;
+    height: 100%;
+}
+
+.selectbg_school_opened{
+    height: 50rpx;
+    width: 100%;
+    background: #eeeeee;
+}
+
+.selectbg_school_opened > view{
+    font-size: 23rpx;
+    color: #696969;
+    margin: 10rpx 0rpx 10rpx 30rpx;
+}
+
+.selectbg_school_schoolList{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectbg_school_schoolList_oneSchool{
+    height: 125rpx;
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.selectbg_school_schoolList_oneSchool_leftSchoolImg{
+    height: 100%;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectbg_school_schoolList_oneSchool_leftSchoolImg > image{
+    border-radius: 50%;
+    padding-left: auto;
+    padding-right: auto;
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.selectbg_school_schoolList_oneSchool_rightBox{
+    height: 100%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectbg_school_schoolList_oneSchool_name{
+    height: 40rpx;
+    width: 100%;
+    background:white;
+    /* text-align: center; */
+    line-height: 40rpx;
+    font-weight: 550;
+    font-size: 29rpx;
+    padding: 20rpx 5rpx 0rpx 8rpx;
+}
+
+.selectbg_school_schoolList_oneSchool_status{
+    padding: 10rpx 5rpx 18rpx 8rpx;
+    color: #12996e;
+    /* color: #dd8079; */
+    font-size: 25rpx;
+}
+
+
+

@@ -1,14 +1,17 @@
+const db = wx.cloud.database();
 // pages/index/guidance/guidance.js
-const db=wx.cloud.database();
+// const db=wx.cloud.database();
 const _ = db.command;
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         statusBarHeight: getApp().globalData.statusBarHeight,
         lineHeight: getApp().globalData.lineHeight,
+        schoolArr:[
+            // {school_name:"广东石油化工学院", school_status:true, school_ImgUrl:'http://r.photo.store.qq.com/psc?/V54MznzN3PdMk03thBUu1QsVIG3pK07u/45NBuzDIW489QBoVep5mcVSbqQOOiiPu97WXvRV9QiIZBX1umL4FZZY5hDkMBOsWWiaOGBzThG76xs176TsOiBBWM50wNm7v1AfDmY5EuRg!/r'},
+        ],
         show:true,
         text:[
             {title:'【征友】大二了，期待甜甜的校园恋爱！[亲亲]本人女，大二，计算机科学与技术',imageurl:'http://r.photo.store.qq.com/psc?/V54MznzN3PdMk03thBUu1QsVIG3pK07u/45NBuzDIW489QBoVep5mccErIrW3xz*gbdII0f2XxWb532vMFM40Z1GLB1qy0PJerOEUFI*g*oZuZ35D1lhyDT.clH6YZMOs3.8EPCzGmVA!/r',people:'15839 人围观',color:"#ee838d"},
@@ -21,11 +24,41 @@ Page({
         this.setData({
             show:false
         })
-    },    
+    },
+
+    async getSchoolInfo(){
+        let res = await wx.cloud.callFunction({
+            name:"guidePage",
+            data: {
+                type:"getSchoolInfo",
+                openStatus:true,
+            }
+        })
+        let data = res.result.data;
+        // console.log(data);
+        let schoolInfo = [];
+        for(let i = 0; i < data.length; i++){
+            let obj = {
+                school_name:data[i].schoolName,
+                school_status:data[i].openStatus,
+                school_ImgUrl:data[i].school_ImgUrl,
+            }
+            schoolInfo.push(obj);
+        }
+
+        this.setData({schoolArr:schoolInfo});
+    },
+    login: function(e) {
+        let schoolName = this.data.schoolArr[e.currentTarget.dataset.index].school_name
+        console.log(schoolName);
+        wx.navigateTo({
+          url: '../../login/login?schoolName='+schoolName,
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function () {
+    onLoad: function (options) {
         let _id="82afc00a6252a95904193c3a23083c2e"
         db.collection('guidepage').where({_id: _id}).get().then(res=>{
             console.log(res);
@@ -33,6 +66,7 @@ Page({
                 text:res.data[0].top_post
             })
         })
+        this.getSchoolInfo();
     },
 
     /**

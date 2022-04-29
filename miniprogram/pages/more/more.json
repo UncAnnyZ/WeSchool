@@ -5,7 +5,9 @@
     "QuickPublish": "./components/QuickPublish/QuickPublish",
     "Loading": "./components/Loading/Loading",
     "danmu": "./components/danmu/danmu",
-    "MoreModule": "./components/MoreModule/MoreModule"
+    "MoreModule": "./components/MoreModule/MoreModule",
+    "weimob-sticky": "./components/sticky/index",
+    "weimob-curriculum": "./components/curriculum/curriculum"
   },
   "navigationStyle":"custom",
   "enablePullDownRefresh": true

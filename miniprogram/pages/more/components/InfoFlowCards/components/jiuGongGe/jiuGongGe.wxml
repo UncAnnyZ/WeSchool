@@ -1,7 +1,5 @@
-<view class="container">
-    <view class="imageBox" wx:for="{{AllPhoto}}">
-        <image wx:if="{{AllPhoto.length == 1}}" src="{{item}}" class="onlyOne" mode="aspectFill"></image>
-        <image wx:elif="{{AllPhoto.length == 4}}" src="{{item}}" class="onlyFour"></image>
-        <image wx:else src="{{item}}" class="other"></image>
+<view class="container" >
+    <view class="wrap" wx:for="{{AllPhoto}}">
+        <image src="{{item}}" mode="aspectFill" ></image>
     </view>
 </view>

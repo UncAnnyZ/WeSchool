@@ -1,8 +1,8 @@
 <view class="bg" hidden="{{!show}}">
-<view style="height: {{statusBarHeight}}px;" />
-<view style="height: {{lineHeight}}px;"/>
+<view class="box1" style="height: {{statusBarHeight}}px;background-color: #dd8079;width: 100vw;" />
+<view class="box2" style="height: {{lineHeight}}px;background-color: #dd8079;width: 100vw;"/>
 <view class="tittlebox">
-    <image src="./wetitle.png" style="height: 100%;width: 100%;margin-top: 155rpx;"></image>
+    <image src="./wetitle.png" style="height: 100%;width: 100%;"></image>
 </view>
 <view class="topbox">
     <view class="topbox_right_ring"></view>
@@ -60,4 +60,36 @@
 </view>
 </view>
 
-<view hidden="{{show}}" class="selectbg"></view>
+<view class="selectbg" hidden="{{show}}">
+    <view style="height: {{statusBarHeight}}px;background-color: #dd8079;position: sticky;top: 0;" />
+    <view style="height: {{lineHeight}}px;background-color: #dd8079;display: flex;justify-content: center;align-items: center;position: sticky;top: {{statusBarHeight}}px;"><view style="color: white;">选择学校</view></view>
+    <view style="width: 100vw;height: 20rpx;background-color: white;"></view>
+    <!-- <view class="selectbg_search">
+        <view class="selectbg_search_input">
+            <image class="selectbg_search_input_leftImg" src="https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E6%94%BE%E5%A4%A7%E9%95%9C%20(2).png?sign=ba50e185c77cadf695dbc359e84e4c1c&t=1648282141"></image>
+            <view class="selectbg_search_input_rightInput">
+                <input placeholder="搜索学校" type="text"/>
+            </view>
+        </view>
+    </view> -->
+    <view class="selectbg_school">
+        <view class="selectbg_school_opened">
+            <view>已开通</view>
+        </view>
+        <view class="selectbg_school_schoolList" wx:for="{{schoolArr}}" bindtap="login" 
+        data-index="{{index}}">
+            <view class="selectbg_school_schoolList_oneSchool">
+                <view class="selectbg_school_schoolList_oneSchool_leftSchoolImg">
+                    <image src="{{item.school_ImgUrl}}"></image>
+                </view>
+                <view class="selectbg_school_schoolList_oneSchool_rightBox">
+                    <view class="selectbg_school_schoolList_oneSchool_name">
+                        <view>{{item.school_name}}</view>
+                    </view>
+                    <view class="selectbg_school_schoolList_oneSchool_status">{{item.school_status == true ? "已开通" : "未开通"}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- <view style="width: 100vw;height: 180rpx;background-color: white;"></view> -->
+    </view>
+</view>

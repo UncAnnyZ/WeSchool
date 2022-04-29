@@ -133,15 +133,5 @@ Page({
       title: 'WE校园'
     }
   },
-  tomato(){
-    wx.navigateTo({
-      url: '../tomato/index/index',
-    })
-  },
-  daka(){
-    wx.navigateTo({
-      url: '../testdaka/index/index',
-    })
-  },
   
 })

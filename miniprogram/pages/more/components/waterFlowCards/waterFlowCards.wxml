@@ -1,27 +1,23 @@
-
-<scroll-view  scroll-y="{{ifScroll}}"  style="height:{{height}}; background-color: rgb(255,255,255);" bindscrolltolower="onReachBottom" lower-threshold="0" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" enable-back-to-top fast-deceleration paging-enabled>
-
-  <view class='content' style="opacity: {{list[0] ? 1 : 0}};">
-    <view class="left">
-      <view wx:for="{{leftList}}" wx:key="leftList">
-        <!-- <loveCards wx:if="{{item.Title == '闲聊'}}" item="{{item}}" type="left" bind:ShowContent="getBackData"></loveCards> -->
-        <LoseCard wx:if="{{item.Label=='寻物发布'}}" item="{{item}}" type="left" currentTab="{{currentTab}}"></LoseCard>
-        <freshman wx:if="{{item.Label=='社团招新'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
-        <match wx:elif="{{item.Label=='社团赛事'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
-        <campusCards wx:else item="{{item}}" type="left" currentTab="{{currentTab}}" />
-      </view>
-    </view>
-    <view class="right">
-      <view wx:for="{{rightList}}" wx:key="rightList">
-        <LoseCard wx:if="{{item.Label=='寻物发布'}}" item="{{item}}" type="right" currentTab="{{currentTab}}"></LoseCard>
-        <freshman wx:if="{{item.Label=='社团招新'}}" item="{{item}}" type="fight" currentTab="{{currentTab}}" />
-        <match wx:elif="{{item.Label=='社团赛事'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
-        <campusCards wx:else item="{{item}}" type="right" currentTab="{{currentTab}}" />
-      </view>
+<view class='content' style="opacity: {{list[0] ? 1 : 0}};">
+  <view class="left">
+    <view wx:for="{{leftList}}" wx:key="leftList">
+      <!-- <loveCards wx:if="{{item.Title == '闲聊'}}" item="{{item}}" type="left" bind:ShowContent="getBackData"></loveCards> -->
+      <LoseCard wx:if="{{item.Label=='寻物发布'}}" item="{{item}}" type="left" currentTab="{{currentTab}}"></LoseCard>
+      <freshman wx:if="{{item.Label=='社团招新'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
+      <match wx:elif="{{item.Label=='社团赛事'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
+      <campusCards wx:else item="{{item}}" type="left" currentTab="{{currentTab}}" />
     </view>
   </view>
-  <!-- 边界处理 -->
-  <view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
-  <!-- 边界处理 -->
-  <view class="DataNull" wx:if="{{list.length == 0}}">正在玩命加载数据...</view>
-</scroll-view>
+  <view class="right">
+    <view wx:for="{{rightList}}" wx:key="rightList">
+      <LoseCard wx:if="{{item.Label=='寻物发布'}}" item="{{item}}" type="right" currentTab="{{currentTab}}"></LoseCard>
+      <freshman wx:if="{{item.Label=='社团招新'}}" item="{{item}}" type="fight" currentTab="{{currentTab}}" />
+      <match wx:elif="{{item.Label=='社团赛事'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
+      <campusCards wx:else item="{{item}}" type="right" currentTab="{{currentTab}}" />
+    </view>
+  </view>
+</view>
+<!-- 边界处理 -->
+<view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
+<!-- 边界处理 -->
+<view class="DataNull" wx:if="{{list.length == 0}}">正在玩命加载数据...</view>

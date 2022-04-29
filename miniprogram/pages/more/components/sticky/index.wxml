@@ -1,0 +1,13 @@
+<wxs src="./index.wxs" module="computed" />
+
+<view
+  class="weimob-sticky"
+  style="{{ computed.containerStyle({ fixed, height, zIndex }) }}"
+>
+  <view
+    class="{{ fixed ? 'weimob-sticky-wrap--fixed' : ''}}"
+    style="{{ computed.wrapStyle({ fixed, offsetTop, transform, zIndex }) }}"
+  >
+    <slot />
+  </view>
+</view>
