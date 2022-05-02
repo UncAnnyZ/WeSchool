@@ -1,8 +1,9 @@
+<!-- 单选/多选 -->
 <view class="dan_wrap" wx:if="{{type!='填空'}}">
   <view class="wrap">
     <view class="top_wrap">
       <view class="title">题目</view>
-      <input placeholder="请输入题目标题" bind:input="caption" value="{{content.title}}"/>
+      <input placeholder="请输入题目标题" bind:input="caption" value="{{content.title}}" />
     </view>
     <view class="item_wrap">
       <view class="item" wx:for="{{content.arrLen}}">
@@ -14,18 +15,27 @@
       <view class="add_content" bind:tap="addChange">+添加选项</view>
     </view>
   </view>
+  <view class="changMust">
+    <view class="title">此题目为必填</view>
+    <switch class="changContent" checked="{{mustChange}}" bindchange="mustChange" />
+  </view>
   <view class="bottom_wrap">
     <view class="certain" bind:tap="certain">保存</view>
   </view>
 </view>
+<!-- 填空类型 -->
 <view class="tian_wrap" wx:else>
   <view class="wrap">
     <view class="top_wrap">
       <view class="title">题目</view>
-      <input placeholder="请输入题目标题" bind:input="caption" value="{{content.title}}"/>
+      <input placeholder="请输入题目标题" bind:input="caption" value="{{content.title}}" />
     </view>
   </view>
+  <view class="changMust">
+    <view class="title">此题目为必填</view>
+    <switch class="changContent" checked="{{mustChange}}" bindchange="mustChange" />
+  </view>
   <view class="bottom_wrap">
-    <view class="certain" bind:tap="tian_certain" >保存</view>
+    <view class="certain" bind:tap="tian_certain">保存</view>
   </view>
 </view>

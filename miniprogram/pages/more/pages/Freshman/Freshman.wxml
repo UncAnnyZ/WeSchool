@@ -1,5 +1,5 @@
 <view class="wrap">
-  <swiper indicator-dots='true' indicator-color="rgba(223, 223, 223, 0.39)" indicator-active-color='rgb(235, 21, 21)' style="height: {{content.ShowHeight > 300 ? 700+'rpx':content.ShowHeight+'px'}};">
+  <swiper indicator-dots='true' indicator-color="rgba(223, 223, 223, 0.39)" indicator-active-color='rgb(235, 21, 21)' style="height: {{content.ShowHeight > 300 ? 370+'rpx':content.ShowHeight+'px'}};">
     <block wx:for="{{content.AllPhoto}}" wx:key="Photo" class="photo">
       <swiper-item>
         <image src="{{item}}" mode="aspectFill" style="z-index: 11;" bindtap="ShowImg" class="ShowImg" data-index="{{index}}" />

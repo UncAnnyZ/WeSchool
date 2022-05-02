@@ -142,6 +142,7 @@ Component({
           "nickName": args.nickName,
           "username": args.username,
           "Replied": "",
+          "Star_User":[]
         }
         if(outIndex===-1 && inIndex===-1) {
           add = {
@@ -151,6 +152,7 @@ Component({
             "nickName": args.nickName,
             "username": args.username,
             "Reply": [],
+            "Star_User":[]
           }
           var be_character = {
             userName: that.properties.content.username,

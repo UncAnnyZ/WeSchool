@@ -14,9 +14,9 @@ Page({
    */
   onLoad: function (options) {
     let count = options.count
-    if (count != 'guest') {
-      count = Number(options.count)
-    }
+    // if (count != 'guest') {
+    //   count = Number(options.count)
+    // }
     let that = this
     wx.showLoading({
       title: "查询中",

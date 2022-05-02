@@ -20,20 +20,20 @@ page {
 .wrap .list_wrap .list {
   display: flex;
   flex-direction: row;
-  padding-top: 18rpx;
+  padding-top: 28rpx;
   align-items: center;
 }
 .wrap .list_wrap .list .caption {
+  display: flex;
+  align-items: center;
   flex: 1;
 }
 .wrap .list_wrap .list .handle {
   flex: 3;
   background-color: rgba(245, 245, 245, 0.9);
-  padding-left: 16rpx;
   border-radius: 12rpx;
-  padding-top: 8rpx;
-  padding-bottom: 8rpx;
-  justify-content: center;
+  display: flex;
+  padding: 12rpx;
   align-items: center;
   color: rgba(16, 16, 16, 0.6);
 }

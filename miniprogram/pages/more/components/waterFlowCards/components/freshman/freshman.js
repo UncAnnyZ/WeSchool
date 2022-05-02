@@ -47,7 +47,7 @@ Component({
         character, be_character
       })
     },
-    attached:function(){
+    attached: function () {
       // let time=Date(Date.now()).toString().split("")
       // console.log(time);
     }
@@ -76,6 +76,15 @@ Component({
           })
         }
       })
+    },
+    allAsso: function () {
+      wx.navigateTo({
+        // url: '../../../../pages/allAsso/allAsso',
+        url:'/pages/association/allAsso/allAsso',
+        success: (result) => {
+
+        },
+      });
     },
     onLazyLoad(info) {
     },

@@ -10,6 +10,10 @@
                 <view class="left">{{item.title}}</view>
                 <input placeholder="{{item.placeholder}}" class="rigth" name="{{item.id}}" type="{{item.type}}" value="{{item.value}}" />
             </view>
+            <view class="list_item">
+                <view class="left">上传logo</view>
+                <view class="add_logo" bind:tap="{{img==false?'add_logo':'showTip'}}">{{img==false?'+':'已上传'}}</view>
+            </view>
             <button class="submit" size="mini" formType="submit">提交</button>
         </form>
     </view>
@@ -56,14 +60,5 @@
             </view>
         </view>
     </view>
+    
 </view>
-<!-- 赛事发布选择弹窗 -->
-<!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view> -->
-<!-- 弹出框 -->
-<!-- <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-    <view class="list_wrap">
-        <view class="list" bind:tap="activity">活动发布</view>
-        <view class="list" bind:tap="match">调查问卷</view>
-        <view class="list" bind:tap="hideModal">取消</view>
-    </view>
-</view> -->

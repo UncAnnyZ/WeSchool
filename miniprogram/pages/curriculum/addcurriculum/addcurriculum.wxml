@@ -13,7 +13,7 @@
         <label class="block_teacher">{{ll[item]['data'][0].teaxms}}</label>
         <label class="block_skcs">剩余{{ll[item]['data'].length}}次课</label>
       </view>
-      <view class="block_bottom" wx:if="{{school == '茂名职业技术学院'}}">
+      <view class="block_bottom" wx:else>
         <label class="block_teacher">{{ll[item]['data'][0].teaxms}}</label>
         <label class="block_skcs">共{{ll[item]['data'].length}}次课</label>
       </view>

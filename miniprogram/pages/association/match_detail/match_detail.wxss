@@ -1,14 +1,29 @@
 page {
   background-color: #f6f6f6;
 }
-.wrap .img {
+.wrap .top_wrap {
+  border-radius: 24rpx;
+  padding: 24rpx;
+  background-color: white;
+  margin: 24rpx;
+}
+.wrap .top_wrap .img {
   background-color: rgba(241, 229, 201, 0.26);
   text-align: center;
+  justify-content: center;
+  align-content: center;
 }
-.wrap .img image {
+.wrap .top_wrap .img image {
   padding: 96rpx;
   width: 90rpx;
   height: 90rpx;
+}
+.wrap .top_wrap .title {
+  text-align: center;
+  padding: 12rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #63A1A0;
 }
 .wrap .content_wrap {
   padding: 24rpx;
@@ -17,24 +32,49 @@ page {
   margin: 24rpx;
   border-radius: 24rpx;
 }
+.wrap .content_wrap .top_wrap_top {
+  padding: 12rpx;
+}
+.wrap .content_wrap .top_wrap_top .title_top {
+  color: #63A1A0;
+  padding: 12rpx;
+}
+.wrap .content_wrap .top_wrap_top input {
+  background-color: #f6f6f6;
+  padding: 12rpx;
+  border-radius: 12rpx;
+}
+.wrap .content_wrap .mid_wrap {
+  padding: 12rpx;
+}
+.wrap .content_wrap .mid_wrap .title_top {
+  padding: 12rpx;
+  color: #63A1A0;
+}
+.wrap .content_wrap .mid_wrap .handle_top {
+  width: 100%;
+  padding: 12rpx;
+  background-color: #f6f6f6;
+  border-radius: 12rpx;
+}
 .wrap .reward_wrap {
-  font-size: 32rpx;
+  font-size: 28rpx;
   background-color: white;
   margin: 24rpx;
-  padding: 24rpx;
+  padding: 12rpx;
+  border-radius: 12rpx;
 }
 .wrap .reward_wrap .title {
   padding: 12rpx;
+  color: #63A1A0;
 }
 .wrap .reward_wrap .title .title_tip {
   color: #8b8b8b;
   padding-left: 48rpx;
-  font-size: 28rpx;
 }
 .wrap .reward_wrap .reward_item {
   display: flex;
   flex-direction: row;
-  font-size: 28rpx;
 }
 .wrap .reward_wrap .reward_item .row_item {
   margin-left: 12rpx;
@@ -44,7 +84,8 @@ page {
 .wrap .reward_wrap .reward_item .add_rewrad {
   margin-left: 12rpx;
   padding: 2rpx;
-  color: #686868;
+  color: #63A1A0;
+  font-weight: 700;
 }
 .wrap .question_wrap {
   font-size: 30rpx;
@@ -54,7 +95,7 @@ page {
   border-radius: 24rpx;
 }
 .wrap .question_wrap .title {
-  color: #727272;
+  color: #63A1A0;
 }
 .wrap .question_wrap .item_wrap .item {
   display: flex;
@@ -76,7 +117,8 @@ page {
 .wrap .question_wrap .item_wrap .add_question {
   padding: 8rpx;
   text-align: center;
-  color: blue;
+  color: #63A1A0;
+  font-weight: 700;
 }
 .wrap .bt_wrap {
   display: flex;
@@ -88,12 +130,12 @@ page {
   text-align: center;
   margin-left: 24rpx;
   margin-right: 24rpx;
-  background-color: red;
+  background-color: #63A1A0;
   padding: 12rpx;
   border-radius: 24rpx;
 }
 .wrap .bt_wrap .change_time {
-  background-color: #8b8b8b;
+  background-color: #63A1A0;
   margin: 24rpx;
   padding: 12rpx;
   text-align: center;

@@ -1,98 +1,121 @@
 // 轮播图
-page{
+page {
     background-color: #f6f6f6;
 }
+
 .wrap {
-    .top {
-        display        : flex;
-        align-items    : center;
-        justify-content: center;
-        flex-direction : column;
-        background-color: red;
-        .ShowImg{
-            filter: invert(1) !important;
-          }
-    }
-    .endTime{
-        background-color: white;
-        margin: 24rpx;
-        padding: 16rpx;
-        border-radius: 24rpx;
-        font-size: 32rpx;
-        color: rgba(49, 80, 255, 0.856);
-    }
-    .mess_wrap{
-        padding: 24rpx;
-        font-size: 32rpx;
-        margin: 24rpx;
-        border-radius: 24rpx;
-        background-color: white;
-        .mess_caption{
-            text-align: center;
-            color: #63A1A0;
-            font-weight: 700;
-            padding: 12rpx;
-        }
-        .mess_list{
-            padding-top: 12rpx;
-            .mess_item{
-                display: flex;
-                flex-direction: row;
-                padding: 4rpx;
-                .title{
-                    flex: 2;
-                }
-                .content{
-                    flex: 3;
-                    background-color: #ececec;
-                    padding: 8rpx;
-                    border-radius: 12rpx;
-                    color: rgb(146, 146, 146);
-                }
-            }
-        }
-    }
-    .apply{
-        padding: 24rpx;
-        font-size: 32rpx;
-        margin: 24rpx;
-        border-radius: 24rpx;
-        background-color: white;
-        .apply_caption{
-            text-align: center;
-            color: #63A1A0;
-            font-weight: 700;
-            padding: 12rpx;
-        }
-        .input_list{
-            .input_item{
-                display: flex;
-                flex-direction: row;
-                padding: 8rpx;
-                .input_title{
-                    flex: 2;
-                }
-                .input_content{
-                    flex: 3;
-                    width: auto;
-                    margin-left: 12rpx;
-                    background-color:#ececec;
-                    padding-left: 8rpx;
-                    border-radius: 18rpx;
-                }
-            }
-        }
-    }
-    .end{
-        background-color: #63A1A0;
-        // background-color: #777777;
-        margin: 48rpx;
+    swiper {
         text-align: center;
-        border-radius: 24rpx;
-        font-size: 32rpx;
-        padding: 6rpx;
-        margin-right: 20%;
-        margin-left: 20%;
-        color: white;
+    }
+
+    .top {
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        flex-direction  : column;
+        background-color: red;
+
+        .ShowImg {
+            filter: invert(1) !important;
+        }
+    }
+
+    .endTime {
+        background-color: white;
+        margin          : 24rpx;
+        padding         : 16rpx;
+        border-radius   : 24rpx;
+        font-size       : 32rpx;
+        color           : #63A1A0;
+    }
+
+    .mess_wrap {
+        padding         : 24rpx;
+        font-size       : 32rpx;
+        margin          : 24rpx;
+        border-radius   : 24rpx;
+        background-color: white;
+
+        .mess_caption {
+            text-align : center;
+            color      : #63A1A0;
+            font-weight: 700;
+            padding    : 12rpx;
+        }
+
+        .mess_list {
+            padding-top: 12rpx;
+
+            .mess_item {
+                display       : flex;
+                flex-direction: row;
+                padding       : 18rpx;
+
+                .title {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .content {
+                    flex            : 3;
+                    background-color: #ececec;
+                    padding         : 8rpx;
+                    border-radius   : 12rpx;
+                    color           : rgb(146, 146, 146);
+                }
+            }
+        }
+    }
+
+    .apply {
+        padding         : 24rpx;
+        font-size       : 32rpx;
+        margin          : 24rpx;
+        border-radius   : 24rpx;
+        background-color: white;
+
+        .apply_caption {
+            text-align : center;
+            color      : #63A1A0;
+            font-weight: 700;
+            padding    : 12rpx;
+        }
+
+        .input_list {
+            .input_item {
+                display       : flex;
+                flex-direction: row;
+                // padding       : 12rpx;
+                padding       : 18rpx;
+
+                .input_title {
+                    flex: 1;
+                }
+
+                .input_content {
+                    flex            : 3;
+                    width           : auto;
+                    margin-left     : 12rpx;
+                    background-color: #ececec;
+                    // padding         : 4rpx 8rpx;
+                    padding         : 8rpx;
+                    border-radius   : 18rpx;
+                }
+            }
+        }
+    }
+
+    .end {
+        background-color: #63A1A0;
+        margin          : 48rpx;
+        text-align      : center;
+        border-radius   : 24rpx;
+        font-size       : 32rpx;
+        padding         : 6rpx;
+        margin-right    : 20%;
+        margin-left     : 20%;
+        color           : white;
+        width           : 60%;
     }
 }

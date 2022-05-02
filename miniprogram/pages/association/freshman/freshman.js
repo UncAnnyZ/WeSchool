@@ -19,51 +19,55 @@ Page({
   onLoad: function (options) {
     let assoMess = JSON.parse(options.assoMess)
     let res = wx.getStorageSync("args");
-    // if (res.username != 'guest') {
-    //   count = Number(res.username)
-    // }
-    // else {
-    //   count = res.username
-    // }
     let school = res.school
     let nickName = res.nickName
-    db.collection("associationMess").where({ count: count }).get().then(res => {
-      if (res.data.length == 0) {
-        db.collection("associationMess").add({
-          data: {
-            count: count,
-            school: school,
-            nickName: nickName,
-            freshman: [],
-            sendStatus: false,
-            assoMess: assoMess
-          }
-        }).then(res => {
-          this.setData({
-            freshman: [],
-            sendStatus: false,
-            school: school,
-            assoMess: assoMess
-          })
-        })
-      }
-      else {
+    count = String(res.username)
+    wx.showLoading({
+      title: "加载中",
+      mask: true,
+      success: (result) => {
         db.collection("associationMess").where({ count: count }).get().then(res => {
-          this.setData({
-            freshman: res.data[0].freshman,
-            sendStatus: res.data[0].sendStatus,
-            imgUrl: res.data[0].imgUrl,
-            CoverHeight: res.data[0].CoverHeight,
-            CoverWidth: res.data[0].CoverWidth,
-            ShowHeight: res.data[0].ShowHeight,
-            school: school,
-            assoMess: assoMess,
-            date: res.data[0].date,
-            add_title: res.data[0].title
-          })
+          if (res.data.length == 0) {
+            db.collection("associationMess").add({
+              data: {
+                count: count,
+                school: school,
+                nickName: nickName,
+                freshman: [],
+                sendStatus: false,
+                assoMess: assoMess,
+                personArr: []
+              }
+            }).then(res => {
+              wx.hideLoading();
+              this.setData({
+                freshman: [],
+                sendStatus: false,
+                school: school,
+                assoMess: assoMess,
+              })
+            })
+          }
+          else {
+            db.collection("associationMess").where({ count: count }).get().then(res => {
+              wx.hideLoading();
+              this.setData({
+                freshman: res.data[0].freshman,
+                sendStatus: res.data[0].sendStatus,
+                imgUrl: res.data[0].imgUrl,
+                CoverHeight: res.data[0].CoverHeight,
+                CoverWidth: res.data[0].CoverWidth,
+                ShowHeight: res.data[0].ShowHeight,
+                school: school,
+                assoMess: assoMess,
+                date: res.data[0].date,
+                add_title: res.data[0].title,
+              })
+            })
+          }
         })
-      }
-    })
+      },
+    });
   },
   // 弹窗
   clickme() {
@@ -149,8 +153,6 @@ Page({
         success: (result) => {
 
         },
-        fail: () => { },
-        complete: () => { }
       });
     }
     else {
@@ -261,7 +263,6 @@ Page({
                       association: this.data.assoMess
                     }
                   }).then(res => {
-                    // console.log(res);
                     db.collection("associationMess").where({ count: count }).update({
                       data: {
                         sendStatus: true
@@ -349,10 +350,11 @@ Page({
           wx.getImageInfo({
             src: imgUrl,
             success: (res) => {
-              // console.log(res);
-              let CoverHeight = res.height + 'rpx'
-              let CoverWidth = res.width
-              let ShowHeight = res.height
+              let height = res.height > 500 ? 500 : res.height
+              let width = res.width < 370 ? 370 : res.width
+              let CoverHeight = height + 'rpx'
+              let CoverWidth = width
+              let ShowHeight = height
               db.collection("associationMess").where({ count: count }).update({
                 data: {
                   imgUrl: imgUrl,
@@ -505,6 +507,7 @@ Page({
       });
     }
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

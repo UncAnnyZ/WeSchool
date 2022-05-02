@@ -34,6 +34,21 @@ page {
   text-align: center;
   color: blue;
 }
+.changMust {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 24rpx;
+  margin-top: 24rpx;
+}
+.changMust .title {
+  flex: 1;
+}
+.changMust .changContent {
+  zoom: 0.8;
+  flex: 1;
+  text-align: right;
+}
 .bottom_wrap {
   position: fixed;
   bottom: 0;
