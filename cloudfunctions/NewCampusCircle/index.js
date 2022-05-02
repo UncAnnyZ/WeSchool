@@ -6,7 +6,7 @@ const CommentControl = require('./CommentControl/index');
 const Card = require('./Card/index');
 const Note_module = require('./Note_module/index');
 const JuBao = require('./JuBao/index')
-
+const myself = require('./myself/index')
 exports.main = async (event, context) => {
 
   var data;
@@ -26,6 +26,8 @@ exports.main = async (event, context) => {
   if(event.url === 'JuBao') {
     data = await JuBao.main(event)
   }
-
+  if(event.url === 'myself') {
+    data = await myself.main(event)
+  }
   return data
 }

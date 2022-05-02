@@ -24,7 +24,6 @@ Component({
 
     data: {
         tabItemConfig: [],             // 每个标签的字符长度             
-
         offset: 0,                     // 下划线滑动时偏移量
         offset_width: 0,               // 下划线滑动时宽度计算量
         underLine_left: [],            // 下划线偏移

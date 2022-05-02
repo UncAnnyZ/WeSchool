@@ -1,0 +1,13 @@
+[
+  {
+    "name": "个人主页模板",
+    "value": {
+      "type": "read",
+      "url": "myself",
+      "currentPage": "0",
+      "ShowId": "全部",
+      "School": "广东石油化工学院",
+      "username": "20014260415"
+    }
+  }
+]

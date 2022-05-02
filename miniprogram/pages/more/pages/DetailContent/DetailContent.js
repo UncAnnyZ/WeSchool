@@ -428,6 +428,7 @@ Page({
     var that = this;
     const args = wx.getStorageSync('args')
     let jsonStr = decodeURIComponent(options.content)
+    console.log(options.content)
     var content = JSON.parse(jsonStr) // 将JSON帖子信息转成对象
     var more = 0;
     this.setData({
@@ -590,4 +591,31 @@ Page({
   onShow: function () {
     this.ShowComment()
   },
+  onShareTimeline(e){
+    const args = wx.getStorageSync('args')
+    let jsonStr = JSON.stringify(this.data.content);
+    let content_ = encodeURIComponent(jsonStr)
+    console.log(content_)
+    if(args.username== this.data.content.username){
+      return {
+        title:"我发布了一个" + this.data.content.Label + this.data.content.Title,
+        imageUrl:this.data.content.Cover,
+        query:`pages/more/pages/DetailContent/DetailContent?content=${content_}`
+      }
+    } 
+   else{
+     return {
+      title:this.data.content.Title?this.data.content.Title:this.data.content.Text,
+      imageUrl:this.data.content.Cover,
+      query:`pages/more/pages/DetailContent/DetailContent?content=${content_}`
+     }
+   }
+  },
+  onShareAppMessage(e){
+    return {
+      title:"",
+      imageUrl:"",
+      path:""
+    }
+  }
 })

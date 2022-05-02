@@ -1,0 +1,44 @@
+<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):transparent}};">
+  <view class="card" style="opacity:1;z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd"
+    bindtap="">
+    <view class="card-top">
+      <view class="card-top-left">
+        <view>
+          <image class="card-top-left-img" src="{{item.iconUrl}}"></image>
+        </view>
+        <view class="card-top-left-text">
+          <view class="card-top-left-text1">{{item.nickName}}</view>
+          <view class="card-top-left-text2">{{item.Time}}</view>
+        </view>
+      </view>
+      <view class="card-top-right"></view>
+      <image class="card-top-right-img" src="../../images/img/icon_more.png"></image>
+    </view>
+    <view class="card-content">{{item.Text}}</view>
+    <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
+    <view class="card-end">
+      <view class="card-end-start-person">
+        <!-- 分点赞的情况 -->
+        <view class="card-end-start-person-text" wx:if="{{item.Star_User.length>=1}}">
+          <view class="card-end-start-person-text">{{item.Star_User.length}}人已点赞 </view>
+        </view>
+        <view wx:else>
+          <view class="card-end-start-person-text">暂无点赞 </view>
+        </view>
+      </view>
+
+      <view class="card-end-detail">
+        <image style="width:39rpx" id="{{index}}" bindtap="star_tap"
+          src="{{item.star_state==1?'../../images/img/like@2x.png':'../../images/img/icon_lick_nor.png'}}"></image>
+        <image src="../../images/img/icon_comment.png"> </image>
+        <button
+          style="padding:0rpx;margin-left:40rpx;margin-right:0rpx;height:40rpx;width:40rpx;position:relative;"
+          size="mini" data-index="{{idd}}" open-type="share" bind:tap="share">
+          <image class="share" src="../../images/img/icon_share.png"></image>
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class="card-tip" style="display:{{list.length!=0?'none':'flex'}}">主人您还占未发布帖子哦~~</view>
+  <!-- </view> -->
+</scroll-view>
