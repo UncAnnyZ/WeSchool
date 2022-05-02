@@ -33,17 +33,36 @@ lifetimes: {
     // })
     this.setData({list_,currentTab})
   },
+  onShareAppMessage: function (e) {
+    //我弄丢了 可以帮我看看吗
+    //详情页面做转发朋友圈 
+    console.log(e)
+    if(e.from="button"){
+      console.log(e.target.dataset.index)
+      console.log(this.data.list)
+      // let idx = e.target.dataset.index
+      // console.log(idx)
+      // console.log(this.data.card_data[idx])
+      // wx.showShareMenu({
+      //   withShareTicket: true,
+      //   menus: ['shareAppMessage', 'shareTimeline']
+      // })
+      // return {
+      //   title:this.data.card_data[idx].title?this.data.card_data[idx].title:this.data.card_data[idx].Text,
+      //   imageUrl:this.data.card_data[idx].Cover,
+      //   path:"pages/more/pages/"
+      // }
+    }
+    if(e.from=="menu"){
+      return {
+        title:"",
+        imageUrl:"",
+        path:" "
+      }
+    }
+  },
 },
-observers:{
-  "list_,currentTab":function(list_,currentTab){  //监听函数回调
-    if(list_&&list_.length>0){
-      list_.forEach((item)=>{
-        item.Time = utils.timeago(item.Time,'Y年M月D日')  
-      })
-      console.log(list_)
-    } 
-  }
-},
+
 methods: {
         
   init() {
@@ -66,35 +85,10 @@ methods: {
       this.triggerEvent("getData",e);
       console.log("getData");
     },
-  
-    onShareAppMessage: function (e) {
-      //我弄丢了 可以帮我看看吗
-      //详情页面做转发朋友圈 
+    navigate(e){
       console.log(e)
-      if(e.from="button"){
-        console.log(e.target.dataset.index)
-        console.log(this.data.list)
-        // let idx = e.target.dataset.index
-        // console.log(idx)
-        // console.log(this.data.card_data[idx])
-        // wx.showShareMenu({
-        //   withShareTicket: true,
-        //   menus: ['shareAppMessage', 'shareTimeline']
-        // })
-        // return {
-        //   title:this.data.card_data[idx].title?this.data.card_data[idx].title:this.data.card_data[idx].Text,
-        //   imageUrl:this.data.card_data[idx].Cover,
-        //   path:"pages/more/pages/"
-        // }
-      }
-      if(e.from=="menu"){
-        return {
-          title:"",
-          imageUrl:"",
-          path:" "
-        }
-      }
     },
+
 
     
 

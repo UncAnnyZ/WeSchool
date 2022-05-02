@@ -12,8 +12,10 @@ exports.main = async (event) => {
     case "read":
       data = await read(event); //  
       break;
-    // 校园圈主页搜索逻辑
-   
+    // 获取关注数和粉丝数
+    case "get_fans":
+      data = await get_fans(event);
+      break;
   }
   return data
 }
@@ -38,5 +40,40 @@ async function read(event){
     }).orderBy('SortTime', 'desc').orderBy('Time', 'desc').where(obj).skip(skipPage).limit(15).get();
   } catch (e) {
     console.error(e);
+  }
+}
+async function get_fans(event){
+  //写 try catch
+  var obj = {
+    // School: event.School,
+    username: event.username 
+  }
+  try{
+    const res_fans =  db.collection("personalCenter").where(obj).get()
+    const MAX_LIMIT = 100
+    const total =  await db.collection("New-Information").where({'be_character.userName':event.username,status:_.eq(0).or(_.eq(1)),type:"点赞"}).count()
+    const res_star_total =  total.total
+    console.log(res_star_total)
+    const batchTimes = Math.ceil(res_star_total / 100)
+    const tasks = []
+    for (let i = 0; i < batchTimes; i++) {
+      //两个异步任务没有存进去
+      const promise =  db.collection("New-Information").where({'be_character.userName':event.username,status:_.eq(0).or(_.eq(1)),type:"点赞"}).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+      tasks.push(promise)
+    }
+    console.log(tasks)
+    let result = await Promise.all(tasks)
+    
+    let res = result.reduce((acc, cur) => {
+      return {
+        data: acc.data.concat(cur.data),
+        errMsg: acc.errMsg,
+      }
+    })
+    console.log(res)
+     return await Promise.all([res_fans,res])
+  }
+  catch(e){
+    console.log(e)
   }
 }

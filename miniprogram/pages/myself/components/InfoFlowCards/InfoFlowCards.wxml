@@ -1,6 +1,5 @@
 <scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):transparent}};">
-  <view class="card" style="opacity:1;z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd"
-    bindtap="">
+  <view class="card" style="opacity:1;z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd" bindtap="navigate">
     <view class="card-top">
       <view class="card-top-left">
         <view>
@@ -33,7 +32,7 @@
         <image src="../../images/img/icon_comment.png"> </image>
         <button
           style="padding:0rpx;margin-left:40rpx;margin-right:0rpx;height:40rpx;width:40rpx;position:relative;"
-          size="mini" data-index="{{idd}}" open-type="share" bind:tap="share">
+          size="mini" data-index="{{idd}}" open-type="share"  bind:tap="share">
           <image class="share" src="../../images/img/icon_share.png"></image>
         </button>
       </view>

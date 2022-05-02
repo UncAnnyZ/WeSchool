@@ -9,5 +9,13 @@
       "School": "广东石油化工学院",
       "username": "20014260415"
     }
+  },
+  {
+    "name": "得到粉丝和关注",
+    "value": {
+      "url": "myself",
+      "type": "get_fans",
+      "username": 20014260415
+    }
   }
 ]

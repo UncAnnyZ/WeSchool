@@ -1,6 +1,5 @@
 // pages/index/index.js
 var utils = require("./utils/time.js")
-wx.cloud.init()
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
@@ -11,44 +10,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    person_info:{
+      iconUrl:args.iconUrl,
+      nickName:args.nickName,
+      username:args.username,
+      School:args.School,
+      focusNum:0,
+      fansNum:0,
+      StarNum:0
+    },
     list:[],
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
     rectHeight: getApp().globalData.rectHeight,
     windowHeight: getApp().globalData.windowHeight,
     currentPage:0, //默认是0下拉就加载page++1
-    person_info:{
-      //这里写死到时候缓存读取
-      nickName:wx.getStorageSync('args').nickName,
-      iconUrl:wx.getStorageSync('args').iconUrl,
-      username:wx.getStorageSync('args').username,
-      School:wx.getStorageSync('args').School,
-
-    },
     scrollTop:0,
     //消息提示默认为0
     NewInfo:0, 
     navigationBar:app.globalData.navigationBarHeight,
-    //卡片的数组数据
-    card_data:[
-      // {Label:"三行情书",nickName:"张三",Time:"今日17：27",Text:"啊哈哈哈",AllPhoto:["./images/mm.png","./images/test1.png"],Star_User:["腾丶","啊对对对对对"]},
-      // {Label:"三行情书",nickName:"腾丶",Time:"今日17：27",Text:"啊哈哈哈",AllPhoto:["./images/mm.png","./images/test2.png"],Star_User:["腾丶","粤神","全神"]},
-      // {Label:"三行情书",nickName:"恩佐",Time:"今日17：27",Text:"啊哈哈哈",AllPhoto:["./images/test2.png","./images/test1.png"],Star_User:["腾丶","恩佐"]},
-    ],
-    card_all_data:[],
-    //滑动栏
-    LabelIndex:0,
     offsetTop: 0,
   },
 
-  // 滑动手势开始事件
-  startEvent(event) {
-    if (event.changedTouches[0].pageX) {
-      this.data.startPageX = event.changedTouches[0].pageX
-    } else {
-      this.data.startPageX = event.changedTouches[0].x
-    }
-  },
   onScroll(e){
     //下滑事件
     let statusBarHeight = this.data.statusBarHeight,
@@ -65,10 +48,38 @@ Page({
 
     
 },
-  // 滑动手势结束事件
-
+load_detail(){
+  var that = this
+  wx.cloud.callFunction({
+    name:"NewCampusCircle",
+    data:{
+      url:"myself",
+      type:"get_fans",
+      username:"20024410137",
+      School:args.School
+    },
+    success(res){
+      console.log(res)
+      if(res.result[0].data&&res.result[0].data.length>0&&res.result[1].data&&res.result[1].data.length>0){
+        let fansNum = res.result[0].data[0].fansNum.length
+        let focusNum = res.result[0].data[0].focusNum.length
+        let person_info = that.data.person_info
+        let StarNum = res.result[1].data.length
+        console.log()
+        person_info["focusNum"] = focusNum
+        person_info["fansNum"] = fansNum
+        person_info["StarNum"] = StarNum
+        that.setData({
+          person_info
+        })
+      }
+      // console.log(res)
+    }
+  })
+},
 //初始化
 init(){
+  this.load_detail()
 //判断登录
 let args = wx.getStorageSync("args")
 console.log(args)
@@ -263,7 +274,6 @@ getData(){
   //点赞更新消息的云函数
   update_star(){
     let starTime = new Date().getTime(); // 点赞时间
-
     wx.cloud.callFunction({ // 云函数更改点赞状态
       name: "CampusCircle",
       data: {
@@ -341,12 +351,7 @@ getData(){
     }).then()
   },
 
-  // choose_label(e){
-  //   let index = e.target.id
-  //   this.setData({LabelIndex:index})
-  //   this.get_data()
-    
-  // },
+ 
   //预览图片
   img_pre(e){
     wx.previewImage({
@@ -354,6 +359,7 @@ getData(){
       urls: [e.target.id] // 需要预览的图片http链接列表
     })
   },
+  //滑动事件
   waterChange(e) {
     let currentTab = e.detail.current,
       tabitem = this.data.tabitem.map((item, index) => {
@@ -381,6 +387,7 @@ getData(){
       this.getData();
     }
   },
+  //按钮事件
   setCurrentTab: function (e) {
     var currentTab = {
       detail: {
@@ -393,13 +400,12 @@ getData(){
     // 获取新消息通知数量
     getNewInfo() {
       var that = this;
-      // let args = wx.getStorageSync('args');
       // 边界处理 - 未登录时
-      if (!this.data.person_info.username) {
+      if (!args.username) {
         return;
       }
       wx.cloud.database().collection('New-Information').where({
-        'be_character.userName': this.data.person_info.username,
+        'be_character.userName': args.username,
         status: 0
       }).count().then(res => {
         console.log(res)

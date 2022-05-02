@@ -45,15 +45,15 @@
       </view>
       <view class="banner-sec">
         <view class="block">
-          <view>888</view>
+          <view>{{person_info.StarNum}}</view>
           <view>点赞</view>
         </view>
         <view class="block">
-          <view>985</view>
+          <view>{{person_info.focusNum}}</view>
           <view>关注</view>
         </view>
         <view class="block">
-          <view>211</view>
+          <view>{{person_info.fansNum}}</view>
           <view>粉丝数</view>
         </view>
         <view class="block">
@@ -63,9 +63,9 @@
       </view>
 
   </view>
-  <view class="content" style="opacity:0.9;z-index:2"   bindtouchstart="touchStart" bindtouchend="touchEnd">
-    <weimob-sticky scrollTop="{{scrollTop}}" offsetTop="{{offsetTop}}" style="z-index: 3;position: relative;background-color:rgba(189,234,237,1)">
-    <TabScroll  style="z-index: 3;position: relative;left:25rpx" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" ></TabScroll>
+  <view class="content" style="opacity:0.9;z-index:2;"   bindtouchstart="touchStart" bindtouchend="touchEnd">
+    <weimob-sticky scrollTop="{{scrollTop}}" offsetTop="{{offsetTop}}" style="z-index: 3;position: relative">
+    <TabScroll  style="z-index: 3;position: relative;left:25rpx" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"  ></TabScroll>
   </weimob-sticky>
   <scroll-view wx:if="{{campus_account!=true}}" class="page" style="z-index: -1;">
     <Loading wx:if="{{showLoading}}" />
