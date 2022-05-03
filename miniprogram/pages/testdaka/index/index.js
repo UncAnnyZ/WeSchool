@@ -2,9 +2,21 @@ const db = wx.cloud.database();
 const _ = db.command;
 let movedistance = 0;
 var app = getApp();
-var util = require('../../../utils/util')
+var util = require('../../../utils/util');
+var startX, endX, startXCurri, endXCurri;
+var moveFlag, moveFlagCurri = true;
 Page({
     data: {
+      //左侧个人信息栏
+        name_ke: '我的名字',
+        pic_address_ke:'../../../images/about/long.jpg',
+        txt_frequence_ke:'打卡总次数',
+        frequence_ke:null,
+        txt_groupNum_ke:'我参与的小组数',
+        groupNum_ke:null,
+        txt_hours_ke:'我的总专注时长',
+        hours_ke:null,
+        isAnimate_ke:false,
         //打卡data
         statusBarHeight: getApp().globalData.statusBarHeight,
         lineHeight: getApp().globalData.lineHeight,
@@ -105,6 +117,54 @@ Page({
       animationData: {},
       showgroup:false
     },
+    //个人信息栏滑动方法
+    // 弹出 - 设置页面
+  seetingHandler: function (e) {
+    console.log("已点击设置按钮");
+    // 封装 timetable 和 curriLeft 的动画
+    const animationFunc = (px,scale,opacity1,opacity2,height,width) => {
+      
+      var timetableAnimation = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease',
+        delay: 100,
+      }).translateX(px).scale(scale).opacity(opacity1).height(height).step().export();
+
+      var curriLeft = wx.createAnimation({
+        duration: 500,
+        timingFunction:'ease',
+        delay: 1000,
+      }).translateX(px).translateY(-20).opacity(opacity2).step().export();
+      
+      this.setData({
+        timetableAnimation,
+        curriLeft,
+        isAnimate_ke: !this.data.isAnimate_ke
+      })
+      // this.data.isAnimate = !this.data.isAnimate;     // 更新 isAnimate 状态
+    }
+    this.data.isAnimate_ke ? animationFunc("none",1,1,0,"100%","100%",) : animationFunc(270,0.88,0.7,1,"100%",150)
+  },
+  // 触摸开始事件
+  touchStartCurri_ke: function (e) {
+    startXCurri = e.touches[0].pageX; // 获取触摸时的原点
+    moveFlagCurri = true;
+  },
+  // 触摸移动事件
+  touchMoveCurri_ke: function (e) {
+    endXCurri = e.touches[0].pageX; // 获取触摸时的原点
+    if (moveFlagCurri) {
+      if (startXCurri - endXCurri > 50) {
+        moveFlagCurri = false;
+        this.seetingHandler();
+        moveFlagCurri = true;
+      }
+    }
+  },
+  // 触摸结束事件
+  touchEndCurri_ke: function (e) {
+    moveFlagCurri = true; // 回复滑动事件
+  },
     //自习室小组的js
     //获取小组信息数据
     getgroupdata:function(){
@@ -509,7 +569,10 @@ Page({
     },
     // tabbar js
     click_a:function(e){
-      
+      //检验，如果处在侧栏信息栏，则划回
+      if(this.data.isAnimate_ke){this.seetingHandler()}
+      //
+
       let navState = e.currentTarget.dataset.index
       console.log("主页",navState);
       console.log(navState);
@@ -522,6 +585,9 @@ Page({
       })
     },
     click_b:function(e){
+      //检验，如果处在侧栏信息栏，则划回
+      if(this.data.isAnimate_ke){this.seetingHandler()}
+      //
       wx.showToast({
         title: '开发中，敬请期待',
         icon: 'none',
@@ -537,6 +603,9 @@ Page({
       })
     },
     click_c:function(e){
+      //检验，如果处在侧栏信息栏，则划回
+      if(this.data.isAnimate_ke){this.seetingHandler()}
+      //
       wx.showToast({
         title: '开发中，敬请期待',
         icon: 'none',
@@ -552,6 +621,10 @@ Page({
       })
     },
     click_d:function(e){
+      //检验，如果处在侧栏信息栏，则划回
+      if(this.data.isAnimate_ke){this.seetingHandler()}
+      //
+
       // wx.showToast({
       //   title: '开发中，敬请期待',
       //   icon: 'none',
@@ -598,6 +671,9 @@ Page({
     //下面是打卡js
     //计时入口动画
     plus: function (e) {
+      //检验，如果处在侧栏信息栏，则划回
+      if(this.data.isAnimate_ke){this.seetingHandler()}
+      //
       let navState = e.currentTarget.dataset.index
       console.log("计时页",navState);
       wx.setNavigationBarColor({
