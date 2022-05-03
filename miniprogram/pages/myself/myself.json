@@ -6,5 +6,6 @@
   "jiuGongGe":"../more/components/InfoFlowCards/components/jiuGongGe/jiuGongGe",
   "InfoFlowCards":"./components/InfoFlowCards/InfoFlowCards"
   },
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true
 }

@@ -29,7 +29,7 @@
         </view>
         <view class="card-top-left-text">
           <view class="card-top-left-text1">{{item.nickName}}</view>
-          <view class="card-top-left-text2">{{item.Time}}</view>
+          <view class="card-top-left-text2">{{item.Time_format}}</view>
         </view>
       </view>
       <view class="card-top-right"></view>

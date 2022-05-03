@@ -154,9 +154,14 @@ getData(){
   let currentPage = data.currentPageArr[currentTab]
   let ShowId = data.tabitem[currentTab].title // 当前选择的标签名字
   let School = args.schoolName
+  let currComponent = that.selectComponent(`#InfoFlowCards${currentTab}`);
   //  ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院"     // 边界处理 - 用户没登录时
   //拉取数据
   let username = args.username
+  if (currComponent.data.loadAll) {
+    console.log("已经拉到底了");
+    return;
+  }
   wx.cloud.callFunction({
     name: "NewCampusCircle",
     //要新建云函数多加字段
@@ -182,17 +187,20 @@ getData(){
             // 添加新数据到 list 里 
             item.forEach((item_,index_)=>{
                      //判断是否已经更新
-              if(typeof(item_.Time)=="number"){
-              item_.Time = utils.timeago(item_.Time,'Y年M月D日')      
+              // if(typeof(item_.Time)=="number"){
+              item_.Time_format = utils.timeago(item_.Time,'Y年M月D日')      
 
-              } 
+              // } 
             })
   
            })
           app.globalData.allList = allList;
-          console.log(allList)
+          that.setData({
+            [`allList[${currentTab}]`]: allList[currentTab]
+          });
+       
           //请求道的数据存在app里面
-          if (res.result.data.length < 10) {
+          if (res.result.data.length < 15) {
             that.setData({
               loadAll: true,
               allList
@@ -211,9 +219,23 @@ getData(){
           allList
         })
       }
+      wx.createSelectorQuery()
+      .select(`#InfoFlowCards${currentTab}`)
+      .boundingClientRect(res => {
+        // 避免高度过小
+        res.height < 100 ? res.height = 100 : '';
+        console.log(res.height)
+        that.setData({
+          currentWaterFlowHeight: res.height
+        })
+      })
+      .exec()
+    },
+    fail(res) {
+      console.log("请求失败", res)
     }
   })
- 4
+
 },
   onLoad: function (e) {
 
@@ -223,7 +245,15 @@ getData(){
     this.getData()
 
   },
-
+  onReachBottom() {
+    wx.showLoading({
+      title: '加载更多中',
+      mask: true
+    })
+    // 请求数据库
+    this.getData();
+    wx.hideLoading();
+  },
   //点赞更新消息的云函数
   update_star(){
     let starTime = new Date().getTime(); // 点赞时间
