@@ -1,5 +1,27 @@
+<wxs module="m1">
+  // var processTime = function(Time,utils){
+  //   return  utils.timeago(Time,'Y年M月D日')
+  // } 
+  var getStar = function (item, character) {
+    var starSrc =   '../../images/img/icon_lick_nor.png'
+    if (item.Star_User) {
+      item.Star_User.forEach(function (e) {
+        if (e && e.username === character.username) {
+          console.log("e",e);
+          starSrc = '../../images/img/like@2x.png'
+        }
+
+      })
+    }
+
+    return starSrc;
+  }
+  module.exports.getStar = getStar;
+  // module.exports.processTime = processTime;
+</wxs>
+
 <scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):transparent}};">
-  <view class="card" style="opacity:1;z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd" bindtap="navigate">
+  <view class="card" style="opacity:1;z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd" catchtap="navigate" data-index="{{idd}}">
     <view class="card-top">
       <view class="card-top-left">
         <view>
@@ -14,7 +36,7 @@
       <image class="card-top-right-img" src="../../images/img/icon_more.png"></image>
     </view>
     <view class="card-content">{{item.Text}}</view>
-    <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
+    <jiuGongGe   AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
     <view class="card-end">
       <view class="card-end-start-person">
         <!-- 分点赞的情况 -->
@@ -27,12 +49,12 @@
       </view>
 
       <view class="card-end-detail">
-        <image style="width:39rpx" id="{{index}}" bindtap="star_tap"
-          src="{{item.star_state==1?'../../images/img/like@2x.png':'../../images/img/icon_lick_nor.png'}}"></image>
+        <image style="width:39rpx" data-index="{{idd}}" catchtap="star_tap"
+          src="{{m1.getStar(item,character)}}"></image>
         <image src="../../images/img/icon_comment.png"> </image>
         <button
           style="padding:0rpx;margin-left:40rpx;margin-right:0rpx;height:40rpx;width:40rpx;position:relative;"
-          size="mini" data-index="{{idd}}" open-type="share"  bind:tap="share">
+          size="mini" data-index="{{idd}}" open-type="share" data-type="{{currentTab}}"  catchtap="share">
           <image class="share" src="../../images/img/icon_share.png"></image>
         </button>
       </view>

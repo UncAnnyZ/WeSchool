@@ -9,11 +9,11 @@
   <view class="top"></view>
 <view class="box">
 
-  <view class="header">
+  <view class="header" style="height: {{statusBarHeight + lineHeight}}px" >
     <view class="header-text">我的</view>
     <view class="header-right"> 
       <view class="tip">
-        <image class="header-right-img gap " style="width:31rpx"  src="./images/img/message.png">
+        <image class="header-right-img gap " bindtap="navigate" data-type="tip" style="width:31rpx"  src="./images/img/message.png">
       </image>
       <view wx:if="{{NewInfo}}"  class="tip_dot">
         <text wx:if="{{NewInfo<100}}">{{NewInfo}}</text>

@@ -55,11 +55,14 @@ load_detail(){
     data:{
       url:"myself",
       type:"get_fans",
-      username:"20024410137",
+      username:args.username,
       School:args.School
     },
     success(res){
       console.log(res)
+      if(!(res.result)){
+        return -1
+      }
       if(res.result[0].data&&res.result[0].data.length>0&&res.result[1].data&&res.result[1].data.length>0){
         let fansNum = res.result[0].data[0].fansNum.length
         let focusNum = res.result[0].data[0].focusNum.length
@@ -73,6 +76,7 @@ load_detail(){
           person_info
         })
       }
+     
       // console.log(res)
     }
   })
@@ -87,6 +91,7 @@ app.loginState();
 //判断标签
 //把标签转化为要的形式
 let data = this.data
+
 let tabitem = args.tabitem? args.tabitem.map((e, index) => {
   if (index == 0) {
     return {
@@ -148,12 +153,10 @@ getData(){
   let currentTab = data.currentTab
   let currentPage = data.currentPageArr[currentTab]
   let ShowId = data.tabitem[currentTab].title // 当前选择的标签名字
-  let School = args.schoolName ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院"     // 边界处理 - 用户没登录时
+  let School = args.schoolName
+  //  ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院"     // 边界处理 - 用户没登录时
   //拉取数据
   let username = args.username
-  console.log(ShowId)
-  console.log(School)
-  console.log(currentPage)
   wx.cloud.callFunction({
     name: "NewCampusCircle",
     //要新建云函数多加字段
@@ -188,28 +191,17 @@ getData(){
            })
           app.globalData.allList = allList;
           console.log(allList)
-     
-                         //判断我是否点赞 
-            //       item.star_state = 0 //没有点赞的状态
-            //       if(item.Star_User){
-            //         let star_arr = item.Star_User
-            //         star_arr.forEach((items,index)=>{
-            //           if(items.username&&items.username == username){
-            //           item.star_state = 1
-            //           }
-            //         })
-            //       }
-            //     that.setData({card_all_data,card_data:card_all_data})
-            //     console.log(that.data.card_data)
-          // })
-          console.log(allList)
           //请求道的数据存在app里面
           if (res.result.data.length < 10) {
             that.setData({
               loadAll: true,
               allList
             });
+            return -1
           }
+          that.setData({
+            allList
+          })
       }
       else{ //不存在数据时
         console.log("err")
@@ -229,46 +221,7 @@ getData(){
     console.log(app.globalData.navigationBarHeight)
     this.init()
     this.getData()
-    // wx.showLoading({
-    //   title: '数据请求加载中',
-    // })
-    // let username = this.data.person_info.username
-    // var that = this
-    // let list = this.data.list
-    // wx.cloud.callFunction({
-    //   name: "CampusCircle",
-    //   data: {
-    //     type: "readUser",
-    //     currentPage: 0, //页数
-    //     username: username //自己的学号
-    //   },
-    //   success(res){
-    //     //构造一个能带人到卡片的一个数组
-    //     //使用es6对获得的数组进行处理
-    //     let card_all_data = res.result.data
-    //     // 添加新数据到 list 里 
-    //     list = list.concat(res.result.data);
-    //     console.log(list, "list");
-    //     that.setData({ list });
-    //     card_all_data.forEach((item,index)=>{
-    //       item.Time = utils.timeago(item.Time,'Y年M月D日')
-    //       //判断我是否点赞 
-    //       item.star_state = 0 //没有点赞的状态
-    //       if(item.Star_User){
-    //         let star_arr = item.Star_User
-    //         star_arr.forEach((items,index)=>{
-    //           if(items.username&&items.username == username){
-    //           item.star_state = 1
-    //           }
-    //         })
-    //       }
-    //     })
-    //     that.setData({card_all_data,card_data:card_all_data})
-    //     console.log(that.data.card_data)
-    //     wx.hideLoading()
 
-    //   }
-    // })
   },
 
   //点赞更新消息的云函数
@@ -286,71 +239,13 @@ getData(){
       }
     }).then()
   },
-  //点赞函数
-   star_tap(e){
-    //本地更新
-    let index = Number(e.target.id)
-    let card_val =  this.data.card_data[index]
-    let user = this.data.person_info.username
-    let star_detail =card_val.Star_User
-
-    if(card_val.star_state==1){
-      //点赞变成不点赞
-      card_val.star_state = 0
-      star_detail = star_detail.filter((e)=>{
-         return e.username != user
-      })
-      this.data.card_data[index].Star_User = star_detail
-      console.log(star_detail)
-      this.setData({card_data:this.data.card_data})
-    }
-    else{
-      //不点赞的变成点赞的
-      card_val.star_state = 1
-      star_detail.push({"username":user})
-      console.log(star_detail)
-      this.setData({card_data:this.data.card_data})
-      wx.showToast({
-        title: '点赞成功',
-        icon:"none"
+  navigate(e){
+    if(e.currentTarget.dataset.type=="tip"){
+      wx.navigateTo({
+        url: '/pages/more/pages/NewInfo/NewInfo',
       })
     }
-
-    //记得还要写数据库更新(先在这里操作数据库后面写到云函数避免影响到线上的)
-    db.collection('Campus-Circle').where({_id:card_val._id}).update({
-      data: {
-        Star_User: star_detail  //更新后的
-      },
-      success: function(res) {
-        console.log(res)
-      }
-    })
-    //更新消息 （我觉得可以写两个异步过程用promise.all对性能进行优化）
-    let starTime = new Date().getTime(); // 点赞时间
-    //模拟缓存
-    let be_character ={
-      nickName:this.data.person_info.nickName,
-      userName:this.data.person_info.username,
-      iconUrl:this.data.person_info.iconUrl
-    }
-    let character = {
-      nickName:card_val.nickName,
-      userName:card_val.username,
-      iconUrl:card_val.iconUrl
-    } 
-    wx.cloud.callFunction({ // 云函数更改点赞状态
-      name: "CampusCircle",
-      data: {
-        type: "StarControlLogs",
-        Star_User: card_val.Star_User,       // 旧云函数 starCount 要用到
-        character,     //  card_val里面拿到 我觉得可以直接在后端做处理的这东西
-        be_character, // 缓存拿到
-        createTime: starTime,
-        arcticle: card_val,
-      }
-    }).then()
   },
-
  
   //预览图片
   img_pre(e){
@@ -454,9 +349,23 @@ getData(){
   /**
    * 用户点击右上角分享
    */
+
   onShareAppMessage: function (e) {
+    console.log(e)
+    //不同组件分情况
     if(e.from="button"){
       console.log(e.target.dataset.index)
-      console.log(this.data.list)
+      let type = e.target.dataset.type
+      let index =  e.target.dataset.index
+      let content = this.data.allList[type][index]
+      console.log(content)
+      let jsonStr = JSON.stringify(content);
+       // 对数据进行URI编码，防止数据被截断。少量数据没问题，如果对象较大则容易被截断，获取不到完整数据
+       let data = encodeURIComponent(jsonStr);
+      return{
+        title:content.title||content.Text,
+        imageUrl:content.Cover,
+        path: `/pages/more/pages/DetailContent/DetailContent?content=${data}`,
+      }
   }}
 })

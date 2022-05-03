@@ -256,6 +256,9 @@ Page({
         username: this.data.content.username,
         type: "findFocus"
       },success:res => {
+        if(!(res.result)){
+          return -1
+        }
         if(res.result.data.length!=0){
           let arry=res.result.data[0].focusNum
           findResult = arry.some((item) => {
