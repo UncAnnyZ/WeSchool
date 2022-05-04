@@ -8,7 +8,6 @@
         "pages/index/index",
         "pages/testdaka/index/index",
         "pages/testdaka/record/record",
-        "pages/testdaka/roomCreate/roomCreate",
         "pages/login/login",
         "pages/curriculum/curriculum",
         "pages/more/more",
@@ -88,9 +87,9 @@
                 "LoseDetailContent/LoseDetailContent",
                 "Game/Game",
                 "UserCenter/index",
-                "saveBureau/myJoined/myJoined",
                 "saveBureau/publishBureau/publishBureau",
-                "saveBureau/bureauContent/bureauContent"
+                "saveBureau/bureauContent/bureauContent",
+                "saveBureau/joinedBureau/joinedBureau"
             ]
         },
         {

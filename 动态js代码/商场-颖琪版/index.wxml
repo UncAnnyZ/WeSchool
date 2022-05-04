@@ -6,123 +6,77 @@
       <text wx:if="{{weihu}}">聚食集平台23:50-00:00定期维护</text>
     </view>
   </view>
-  <scroll-view scroll-y="true" scroll-with-animation style="height:100vh;display: flex;" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-    <view wx:for="{{goods}}" wx:key="id" >
-      <view class="goods">
-        <view class="goodsImg">
-          <image src="{{item.img}}" mode="aspectFill"/>
-        </view>
-        <view class="goodsContent">
-          <view class="goodsName">{{item.name}}</view>
-          <view class="goodsBrief">开胃韩式泡菜 + 五常大米 + 肥牛</view>
-          <view class="goodsSold">月售 {{item.yuenumber}}</view>
-          <view class="goodsPrice">
-            ￥<text class="price">{{item.price}}</text>
-          </view>
-          <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods">
-            <image src="../images/购物车.png"/>
-          </view>
-        </view>
-      </view>
+  <view class="top" >
+    <view class="topName">益禾堂</view>
+    <view class="topSold">月售2823  配送约30分钟</view>
+    <view class="topTitle">
+      <view class="topTitlelabel" >官渡奶茶人气榜第一名</view>
     </view>
-  </scroll-view>
-</view>
+    <view class="topDiscount">
+      <view class="coupon">25减1 | 35减3 | 50减5</view>
+      <view class="coupon">4.88折起</view>
+      <view class="coupon">收藏领一元券</view>
+    </view>
+    <view class="topNotice">公告： 油校学生可以小程序下单备注一下送到南门或西门</view>
+  </view>
+  <view style="display: flex;flex-direction: row; align-items: center; height: 72rpx;width: 100%;position: sticky;background-color: white;top: 0rpx;z-index: 3;">
+    <view class="order" bindtap="order">
+    点菜
+    </view>
+    <view class="comment" bindtap="comment">
+    评论
+    </view>
+    <view class="business" bindtap="business">
+    商家
+    </view>
+  </view>
+  <view style="background-color: #94949438;width: 100%;height: 1rpx;position: sticky;top: 73rpx;z-index: 4;"></view>
 
-<view wx:if="{{!(tabbar)}}">
-  <view class="hhh bg-gradual-green flex justify-center">
-    <view class="action">
-      <text class="cuIcon-title text-red"></text>
-      <text>平台联系方式：18403441128</text>
+  <view class="rotation">
+    <view class="rotationImg">
     </view>
   </view>
-  <!-- 用户信息 -->
-  <view class="  solid-bottom">
-    <view class='action' style="display: inline;">
-      <view class="flex"><text class='cuIcon-location text-green'></text> 地址管理</view>
-      <view wx:if="{{!(havelocation)}}" style="padding-left:30rpx" bindtap="userlocation"><text style="color:blue">点击设置地址</text></view>
-      <view wx:else style="padding-left:30rpx;font-size: 26rpx;" bindtap="userlocation"><text class="text-bold">{{userlocation.school}}-{{userlocation.location}}-{{userlocation.sushehao}}-{{userlocation.name}}-{{userlocation.tell}}</text>
-      </view>
 
-    </view>
-  </view>
-  <!-- 订单情况 -->
-  <view class="cu-bar solid-bottom">
-    <view class='action flex justify-between'>
-      <view><text style="margin-left: -180%;" class='cuIcon-form text-green hhh'>全部订单</text> </view>
-    </view>
-    <view style="padding-right:30rpx">
-      <text class="cuIcon-unfold lg"></text>
-    </view>
-  </view>
-  <!-- 订单内容 -->
-  <view class="cu-card case">
-    <view wx:for="{{mydingdan}}" wx:key="_id">
-      <view class="cu-item shadow" style="background-color: #fff; margin: 10rpx;">
-        <view class="cu-list menu-avatar">
-          <!-- 上 -->
-          <view class="flex radius text-bold solids-bottommy justify-between" style="padding: 20rpx 0 20rpx 30rpx;">
-            <view>{{item.shopname}}<text style="font-size:20rpx">(下单时间{{item.upday}}-{{item.uptime}})</text></view>
-            <view class="hhh">
-            <view wx:if='{{item.go==0}}' class="text-yellow " style="padding-right:20rpx">待出单</view>
-            <view wx:if='{{item.go>0}}' class="text-green " style="padding-right:20rpx">已出单</view>
-          </view>
-            <!-- <view class="text-grey" style="padding-right:20rpx">已出单</view> -->
-          </view>
-          <!-- 中 -->
-          <view  style="padding: 10rpx 0;">
-            <scroll-view scroll-x class="bg-white nav" scroll-with-animation style="margin: 0 20rpx">
-              <view class="hhh" wx:for="{{item.buy}}" wx:key="id" wx:for-item="dingdanbuy">
-                <view class="dingdanimg cu-list grid">
-             
-                  <image class="cu-avatar xl" src="{{dingdanbuy.img}}" style="display:flex;">
-                    <view wx:if="{{dingdanbuy.number>1}}" class="cu-tag badge" style="top: 0rpx;right: 0rpx;">
-                      {{dingdanbuy.number}}
-                    </view>
-                  </image>
-             
-                  <view class="flex" style="width:128rpx"><text class="text-cut">{{dingdanbuy.name}}</text></view>
-                </view>
-              </view>
-            </scroll-view>
-            <!-- 下 -->
-            <view class="flex solids-topmy justify-start">
-              <view style="padding:10rpx 20rpx 10rpx 20rpx">
-                <text style="color:grey;font-size:25rpx">备注:<block wx:if="{{item.beizu}}">{{item.beizu}}</block>
-                  <block wx:else>无</block>
-                </text>
-              </view>
+  <view style="display: flex;flex-direction: row; background-color: white;">
+    <scroll-view scroll-y="true" style="width: 20%;height:100vh;background-color: rgba(230, 230, 230, 0.301);">
+      <view class="recommend">推荐</view>
+      <view class="discount"><image src="../images/labels.png"/><view>折扣</view></view>
+      <view class="consult">品牌咨询</view>
+      <view class="tasteFresh"><image src="../images/Lollipop.png"/><view>新品尝鲜</view></view>
+      <view class="popularity"><image src="../images/fire.png"/><view>人气推荐</view></view>
+      <view class="welfare"><image src="../images/cole.png"/><view>益粉福利</view></view>
+      <view class="mustDrink"><image src="../images/milk.png"/><view>必喝系列</view></view>
+      <view class="coffee"><image src="../images/Coffee.png"/><view>现磨咖啡</view></view>
+    </scroll-view>
+    <view style="width: 80%;display: flex;flex-direction: column;background-color: white;">
+      <view class="sign" >
+        <view class="signContent">
+          <view class="signContentone">招牌</view>
+          <view class="signContenttwo">老板推荐</view>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" scroll-with-animation style="height:100vh;" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+        <view wx:for="{{goods}}" wx:key="id" >
+          <view class="goods">
+            <view class="goodsImg">
+              <image src="{{item.img}}" mode="aspectFill"/>
             </view>
-            <view class="flex solids-topmy justify-start">
-              <view style="padding:0rpx 20rpx">
-                <text style="color:grey;font-size:25rpx">{{item.school}}-{{item.location}}-{{item.sushehao}}-{{item.name}}-{{item.tell}}</text>
+            <view class="goodsContent">
+              <view class="goodsName">{{item.name}}</view>
+              <view class="goodsBrief">开胃韩式泡菜 + 五常大米 + 肥牛</view>
+              <view class="goodsSold">月售 {{item.yuenumber}}</view>
+              <view class="goodsPrice">
+                ￥<text class="price">{{item.price}}</text>
               </view>
-            </view>
-            <view class="flex solids-topmy justify-start">
-              <view style="padding:0rpx 20rpx">
-                <text wx:if="{{item.school=='师范(目前东门自取)'}}" style="color:grey;font-size:25rpx">师范:周一到周五中午东门自取,周五下午到周日送到宿舍！</text>
-              </view>
-            </view>
-            <view class="flex solids-topmy justify-start">
-              <view style="padding:0rpx 20rpx">
-                <text style="color:grey;font-size:25rpx">订单号：{{item.outTradeNo}}</text>
-              </view>
-            </view>
-            <view class="flex solids-topmy justify-between">
-              <view style="padding:10rpx 20rpx 10rpx 20rpx">
-                <text style="font-size:35rpx">{{item.yuyue}}</text>
-              </view>
-              <view style="padding:10rpx 20rpx 10rpx 0">
-                <text style="color:grey;font-size:25rpx">共{{item.totalnumber}}件</text>
-                <text style="color:red;font-size:35rpx" >￥{{item.totalprice}}</text>
+              <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods">
+                <image src="../images/购物车.png"/>
               </view>
             </view>
           </view>
         </view>
-      </view>
+      </scroll-view>
     </view>
   </view>
-</view>
-<view class="flex" style="padding:50rpx"></view>
 </view>
 
 
@@ -138,25 +92,6 @@
     </view>
   </view>
 
-
-  <view class="cu-bar bg-white tabbar border shop" style="font-size:35rpx; height: 130rpx;">
-    <view bindtap="tabbarshop" class1="bg-green submit {{tabbar?'bg-green':'bg-white'}}">
-      <text class="cuIcon-shopfill"> 商铺</text>
-    </view>
-    <view bindtap="tabbaruser" class1="bg-green submit {{tabbar?'bg-white':'bg-green'}}">
-      <text class="cuIcon-my">我的</text>
-    </view>
-  </view>
-  <view class="body" >
-    <view class="body-describe"   wx:for="{{data_show}}">
-      <!-- <view>{{item}}</view> -->
-      <text class="body-describe-text" >{{item.name}}:</text>
-      <view class="body-describe-data">{{item.res}}</view>
-    </view>
-  </view> 
-  <view class="end">
-  <view class="end-text" bindtap="Check">查看公式</view>
-</view>
 </view>
 
 <view class="EditCom" wx:if="{{modalName}}">

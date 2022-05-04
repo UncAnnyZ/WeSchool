@@ -4,6 +4,7 @@ cloud.init()
 
 const CommentControl = require('./CommentControl/index');
 const Card = require('./Card/index');
+const focusControl = require('./focusControl/index');
 
 exports.main = async (event, context) => {
 
@@ -14,6 +15,9 @@ exports.main = async (event, context) => {
 
   if(event.url === 'Card'){
     data = await Card.main(event)
+  }
+  if(event.url === 'focusControl'){
+    data = await focusControl.main(event)
   }
 
   return data

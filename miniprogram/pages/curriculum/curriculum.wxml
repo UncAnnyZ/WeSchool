@@ -7,23 +7,23 @@
         <!-- 状态栏 -->
         <view style="height: {{statusBarHeight}}px;" />
         <!-- 导航栏 -->
-        <view class="cur-week" style="height: {{lineHeight}}px;" >
+        <view class="cur-week" style="height: {{lineHeight}}px;">
           <view class="seeting-btn" bindtap="seetingHandler">
             <image src="../../images/more.png" style="width: 40rpx;height: 40rpx;"></image>
           </view>
           <view class="feedback-btn" bindtap="feedbackHandler">
             <image src="../../images/btn_feed@2x.png" style="width: 40rpx;height: 40rpx;"></image>
           </view>
-          <text bindtap="showCurriculumPoint">{{'第 ' + whichWeek + ' 周' === curWeek ?  curWeek : '第 ' + whichWeek + ' 周(非本周)' }}</text>
+          <text bindtap="showCurriculumPoint">{{'第 ' + whichWeek + ' 周' === curWeek ? curWeek : '第 ' + whichWeek + ' 周(非本周)' }}</text>
           <text style="margin-left:10rpx" class='iconfont icon-open' bindtap="showCurriculumPoint"></text>
         </view>
       </view>
 
       <!-- 课表弹出 -->
-      <scroll-view scroll-with-animation="true" class="weekscroll" scroll-x="true" scroll-into-view="index{{whichWeek}}" hidden="{{!showscroll}}" >
+      <scroll-view scroll-with-animation="true" class="weekscroll" scroll-x="true" scroll-into-view="index{{whichWeek}}" hidden="{{!showscroll}}">
         <!-- 显示一个周 -->
         <view id="index{{index+3}}" class="weekscroll_week_contain" wx:key="item" wx:for="{{wlistPoint}}">
-          <view  bindtap="clickWeek" id="{{index}}" class="weekscroll_week {{ index+1 === whichWeek ? 'weekscroll_week_click' : ''}}">
+          <view bindtap="clickWeek" id="{{index}}" class="weekscroll_week {{ index+1 === whichWeek ? 'weekscroll_week_click' : ''}}">
             <view class="weekscroll_week_text">第{{index+1}}周</view>
             <!-- 显示一堆小圆点的容器 -->
             <view class="week_point">
@@ -37,8 +37,7 @@
       <!-- 首栏 月份+星期几 -->
       <view class="top">
         <text class='week'>{{month}}\n月</text>
-        <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="unique"
-          class="top-text {{dayOfWeek==(index+1)&&weekNow==whichWeek?'top-text-strong':''}}">
+        <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="unique" class="top-text {{dayOfWeek==(index+1)&&weekNow==whichWeek?'top-text-strong':''}}">
           <view>周{{item}}</view>
           <view class="after-left {{dayOfWeek==(index+1)&&weekNow==whichWeek?'after-left-strong':''}}">{{arr[index]}}
           </view>
@@ -74,9 +73,9 @@
 
         <view class="txt">今天没有课，出去玩吧</view>
       </scroll-view>
-      
+
       <!-- 有课时 -->
-      <scroll-view enhanced="{{true}}" bounces="{{true}}" show-scrollbar="{{false}}" class="kbScroll" wx:if="{{wlist.length != 0}}" scroll-y="{{true}}" style="height: {{kbHeight}}px;" >
+      <scroll-view enhanced="{{true}}" bounces="{{true}}" show-scrollbar="{{false}}" class="kbScroll" wx:if="{{wlist.length != 0}}" scroll-y="{{true}}" style="height: {{kbHeight}}px;">
         <!-- image背景图片 -->
         <image src="{{backgroundUrl}}" class="backgroundUrl" mode="aspectFill" style="height: {{kbHeight}}px;"></image>
         <!-- 套一个盒子 timeTableBox -->
@@ -92,29 +91,27 @@
 
           <!--课表-->
           <view wx:for="{{wlist}}" wx:key="unique" class="kbcontain">
-            <view class="kb" bindtap="showCardView" data-index="{{index}}"
-              style="top: {{(item.skjc-1)*110}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*110-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:10">
+            <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*110}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*110-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:10">
               <view class="smalltext">{{item.kcmc}}@{{item.jxcdmc}}
               </view>
             </view>
             <!-- Todo 重叠课程右上角三角形 -->
-            <view wx-if="{{isScheduled[index]&&hasData[item.Course_Time][item.Course_Start]>1}}" class="triangle-topright"
-              style="margin-left:{{(item.Course_Time-1)*99+(item.Course_Time==3?78:77)}}rpx;margin-top:{{(item.Course_Start-1)*100+5}}rpx;border-color: {{colorArrays[item.Course_Color%20]}}; z-index:{{1000*index}};">
+            <view wx-if="{{isScheduled[index]&&hasData[item.Course_Time][item.Course_Start]>1}}" class="triangle-topright" style="margin-left:{{(item.Course_Time-1)*99+(item.Course_Time==3?78:77)}}rpx;margin-top:{{(item.Course_Start-1)*100+5}}rpx;border-color: {{colorArrays[item.Course_Color%20]}}; z-index:{{1000*index}};">
             </view>
           </view>
         </view>
-        
+
       </scroll-view>
       <!-- <view class='pd2' wx:if="{{wlist.length == 0}}"> </view> -->
     </view>
   </swiper-item>
-  
+
   <!-- 添加课表功能 ↓ -->
   <view class="add" wx:if="{{showAdd}}">
     <!-- 背景蒙版 -->
     <view class="add_background" bindtap="feedbackHandler"></view>
 
-    <view class="add_contain {{add_style}}" >
+    <view class="add_contain {{add_style}}">
       <view class="add_title">
         <text>课程添加</text>
       </view>
@@ -141,8 +138,7 @@
         <view class="add_wjs_block">
           <label class="add_wjs_block_title">星期</label>
           <!-- 选择星期 -->
-          <picker mode="selector" bindchange="setCPT" value="{{WeekIndex}}" range="{{Week}}" class="add_picker"
-            id="WeekIndex">
+          <picker mode="selector" bindchange="setCPT" value="{{WeekIndex}}" range="{{Week}}" class="add_picker" id="WeekIndex">
             <label>{{Week[WeekIndex]}}</label>
           </picker>
         </view>
@@ -152,8 +148,7 @@
         <view class="add_wjs_block">
           <label class="add_wjs_block_title">节数</label>
           <!-- 选择节数 -->
-          <picker mode="multiSelector" bindcolumnchange="ChangeSectionIndex" value="{{sectionIndex}}" range="{{section}}"
-            class="add_picker">
+          <picker mode="multiSelector" bindcolumnchange="ChangeSectionIndex" value="{{sectionIndex}}" range="{{section}}" class="add_picker">
             <text space="emsp">{{section[0][sectionIndex[0]]}} - {{section[0][sectionIndex[1]]}}</text>
           </picker>
         </view>
@@ -167,8 +162,7 @@
       </view>
       <view class="add_week">
         <view class="add_weekBtn" wx:for="{{week}}" wx:key="key">
-          <label id="{{index+1}}" bindtap="changeWB"
-            class="{{week[index][1]?'add_weekBtn_select':'add_weekBtn_noSelect'}}">
+          <label id="{{index+1}}" bindtap="changeWB" class="{{week[index][1]?'add_weekBtn_select':'add_weekBtn_noSelect'}}">
             {{index+1}}
           </label>
         </view>
@@ -187,10 +181,10 @@
 
   <!-- 背景蒙版 -->
   <view wx:if="{{isAnimate}}" class="curriLeft_background" bindtap="ggggg">
-    
+
   </view>
   <!-- 设置 -->
-  <view class="curriLeft" bindtouchstart="touchStartCurri" bindtouchmove="touchMoveCurri" bindtouchend="touchEndCurri" animation="{{curriLeft}}" >
+  <view class="curriLeft" bindtouchstart="touchStartCurri" bindtouchmove="touchMoveCurri" bindtouchend="touchEndCurri" animation="{{curriLeft}}">
     <!-- 填充 -->
     <view style="position: relative; padding-top: {{(statusBarHeight + lineHeight)}}px; width: 100%;"></view>
     <view style="position: relative; padding-top: {{(showscroll? 140: 0) + 85}}rpx; width: 100%;"></view>

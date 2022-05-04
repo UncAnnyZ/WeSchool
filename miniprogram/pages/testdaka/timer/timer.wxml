@@ -1,0 +1,32 @@
+<view class="head">
+    <image class="head_pic" src="../../../images/about/long.jpg" />
+    <view class="head_name">{{name}}</view>
+    <view class="head_line"></view>
+</view>
+<view class="data">
+    <view class="data_frequence">
+        <image class="data_frequence_pic" src="../images/累计次数.png" />
+        <view class="dd">
+            <view class="data_frequence_txt">{{txt_frequence}}</view>
+            <view class="frequence_data">{{frequence}}</view>
+        </view>
+    </view>
+    <view class="data_group_num">
+        <image class="data_group_num_pic" src="../images/小组.png" />
+        <view class="dd">
+            <view class="data_group_num_txt">{{txt_groupNum}}</view>
+            <view class="data_group_num_data">{{groupNum}}</view>
+        </view>
+    </view>
+    <view class="data_hours">
+        <!-- <image class="data_hours_pic" src="../images/时间.png" /> -->
+        <view class="data_hours_txt">{{txt_hours}}</view>
+        <view class="hours">{{hours}}</view>
+        <view class="convert">详情</view>
+        <image class="goto" src="../images/前往-下一步.png" />
+    </view>
+</view>
+<view class="tail">
+    <image class="about" src="../images/关于.png" />
+    <image class="exit" src="../images/退出.png" />
+</view>

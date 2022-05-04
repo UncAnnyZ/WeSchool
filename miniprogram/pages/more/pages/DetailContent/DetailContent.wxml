@@ -21,7 +21,8 @@
         <image src="{{content.iconUrl}}" class="user_iconUrl"/>
         <span class="user_nickname">{{content.nickName}}</span>
       </view>
-
+      <view class="focusPeople" bindtap="focusPeople" wx:if="{{focus===false && content.nickName!=='匿名账号' && content.username!==args.username}}">关注</view>
+      <view class="focused" bindtap="focusPeople" wx:if="{{focus===true && content.nickName!=='匿名账号' && content.username!==args.username}}">已关注</view>
       <image src="../../../../images/more.png" class="more" wx:if="{{more==1}}" bindtap="More"/>
       <view class="CardMore" wx:if="{{showEdit}}">
         <view class="CardMore_background" bindtap="More"></view>

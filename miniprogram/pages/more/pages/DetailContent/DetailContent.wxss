@@ -21,6 +21,7 @@
 .userBox {
   display: flex;
   flex-direction: row;
+  width: 530rpx;
 }
 .user_iconUrl{
   width:58rpx;
@@ -34,7 +35,31 @@
   left: 15rpx;
   top:6rpx;
   color:rgba(128,128,128,0.4);
-  white-space: nowrap;
+  /* white-space: nowrap; */
+}
+.focusPeople{
+  width: 95rpx;
+  height:44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  border: 1rpx solid red;
+  border-radius: 25rpx;
+  color: red;
+  margin-top: 7rpx;
+}
+.focused{
+  width: 95rpx;
+  height:44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  border: 1rpx solid rgba(110, 110, 110, 0.72);
+  border-radius: 25rpx;
+  color: rgba(110, 110, 110, 0.72);
+  margin-top: 7rpx;
 }
 .more{
   width:58rpx;

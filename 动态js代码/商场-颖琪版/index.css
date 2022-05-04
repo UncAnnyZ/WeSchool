@@ -4,32 +4,186 @@
   font-size: 40rpx;
   padding: 30rpx 0rpx;
 } */
+.top{
+  background-color: rgb(255, 255, 255);
+  height: 310rpx;
+  width: 100%;
+  margin-top: 50rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.topName{
+  font-weight: 550;
+  font-size: 46rpx;
+  margin: 20rpx 0rpx 0rpx 29rpx;
+}
+.topSold{
+  margin: 10rpx 0rpx 5rpx 29rpx;
+  font-size: 24rpx;
+  color: #4c4c4ca3;
+}
+.topTitle{
+  margin: 10rpx 0rpx 5rpx 29rpx;
+  font-size: 23rpx;
+  display: flex;
+  flex-direction: row;
+}
+.topTitlelabel{
+  width: fit-content;
+  border-radius: 8rpx;
+  background-color: #e6e6e661;
+  padding: 5rpx 9rpx;
+}
+.topDiscount{
+  margin: 13rpx 0rpx 5rpx 29rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 23rpx;
+}
+.coupon{
+  border: 1rpx solid crimson;
+  margin-right: 5px;
+  padding: 0px 4px;
+  width: fit-content;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  color: #ee5527;
+}
+.topNotice{
+  width: 100%;
+  margin: 10rpx 0rpx 5rpx 29rpx;
+  color: #656565b8;
+  font-size: 25rpx;
+}
+.business,
+.comment,
+.order{
+  margin: 0 28rpx;
+  font-size: 29rpx;
+  color: #464646de;
+}
+.order::after{
+  content: " ";
+  font-weight: 550;
+  color: black;
+}
+.rotation{
+  background-color: white;
+  height: 260rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rotationImg{
+  background-color: azure;
+  width: 93%;
+  height: 78%;
+  border-radius: 27rpx;
+}
+.recommend,
+.discount,
+.consult,
+.tasteFresh,
+.popularity,
+.welfare,
+.mustDrink,
+.coffee
+{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  flex-wrap: wrap;
+}
+.tasteFresh,
+.popularity,
+.welfare,
+.mustDrink,
+.coffee{
+  flex-direction: column;
+}
+.recommend image,
+.consult image,
+.tasteFresh image,
+.popularity image,
+.welfare image,
+.mustDrink image,
+.coffee image,
+.discount image{
+  width: 34rpx;
+  height: 34rpx;
+  margin: 7rpx 10rpx 0rpx 0rpx;
+}
+.sign{
+  width: 100%;
+  height: 82rpx;
+  background-color: rgb(255, 255, 255);
+  position: sticky;
+  top: 71rpx;
+  z-index: 3;
+  display: flex;
+  margin-top: 10rpx;
+}
+.signContent{
+  height: 43rpx;
+  display: flex;
+  margin-left: 10rpx; 
+  border-radius: 15rpx;
+  margin-top: 18rpx;
+  overflow: hidden;
+  font-size: 23rpx;
+}
+.signContentone{
+  height: 100%;
+  width: 90rpx;
+  background-color: #FEE9E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 550;
+}
+.signContenttwo{
+  height: 100%;
+  width: 150rpx;
+  background-color: #FF5337;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 .goods{
   width: 100%;
-  height: 235rpx;
-  margin: 0 40rpx 65rpx 40rpx;
+  height: 200rpx;
+  margin: 0 10rpx 45rpx 10rpx;
   display: flex;
   align-items: center;
   
 }
 .goodsImg{
-  height: 100%;
-  width: 240rpx;
+  height: 95%;
+  width: 190rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #cdb5d3;
-  border-radius: 15rpx;
+  background-color: #e4e4e457;
+  border-radius: 16rpx;
+  overflow: hidden;
 }
 .goodsImg image{
-  height: 94%;
-  width: 94%;
+  height: 100%;
+  width: 100%;
 }
 .goodsContent{
   /* background-color: tomato; */
-  line-height: 52rpx;
-  width: 58%;
+  line-height: 43rpx;
   height: 100%;
+  width: 62%;
   padding: 0 0 0 19rpx;
 }
 .goodsName{
@@ -45,29 +199,29 @@
 }
 
 .goodsBrief{
-  font-size: 26rpx;
-  color: rgba(58, 58, 58, 0.904);
+  font-size: 22rpx;
+  color: rgb(37, 37, 37);
   width: 100%;
   overflow:hidden; 
   text-overflow:ellipsis;
   white-space:nowrap; 
 }
 .goodsSold{
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: rgba(78, 78, 78, 0.692);
   width: 100%;
 }
 .goodsPrice{
-  color:#8984A8;
+  color:#ee5527;
   font-family:inherit;
-  font-size: 33rpx;
+  font-size: 24rpx;
   position: relative;
   top: 27rpx;
+  font-weight:550;
 }
 .price{
-  font-size: 43rpx;
+  font-size: 36rpx;
   position: relative;
-  font-weight:455;
   right: 10rpx;
 }
 .goodsAdd{
