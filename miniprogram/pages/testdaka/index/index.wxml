@@ -74,6 +74,7 @@
 
      </view>
 </view>
+
 <!-- 打卡页 -->
 <view wx:elif="{{navState==1}}"></view>
 <!-- 计时页 -->
@@ -404,3 +405,4 @@
           </view>
      </view>
 </view>
+

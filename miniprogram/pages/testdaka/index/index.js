@@ -1517,4 +1517,7 @@ Page({
     onShareAppMessage: function () {
 
     }
+    // 计时js开始
+
+    //计时js结束
 })
