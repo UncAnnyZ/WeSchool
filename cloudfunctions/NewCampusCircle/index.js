@@ -7,6 +7,7 @@ const Card = require('./Card/index');
 const Note_module = require('./Note_module/index');
 const JuBao = require('./JuBao/index')
 const myself = require('./myself/index')
+const focusControl = require('./focusControl/index')
 exports.main = async (event, context) => {
 
   var data;
@@ -28,6 +29,9 @@ exports.main = async (event, context) => {
   }
   if(event.url === 'myself') {
     data = await myself.main(event)
+  }
+  if(event.url === 'focusControl') {
+    data = await focusControl.main(event)
   }
   return data
 }
