@@ -16,6 +16,15 @@ Page({
         path:"/index/pages/h5/h5?lch=cps:waimai:5:401c6e8a33376657a4d076948b9d76ec:001:33:164009&f_userId=1&weburl=https%3A%2F%2Fclick.meituan.com%2Ft%3Ft%3D1%26c%3D2%26p%3DwTe5Vb5z7TbP&f_token=1"
       },
       {
+        title:"小猴云印",
+        label:"包邮打印",
+        btn:"立即前往",
+        icon:"https://s1.ax1x.com/2022/05/05/OepvPP.jpg",
+        banner_img:"https://s1.ax1x.com/2022/05/05/Oepf4x.jpg",
+        appid:"wxb3e463a958f8d3c6",
+        path:"pages/home/home?channel_id=45"
+      },
+      {
         title:"饿了么外卖红包",
         label:"低价外卖",
         btn:"折扣购买",
@@ -73,7 +82,9 @@ Page({
 
   btn(e){
     console.log(e)
-    let index = Number(e.target.id)
+    console.log(e.currentTarget.id)
+    let index = Number(e.currentTarget.id)
+    console.log(index)
     let res = this.data.detail[index]
     console.log(res)
     wx.navigateToMiniProgram({

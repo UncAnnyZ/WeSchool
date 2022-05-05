@@ -1,533 +1,83 @@
-/* pages/component/nav/nav.wxss */
-/* .cu-item{
-  height: 185rpx;
-  font-size: 40rpx;
-  padding: 30rpx 0rpx;
-} */
-.top{
-  background-color: rgb(255, 255, 255);
-  height: 310rpx;
-  width: 100%;
-  margin-top: 50rpx;
-  border-top-left-radius: 40rpx;
-  border-top-right-radius: 40rpx;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+page{
+  background-color: rgba(245,245,245);
 }
-.topName{
-  font-weight: 550;
-  font-size: 46rpx;
-  margin: 20rpx 0rpx 0rpx 29rpx;
+.contain{
+  padding: 40rpx;
+  padding-top: 0rpx;
 }
-.topSold{
-  margin: 10rpx 0rpx 5rpx 29rpx;
-  font-size: 24rpx;
-  color: #4c4c4ca3;
-}
-.topTitle{
-  margin: 10rpx 0rpx 5rpx 29rpx;
-  font-size: 23rpx;
-  display: flex;
-  flex-direction: row;
-}
-.topTitlelabel{
-  width: fit-content;
-  border-radius: 8rpx;
-  background-color: #e6e6e661;
-  padding: 5rpx 9rpx;
-}
-.topDiscount{
-  margin: 13rpx 0rpx 5rpx 29rpx;
-  display: flex;
-  flex-direction: row;
-  font-size: 23rpx;
-}
-.coupon{
-  border: 1rpx solid crimson;
-  margin-right: 5px;
-  padding: 0px 4px;
-  width: fit-content;
-  border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  color: #ee5527;
-}
-.topNotice{
-  width: 100%;
-  margin: 10rpx 0rpx 5rpx 29rpx;
-  color: #656565b8;
-  font-size: 25rpx;
-}
-.business,
-.comment,
-.order{
-  margin: 0 28rpx;
-  font-size: 29rpx;
-  color: #464646de;
-}
-.order::after{
-  content: " ";
-  font-weight: 550;
-  color: black;
-}
-.rotation{
-  background-color: white;
-  height: 260rpx;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rotationImg{
-  background-color: azure;
-  width: 93%;
-  height: 78%;
-  border-radius: 27rpx;
-}
-.recommend,
-.discount,
-.consult,
-.tasteFresh,
-.popularity,
-.welfare,
-.mustDrink,
-.coffee
-{
-  height: 100rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24rpx;
-  flex-wrap: wrap;
-}
-.tasteFresh,
-.popularity,
-.welfare,
-.mustDrink,
-.coffee{
-  flex-direction: column;
-}
-.recommend image,
-.consult image,
-.tasteFresh image,
-.popularity image,
-.welfare image,
-.mustDrink image,
-.coffee image,
-.discount image{
-  width: 34rpx;
-  height: 34rpx;
-  margin: 7rpx 10rpx 0rpx 0rpx;
-}
-.sign{
-  width: 100%;
-  height: 82rpx;
-  background-color: rgb(255, 255, 255);
-  position: sticky;
-  top: 71rpx;
-  z-index: 3;
-  display: flex;
-  margin-top: 10rpx;
-}
-.signContent{
-  height: 43rpx;
-  display: flex;
-  margin-left: 10rpx; 
-  border-radius: 15rpx;
-  margin-top: 18rpx;
-  overflow: hidden;
-  font-size: 23rpx;
-}
-.signContentone{
-  height: 100%;
-  width: 90rpx;
-  background-color: #FEE9E8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 550;
-}
-.signContenttwo{
-  height: 100%;
-  width: 150rpx;
-  background-color: #FF5337;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-.goods{
-  width: 100%;
-  height: 200rpx;
-  margin: 0 10rpx 45rpx 10rpx;
-  display: flex;
-  align-items: center;
-  
-}
-.goodsImg{
-  height: 95%;
-  width: 190rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e4e4e457;
-  border-radius: 16rpx;
-  overflow: hidden;
-}
-.goodsImg image{
-  height: 100%;
-  width: 100%;
-}
-.goodsContent{
-  /* background-color: tomato; */
-  line-height: 43rpx;
-  height: 100%;
-  width: 62%;
-  padding: 0 0 0 19rpx;
-}
-.goodsName{
-  font-size: 30rpx;
-  font-weight: 550;
-  width: 100%;
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
-}
-
-.goodsBrief{
-  font-size: 22rpx;
-  color: rgb(37, 37, 37);
-  width: 100%;
-  overflow:hidden; 
-  text-overflow:ellipsis;
-  white-space:nowrap; 
-}
-.goodsSold{
-  font-size: 22rpx;
-  color: rgba(78, 78, 78, 0.692);
-  width: 100%;
-}
-.goodsPrice{
-  color:#ee5527;
-  font-family:inherit;
-  font-size: 24rpx;
-  position: relative;
-  top: 27rpx;
-  font-weight:550;
-}
-.price{
-  font-size: 36rpx;
-  position: relative;
-  right: 10rpx;
-}
-.goodsAdd{
-  height: 45rpx;
-  width: 45rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50rpx;
-  background-color: #8584A3;
-  float: right;
-  position: relative;
-  bottom: 28rpx;
-}
-.goodsAdd image{
-  width: 58%;
-  height: 58%;
-}
-.settle{
-  width: 100%;
-  height: 90rpx;
-  background-color: rgb(255, 255, 255);
-}
-.settleAll{
-  height: 100%;
-  width: 50%;
-  float: right;
-  font-size: 30rpx;
-  display: flex;
-  flex-direction: row;
-}
-.calcAll{
-  font-size: 28rpx;
-  line-height: 43rpx;
-  color: rgb(255, 255, 255);
-  width: 60%;
-  height: 100%;
-  color: rgb(0, 0, 0);
-}
-.calcAll text{
-  font-size: 30rpx;
-  color: #7C73A9;
-  position: relative;
-  right: 10rpx;
-}
-.freight{
-  color:rgba(78, 78, 78, 0.692);
-  margin-right: 35rpx;
-  float: right;
-  font-size: 25rpx;
-}
-.goSettle{
-  height: 100%;
-  width: 50%;
-  color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26rpx;
-  background-color: #696BA4;
-}
-.EditCom,
-.EditCom_background{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  font-family: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.EditCom_background{
-  background-color: rgba(0, 0, 0, 0.92);
-  opacity: 0.6;
-  height: 100%;
-}
-.EditCom_contain{
-  position: relative;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(244, 244, 244);
-  padding: 20rpx;
-  z-index: 99999;
-  overflow: hidden;
-  border-radius: 20rpx;
-}
-.buy{
-  width: 100%;
-  height: 150rpx;
-  display: flex;
-  width: 100%;
-  padding-bottom: 20rpx;
-}
-.buyImg{
-  width: 130rpx;
-  height: 130rpx;
-}
-.buyImg image{
-  width: 100%;
-  height: 100%;
-}
-.buyContent{
-  display: flex;
-  flex-direction: column;
-  line-height: 65rpx;
-  padding: 0 15rpx;
-  width: 80%;
-}
-.buyName{
-  font-weight: 550;
-  width: 100%;
-  font-size: 30rpx;
-}
-.buyPrice{
-  color: #8984A8;
-  font-weight: 550;
-  font-size: 38rpx;
-}
-.buyNumber{
-  position: relative;
-  bottom: 60rpx;
-  float: right;
-  width: 182rpx;
-  height: 50rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.numberAdd{
-  background-color: rgba(179, 179, 179, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 62rpx;
-  height: 100%;
-  margin:0 7rpx;
-  border-bottom-right-radius: 8rpx;
-  border-top-right-radius: 8rpx;
-}
-.numberDel{
-  background-color: rgba(179, 179, 179, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 62rpx;
-  height: 100%;
-  margin:0 7rpx;
-  border-bottom-left-radius: 8rpx;
-  border-top-left-radius: 8rpx;
-}
-.numberShow{
-  background-color: rgba(179, 179, 179, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24rpx;
-  width: 70rpx;
-  height: 100%;
-}
-.payShow{
-  animation: payShow 0.5s;
-}
-.payHide{
-  animation: payHide 0.5s;
-}
-@keyframes payShow {
-  0% {
-      opacity: 0;
-      transform: translateY(100%);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0%);
-  }
-}
-@keyframes payHide {
-  0% {
-      opacity: 1;
-      transform: translateY(0%);
-  }
-  100% {
-      opacity: 0;
-      transform: translateY(100%);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-.cu-avatar {
-  width: 175rpx;
-  height: 175rpx;
-  font-size: 2em;
-}
-.lg {
-  width: 175rpx;
-  height: 175rpx;
-  font-size: 2em;
-}
-.solids-bottommy {
-  border-bottom: 1rpx solid #eee;
-}
-.solids-topmy{
-  border-bottom: 1rpx solid #eee;
-}
-
-
-.btn-confirm {
-  color: #008DF8;
-  text-align: center;
-  font-size: 34rpx;
-}
-
-.btn-confirm::after {
-  border: none;
-}
-
-.dingdanimg {
-  height: 90rpx;
-  display: inline-block;
-  margin: 0 10rpx;
-}
-
-/* .cu-list.menu-avatar>.cu-item>.cu-avatar {
-  position: absolute;
-  left: 10rpx;
-} */
-
-/* .VerticalNav.nav .cu-item.cur {
-  background-color: white;
-} */
-
-.cu-btn.icon {
-  width: 33%;
-  height: 33%;
-  border-radius: 500rpx;
-  padding: 0;
-
-}
-
-
-
-
-.VerticalNav.nav {
-  width: 250rpx;
-  white-space: initial;
-}
-
-/* .VerticalNav.nav .cu-item {
-  width: 100%;
-  text-align: center;
+.banner{
+  padding: 0rpx 30rpx;
   background-color: #fff;
-  margin: 0;
-  border: none;
-  height: 50px;
-  position: relative;
-} */
-
-
-/* .VerticalNav.nav .cu-item.cur::after {
-  content: "";
-  width: 8rpx;
-  height: 30rpx;
-  border-radius: 10rpx 0 0 10rpx;
-  position: absolute;
-  background-color: currentColor;
-  top: 0;
-  right: 0rpx;
-  bottom: 0;
-  margin: auto;
-} */
-
-.VerticalBox {
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+  margin-top:40rpx
+  /* box-shadow: 1rpx 1rpx rgba(16,16,16,0.3); */
+}
+.banner-top{
   display: flex;
+  padding:30rpx 0rpx;
+  align-items: center;
+  justify-content: space-between;
 }
+.banner-top-start{
+  position: absolute;
+  left:70rpx;
+  display: flex;
+  align-items: center;
+  /* margin-left:-100rpx; */
 
-.VerticalMain {
-  background-color: #ffffff;
 }
+.banner-top-left{
+  white-space:nowrap;
+  height: 70rpx;
+  font-weight: 800;
+  font-size: 32rpx;
+  text-align: left;
 
+  line-height:66rpx ;
+  /* vertical-align: middle; */
+}
+.banner-top-left-text{
+  margin-right:5rpx;
+  width: 200rpx;
+  margin-left:15rpx;
+}
+.banner-top-left-image{
+  width: 70rpx;
+  height: 70rpx;
+  vertical-align: middle;
+  border-radius: 100%;
+}
+.banner-top-label{
+  margin-left:20rpx;
+  background-color: rgba(250,218,131);
+  color:rgba(85,41,2);
+  padding:10rpx 8rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+.banner-top-button{
+  font-size: 26rpx;
+  color:white;
+  background-color: rgba(229,77,66);
+  padding:14rpx 18rpx;
+  border-radius: 30rpx;
+}
+.banner_end{
+  width: 100%;
 
+}
 @media (prefers-color-scheme: dark) {
-  .hhh {
-    filter: invert(100%) !important;
-  }
-  .cu-avatar {
-    filter: invert(100%) !important;
-  }
-  .bg-white{
-    background-color: #000;
+
+
+  .banner-top-label {
+    filter: invert(90%) !important;
   }
 
-  
+  .banner-top-button {
+    filter: invert(90%) !important;
+    /* background-color: #fff; */
+
+  }
+
 }
-

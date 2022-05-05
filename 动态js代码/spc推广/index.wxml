@@ -1,16 +1,15 @@
 <view class = "contain">
-  <view class="banner" bindtap="btn" wx:for="{{detail}}" >
+  <view class="banner" bindtap="btn"  id="{{index}}" data-index = "{{index}}"  wx:for="{{detail}}" >
     <view class="banner-top">
       <view class="banner-top-start">
         <view class="banner-top-left">
         <image class="banner-top-left-image" src="{{item.icon}}"></image>
          <text class="banner-top-left-text">{{item.title}}</text> 
       </view>
-      <view class="banner-top-label">{{item.label}}</view>
-      
+      <view class="banner-top-label">{{item.label}}</view> 
       </view>
-   
-      <view class="banner-top-button" id="{{index}}"  bindtap="btn">{{item.btn}}</view>
+
+      <view class="banner-top-button" id="{{index}}"  data-index = "{{index}}"  bindtap="btn">{{item.btn}}</view>
     </view>
     <view class="banner-end">
       <image style="width:100%" src="{{item.banner_img}}" class="banner-end-image" mode="widthFix"></image>
