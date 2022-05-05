@@ -1,0 +1,109 @@
+.ReplyCom {
+  transition: all 2s ease 0;
+}
+
+.ReplyCom_contain {
+  position: absolute;
+  bottom: -10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 15rpx; 
+  box-sizing: border-box;
+  background-color: white;
+  opacity: 0;
+  transition: all 0.5s ease 0;
+}
+.good-main {
+  width: 100%;
+  height: 65rpx;
+  border-radius: 15rpx;
+}
+
+.good-main input {
+  width: 100%;
+  height: 100%;
+  padding-left: 20rpx;
+  background-color: rgba(202, 202, 202, 0.164);
+  border-radius: 15rpx;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+.ReplyCom{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  font-family: unset;
+}
+
+.ReplyCom_background{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  font-family: unset;
+  background-color: rgba(0, 0, 0, 0.171);
+  opacity: 0.6;
+}
+
+.ReplyComment{
+  width:100%;
+  height:80rpx;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.ct-input input {
+  background-color: #dadada42;
+  height: 65rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 30rpx;
+  border-radius: 20rpx;
+  flex: 1;
+  font-size: 28rpx;
+}
+ 
+.edit_show{
+  animation: edit_show 0.5s;
+  opacity: 0;
+}
+.edit_hide{
+  animation: edit_hide 0.5s;
+  opacity: 0;
+}
+@keyframes edit_show {
+  0% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
+@keyframes edit_hide {
+  0% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  input{
+    color:white;
+    filter: invert(100%) !important;
+  }
+}

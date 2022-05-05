@@ -15,7 +15,10 @@ Component({
     currentPage: 0,   // 当前第几页,0代表第一页 
     loadAll: false,   // 状态标志 - 是否加载完所有内容
     Label: '全部',    // 当前标签  
-
+    comReply: false, //控制评论组件的出现
+    focus:false, //评论
+    inIndex: -1,          //子评论的索引
+    Commentindex: -1,     //主评论的索引
 },
 lifetimes: {
   ready(){
@@ -59,18 +62,11 @@ methods: {
       })
       
   },
-    //预览图片
-    img_pre(e){
-      wx.previewImage({
-        current: e.target.id, // 当前显示图片的http链接
-        urls: [e.target.id] // 需要预览的图片http链接列表
-      })
-    },
+    //点赞
   star_tap(e){
     let index = e.currentTarget.dataset.index
     console.log(e)
     let content = this.data.list[index]
-
     //  // 边界处理 - 初始化数组 不懂
      content.Star_User ? '' : content.Star_User = [];
      // 标志用户点赞状态   false:未点赞；true：已点赞
@@ -132,8 +128,6 @@ methods: {
       this.triggerEvent("getData",e);
       console.log("getData");
     },
-
-
     //跳转详情页
     navigate(e){
       
@@ -147,9 +141,31 @@ methods: {
          url: `/pages/more/pages/DetailContent/DetailContent?content=${data}`,
        })
     },
-
-
-    
+    //点击评论
+    Reply(e){
+      let that =this
+      let index = e.currentTarget.dataset.index
+      let content = this.data.list[index]
+      setTimeout(() => {
+        this.setData({
+          comReply: !that.data.comReply,
+          content,
+          CommentList:content.CommentList
+        })
+      }, 200);
+    },
+    xx:function(e){         //接受从replyComment组件传递过来的值，控制评论组件出现
+      setTimeout(() => {
+        this.setData({
+          comReply: !e.detail.comReply,
+        })
+      }, 200);
+    },
+    hh:function(e){         //接收从replyComment组件传递来的数组，用于渲染
+      if(e.detail.CommentList){
+        this.data.sendCom=e.detail.CommentList
+      }
+    },
 
 }
 })

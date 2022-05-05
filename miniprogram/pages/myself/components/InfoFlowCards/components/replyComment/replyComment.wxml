@@ -1,0 +1,10 @@
+
+<view class="ReplyCom">
+  <view class="ReplyCom_background" catchtap="ReplyComment"></view>
+  <view class="ReplyCom_contain">
+    <view class="good-main">
+      <input placeholder="说点什么吧…" focus="true" maxlength="-1" bindblur="{{replyComment.ctBlur}}" auto-height bindfocus="{{replyComment.ctFocus}}" bindlinechange="ctLineChange" bindinput="" bindconfirm="replySubmit" show-confirm-bar="{{ false }}" adjust-position="{{ false }}" >
+      </input>
+    </view>
+  </view>
+</view>

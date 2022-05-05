@@ -594,6 +594,8 @@ Page({
   onShow: function () {
     this.ShowComment()
   },
+  //转发朋友圈
+  //分为我的发布和其他人的发布 
   onShareTimeline(e){
     const args = wx.getStorageSync('args')
     let jsonStr = JSON.stringify(this.data.content);
