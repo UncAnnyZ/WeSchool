@@ -16,6 +16,9 @@ exports.main = async (event) => {
     case "get_fans":
       data = await get_fans(event);
       break;
+    case "readStar":
+      data = await readStar(event);
+      break;
   }
   return data
 }
@@ -75,5 +78,33 @@ async function get_fans(event){
   }
   catch(e){
     console.log(e)
+  }
+}
+
+async function readStar(event){
+  //构造 一个obj里面是各个where条件 ,学号，页数,showid,学校
+  // var obj = {
+  //   username: event.username 
+  // }
+  // try {
+  //   return await db.collection('Campus-Circle').field({
+  //     'CommentList.InputComment': false,
+  //     'CommentList.CommentTime': false,
+  //     'CommentList.iconUser': false,
+  //     'CommentList.nickName': false,
+  //     'CommentList.username': false,
+  //     'Star_User.Star_time': false,
+  //     'Star_User.iconUrl': false,
+  //     'Star_User.nickName': false,
+  //   }).where(obj).get();
+  // } catch (e) {
+  //   console.error(e);
+  // }
+  try {
+    return await db.collection('Campus-Circle').where({
+      username: event.username
+    }).get()
+  } catch (e) {
+    return e
   }
 }

@@ -226,18 +226,15 @@ Page({
     })
   },
   
-  addFocus:function(){
-    var addData={
-      username:this.data.content.username,
-      focusNum:[],
-      collectionNum:[]
-    }
-    console.log("addData",addData);
+  addRecord:function(username){
+    const args = wx.getStorageSync('args')
+    console.log(username);
     wx.cloud.callFunction({
       name: 'NewCampusCircle',
       data: {
         url: 'focusControl',
-        addData:addData,
+        username: username,
+        school:args.school,
         type: "addRecord"
       },success:res => {
         console.log("success!!!");
@@ -248,7 +245,7 @@ Page({
   findFocus:function(){
     const args = wx.getStorageSync('args')
     let findResult=false
-    console.log("this.data.content.username",this.data.content.username);
+    let focus=false
     wx.cloud.callFunction({
       name: 'NewCampusCircle',
       data: {
@@ -256,27 +253,34 @@ Page({
         username: this.data.content.username,
         type: "findFocus"
       },success:res => {
-        if(!(res.result)){
-          return -1
-        }
         if(res.result.data.length!=0){
-          let arry=res.result.data[0].focusNum
-          findResult = arry.some((item) => {
-            return item.username===args.username
+          findResult = res.result.data[0].focusNum.some((item) => {
+            return item.userName===args.username
           })
-        }else{
-          this.addFocus()
+        }else {
+          this.addRecord(this.data.content.username)
         }
-        if(findResult===true){
-          this.setData({
-            focus:true
-          })
-        }else{
-          this.setData({
-            focus:false
-          })
+        this.findMe()
+        findResult===true ? focus=true : focus=false
+        this.setData({
+          focus
+        })
+      }
+    })
+  },
+
+  findMe:function(){
+    const args = wx.getStorageSync('args')
+    wx.cloud.callFunction({
+      name: 'NewCampusCircle',
+      data: {
+        url: 'focusControl',
+        username: args.username,
+        type: "findFocus"
+      },success:res => {
+        if(res.result.data.length===0){
+          this.addRecord(args.username)
         }
-        console.log("findResult",findResult);
       }
     })
   },
@@ -289,6 +293,11 @@ Page({
       iconUrl: this.data.content.iconUrl,
       nickName: this.data.content.nickName
     }
+    let dealData={
+      userName: args.username, // 学号来查找
+      iconUrl: args.iconUrl,
+      nickName: args.nickName
+    }
     if(this.data.focus===true){
       type="delFocus"
     }
@@ -297,7 +306,8 @@ Page({
       name: 'NewCampusCircle',
       data: {
         url: 'focusControl',
-        dealData: {username:args.username},
+        dealData: dealData,
+        fansData:be_character,
         username: this.data.content.username,
         type: type
       },success:res => {
@@ -431,7 +441,6 @@ Page({
     var that = this;
     const args = wx.getStorageSync('args')
     let jsonStr = decodeURIComponent(options.content)
-    console.log(options.content)
     var content = JSON.parse(jsonStr) // 将JSON帖子信息转成对象
     var more = 0;
     this.setData({

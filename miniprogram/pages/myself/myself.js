@@ -237,12 +237,53 @@ getData(){
   })
 
 },
+
+  readFocus:function(){
+    const args = wx.getStorageSync("args")
+    wx.cloud.callFunction({
+      name: 'NewCampusCircle',
+      data: {
+        url: 'focusControl',
+        username: args.username,
+        type: "findFocus"
+      },success:res => {
+        this.setData({
+          fansNum:res.result.data[0].focusNum.length,
+          focusNum:res.result.data[0].fansNum.length
+        })
+      }
+    })
+  },
+
+  readStar:function(){
+    const args = wx.getStorageSync("args")
+    let sum=0
+    wx.cloud.callFunction({
+      name: 'NewCampusCircle',
+      data: {
+        url: 'myself',
+        username: args.username,
+        type: "readStar"
+      },success:res => {
+        res.result.data.forEach((item)=>{
+          sum=sum+item.Star_User.length
+        })
+        this.setData({
+          StarNum:sum
+        })
+
+      }
+    })
+  },
+
   onLoad: function (e) {
 
   
     console.log(app.globalData.navigationBarHeight)
     this.init()
     this.getData()
+    this.readFocus()
+    this.readStar()
 
   },
   onReachBottom() {
