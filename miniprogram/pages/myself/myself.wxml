@@ -1,84 +1,70 @@
-<view class="containers">
-  <image class="bgc" src="./images/background.jpg"></image>
-</view>
-<!-- <view class="title" style="  position: relative;top:{{navigationBar}}rpx">
-    <view>WE校园</view>
-  </view> -->
-<!-- 占位 -->
-<scroll-view class="container" style="height: {{windowHeight}}px;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
-  <view class="top" ></view>
-<view class="box">
 
-  <view class="header" style="height: {{statusBarHeight + lineHeight}}px" >
-    <view class="header-text">我的</view>
-    <view class="header-right"> 
-      <view class="tip">
-        <image class="header-right-img gap " bindtap="navigate" data-type="tip" style="width:31rpx"  src="./images/img/message.png">
-      </image>
-      <view wx:if="{{NewInfo}}"  class="tip_dot">
-        <text wx:if="{{NewInfo<100}}">{{NewInfo}}</text>
-        <text wx:elif="{{NewInfo>=100}}">99+</text>
-      </view>
-      </view>
-      <image class="header-right-img" src="./images/img/set.png"></image>
+    <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;position: fixed;background-color: #B1E8E5;;z-index: 3;top: 0;">
+      <view class="header-text" style="top: {{statusBarHeight+10}}px;">我的</view>
     </view>
-  </view>
-  <view class="banner bannerbgc"> 
-    <!-- 背景图片转化为base64 -->
-      <view class="banner-fri">
-        <view class="banner-fri1">
-          <image src="{{person_info.iconUrl}}" class="banner-fri-touxiang" ></image>
-        <view class="bnaner-fri-left">
-          <view class="banner-fri-title">
-            {{person_info.nickName}}
+    <scroll-view class="container" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="padding-top: {{statusBarHeight + lineHeight-20}}px;">
+    <view class="containers" >
+      <view class="header" >
+          <image class="header-right-img" bindtap="navigate" data-type="tip"  src="./images/img/message.png"/>
+          <view wx:if="{{NewInfo}}"  class="tip_dot">
+            <text wx:if="{{NewInfo<100}}">{{NewInfo}}</text>
+            <text wx:elif="{{NewInfo>=100}}">99+</text>
           </view>
-          <view class="banner-fri-content">
-            <view class="banner-fri-content-user">ID:{{person_info.username}}</view>
-            <view class="banner-fri-content-school">{{person_info.School}}</view>
+        <image class="header-right-img" src="./images/img/set.png"/>
+      </view>
+      <view class="banner bannerbgc"> 
+        <view class="banner-fri">
+          <view class="banner-fri1">
+            <image src="{{person_info.iconUrl}}" class="banner-fri-touxiang" ></image>
+            <view class="bnaner-fri-left">
+              <view class="banner-fri-title">
+                {{person_info.nickName}}
+              </view>
+              <view class="banner-fri-content">
+                <view class="banner-fri-content-user">ID:{{person_info.username}}</view>
+                <view class="banner-fri-content-school">{{person_info.School}}</view>
+              </view>
+            </view>
           </view>
-
+          <view class="banner-fri2">
+            <image class="banner-fri2-img" src="./images/right.png"></image>
+          </view>
         </view>
-        </view>
-        <view class="banner-fri2">
-          <image class="banner-fri2-img" src="./images/right.png"></image>
+        <view class="banner-sec">
+          <view class="block">
+            <view>{{StarNum}}</view>
+            <view>获赞</view>
+          </view>
+          <view class="block" bindtap="toFans" data-type="focusNum">
+            <view>{{focusNum.length}}</view>
+            <view>关注</view>
+          </view>
+          <view class="block" bindtap="toFans" data-type="fansNum">
+            <view>{{fansNum.length}}</view>
+            <view>粉丝数</view>
+          </view>
+          <view class="block">
+            <view>777</view>
+            <view>喜欢</view>
+          </view>
         </view>
       </view>
-      <view class="banner-sec">
-        <view class="block">
-          <view>{{StarNum}}</view>
-          <view>获赞</view>
+    </view>
+    <view style="height: 80rpx;width: 100%;">
+      <weimob-sticky scrollTop="{{scrollTop}}" offsetTop="{{offsetTop}}">
+        <view style="background-color: #fdfdfd;">
+            <TabScroll  style="z-index: 3;position: relative;left:25rpx" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"  ></TabScroll>
         </view>
-        <view class="block" bindtap="toFans" data-type="focusNum">
-          <view>{{focusNum.length}}</view>
-          <view>关注</view>
-        </view>
-        <view class="block" bindtap="toFans" data-type="fansNum">
-          <view>{{fansNum.length}}</view>
-          <view>粉丝数</view>
-        </view>
-        <view class="block">
-          <view>777</view>
-          <view>喜欢</view>
-        </view>
-      </view>
-
-  </view>
-  <view class="content" style="opacity:0.9;z-index:2;"   bindtouchstart="touchStart" bindtouchend="touchEnd">
-    <view style="z-index: 999;position: sticky;background-color: rgb(255, 255, 255);top: 170rpx;">
-      <weimob-sticky scrollTop="{{scrollTop}}" offsetTop="{{offsetTop}}" style="z-index: 3;position: relative;">
-        <TabScroll  style="z-index: 3;position: relative;left:25rpx" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"  ></TabScroll>
       </weimob-sticky>
     </view>
-  <scroll-view wx:if="{{campus_account!=true}}" class="page" style="z-index: -1;">
-    <Loading wx:if="{{showLoading}}" />
+
+    <scroll-view wx:if="{{campus_account!=true}}" class="page" >
+      <Loading wx:if="{{showLoading}}" />
       <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight}}px;">
         <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">
           <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
-          </swiper-item>
+        </swiper-item>
       </swiper>
     </scroll-view>
-
-  </view>
-</view>
 </scroll-view>
 

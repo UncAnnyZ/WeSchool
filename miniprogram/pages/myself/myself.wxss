@@ -1,9 +1,5 @@
 /* pages/index/index.wxss */
 
-.tip{
-  position:relative;
-  /* top:21rpx */
-}
 .tip_dot{
   position:absolute;
   top:0rpx;
@@ -54,53 +50,36 @@
 
 }
 .header{
-
-  font-family:"myfont";
+  width: 150rpx;
+  height: 50rpx;
   display: flex;
-  justify-content: space-between;
-  margin:0rpx 50rpx;
-  /* position: sticky;
-  top:140rpx; */
-}
-.top{
-  position:sticky;
-  top:0rpx;
-  height:105rpx;
-  /* background-color:white; */
-  z-index:20
-}
-.box{
-  position:relative;
-  
+  flex-direction: row;
+  font-family:"myfont";
+  padding: 30rpx 20rpx 0rpx 0rpx;
+  float:right;
 }
 .header-text{
   color:rgba(51,51,51,1);
-  /* font-weight: 800; */
-  font-size: 42rpx;
-  line-height:120rpx;
-}
-.gap{
-  margin-right:60rpx
-}
-.header-right{
-  display:flex;
-  align-items: center;
+  font-size: 40rpx;
+  position: relative;
+  left:40rpx;
 }
 .header-right-img{
-  width: 38rpx;
+  width: 35rpx;
   height: 38rpx;
   display: flex;
   align-items: center;
+  margin:0rpx 20rpx;
 }
 .container {
   position: relative;
 }
 .containers{
   width:100%;
-  height:100%;
-  position: fixed;
-  background-size:100% 100%;
-  z-index: -1;
+  height:500rpx;
+  background: linear-gradient(#B1E8E5 20%,#BCEBEF 30%);
+  position: relative;
+  z-index:2;
 }
 .bgc{
   width: 100%;
@@ -279,19 +258,23 @@ z-index:200
 }
 .banner-fri2-img{
   position:relative;
-  left:20rpx;
+  left:130rpx;
   width:80rpx;
   height:80rpx;
 }
 .banner{
+  background-color: darkgoldenrod;
+  /* height: 20rpx;
+  width: 20rpx; */
+  position:relative;
+  top: 160rpx;
   /* width: 94%; */
   /* margin:0 auto; */
   margin:0rpx 31rpx;
-  z-index:-1;
   /* position: sticky;
   top:230rpx; */
   /* height: 300rpx; */
-  margin-top:60rpx;
+  /* margin-top:60rpx; */
   border-radius: 40rpx;
   box-shadow:  2rpx 2rpx 2rpx #888888; 
   margin-bottom: 40rpx;
