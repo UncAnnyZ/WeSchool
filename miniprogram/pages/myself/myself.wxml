@@ -48,12 +48,12 @@
           <view>{{StarNum}}</view>
           <view>获赞</view>
         </view>
-        <view class="block">
-          <view>{{focusNum}}</view>
+        <view class="block" bindtap="toFans" data-type="focusNum">
+          <view>{{focusNum.length}}</view>
           <view>关注</view>
         </view>
-        <view class="block">
-          <view>{{fansNum}}</view>
+        <view class="block" bindtap="toFans" data-type="fansNum">
+          <view>{{fansNum.length}}</view>
           <view>粉丝数</view>
         </view>
         <view class="block">

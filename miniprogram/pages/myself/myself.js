@@ -248,8 +248,8 @@ getData(){
         type: "findFocus"
       },success:res => {
         this.setData({
-          fansNum:res.result.data[0].focusNum.length,
-          focusNum:res.result.data[0].fansNum.length
+          fansNum:res.result.data[0].focusNum,
+          focusNum:res.result.data[0].fansNum
         })
       }
     })
@@ -275,6 +275,19 @@ getData(){
       }
     })
   },
+  toFans:function(e) {
+    console.log(e.currentTarget.dataset.type);
+    wx.setStorage({
+      key:"fansAndfocus",
+      data:{
+        fansNum:this.data.fansNum,
+        focusNum:this.data.focusNum
+      }
+    })
+    wx.navigateTo({
+      url: '../../pages/myself/fansAndfocus/fansAndfocus?type='+e.currentTarget.dataset.type,
+    })
+  },
 
   onLoad: function (e) {
 
@@ -282,8 +295,8 @@ getData(){
     console.log(app.globalData.navigationBarHeight)
     this.init()
     this.getData()
-    this.readFocus()
-    this.readStar()
+    // this.readFocus()
+    // this.readStar()
 
   },
   onReachBottom() {
@@ -387,6 +400,8 @@ getData(){
    */
   onShow: function () {
     this.getNewInfo()
+    this.readFocus()
+    this.readStar()
   },
 
   /**
