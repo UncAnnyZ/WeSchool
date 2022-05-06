@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "jiuGongGe":"../../../more/components/InfoFlowCards/components/jiuGongGe/jiuGongGe"
+    "jiuGongGe":"../../../more/components/InfoFlowCards/components/jiuGongGe/jiuGongGe",
+    "replyComment":"./components/replyComment/replyComment"
  
   }
 }

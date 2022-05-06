@@ -1,66 +1,130 @@
-// pages/myself/components/InfoFlowCards/components/replyComment/replyComment.js
-Page({
-
+// components/inform.js
+var app = getApp()
+// var moreUtil = require(".././../utils/utils")
+Component({
   /**
-   * 页面的初始数据
+   * 组件的属性列表
    */
-  data: {
+  properties: {
+    edit_style: {
+      type: String,
+      value: "edit_hide"
+    },
+    comReply: {
+      type: String,
+      value: "False"
+    },
+    CommentList:{
+      type: Array,
+      value: []
+    },
+    content:{
+      type: Object,
+      value: {}
+    }
 
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 组件的初始数据
    */
-  onLoad: function (options) {
-
+  
+  attached: function () {
+    // 在组件实例进入页面节点树时执行
+    this.popUp()
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 组件的方法列表
    */
-  onReady: function () {
+  methods: {
+    //看看是隐藏还是显示
+    popUp: function () {
+      var edit_style = this.properties.edit_style;
+      // picker动画样式
+      if (edit_style == undefined || edit_style == 'edit_hide') {
+        edit_style = 'edit_show'
+      } else {
+        edit_style = 'edit_hide'
+      }
+      this.setData({
+        edit_style
+      })
+    },
+    
+    //点击事件控制显影
+    ReplyComment: function () {
+      setTimeout(() => {
+        this.setData({
+          comReply: !this.properties.comReply,
+        })
+      }, 200);
+      this.triggerEvent(
+        "sendEvent", {
+          comReply: this.properties.comReply
+        }
+      )
+    },
 
-  },
+    // callFunction: function (type,be_character,Input) {
+    //   const args = wx.getStorageSync('args')
+    //   var that=this
+    //   let character = { // 处理得到点赞者信息
+    //     userName: args.username,
+    //     iconUrl: args.iconUrl,
+    //     nickName: args.nickName
+    //   }
+    //   wx.cloud.callFunction({
+    //     name: "CampusCircle",
+    //     data: {
+    //       type: type,
+    //       character: character,
+    //       be_character: be_character,
+    //       username: args.username,
+    //       be_username: that.properties.content.username,
+    //       content: Input,
+    //       createTime: new Date().getTime(),
+    //       arcticle: that.properties.content,
+    //       arcticle_id: that.properties.content._id,
+    //       _id: that.properties.content._id,
+    //     },
+    //     success(res) {
+    //       console.log(res, "调用评论云函数成功");
+    //     },
+    //     fail(e) {
+    //       if(type === "ReplyCommentControlLogs"){
+    //         wx.showToast({
+    //           title: '回复评论失败',
+    //           icon: 'none'
+    //         })
+    //       }
+    //       if(type === "CommentControlLogs"){
+    //         wx.showToast({
+    //           title: '评论失败',
+    //           icon: 'none'
+    //         })
+    //       }
+    //     }
+    //   })
+    // },
+    //正则判断格式
+    isNull(str) {
+      if (str == "") return true;
+      var regu = "^[ ]+$";
+      var re = new RegExp(regu);
+      return re.test(str);
+    },
+    //提交事件
+    replySubmit: function (e) {
+      console.log(1)
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    },
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    async ctFocus(e) {
+      // 获取键盘高度
+      let keyboard_h = e.detail.height;
+      this.setData({
+        keyboard_h
+      })
+    },
   }
 })

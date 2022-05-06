@@ -17,27 +17,20 @@ Component({
     Label: '全部',    // 当前标签  
     comReply: false, //控制评论组件的出现
     focus:false, //评论
-    inIndex: -1,          //子评论的索引
-    Commentindex: -1,     //主评论的索引
+
 },
 lifetimes: {
   ready(){
-      let content = this.data.list;
       let character = {
           username: args.username,
               iconUrl: args.iconUrl,
               nickName: args.nickName
             };
-      
-     let be_character = {
-            username: content.username,
-              iconUrl: content.iconUrl,
-              nickName: content.nickName
-            }
+
       this.setData({
-              character,be_character,
-              iconUrl: args.iconUrl,
-              utils
+           
+              utils,
+              character
       })
   },
   attached: function() {
@@ -45,9 +38,6 @@ lifetimes: {
     // 在组件实例进入页面节点树时执行
     let currentTab = this.properties.currentTab;
     let list_ = this.properties.list
-    // list_.forEach((item)=>{
-    //   item.Time = utils.timeago(item.Time,'Y年M月D日')  
-    // })
     this.setData({list_,currentTab})
   },
 
@@ -118,6 +108,7 @@ methods: {
        })
      })
   },
+  //拉数据
   getData() {
       let e = {
         currentPage:this.data.currentPage,  // 本组件当前第几页
