@@ -22,7 +22,11 @@ def code_ocr(username,session):
         ocr = ddddocr.DdddOcr()
         code = ocr.classification(image.read())
         return code, cookies
-    except:
+    except Exception as e:
         print('错误,验证码的返回值为', status_code)
-        print("茂名农林验证码有问题")
-        return code, cookies
+        return code, cookies,{
+            "msg": "验证码错误",
+            "error": str(e),
+            "code": "704"
+        }
+

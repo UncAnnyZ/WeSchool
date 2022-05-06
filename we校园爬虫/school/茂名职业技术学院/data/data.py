@@ -1,33 +1,31 @@
 from school.茂名职业技术学院.data.achievement.achievement import achievement
 from school.茂名职业技术学院.data.curriculum.curriculum import curriculum
 from database.sql import updata, search
-# import logging
 
-
-def data(session, password, username, name, headers, msg,other):
-
+def data(username,password,session,other,msg):
     try:
-        achievements=achievement(session, username, name, headers)
-        curriculums=curriculum(session, username, name, headers)
-        obj= {
+        ach = achievement(session)
+        cur = curriculum(session)
+        obj = {
             "username": username,
-            "password": password,
+            "password": '',
             "school": "1",
-            "name": name,
-            "curriculum": str(curriculums),
-            "achievement": str(achievements),
+            "name": '',
+            "curriculum": str(cur),
+            "achievement": str(ach),
             "other": ""
         }
         try:
             if other['out_interface']:
                 updata(obj)
         except Exception as e:
-            a=1
+            a = 1
         return {
-            "achievement": achievements,
-            "curriculum": curriculums,
-            "code":"801"
+            "achievement": ach,
+            "curriculum": cur
         }
+
+
 
     except:
         try:
@@ -41,5 +39,6 @@ def data(session, password, username, name, headers, msg,other):
             return {
                 "achievement": [],
                 "curriculum": [],
-                "code": 608
+                "code": 608,
+                "error": str(e)
             }
