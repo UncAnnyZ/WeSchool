@@ -481,6 +481,7 @@ Page({
   },
   // 上拉触底
   onReachBottom() {
+    console.log(222)
     wx.showLoading({
       title: '加载更多中',
       mask: true

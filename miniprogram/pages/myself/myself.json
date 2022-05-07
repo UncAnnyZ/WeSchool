@@ -7,5 +7,6 @@
   "InfoFlowCards":"./components/InfoFlowCards/InfoFlowCards"
   },
   "navigationStyle": "custom",
+  "onReachBottomDistance"	:20,
   "enablePullDownRefresh": true
 }

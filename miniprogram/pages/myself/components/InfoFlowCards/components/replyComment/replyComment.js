@@ -1,5 +1,6 @@
 // components/inform.js
 var app = getApp()
+const args = wx.getStorageSync('args')
 // var moreUtil = require(".././../utils/utils")
 Component({
   /**
@@ -115,10 +116,45 @@ Component({
     },
     //提交事件
     replySubmit: function (e) {
-      console.log(1)
-
+      let type = "writeComment"
+      var that = this
+      let res = this.isNull(e.detail.value);
+      console.log(e.detail.value)
+      if (res) {
+        wx.showToast({
+          title: '内容不能为空',
+          icon: 'none'
+        })
+      } else{
+        var add = {
+          "InputComment": e.detail.value,
+          "CommentTime": new Date().getTime(),
+          "iconUser": args.iconUrl,
+          "nickName": args.nickName,
+          "username": args.username,
+          "Reply": [],
+          "Star_User":[]
+        }
+      }
+      wx.cloud.callFunction({
+        name: 'NewCampusCircle',
+        data:{
+          url:"CommentControl",
+          addData: add,
+          _id: that.properties.content._id,
+          username: args.username,
+          type: type
+        },
+        success(res){
+          console.log(res)
+          wx.showToast({
+            title: '评论成功',
+            icon:"none"
+          })
+        }
+    
+      })
     },
-
     async ctFocus(e) {
       // 获取键盘高度
       let keyboard_h = e.detail.height;

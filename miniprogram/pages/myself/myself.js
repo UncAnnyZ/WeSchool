@@ -147,7 +147,6 @@ console.log(this.data.allList)
 
 },
 getData(){
-
   let that = this
   let data = this.data
   let currentTab = data.currentTab
@@ -164,7 +163,6 @@ getData(){
   }
   wx.cloud.callFunction({
     name: "NewCampusCircle",
-    //要新建云函数多加字段
     data: {
       //标签
       type: "read",
@@ -178,7 +176,6 @@ getData(){
       let allList = data.allList,
       currentPageArr = data.currentPageArr;
       if(res.result && res.result.data.length > 0){
-
         //每一个showid里面第几页 数据结构数组存储
         currentPageArr[currentTab] = ++currentPage;
           // 添加新数据到 allList[currentTab] 里, 并更新全局变量
@@ -187,7 +184,6 @@ getData(){
             // 添加新数据到 list 里 
             item.forEach((item_,index_)=>{
                      //判断是否已经更新
-              // if(typeof(item_.Time)=="number"){
               item_.Time_format = utils.timeago(item_.Time,'Y年M月D日')      
 
               // } 
@@ -200,6 +196,7 @@ getData(){
           });
        
           //请求道的数据存在app里面
+            // 数据少于一页时
           if (res.result.data.length < 15) {
             that.setData({
               loadAll: true,
@@ -290,16 +287,15 @@ getData(){
   },
 
   onLoad: function (e) {
-
-  
-    console.log(app.globalData.navigationBarHeight)
     this.init()
     this.getData()
     // this.readFocus()
     // this.readStar()
 
   },
+  //上拉
   onReachBottom() {
+    console.log(22222222222)
     wx.showLoading({
       title: '加载更多中',
       mask: true

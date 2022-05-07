@@ -28,8 +28,6 @@ lifetimes: {
             };
 
       this.setData({
-           
-              utils,
               character
       })
   },
@@ -134,9 +132,12 @@ methods: {
     },
     //点击评论
     Reply(e){
+      console.log(e)
       let that =this
       let index = e.currentTarget.dataset.index
       let content = this.data.list[index]
+      console.log(content)
+      console.log(that.data.comReply)
       setTimeout(() => {
         this.setData({
           comReply: !that.data.comReply,
