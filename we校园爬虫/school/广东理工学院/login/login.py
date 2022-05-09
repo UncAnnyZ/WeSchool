@@ -15,15 +15,22 @@ def login(xh, pwd, session):
         res = session.post('http://39.108.86.184:81/jsxsd/xk/LoginToXk', data=data)
         if "用户名或密码错误" in res.text:
             return {
-                "msg": "用户名或密码错误"
+                "msg": "用户名或密码错误",
+                "code": "703"
+
             }
         elif 'xsMain.jsp' in res.url:
             return {
-                "msg": "welcome"
+                "msg": "welcome",
             }
         else:
             return {
-                "msg":"错误"
+                "msg":"错误,找管理员",
+                "code":"707"
             }
     except Exception as e:
-        return "出现问题:" + str(e)
+        return {
+            "msg": "错误,找管理员",
+            "error":str(e),
+            "code": "707"
+        }

@@ -1,0 +1,425 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	
+
+
+
+
+
+
+
+
+
+
+
+<title>教学管理信息服务平台</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Copyright" content="zfsoft" />
+<link rel="icon" href="/logo/favicon.ico?t=1651238694962" type="image/x-icon" />
+<link rel="shortcut icon" href="/logo/favicon.ico?t=1651238694962" type="image/x-icon" />
+<script type="text/javascript">
+var _path 				= "";
+var _systemPath 		= "";
+var _stylePath 			= "/zftal-ui-v5-1.0.2";
+</script>
+<!--jQuery核心框架库 -->
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/js/other_jquery/jquery.min.js?ver=27512980"></script>
+<!--jQuery常用工具扩展库：基础工具,资源加载工具,元素尺寸相关工具 -->
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/js/zftal/jquery.utils.contact-min.js?ver=27512980" charset="utf-8"></script>
+<!--jQuery浏览器检测 -->
+<script type="text/javascript" src="/js/browse/browse-judge.js?ver=27512980"></script>
+<script type="text/javascript">
+	//\u6d4f\u89c8\u5668\u7248\u672c\u9a8c\u8bc1
+	/*var broswer = broswer();
+	if(broswer.msie==true||broswer.safari==true||broswer.mozilla==true||broswer.chrome==true){
+		if(broswer.msie==true&&broswer.version<9){
+		   window.location.href = _path+"/xtgl/init_cxBrowser.html";
+		}
+	}else{
+		 window.location.href = _path+"/xtgl/init_cxBrowser.html";
+	}*/
+</script>
+<!--Bootstrap布局框架-->
+<link rel="stylesheet" type="text/css" href="/zftal-ui-v5-1.0.2/assets/plugins/bootstrap/css/bootstrap.min.css?ver=27512980" />
+<link rel="stylesheet" type="text/css" href="/zftal-ui-v5-1.0.2/assets/css/zftal-ui.css?ver=27512980" />
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/plugins/bootstrap/js/bootstrap.min.js?ver=27512980" charset="utf-8"></script>
+<!--jQuery.chosen美化插件-->
+<link rel="stylesheet" type="text/css" href="/zftal-ui-v5-1.0.2/assets/plugins/chosen/css/chosen-min.css?ver=27512980" />
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/plugins/chosen/jquery.choosen.concat-min.js?ver=27512980" charset="utf-8"></script>
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/plugins/chosen/lang/zh_CN-min.js?ver=27512980" charset="utf-8"></script>
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/js/utils/jquery.utils.pinyin.min.js?ver=27512980" charset="utf-8"></script>
+<!--业务框架jQuery全局设置和通用函数库-->
+<script type="text/javascript" src="/js/jquery.zftal.contact-min.js?ver=27512980"></script>
+<!--业务框架前端脚本国际化库-->
+<script type="text/javascript" src="/zftal-ui-v5-1.0.2/assets/js/zftal/lang/jquery.zftal_zh_CN-min.js?ver=27512980"></script>
+<!--[if lt IE 9]>
+<script src="/zftal-ui-v5-1.0.2/assets/js/html5shiv.min.js?ver=27512980" type="text/javascript" charset="utf-8"></script>
+<script src="/zftal-ui-v5-1.0.2/assets/js/respond.min.js?ver=27512980" type="text/javascript" charset="utf-8"></script>
+<![endif]-->
+	
+			<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+			
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<link type="text/css" rel="stylesheet" href="/css/jw-login.css?ver=27512980"/>
+	<!--Bootbox弹窗插件-->
+	<link rel="stylesheet" type="text/css" href="/zftal-ui-v5-1.0.2/assets/plugins/bootbox/css/bootbox-min.css?ver=27512980" />
+	<script src="/zftal-ui-v5-1.0.2/assets/plugins/bootbox/bootbox.concat-min.js?ver=27512980" type="text/javascript" charset="utf-8"></script>
+	<script src="/zftal-ui-v5-1.0.2/assets/plugins/bootbox/lang/zh_CN.js?ver=27512980" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+<body style="background:#fafafa;">
+<input type="hidden" name="dlmmsfknt" id="dlmmsfknt" value= 1>
+<input type="hidden" name="yzcskz" id="yzcskz" value= 3>
+<input type="hidden" name="mmsfjm" id="mmsfjm" value= 1>
+<input type="hidden" name="mmsrddcshkzfs" id="mmsrddcshkzfs" value= 0>
+<input type="hidden" name="dlsbsdsj" id="dlsbsdsj" value= 3>
+<input type="hidden" name="sfxswechatlogin" id="sfxswechatlogin" value= 0>
+<input type="hidden" name="scene_id" id="scene_id" value= >
+<input type="hidden" name="authJwglxtLoginURL" id="authJwglxtLoginURL" value= >
+<input type="hidden" name="rzzxxs" id="rzzxxs" value= >
+<input type="hidden" name="rzys" id="rzys" value= >
+<input type="hidden" name="sfzywqh" id="sfzywqh" value= 0>
+<input type="hidden" name="xxdm" id="xxdm" value= 13712>
+<input type="hidden" name="userPolicyOn" id="userPolicyOn" value= 0>
+
+<div class="container container_1170">
+	<div class="row sl_log_top">
+		<div class="col-sm-8 logo_1"><img src="/zftal-ui-v5-1.0.2/assets/images/logo/logo_jw_d.png?t=1651238694962" style="margin-top:-3px"/>
+			<span id="xtmc">茂名职业技术学院教务管理信息服务平台</span>
+		</div>
+		<div class="col-sm-4 text-right hidden-xs">
+			
+			
+			</div>
+		</div>
+		<div class="row sl_log_bor4">
+		
+			<div class="col-sm-8 hidden-xs sl_log_lf slideShow">
+				<!-- 0不轮换图片-->
+				<img class="img-responsive" src="/zftal-ui-v5-1.0.2/assets/images/login_bg_pic.jpg?t=1651238694962"/>
+				
+				
+				
+			</div>			
+			<div class="col-sm-4 sl_log_rt">
+					<form class="form-horizontal" role="form" action="/xtgl/login_slogin.html" method="post">
+					<input type="hidden" id="csrftoken" name="csrftoken" value="4221e16e-f54b-4ddc-81c5-54a0c064602e,4221e16ef54b4ddc81c554a0c064602e"/>
+					<input type="hidden" id="language" name="language" value="zh_CN"/>
+					<div>
+						
+						<div class="tab-content">
+							<div id="home" class="tab-pane in active">
+								
+									<h5>用户登录</h5>
+								
+								<!-- 防止浏览器自动填充密码 -->
+								<input type="text" style="display: none;" autocomplete="off"/>
+								<input type="password" style="display: none;" autocomplete="off"/>
+								<!-- 防止浏览器自动填充密码 end -->
+								
+								
+									<p style="display: none;" id="tips" class="bg_danger sl_danger">
+									</p>
+								
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon"><img src="/zftal-ui-v5-1.0.2/assets/images/log_ic01.png" width="16" height="16" /></div>
+										<input type="text" class="form-control" name="yhm" id="yhm" value="" placeholder="用户名" onblur="" autocomplete="off">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon"><img src="/zftal-ui-v5-1.0.2/assets/images/log_ic02.png" width="16" height="16" /></div>
+										<input type="password" name="mm" id="hidMm" style="display:none" autocomplete="off">
+										<input type="text" class="form-control" name="mm" id="mm" value="" placeholder="密码" autocomplete="off"  onfocus="this.type='password'">
+										<input type="password" style="display:none;" autocomplete="off">
+									</div>
+								</div>
+								
+								<!-- 0-弹出验证码-->
+									
+								
+								
+								
+															
+								<div class="form-group">
+									<button type="button" class="btn btn-primary btn-block" id="dl">登 录</button>
+								</div>
+								
+									
+									
+									
+									
+									
+								
+								<!-- 登录口提示信息 -->
+								
+								 	<div class="form-group">
+										<div class="alert alert-danger" role="alert" id="dlktsxx">
+										</div>
+								    </div>
+								
+								
+							</div>
+							<div id="profile" class="tab-pane" align="center">
+									<img id="qrcode" src="" class="img-thumbnail" alt="Cinque Terre" style="weight:220px;height:220px;">
+									<img id="qrcodeerror" src="/css/assets/images/erweima.png" class="img-thumbnail" alt="Cinque Terre" style="weight:220px;height:220px;display:none;cursor:pointer;">
+									<p class="tipsqrcode"><img id="wxbs" src="/css/assets/images/timg.png" style="weight:15px;height:15px;">微信扫码</p>
+									<p class="tipsqrcode">扫码关注公众号进行登录</p>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+<!-- footer --> 
+<div id="footerID" class="footer"  style="background-color: " >
+	
+	<p>版权所有&#169; Copyright 1999-2022 正方软件股份有限公司　　中国·杭州西湖区紫霞街176号 互联网创新创业园2号301&nbsp;&nbsp;&nbsp;版本V-8.0.0</p>
+</div>
+
+
+
+<script  type="text/javascript">
+	//系统中页面底部的时间随系统时间来定
+	/* var date=new Date;
+	var year=date.getFullYear();
+	var s = $("#footerID").text().indexOf('-');
+	var textNr =$("#footerID").text().substr(0,s+1)+year+$("#footerID").text().substr(s+5);
+	$("#footerID").text("");
+	$("#footerID").text(textNr); */
+
+</script>
+<!-- footer-end -->
+</body>
+<script type="text/javascript">
+
+	var sfydl = false;  //作为页签切换是否停止计时器的标记，
+	$('#myTab a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+		var tab = e.target; // activated tab
+		var tabid = $(tab).parent().attr("id");
+		var erweimatime;
+		if(tabid == 'second'){  //扫码登录
+			sfydl = true;
+			//生成二维码
+			 $.ajax({
+				url:_path+'/auth/auth_wechatQrcodeLogin.html',
+				async: false,
+				type:"post",
+				dataType:"json",
+				success:function(data){
+					document.getElementById("qrcode").setAttribute("src",data.showqrcodepath);
+					$("#qrcodeerror").attr('style','weight:220px;height:220px;display:none;cursor:pointer;');
+					$("#qrcode").attr('style','weight:220px;height:220px;display:block;');
+					erweimatime = data.erweimaexpire_seconds;
+				}
+			});
+		}else{
+			//用户登录
+			sfydl = false;
+		}
+		
+		//二维码刷新计时
+		var myVar = setInterval(myTimer ,(erweimatime-10)*1000);
+		//切换到扫码登录后进行轮训，判断用户是否已经登录
+		var LoginTimer = setInterval(ztTimer ,5000);
+		
+		function myTimer(){
+			$("#qrcode").attr('style','weight:220px;height:220px;display:none;');
+			$("#qrcodeerror").attr('style','weight:220px;height:220px;display:block;cursor:pointer;');
+			//二维码失效时停止计时器
+			clearInterval(myVar);
+			clearInterval(LoginTimer);
+		}
+		
+		function ztTimer(){
+			if(!sfydl){
+				//切换到用户登录页签时停止计时器
+				clearInterval(myVar);
+				clearInterval(LoginTimer);
+			}else{
+				if("1" == $("#sfxswechatlogin").val()){
+					$.ajax({
+						url:_path+'/auth/auth_cxYhLoginZt.html',
+						async: false,
+						type:"post",
+						data : { scene_id : $("#scene_id").val()},
+						dataType:"json",
+						success:function(data){
+							if(data.msg == 'success'){
+								//返回登录状态为成功时停止计时器
+								clearInterval(LoginTimer);
+								window.location.href = _path + data.redirectPath;
+							}
+						}
+					});
+				}
+			}
+		}
+		
+		//点击图片刷新二维码
+		$("#qrcodeerror").click(function(){
+			$.ajax({
+				url:_path+'/auth/auth_wechatQrcodeLogin.html',
+				async: false,
+				type:"post",
+				dataType:"json",
+				success:function(data){
+					document.getElementById("qrcode").setAttribute("src",data.showqrcodepath);
+					$("#qrcodeerror").attr('style','weight:220px;height:220px;display:none;cursor:pointer;');
+					$("#qrcode").attr('style','weight:220px;height:220px;display:block;');
+					erweimatime = data.erweimaexpire_seconds;
+				}
+			});
+			
+			//二维码刷新计时
+			var myVar1 = setInterval(myTimer1 ,(erweimatime-10)*1000);
+			//切换到扫码登录后进行轮训，判断用户是否已经登录
+			var LoginTimer1 = setInterval(ztTimer1 ,5000);
+			
+			function myTimer1(){
+				$("#qrcode").attr('style','weight:220px;height:220px;display:none');
+				$("#qrcodeerror").attr('style','weight:220px;height:220px;display:block;cursor:pointer;');
+				//二维码失效时停止计时器
+				clearInterval(myVar1);
+				clearInterval(LoginTimer1);
+			}
+			
+			function ztTimer1(){
+				if(!sfydl){
+					//切换到用户登录页签时停止计时器
+					clearInterval(myVar1);
+					clearInterval(LoginTimer1);
+				}else{
+					if("1" == $("#sfxswechatlogin").val()){
+						$.ajax({
+							url:_path+'/auth/auth_cxYhLoginZt.html',
+							async: false,
+							type:"post",
+							data : { scene_id : $("#scene_id").val()},
+							dataType:"json",
+							success:function(data){
+								if(data.msg == 'success'){
+									//返回登录状态为成功时停止计时器
+									clearInterval(LoginTimer1);
+									window.location.href = _path + data.redirectPath;
+								}
+							}
+						});
+					}
+				}
+			}
+		});
+	});
+	
+	//统一身份验证登录按钮颜色
+	if("1" == $("#rzzxxs").val()){
+		if($.founded($("#rzys").val())){
+			$("#tysfyzdl").attr("style","background-color:"+$("#rzys").val()) ;
+		}else{
+			$("#tysfyzdl").attr("style","background-color:#blue") ;
+		}
+	}
+	//访问统一身份验证
+	$("#tysfyzdl").click(function(){
+		window.location.href = $("#authJwglxtLoginURL").val();
+	});
+	
+	
+	jQuery(document).ready(function() {
+		//$('#localChange').trigger("chosen");
+		/// detectOS();
+		//用户名密码 输错n次 需输入验证码            		
+		 
+		
+		 
+	});
+	
+	
+		var dlktsxx="1：在校学生，教职工用户名为教务系统学号、教工号，初始密码为旧教务系统密码。";
+		var arr=[];
+		var html="";
+		if(dlktsxx.indexOf("。")>-1){
+			arr=dlktsxx.split("。");
+			for(var s=0;s<arr.length;s++){
+				if(arr[s]!=''){
+					html+=arr[s]+"<br>";
+				}
+			}
+		}else{
+			html=dlktsxx;
+		}
+		$("#dlktsxx").html(html);
+	
+	
+	//ip
+	
+    
+	jQuery(function($){
+		
+		function changeLanguage(lang) {
+			$.ajaxSetup({async : false});
+			jQuery.post(_path + "/xtgl/init_changeLocal.html", {//config-shiro.xml里要加这个
+				language: lang != "en_US" ? "zh_CN" : "en_US"
+			}, function (b) {
+				if (1 == parseInt(b)) {
+					if ($("#topButton").size() > 0) {
+						$("#topButton").click();
+					} else {
+						window.location.href = _path;
+					}
+				}
+			}, "json");
+			$.ajaxSetup({async: true});
+		}
+
+		$("button.btn-lang").click(function () {
+			if (!$(this).hasClass("btn-lang-enabled")) {
+				changeLanguage($(this).attr("value"));
+			}
+		})
+
+		//切换英文
+		if ($(".btn-lang-enabled").val() == "en_US") {
+			$("#xtmc").text("Teaching integrated information service platform");
+			$("title").text("Teaching integrated information service platform")
+			$("#wpjssq").text("New Teacher Account Application");
+			$("#wjmm").text("Forgot your password?");
+			$("#jzfw").text("Parents visit");
+			$("#dlktsxx").hide();
+		}
+	});
+	function zhcxRedirect(){
+		$.ajax({
+			url:_path+'/auth/auth_getZhcxUrl.html',
+			async: false,
+			type:"post",
+			dataType:"json",
+			success:function(data){
+				window.location.href= data.url;
+			}
+		});
+	}
+</script>
+<script type='text/javascript' src="/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/jsbn.js?ver=27512980"></script>
+<script type='text/javascript' src="/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/prng4.js?ver=27512980"></script>
+<script type='text/javascript' src="/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/rng.js?ver=27512980"></script>
+<script type='text/javascript' src="/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/rsa.js?ver=27512980"></script>
+<script type='text/javascript' src="/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/base64.js?ver=27512980"></script>
+<script type="text/javascript" src="/js/globalweb/login/login.js?ver=27512980"></script>
+</html>

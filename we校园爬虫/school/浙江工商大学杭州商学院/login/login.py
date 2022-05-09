@@ -69,25 +69,29 @@ def login(sessions: requests.session(), username, password):
     while True:
         if '用户名或密码不正确！' in returnData:
             return name, {
-                "msg": '账号密码错误'
+                "msg": '账号密码错误',
+                "code": "703"
             }
         elif "安全退出" in returnData:
 
             # print(returnData)
             break
         elif '账号已锁定无法登录' in returnData:
-            return name, {
-                "msg": '密码错误，您密码输入错误已达规定次数，账号已锁定无法登录，次日自动解锁！如忘记密码，请与教务处联系!'
+            return {
+                "msg": '密码错误，您密码输入错误已达规定次数，账号已锁定无法登录，次日自动解锁！如忘记密码，请与教务处联系!',
+                "code": "702"
             }
-        elif '密码错误' in returnData:
-            return name, {
-                "msg": '密码错误'
+        elif '密码有误' in returnData:
+            return {
+                "msg": '密码错误',
+                "code": "703"
             }
         elif '验证码' in returnData:
             returnData = login_test(sessions, username, password)
         else:
             return name, {
-                "msg": '异常，请重试'
+                "msg": '异常，请重试',
+                "code": "707"
             }
     regname = re.compile(r'xm=(.*?)&')
     name = regname.findall(returnData)[0]

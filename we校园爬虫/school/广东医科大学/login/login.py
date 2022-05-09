@@ -13,95 +13,106 @@ def login(username, password, session: requests.Session):
     def login(username, password, session: requests.Session):
         import time
         import json
-        nowTime = str(round(time.time() * 1000))
-        res = session.get(
-            'http://43.155.99.203:30002/zfcaptchaLogin?type=resource&instanceId=zfcaptchaLogin&name=zfdun_captcha.js')
-        # print(res.text)
-        # print(res.text)
-        rtk = re.findall('rtk:\'(.*)\'', res.text)[0]
-
-        url = f'http://43.155.99.203:30002/zfcaptchaLogin?type=refresh&rtk={rtk}&time={nowTime}&instanceId=zfcaptchaLogin'
-        a = json.loads(session.get(url).text)
-
-        id = a['si']
-        imtk = a['imtk']
-
-        url = f'http://43.155.99.203:30002/zfcaptchaLogin?type=image&id={id}&imtk={imtk}&t={nowTime}&instanceId=zfcaptchaLogin'
-        res = session.get(url)
-        open("zfcaptchaLogin.png"+username, 'wb').write(res.content)
-
-        import json
-        import random
-        import time
-        from io import BytesIO
-
-        from PIL import Image
-
-        class ZfCaptchaRecognit(object):
-            def __init__(self, img_stream):
-                with open(img_stream, 'rb') as f:
-                    a = f.read()
-                obj = BytesIO(bytes(a))
-
-                self.img = Image.open(obj)
-
-            def _get_xy(self):
-                # 计算 x,y 值
-                def _is_dividing_line(img_l, x, y):
-                    for n in range(50):
-                        # 寻找纵向连续50个像素点均是 X=x 比 X=x+1 颜色深
-                        if y + n >= img_l.size[1] or x >= img_l.size[0] - 1:
-                            return False
-                        if img_l.getpixel((x + 1, y + n)) - img_l.getpixel((x, y + n)) < 2:
-                            return False
-                    return True
-
-                img_l = self.img.convert("L")
-                for x in range(img_l.size[0]):
-                    for y in range(img_l.size[1]):
-                        if _is_dividing_line(img_l, x, y):
-                            return x, y
-
-            def generate_payload(self):
-                base_x = 950
-                X, Y = self._get_xy()
-                payloads = [
-                    {"x": base_x + random.randint(5, 20), "y": random.randint(150, 190), "t": int(time.time() * 1000)}]
-                for i in range(random.randint(15, 30)):
-                    # 在上一个参数基础下浮动
-                    last_payload = payloads[-1].copy()
-                    payloads[0]["x"] += random.choice([0] * 8 + [1, -1] * 2 + [2, -2])
-                    last_payload["t"] += random.randint(1, 20)
-                    last_payload["y"] += random.choice([0] * 8 + [1, -1] * 2 + [2, -2])
-                    payloads.append(last_payload)
-
-                payloads[-1]["x"] = base_x + random.randint(10, 20) + X
-                return json.dumps(payloads)
-        extend = "eyJhcHBOYW1lIjoiTmV0c2NhcGUiLCJ1c2VyQWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvOTkuMC40ODQ0LjUxIFNhZmFyaS81MzcuMzYiLCJhcHBWZXJzaW9uIjoiNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS85OS4wLjQ4NDQuNTEgU2FmYXJpLzUzNy4zNiJ9"
         try:
-            captcha = ZfCaptchaRecognit("zfcaptchaLogin.png"+username)
-            import os
-            if os.path.exists("zfcaptchaLogin.png"+username):
-                os.remove("zfcaptchaLogin.png"+username)
+            nowTime = str(round(time.time() * 1000))
+            res = session.get(
+                'http://43.155.99.203:30002/zfcaptchaLogin?type=resource&instanceId=zfcaptchaLogin&name=zfdun_captcha.js')
+            # print(res.text)
+            # print(res.text)
+            rtk = re.findall('rtk:\'(.*)\'', res.text)[0]
+
+            url = f'http://43.155.99.203:30002/zfcaptchaLogin?type=refresh&rtk={rtk}&time={nowTime}&instanceId=zfcaptchaLogin'
+            a = json.loads(session.get(url).text)
+
+            id = a['si']
+            imtk = a['imtk']
+
+            url = f'http://43.155.99.203:30002/zfcaptchaLogin?type=image&id={id}&imtk={imtk}&t={nowTime}&instanceId=zfcaptchaLogin'
+            res = session.get(url)
+            open("zfcaptchaLogin.png"+username, 'wb').write(res.content)
+
+            import json
+            import random
+            import time
+            from io import BytesIO
+
+            from PIL import Image
+
+            class ZfCaptchaRecognit(object):
+                def __init__(self, img_stream):
+                    with open(img_stream, 'rb') as f:
+                        a = f.read()
+                    obj = BytesIO(bytes(a))
+
+                    self.img = Image.open(obj)
+
+                def _get_xy(self):
+                    # 计算 x,y 值
+                    def _is_dividing_line(img_l, x, y):
+                        for n in range(50):
+                            # 寻找纵向连续50个像素点均是 X=x 比 X=x+1 颜色深
+                            if y + n >= img_l.size[1] or x >= img_l.size[0] - 1:
+                                return False
+                            if img_l.getpixel((x + 1, y + n)) - img_l.getpixel((x, y + n)) < 2:
+                                return False
+                        return True
+
+                    img_l = self.img.convert("L")
+                    for x in range(img_l.size[0]):
+                        for y in range(img_l.size[1]):
+                            if _is_dividing_line(img_l, x, y):
+                                return x, y
+
+                def generate_payload(self):
+                    base_x = 950
+                    X, Y = self._get_xy()
+                    payloads = [
+                        {"x": base_x + random.randint(5, 20), "y": random.randint(150, 190), "t": int(time.time() * 1000)}]
+                    for i in range(random.randint(15, 30)):
+                        # 在上一个参数基础下浮动
+                        last_payload = payloads[-1].copy()
+                        payloads[0]["x"] += random.choice([0] * 8 + [1, -1] * 2 + [2, -2])
+                        last_payload["t"] += random.randint(1, 20)
+                        last_payload["y"] += random.choice([0] * 8 + [1, -1] * 2 + [2, -2])
+                        payloads.append(last_payload)
+
+                    payloads[-1]["x"] = base_x + random.randint(10, 20) + X
+                    return json.dumps(payloads)
+            extend = "eyJhcHBOYW1lIjoiTmV0c2NhcGUiLCJ1c2VyQWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvOTkuMC40ODQ0LjUxIFNhZmFyaS81MzcuMzYiLCJhcHBWZXJzaW9uIjoiNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS85OS4wLjQ4NDQuNTEgU2FmYXJpLzUzNy4zNiJ9"
+            try:
+                captcha = ZfCaptchaRecognit("zfcaptchaLogin.png"+username)
+                import os
+                if os.path.exists("zfcaptchaLogin.png"+username):
+                    os.remove("zfcaptchaLogin.png"+username)
 
 
-            mt = base64.b64encode(str(captcha.generate_payload()).encode('utf-8'))
+                mt = base64.b64encode(str(captcha.generate_payload()).encode('utf-8'))
+            except Exception as e:
+                return {
+                    "msg": "登录失败,请找管理员",
+                    "error": str(e),
+                    "code": "704"
+                }
+                mt = ''
+            data = {
+                "type": "verify",
+                "rtk": rtk,
+                "time": nowTime,
+                "mt": mt,
+                "instanceId": "zfcaptchaLogin",
+                "extend": extend
+            }
+            res = session.post('http://43.155.99.203:30002/zfcaptchaLogin', data=data)
+            # print(res.text)
+            if json.loads(res.text)['status'] == 'fail':
+                return res
         except Exception as e:
-            print(e)
-            mt = ''
-        data = {
-            "type": "verify",
-            "rtk": rtk,
-            "time": nowTime,
-            "mt": mt,
-            "instanceId": "zfcaptchaLogin",
-            "extend": extend
-        }
-        res = session.post('http://43.155.99.203:30002/zfcaptchaLogin', data=data)
-        # print(res.text)
-        if json.loads(res.text)['status'] == 'fail':
-            return res
-
+            return {
+                "msg": "广医科有问题",
+                "name": "未知",
+                "code": 707,
+                "error": str(e)
+            }
 
         res = session.get('http://43.155.99.203:30002/xtgl/login_getPublicKey.html?time=' + nowTime)
         res_json = json.loads(res.text)
@@ -130,14 +141,27 @@ def login(username, password, session: requests.Session):
             break
         elif "用户名或密码不正确" in result.text:
             return {
-                "msg": "学号或密码有误"
+                "msg": '账号密码错误',
+                "code": "703"
+            }
+        elif '账号已锁定无法登录' in result.text:
+            return {
+                "msg": '密码错误，您密码输入错误已达规定次数，账号已锁定无法登录，次日自动解锁！如忘记密码，请与教务处联系!',
+                "code": "702"
+            }
+        elif '密码错误' in result.text:
+            return {
+                "msg": '密码错误',
+                "code": "703"
             }
         elif "fail" in result.text:
             result=login(username,password,session)
         else:
             return {
-                "msg": "异常"
+                "msg": "异常",
+                "code": "707"
             }
     return {
-        "msg": 'welcome'
+        "msg": 'welcome',
+        "code": "701"
     }

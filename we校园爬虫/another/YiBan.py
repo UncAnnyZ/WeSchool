@@ -13,8 +13,8 @@ import re
 import time
 
 import requests
-from Crypto.Cipher import PKCS1_v1_5
-from Crypto.PublicKey import RSA
+# from crypto.Cipher import PKCS1_v1_5
+# from crypto.PublicKey import RSA
 
 
 # 邮箱模组

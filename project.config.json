@@ -52,6 +52,11 @@
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
   "condition": {
     "plugin": {
       "list": []
@@ -99,10 +104,5 @@
         }
       ]
     }
-  },
-  "srcMiniprogramRoot": "miniprogram/",
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
   }
 }

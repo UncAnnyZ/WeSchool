@@ -1,102 +1,63 @@
-import re
-from database.sql import search, updata
-from school.茂名职业技术学院.code.code import code_ocr
+import json
+import time
+
+from lib import RSAJS
+from lib.hex2b64 import HB64
+from pyquery import PyQuery as pq
+from school.广东科技学院.code.code import code_ocr
 
 
 def login(session, username, password):
-    headers = {
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Cookie": '',
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/95.0.4638.69 Safari/537.36 "
-    }
-
-    def login_test(session, username, password):
-        status_code = 0
-        try:
-            try:
-                code, cookies = code_ocr(username, session)
-                import os
-                if os.path.exists("MZ_code.png" + username):
-                    os.remove("MZ_code.png" + username)
-            except Exception as e:
-                return {
-                    "msg": "登录失败,请找管理员",
-                    "error": str(e),
-                    "code": "704"
-                }
-            if code == '' or code is None:
-                return {
-                    "msg": "验证码错误",
-                    "code": "705"
-                }
-
-            cookie = ''
-            for name, value in cookies:
-                cookie += '{0}={1};'.format(name, value)
-            headers["Cookie"] = cookie
-            data = {
-                "__VIEWSTATE": "dDw3OTkxMjIwNTU7Oz5qFv56B08dbR82AMSOW+P8WDKexA==",
-                "Button1": "",
-                "TextBox1": username,
-                "TextBox2": password,
-                "TextBox3": code
-            }
-
-            res = session.post(
-                'https://jwc.mmpt.edu.cn/default2.aspx', data=data)
-            return res.text
-        except:
-
-            # print("茂名职业技术学院登录有问题，返回代码为", status_code)
-            try:
-                return search('1', username, password, "login")
-            except Exception as e:
-                return {
-                    "msg": "茂职有问题",
-                    "name": "未知",
-                    "code": 606,
-                    "error": str(e)
-                }
-
-        # print(res.text)
-
-    returnData = login_test(session, username, password)
-    name = ''
+    res = login_test(session, username, password)
     while True:
-        if '用户名或密码不正确' in returnData:
-            return name, headers, {
-                "msg": '账号密码错误',
+        if "用户名或密码不正确" in res.text:
+            return {
+                "msg": "学号或密码有误",
                 "code": "703"
             }
-        elif '账号已锁定无法登录' in returnData:
-            return name, headers, {
-                "msg": '密码错误，您密码输入错误已达规定次数，账号已锁定无法登录，次日自动解锁！如忘记密码，请与教务处联系!',
-                "code": "702"
-            }
-        elif '密码错误' in returnData:
-            return name, headers, {
-                "msg": '密码错误',
-                "code": "703"
-            }
-        elif '验证码不正确' in returnData:
-            returnData = login_test(session, username, password)
-        elif '安全退出' in returnData:
+
+        elif "验证码输入错误" in res.text:
+            res = login_test(session, username, password)
+        elif "index_initMenu.html" in res.url:
             break
-        # elif 'msg' in returnData:
-        #     return returnData['name'], headers, {
-        #         'msg': returnData['msg'],
-        #         'code': returnData['code']
-        #     }
         else:
-            return name, headers, {
-                "msg": '异常，请重试',
+
+            return {
+                "msg": '异常',
                 "code": "707"
             }
-    regname = re.compile(r'xm=(.*?)&')
-    name = regname.findall(returnData)[0]
-
-    return name, headers, {
-        "msg": 'welcome',
-        "code": "701"
+    return {
+        "msg": 'welcome'
     }
+
+
+def login_test(session, username, password):
+    # code, cookie, nowTime = code_ocr(username,session)
+    # import os
+    # if os.path.exists("GKY_code.png" + username):
+    #     os.remove("GKY_code.png" + username)
+    nowTime = str(round(time.time() * 1000))
+    url = "https://jwc.mmpt.edu.cn/"
+    res = session.get(f'{url}xtgl/login_getPublicKey.html?time=' + nowTime)
+    res_json = json.loads(res.text)
+    modulus = res_json['modulus']
+    exponent = res_json['exponent']
+    rsa = RSAJS.RSAKey()
+    rsa.setPublic(HB64().b642hex(modulus), HB64().b642hex(exponent))
+    mm = HB64().hex2b64(rsa.encrypt(password))
+    # print(mm)
+    url = f'{url}xtgl/login_slogin.html?time=' + nowTime
+    res = session.get(url)
+    doc = pq(res.text)
+    csrf = doc('#csrftoken').attr('value')
+    # print(csrf)
+
+    res = session.post(f'{url}xtgl/login_slogin.html?time=' + nowTime, data={
+        # 'yzm': code,
+        'yhm': username,
+        'mm': mm,
+        'csrftoken': csrf,
+        'language': 'zh_CN'
+
+    })
+    return res
