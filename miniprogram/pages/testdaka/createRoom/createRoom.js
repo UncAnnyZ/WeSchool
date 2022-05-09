@@ -160,6 +160,17 @@ Page({
                         filePath: this.data.aimgurl[0], //要上传的图片/文件路径 这里使用的是选择图片返回的临时地址
                         success: res => {
                             let imgUrl = res.fileID
+                            db.collection("daka_group_member_information").add({
+                                data: {
+                                  member_name:this.data.args.nickName,
+                                  member_url:this.data.args.iconUrl,
+                                  member_username:this.data.args.username,
+                                  task:[],
+                                  time_logs:[],
+                                  totalTime:0,
+                                  uuid,
+                                }
+                            })
                             db.collection("data_group_information").add({
                                 data: {
                                     group_name: this.data.roomName,
@@ -170,7 +181,7 @@ Page({
                                     wxname: this.data.args.nickName,
                                     wxurl: this.data.args.iconUrl,
                                     imgUrl,
-                                    roomNum:this.data.roomNum,
+                                    roomNum:Number(this.data.roomNum),
                                     qxbq:this.data.qxbq,
                                     creattime:new Date(),
                                 }

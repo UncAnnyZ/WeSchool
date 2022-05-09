@@ -1,0 +1,211 @@
+/* pages/testdaka/createRoom/createRoom.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.info{
+  width: 90%;
+  height: 90%;
+  margin: 3% 5% 1% 5%;
+  background-color: #f4f4f4;
+}
+
+.create_RoomName{
+  height: 10%;
+  width: 100%;
+}
+
+.txt{
+  font-size: 24rpx;
+  font-weight: 400;
+}
+
+.roomName{
+  margin: 1% 1% 1% 1%;
+  border-radius: 25rpx;
+  height: 60%;
+  width: 98%;
+  background-color: #ffffff;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+}
+
+.roomName input{
+  padding: 1% 1% 1% 1%;
+  margin: 0% 5% 2% 5%;
+  height: 60%;
+  width: 88%;
+  border-bottom: 2rpx solid #E5E5E5;
+}
+
+.create_RoomBrief{
+  margin-top: 1%;
+  height: 10%;
+  width: 100%;
+}
+
+.roomBrief{
+  margin: 1% 1% 1% 1%;
+  border-radius: 25rpx;
+  height: 60%;
+  width: 98%;
+  background-color: #ffffff;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+}
+
+.roomBrief input{
+  padding: 1% 1% 1% 1%;
+  margin: 0% 5% 2% 5%;
+  height: 60%;
+  width: 88%;
+  border-bottom: 2rpx solid #E5E5E5;
+}
+
+.choose_RoomNmu{
+  margin-top: 1%;
+  height: 10%;
+  width: 100%;
+}
+
+.roomNmu{
+  margin: 1% 1% 1% 1%;
+  border-radius: 25rpx;
+  height: 60%;
+  width: 98%;
+  background-color: #ffffff;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+}
+
+.roomNmu radio-group{
+  width: 92%;
+  height: 90%;
+  margin: 1% 4% 3% 4%;
+  padding-top: 1%;
+  display: flex;
+  flex-direction: row;
+}
+
+.label{
+  margin: 1% 20rpx 1% 1%;
+  display: flex;
+  flex-direction: row;
+}
+
+.choose_RoomLabel{
+  margin-top: 1%;
+  height: 13%;
+  width: 100%;
+}
+
+.RoomLabel{
+  margin: 1% 1% 1% 1%;
+  border-radius: 25rpx;
+  height: 70%;
+  width: 98%;
+  background-color: #ffffff;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+}
+
+.label_image{
+  float: left;
+  width: 12.7%;
+  height: 56rpx;
+  width: 9rpx;
+  padding: 3% 1% 0% 3%;
+}
+
+.label_input{
+  height: 60%;
+  width: 98%;
+  padding: 4% 0% 1% 1%;
+}
+
+.label_input{
+  float: left;
+  width: auto;
+  font-size: 31rpx;
+  font-weight: 500;
+}
+
+.bqpicker{
+  height: 50rpx ;
+  float: right;
+  font-size: 31rpx;
+  font-weight: 400;
+  line-height: 40rpx;
+  width: 300rpx;
+}
+.meibq{
+  height: 50rpx ;
+  float: right;
+  font-size: 31rpx;
+  font-weight: 400;
+  line-height: 40rpx;
+  width: 300rpx;
+  color: gray;
+}
+
+.line{
+  width: 75%;
+  height: 1%;
+  margin-left: 6%;
+  padding-top: 12%;
+  border-bottom: 2rpx solid #E5E5E5;
+}
+
+.choose_RoomPic{
+  margin-top: 1%;
+  height: 50%;
+  width: 100%;
+}
+
+.roomPic{
+  margin: 1% 1% 1% 1%;
+  border-radius: 25rpx;
+  height: 90%;
+  width: 98%;
+  background-color: #ffffff;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+  border-style: outset;
+}
+
+.Pic{
+  margin: 3% 0% 1% 4%;
+  width: 90%;
+  height: 90%;
+  border-style: inset;
+
+}
+
+.btn{
+  width: 90%;
+  height: 9%;
+  padding-bottom: 10%;
+  margin: 1% 5% 1% 5%;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_create{
+  color: #ffffff;
+  display: flex;
+  background-color: #7c66f5;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+  align-items: center;
+  justify-content: center;
+  border-radius: 25rpx;
+  width: 52%;
+}
+
+.cancel{
+  margin-left: 6%;
+  color: #ffffff;
+  display: flex;
+  background-color: palevioletred;
+  box-shadow: 20rpx 20rpx 30rpx 0.1rpx rgb(228, 228, 228);
+  align-items: center;
+  justify-content: center;
+  border-radius: 25rpx;
+  width: 52%;
+}

@@ -90,20 +90,17 @@ Page({
       // 自习室的data
       studynavState:5,
       room:[
-        {roomlable:'学习',roomlist:[
-          {roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334166.jpg?sign=2c62d981969547d39dd8963604d4d644&t=1649941917'},
-          {roomname:'四级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334163.jpg?sign=adec39668f0b66b92ecc449344dcba12&t=1649941978'},
-          {roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},
-        ]},
-        {roomlable:'运动',roomlist:[{roomname:'跑步',roomintroduce:'每天两公里',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'俯卧撑',roomintroduce:'每天50个',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334166.jpg?sign=2c62d981969547d39dd8963604d4d644&t=1649941917'},]
+        {roomlable:'学习',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334166.jpg?sign=2c62d981969547d39dd8963604d4d644&t=1649941917'}]
         },
-        {roomlable:'娱乐',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334168.jpg?sign=e827576c04b49178377da50924629615&t=1649942001'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'运动',roomlist:[{group_name:'跑步',introduce:'每天两公里',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
         },
-        {roomlable:'日常',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'娱乐',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334168.jpg?sign=e827576c04b49178377da50924629615&t=1649942001'}]
         },
-        {roomlable:'游戏',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'日常',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
         },
-        {roomlable:'其他',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'游戏',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
+        },
+        {roomlable:'其他',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
         }
       ],
       cardlist:[
@@ -166,8 +163,15 @@ Page({
     moveFlagCurri = true; // 回复滑动事件
   },
     //自习室小组的js
+    goToCreateRoom(){
+      wx.navigateTo({
+        url: '../createRoom/createRoom',
+      })
+    },
+
     //获取小组信息数据
     getgroupdata:function(){
+      console.log("触发"); 
       wx.cloud.database().collection('data_group_information').get().then(res =>{
         console.log(res);
         let a = res.data;
@@ -178,7 +182,7 @@ Page({
        var sum = []
       //  let a =[]
        let c= []
-       let res=[]
+       let res={}
       //  {id:1,time:1}
     //   a=[
     //     {cate: "番茄时钟", date: "2022/03/31 00:39:43", time: 1},
@@ -190,28 +194,32 @@ Page({
     //     {cate: "修bug", date: "2022/03/31 02:55:59", time: 1},
     //     {cate: "修bug", date: "2022/03/31 02:57:10", time: 1},
     // ]
-     console.log(a);
+    //  console.log(a);
      for (var i = 0 ;i<a.length;i++){
           if(res[a[i]["qxbq"]]==undefined){
               let re = []
               re.push(a[i])
-               console.log(i+1)
-              console.log(a[i]["qxbq"])
               res[a[i]["qxbq"]]=re
-              console.log(res)
           }
           else{
-              console.log(i+1)
-              console.log(a[i]["qxbq"])
               c= res[a[i]["qxbq"]]
               var sum = 0
               c.push(a[i])
-              console.log(c);
               res[a[i]["qxbq"]]=c
           }
-     }  
-        console.log(res);//哈希表
-        console.log(res['休息'][0]);
+     }
+      let room = []
+      for(var key in res ){
+        let obj = {
+          roomlable : String(key),
+          roomlist : res[key]
+        }
+        room.push(obj)
+      }
+      console.log(room);
+      this.setData({
+        room : room
+      })
     },
     intoshowgroup(){
       this.setData({
@@ -334,7 +342,7 @@ Page({
           })
         
       },
-      init_canvas2(){
+    init_canvas2(){
           let wpx = wx.getSystemInfoSync().windowWidth/375
           const query = wx.createSelectorQuery()
           query.select('#bottombox_clock_active')
@@ -350,8 +358,8 @@ Page({
               ctx2,canvas2
             })
           })
-      },
-        //更新开始键点击事件
+    },
+    //更新开始键点击事件
     start: function() {
         console.log('start');
         let ctx2 = this.data.ctx2
@@ -638,7 +646,7 @@ Page({
         click_d:true,
         navState
       })
-      this.getgroupdata();
+      // this.getgroupdata();
     },
     //日历初始化
     zero: function (i) {

@@ -786,8 +786,8 @@ page {
 }
 
 .icon_text_false {
-  transition: all .7s;
-  height: 0.5rpx;
+  transition: all .5s;
+  height: 0rpx;
   width: 2rpx;
   overflow: hidden;
   font-size: 1rpx;
@@ -799,7 +799,7 @@ page {
   padding-top: 10rpx;
   font-size: 20rpx;
   color: #7c66f5;
-  transition: all .7s;
+  transition: all .5s;
   text-align: center;
 }
 

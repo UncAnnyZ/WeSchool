@@ -2,10 +2,11 @@
 <view wx:if="{{navState==0}}" animation="{{timetableAnimation}}">
      <view>
           <view class="top" style="height: {{statusBarHeight}}px;width: 100%;background: #7c66f5;">
-               <image class="person_Info" style="height: 35px; width: 35px; position: absolute; top: 30px; left: 28px;" src="../images/personInfo.png" bindtap="seetingHandler"></image>
+               <!-- <image class="person_Info" style="height: 35px; width: 35px; position: absolute; top: 30px; left: 28px;" src="../images/personInfo.png" bindtap="seetingHandler"></image> -->
           </view>
-          <view class="top2" style="height: {{lineHeight}}px;background: #7c66f5;line-height: {{lineHeight}}px;color: white;text-align: center;">
-               We打卡
+          <view class="top2" style="height: {{lineHeight}}px;background: #7c66f5;line-height: {{lineHeight}}px;color: white;text-align: center;display: flex;align-items: center;flex-direction: row;">
+                <image style="width: 45rpx;height: 45rpx;display: flex;padding-left: 30rpx;" src="../images/personInfo.png" bindtap="seetingHandler"></image>
+                <view style="padding-left: 245rpx;font-size: 34rpx;">We打卡</view>
           </view>
           <calendar bind:change="dateChange" spot="{{spot}}" week="{{week}}" defaultTime="{{today}}"></calendar>
      </view>
@@ -172,7 +173,7 @@
                          <view class="my_team">我的队伍</view>
                     </view>
                </view>
-               <view class="right">
+               <view class="right" bindtap="goToCreateRoom">
                     <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
                </view>
           </view>
@@ -250,15 +251,15 @@
                     <view>{{item.cardname}}让我们一起加入小组吧</view>
                     <view></view>
                     <!-- 提示滑动的图标 -->
-                    <span class="change_icon" bindtap="slidethis" wx:if="{{id === 0}}">
+                    <!-- <span class="change_icon" bindtap="slidethis" wx:if="{{id === 0}}">
                          <image></image>
-                    </span>
+                    </span> -->
                </view>
                <!-- <view></view> -->
           </view>
           <view class="selfstudy_othergroup_longbox">
-               <view class="selfstudy_othergroup_longbox_left"></view>
-               <view class="selfstudy_othergroup_longbox_right"></view>
+               <view class="selfstudy_othergroup_longbox_left" bindtap="getgroupdata"></view>
+               <view class="selfstudy_othergroup_longbox_right" bindtap="getgroupdata"></view>
           </view>
           <view class="selfstudy_othergroup_mygroup">
                <view style="display: flex;flex-direction: row;margin: 41rpx auto;width: 650rpx;height:80rpx ;margin-bottom: 0;">
@@ -294,14 +295,14 @@
                <scroll-view class="lablegroup_scrollview" scroll-x="true" style=" display: flex;white-space: nowrap;">
                     <view wx:for="{{item.roomlist}}" class="lablegroup_scrollview_data" style="display: inline-block;" bindtap="intoshowgroup">
                          <view class="lablegroup_scrollview_data_image">
-                              <image src="{{item.imageurl}}"></image>
+                              <image src="{{item.imgUrl}}"></image>
                          </view>
                          <view class="lablegroup_scrollview_data_information">
                               <view class="lablegroup_scrollview_data_information_topbox">
                                    <view class="lablegroup_scrollview_data_information_topbox_roomname">
-                                        {{item.roomname}}
+                                        {{item.group_name}}
                                    </view>
-                                   <view class="lablegroup_scrollview_data_information_topbox_roomintroduce">{{item.roomintroduce}}
+                                   <view class="lablegroup_scrollview_data_information_topbox_roomintroduce">{{item.introduce}}
                                    </view>
                               </view>
                               <view class="lablegroup_scrollview_data_information_bottombox">
@@ -320,7 +321,7 @@
                                                   <view class="information_bottombox_right_url_image" style="background: royalblue;"></view>
                                              </view>
                                         </view>
-                                        <view class="information_bottombox_right_numper">{{item.roomper}}人</view>
+                                        <view class="information_bottombox_right_numper">{{item.roomNum}}人</view>
                                    </view>
                               </view>
                          </view>
