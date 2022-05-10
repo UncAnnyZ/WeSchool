@@ -1,11 +1,12 @@
 
 <view class="bgc">
-  <view class="header-text" style="top: {{statusBarHeight+10}}px;z-index: 2">我的</view>
+  <view class="header-text" style="top: {{statusBarHeight+45}}px;z-index: 2">我的</view>
     <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px;position: fixed;background-color: #B1E8E5;z-index: -1;top: 0;">
-  
+   
     </view>
     <scroll-view class="container" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="padding-top: {{statusBarHeight + lineHeight-20}}px;">
     <view class="containers" >
+    
       <view class="header" >
           <image class="header-right-img" bindtap="navigate" data-type="tip"  src="./images/img/message.png"/>
           <view wx:if="{{NewInfo}}"  class="tip_dot">
@@ -51,8 +52,8 @@
     </view>
     <view style="height: 58rpx;width: 100%;"  class="Tab">
       <weimob-sticky scrollTop="{{scrollTop-20}}" offsetTop="{{offsetTop-20}}">
-        <view style="background-color: #fdfdfd;border-radius:30rpx 30rpx 0rpx 0rpx">
-            <TabScroll  style="z-index: 3;position: relative;left:25rpx;background-color:rgba(240,246,246,1);" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"  ></TabScroll>
+        <view style="background-color: #fdfdfd;border-radius:30rpx 30rpx 0rpx 0rpx;">
+            <TabScroll  style="z-index: 3;position: relative;left:25rpx;background-color:rgba(240,246,246,1);oapcity:0.1" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"  ></TabScroll>
         </view>
       </weimob-sticky>
     </view>

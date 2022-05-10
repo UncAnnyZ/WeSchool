@@ -16,7 +16,7 @@
   module.exports.getStar = getStar;
 </wxs>
 
-<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,246,246,1)}};">
+<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,240,240,1)}};">
   <view class="card" style="z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd" catchtap="navigate" data-index="{{idd}}">
     <view class="card-row">
       <view class="card-top">
@@ -44,7 +44,7 @@
           <view class="card-end-start-person-text">暂无点赞 </view>
         </view>
         <view wx:elif="{{item.Label=='寻物发布'}}">
-          <view class="card-end-start-person-text">{{item.LoseState}} </view>
+          <view class="card-end-start-person-text" >{{item.LoseState?'已找到':'未找到'}} </view>
         </view>
       </view>
 

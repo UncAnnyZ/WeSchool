@@ -4,11 +4,11 @@
   /* height: 400rpx; */
   margin:0rpx 30rpx;
   padding:0rpx 30rpx;
-  margin-top:40rpx;
+  margin-top:30rpx;
   margin-bottom: 20rpx;
   box-shadow: -5rpx 5rpx 3rpx #e7e7e7;
   border-radius: 20rpx;
-  opacity:0.8
+  opacity:1
 }
 
 .card-top-right-img{
@@ -53,10 +53,10 @@
   color:rgba(16, 16, 16, 0.5)
 }
 .card-content{
-  font-size: 22rpx;
+  font-size: 24rpx;
   margin-top:10rpx;
   margin-bottom: 20rpx;
-  color:rgba(102,102,102)
+  color:rgba(82,82,82)
 }
 .card-imgs{
   margin:0 auto;
