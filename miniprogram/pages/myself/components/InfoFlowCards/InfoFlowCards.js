@@ -119,16 +119,26 @@ methods: {
     },
     //跳转详情页
     navigate(e){
-      
+      //分情况中转跳转
+   
       let index = e.currentTarget.dataset.index
       let content = this.data.list[index]
        // 先对数据进行 JSON
        let jsonStr = JSON.stringify(content);
        // 对数据进行URI编码，防止数据被截断。少量数据没问题，如果对象较大则容易被截断，获取不到完整数据
        let data = encodeURIComponent(jsonStr);
-       wx.navigateTo({
-         url: `/pages/more/pages/DetailContent/DetailContent?content=${data}`,
-       })
+      if(content.Label=='寻物发布'){
+        console.log(222)
+        wx.navigateTo({
+          url: `/pages/more/pages/LoseDetailContent/LoseDetailContent?content=${data}`,
+        })
+      }
+      else{
+        wx.navigateTo({
+          url: `/pages/more/pages/DetailContent/DetailContent?content=${data}`,
+        })
+      }
+   
     },
     //点击评论
     Reply(e){

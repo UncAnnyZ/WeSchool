@@ -16,7 +16,9 @@
     "pages/index/guidance/guidance",
     "pages/myself/fansAndfocus/fansAndfocus",
     "pages/myself/components/InfoFlowCards/InfoFlowCards",
-    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment"
+    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment",
+    "pages/myself/components/InfoFlowCards/components/CampusCards/CampusCards",
+    "pages/myself/components/InfoFlowCards/components/LoseCards/LoseCards"
   ],
   "subPackages": [
     {

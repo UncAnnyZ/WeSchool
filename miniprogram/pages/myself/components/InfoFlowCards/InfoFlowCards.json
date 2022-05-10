@@ -1,8 +1,8 @@
 {
   "usingComponents": {
     "jiuGongGe":"../../../more/components/InfoFlowCards/components/jiuGongGe/jiuGongGe",
-    "replyComment":"./components/replyComment/replyComment"
-   
+    "replyComment":"./components/replyComment/replyComment",
+    "CampusCards":"./components/CampusCards/CampusCards"
   },
   "enablePullDownRefresh": true,
   "onReachBottomDistance"	:400

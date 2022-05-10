@@ -395,8 +395,8 @@ Page({
   showPic: function () {
     wx.previewImage({
       // cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png
-      current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/2021-2022xl.png', // 当前显示图片的http链接
-      urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/2021-2022xl.png'] // 需要预览的图片http链接列表
+      current: 'https://s1.ax1x.com/2022/05/09/OJRwF0.jpg', // 当前显示图片的http链接
+      urls: ['https://s1.ax1x.com/2022/05/09/OJRwF0.jpg'] // 需要预览的图片http链接列表
     })
   },
 })

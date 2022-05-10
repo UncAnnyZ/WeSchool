@@ -262,8 +262,14 @@ getData(){
         username: args.username,
         type: "readStar"
       },success:res => {
+
         res.result.data.forEach((item)=>{
-          sum=sum+item.Star_User.length
+          if(item.Star_User){
+           sum=sum+item.Star_User.length
+          }
+          else{
+            return -1
+          }
         })
         this.setData({
           StarNum:sum
@@ -294,6 +300,9 @@ getData(){
 
   },
   //上拉
+  onPullDownRefresh(){
+    console.log(44444444)
+  },
   onReachBottom() {
     console.log(22222222222)
     wx.showLoading({
