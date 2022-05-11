@@ -1,0 +1,6 @@
+.end_tip {
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 12rpx;
+  color: #888888;
+}

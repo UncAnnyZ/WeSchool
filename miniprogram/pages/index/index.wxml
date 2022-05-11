@@ -72,8 +72,39 @@
 
   <!-- 其他功能 -->
   <!-- <view class="other">
-
-    <view class="countdown" style="border-color:{{theme ?' rgba(135,206,235, 0.13)': '#fcfbfb'}};">
+    <view class="other_daka_topbox">
+      <view class="other_daka_topbox_left">
+        <view class="other_daka_topbox_left_title">
+          <view class="other_daka_topbox_left_title_text">每日打卡</view>
+        </view>
+        <view class="other_daka_topbox_left_dakadata">
+          <scroll-view scroll-y="true" class="other_daka_topbox_left_dakadata_scroll_view">
+            <view class="other_daka_topbox_left_dakadata_task" wx:for="{{dakaArr}}">
+              <image class="other_daka_topbox_left_dakadata_task_yuan" src="../testdaka/images/white_ring.png"></image>
+              <view class="other_daka_topbox_left_dakadata_task_text">{{item.task_name}}</view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="other_daka_topbox_right">
+        <view class="other_daka_topbox_right_dakaimage">
+          <view class="small_ring"></view>
+          <view class="outer_ring"></view>
+          <view class="inner_circle"></view>
+          <view class="other_daka_topbox_right_dakaday">本周已打卡0天</view>
+          <image class="image_pic" src="{{modle_display}}" mode = "widthFix"></image>
+        </view>
+      </view>
+    </view>
+    
+    <view class="other_daka_bottombox">
+      <view class="other_daka_bottombox_left">今日有xxx人打卡</view>
+      <view class="other_daka_bottombox_center" bindtap="daka">去打卡</view>
+      <image class="other_daka_bottombox_right" bindtap="daka" src="../testdaka/images/turn_right.png"></image>
+    </view>
+  </view> -->
+<!-- 原代码 -->
+      <!-- <view class="countdown" style="border-color:{{theme ?' rgba(135,206,235, 0.13)': '#fcfbfb'}};">
 
       <view class="wx-remind-mask">
         <view class="otherkp">
@@ -91,9 +122,9 @@
           </view>
         </view>
       </view>
-    </view>
-    <view class="countdown" style="border-color:{{theme?' rgba(135,206,235, 0.13)': '#fcfbfb'}};">
-
+    </view> -->
+    <!-- <view class="countdown" style="border-color:{{theme?' rgba(135,206,235, 0.13)': 
+    '#fcfbfb'}};">
       <view class="wx-remind-mask">
         <view class="zt">
           打卡
@@ -110,11 +141,8 @@
             <text style="color: #4afa61;"> 20分钟</text>
           </view>
         </view>
-      </view>
-    </view>
-  </view> -->
-  <!-- 测试用，不要删 -->
-  <!-- <view class="wx-remind-detail" bindtap="tomato"><text>test1</text></view>
-  <view class="wx-remind-detail" bindtap="daka"><text>test2</text></view> -->
+      </view> 
+    </view> -->
+
 
 </scroll-view>

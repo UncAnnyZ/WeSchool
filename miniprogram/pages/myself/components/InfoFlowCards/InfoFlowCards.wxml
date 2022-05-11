@@ -1,0 +1,68 @@
+<wxs module="m1">
+  var getStar = function (item, character) {
+    var starSrc =   '../../images/img/icon_lick_nor.png'
+    if (item.Star_User) {
+      item.Star_User.forEach(function (e) {
+        if (e && e.username === character.username) {
+          console.log("e",e);
+          starSrc = '../../images/img/like@2x.png'
+        }
+
+      })
+    }
+
+    return starSrc;
+  }
+  module.exports.getStar = getStar;
+</wxs>
+
+<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,240,240,1)}};">
+  <view class="card" style="z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd" catchtap="navigate" data-index="{{idd}}">
+    <view class="card-row">
+      <view class="card-top">
+      <view class="card-top-left">
+        <view>
+          <image class="card-top-left-img" src="{{item.iconUrl}}"></image>
+        </view>
+        <view class="card-top-left-text">
+          <view class="card-top-left-text1">{{item.nickName}}</view>
+          <view class="card-top-left-text2">{{item.Time_format}}</view>
+        </view>
+      </view>
+      <view class="card-top-right"></view>
+      <image class="card-top-right-img" src="../../images/img/icon_more.png"></image>
+    </view>
+    <view class="card-content">{{item.Text}}</view>
+    <jiuGongGe    AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
+    <view class="card-end">
+      <view class="card-end-start-person">
+        <!-- 分点赞的情况 -->
+        <view class="card-end-start-person-text" wx:if="{{item.Star_User.length>=1&&item.Label!='寻物发布'}}">
+          <view class="card-end-start-person-text">{{item.Star_User.length}}人已点赞 </view>
+        </view>
+        <view wx:elif="{{item.Star_User.length==0&&item.Label!='寻物发布'}}">
+          <view class="card-end-start-person-text">暂无点赞 </view>
+        </view>
+        <view wx:elif="{{item.Label=='寻物发布'}}">
+          <view class="card-end-start-person-text" >{{item.LoseState?'已找到':'未找到'}} </view>
+        </view>
+      </view>
+
+      <view class="card-end-detail">
+        <image style="display:{{item.Label!='寻物发布'? '':'none'}};width:39rpx"  data-index="{{idd}}" catchtap="star_tap"
+          src="{{m1.getStar(item,character)}}"></image>
+        <image catchtap="Reply" data-index="{{idd}}"  src="../../images/img/icon_comment.png"> </image>
+        <button
+          style="padding:0rpx;margin-left:40rpx;margin-right:0rpx;height:40rpx;width:40rpx;position:relative;"
+          size="mini" data-index="{{idd}}" open-type="share" data-type="{{currentTab}}"  catchtap="share">
+          <image class="share" src="../../images/img/icon_share.png"></image>
+        </button>
+      </view>
+    </view>
+    </view>
+  <!-- 这是要插入的组件 -->
+    
+  </view>
+  <view class="card-tip" style="display:{{list.length!=0?'none':'flex'}}">主人您还占未发布帖子哦~~</view>
+  <replyComment wx:if="{{comReply}}" comReply="{{comReply}}" edit_style="{{edit_style}}" CommentList="{{CommentList}}" content="{{content}}" bind:sendEvent="xx" bind:sendCom="hh"></replyComment>
+</scroll-view>

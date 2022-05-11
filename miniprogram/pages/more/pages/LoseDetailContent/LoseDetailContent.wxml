@@ -1,15 +1,15 @@
 <view class="page">
   <view class="contain">
     <view class="user">
-      <image src="{{content.iconUrl}}" class="user_iconUrl" />
+      <image src="{{content.iconUrl}}" class="user_iconUrl"/>
       <span class="user_nickname">{{content.nickName}}</span>
-      <image src="../../../../images/more.png" class="more" wx:if="{{more==1}}" bindtap="More" />
+      <image src="../../../../images/more.png" class="more" wx:if="{{more==1}}" bindtap="More"/>
       <view class="CardMore" wx:if="{{showEdit}}">
         <view class="CardMore_background" bindtap="More"></view>
-        <view class="CardMore_contain {{edit_style}}">
+        <view class="CardMore_contain {{edit_style}}" >
           <view class="CardMore_Title">编辑卡片</view>
           <view class="DelCard" bindtap="DelCard">
-            <image src="../../../../images/del.png" class="DelCard" />
+            <image src="../../../../images/del.png" class="DelCard"/>
           </view>
         </view>
       </view>
@@ -17,14 +17,14 @@
     <swiper indicator-dots='true' indicator-color="rgba(223, 223, 223, 0.39)" indicator-active-color='rgb(235, 21, 21)' style="height: {{content.ShowHeight > 300 ? 700+'rpx':content.ShowHeight+'px'}};">
       <block wx:for="{{content.AllPhoto}}" wx:key="Photo" class="photo">
         <swiper-item class="photo">
-          <image src="{{item}}" mode="aspectFill" style="z-index: 11;" bindtap="ShowImg" class="ShowImg" data-index="{{index}}" />
+          <image src="{{item}}"  mode="aspectFill" style="z-index: 11;" bindtap="ShowImg" class="ShowImg" data-index="{{index}}"/>
           <view class="image_tabar_local">
-            <image src="./images/local.png"></image>
-            <text class="image_tabar_text">{{content.campus}}</text>
+              <image  src="./images/local.png"></image>
+              <text class="image_tabar_text">{{content.campus}}</text>
           </view>
-          <view class="image_tabar_local2">
-
-          </view>
+            <view class="image_tabar_local2">
+                
+            </view>
 
         </swiper-item>
       </block>
@@ -34,104 +34,77 @@
       <text class="content_Text">{{content.Text}}</text>
       <view class="content_LabelBox">
         <!-- <view class="content_Label" >失物</view> -->
-        <view class="content_Label">{{content.Label}}</view>
-        <view class="content_Label color1">{{content.LoseType}}</view>
-        <view class="content_Label color2">{{content.Other}}</view>
-        <span class="content_Label color3">{{content.LoseTime}}</span>
+        <view class="content_Label" >{{content.Label}}</view>
+        <view class="content_Label color1" >{{content.LoseType}}</view>
+        <view class="content_Label color2" >{{content.Other}}</view>
+        <span class="content_Label color3" >{{content.LoseTime}}</span>
       </view>
       <view class="content_sec">
-        <view class="content_Time">{{Time}}</view>
+        <view class="content_Time" >{{Time}}</view>
         <view class="content_Star" wx:if="{{more==1}}">
-          <switch checked="{{switch1Checked}}" bindchange="switch1Change" />
-          <span class="content_switch {{isactive}}">{{switch1Checked?"已找到":"未找到"}}</span>
+          <switch  checked="{{switch1Checked}}" bindchange="switch1Change"/>
+          <span class="content_switch {{isactive}}" >{{switch1Checked?"已找到":"未找到"}}</span>
         </view>
-      </view>
+     </view>
     </view>
     <view class="Line"></view>
     <view class="comment">
       <view class="All_Comment" wx:if="{{CommentNum!=0}}">共 {{CommentNum}} 条评论</view>
       <view class="All_Comment" wx:if="{{CommentNum==0}}">这里还没有评论哟~</view>
-      <form bindsubmit="formSubmit" bindreset="formReset" style="display:{{args.school=='游客登录'?'none':''}}">
-        <view class="Send_Commend" bindtap="Comment_Inputting">
-          <image src="{{iconUrl}}" class="text_user" />
-          <span class="{{isChecked?'old_Comment_second':'new_Comment_second'}}">
-            <textarea placeholder="来发句评论吧ヾ(≧▽≦*)o" name="InputComment" value="{{Input}}" auto-height></textarea>
-          </span>
-          <span wx:if="{{!isChecked}}" class="Pre_Send">
-            <button form-type="submit" class="Sending" hover-class="Sending-hover">发送</button>
-          </span>
+      <view class="Send_Commend">
+        <image src="{{iconUrl}}" class="text_user"/>
+        <span class="old_Comment_second" bindtap="ReplyComment">
+          <text>"来发句评论吧ヾ(≧▽≦*)o"</text>
+        </span>
+      </view>
+      <view class="Show_Commend" wx:for="{{ShowList}}" wx:key="kk" data-item="item"  data-index="{{index}}">  <!-- bindtap从EditComment更改为obtainIndex-->
+          <view class="fatherComment" bindtap="EditComment" data-bigindex="{{index}}">
+            <image src="{{item.iconUser}}" class="text_user"/>
+            <span class="text_username">
+              <view class="comment_User">
+                  <view class="comment_usename" >{{item.nickName}}</view>
+            
+              </view>
+              <view class="Comment_Content">{{item.InputContent}}
+                <span class="Comment_Time">{{item.InputTime}}</span>
+              </view>
+            </span>
+          </view>
+          <view class="showReply" wx:for="{{item.Reply}}" wx:key="hh" data-item="item" wx:for-index="index1" data-index="{{index1}}" bindtap="EditComment" data-bigindex="{{index}}" data-small="{{index1}}">
+            <image src="{{item.iconUser}}" class="reply_user"/>
+            <span class="reply_username">
+              <view class="comment_User">
+                  <view class="comment_usename" >{{item.nickName}}</view>
+                
+              </view>
+              <view class="reply_Content">回复 
+                <span class="replied">{{item.Replied}}</span>：{{item.InputReply}}
+                <span class="Comment_Time">{{item.ReplyTime}}</span>
+              </view>
+            </span>
+          </view>
+          <view class="Line_Second"></view>
         </view>
-      </form>
-
-      <view class="Show_Commend" wx:for="{{ShowList}}" wx:key="kk" data-item="item" data-index="{{index}}">
-        <!-- bindtap从EditComment更改为obtainIndex-->
-        <!-- <view catchtap="EditComment" class="seses" >  这个标签是新增 -->
-        <view class="fatherComment" bindtap="EditComment" data-index="{{index}}">
-          <image src="{{item.iconUser}}" class="text_user" />
-          <span class="text_username">{{item.nickName}}
-            <view class="Comment_Content">{{item.InputContent}}
-              <span class="Comment_Time">{{item.InputTime}}</span>
-            </view>
-          </span>
-        </view>
-        <view class="showReply" wx:for="{{item.Reply}}" wx:key="hh" data-item="item" wx:for-index="index1" data-index="{{index1}}" bindtap="EditComment" data-bigindex="{{index}}" data-small="{{index1}}">
-          <image src="{{item.iconUser}}" class="reply_user" />
-          <span class="reply_username">{{item.nickName}}
-            <view class="reply_Content">回复
-              <span class="replied">{{item.Replied}}</span>：{{item.InputReply}}
-              <span class="Comment_Time">{{item.ReplyTime}}</span>
-            </view>
-          </span>
-        </view>
-        <view class="Line_Second"></view>
       </view>
     </view>
-  </view>
 
-  <view class="EditCom" wx:if="{{comEdit}}">
-    <view class="EditCom_background" bindtap="EditComment"></view>
-    <view class="EditCom_contain {{edit_style}}">
-      <view class="EditCom_Title">{{CommentName}}: {{CommentContent}}</view>
-      <view class="Line"></view>
-      <view class="ReplyComment" bindtap="ReplyComment" style="color:rgba(0, 89, 255, 0.699);">
-        回复
-      </view>
-      <view class="Line"></view>
-      <view class="CopyComment" bindtap="CopyComment" style="color:rgba(0, 89, 255, 0.699);">
-        复制
-      </view>
-      <view class="Line"></view>
-      <view class="DelComment" bindtap="DelComment" wx:if="{{ShowDelCom==1}}" style="color: rgba(255, 0, 0, 0.753);">
-        删除
-      </view>
-    </view>
-  </view>
-
-
-  <view class="ReplyCom" wx:if="{{comReply}}">
-    <view class="ReplyCom_background" bindtap="ReplyComment"></view>
-    <view class="ReplyCom_contain {{reply_style}}">
-      <!-- <form  bindsubmit="replySubmit" bindreset="replyReset"  >
-            <view class="Send_Commend_Reply" >
-              <image src="{{iconUrl}}" class="text_user"/>
-              <span class="new_Comment_second">
-                <textarea placeholder="说点什么..." name="InputReply"  value="{{Input}}" auto-height></textarea>
-              </span>
-              <span class="Pre_Send">
-                <button form-type="submit" class="Sending" hover-class="Sending-hover">发送</button>
-              </span>
-            </view>
-          </form> -->
-
-      <view class="good-main">
-        <!-- 评论框 -->
-        <view id="ctInput" class="ct-input" style="top: {{ ctInput_top }}px;">
-          <input type='text' placeholder='说点什么... o(≧v≦)o' focus='true' value="" maxlength="-1" auto-height bindfocus="ctFocus" bindlinechange="ctLineChange" bindinput="" bindconfirm="replySubmit" show-confirm-bar="{{ false }}" adjust-position="{{ false }}" />
+    <view class="EditCom" wx:if="{{comEdit}}">
+        <view class="EditCom_background" bindtap="EditComment"></view>
+        <view class="EditCom_contain {{edit_style}}" >
+          <view class="EditCom_Title">{{CommentName}}: {{CommentContent}}</view>
+          <view class="Line"></view>
+          <view class="ReplyComment" bindtap="ReplyComment" style="color:rgba(0, 89, 255, 0.699);">
+             回复
+          </view>
+          <view class="Line"></view>
+          <view class="CopyComment" bindtap="CopyComment" style="color:rgba(0, 89, 255, 0.699);">
+             复制
+          </view>
+          <view class="Line"></view>
+          <view class="DelComment" bindtap="DelComment" wx:if="{{ShowDelCom==1}}" style="color: rgba(255, 0, 0, 0.753);">
+             删除
+          </view>
         </view>
-      </view>
-
-      <!-- <input type='text' placeholder='说点什么吧…' focus='true' maxlength="-1" auto-height bindfocus="ctFocus" bindlinechange="ctLineChange" bindinput="" bindconfirm="" show-confirm-bar="{{ false }}" adjust-position="{{ false }}"/> -->
-
     </view>
-  </view>
+    <replyComment wx:if="{{comReply}}" comReply="{{comReply}}" edit_style="{{edit_style}}" outIndex="{{outIndex}}" inIndex="{{inIndex}}" CommentList="{{CommentList}}" content="{{content}}" bind:sendEvent="xx" bind:sendCom="hh"></replyComment>
 </view>

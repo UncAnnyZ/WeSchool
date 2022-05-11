@@ -1,6 +1,7 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "We校园引导页",
+  "navigationBarTitleText": "We校园",
   "navigationBarBackgroundColor": "#db807b",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "navigationStyle":"custom"
 }

@@ -10,24 +10,27 @@ App({
   loginState: function () {
     let username = wx.getStorageSync('args').username
     if (!username) {
-      wx.showModal({
-        title: '登录提示',
-        showCancel: false, //是否显示取消按钮
-        content: "是否要登录",
-        cancelText: "否", //默认是“取消”
-        // cancelColor: 'skyblue', //取消文字的颜色
-        confirmText: "是", //默认是“确定”
-        // confirmColor: 'red', //确定文字的颜色
-        success: function (res) {
-          if (!res.cancel) {
-            wx.redirectTo({
-              url: '/pages/login/login'
-            })
-          } else {
-            wx.navigateBack({})
-          }
-        }
+      wx.redirectTo({
+        url: '/pages/index/guidance/guidance'
       })
+    //   wx.showModal({
+    //     title: '登录提示',
+    //     showCancel: false, //是否显示取消按钮
+    //     content: "是否要登录",
+    //     cancelText: "否", //默认是“取消”
+    //     // cancelColor: 'skyblue', //取消文字的颜色
+    //     confirmText: "是", //默认是“确定”
+    //     // confirmColor: 'red', //确定文字的颜色
+    //     success: function (res) {
+    //       if (!res.cancel) {
+    //         wx.redirectTo({
+    //           url: '/pages/login/login'
+    //         })
+    //       } else {
+    //         wx.navigateBack({})
+    //       }
+    //     }
+    //   })
     }
   },
 

@@ -1,5 +1,6 @@
 <view class="wrap">
     <view class="list_wrap">
+        <view class="caption">数据详情</view>
         <view class="list_item" wx:for="{{content.formData}}" wx:key="item">
             <view class="title_list">{{index}}：</view>
             <view class="content_list">{{item}}</view>

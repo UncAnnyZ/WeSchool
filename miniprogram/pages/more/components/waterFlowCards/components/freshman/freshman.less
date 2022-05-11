@@ -7,15 +7,16 @@
   background-image: linear-gradient(#ecf1fc, #f0f5ff);
 
   .Show_Image {
-    width           : 360rpx;
+    width              : 360rpx;
     // background-color: #ebebebd8;
   }
 
   .back {
+
     // background-image: linear-gradient(#dce8ff, #e3ecfd);
     .pic_Title {
-      color: rgb(0, 0, 0);
-
+      color             : rgb(0, 0, 0);
+      padding-top       : 18rpx;
       font-size         : 28rpx;
       font-family       : "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
       line-height       : 46rpx;
@@ -26,6 +27,7 @@
       word-break        : break-all;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
+
       .pic_Label {
         /* color:rgb(252, 219, 129);
         margin-right: 5px;
@@ -40,23 +42,24 @@
         border-radius   : 5rpx;
       }
     }
+
     .acivity_wrap {
       font-size     : 22rpx;
       display       : flex;
       flex-direction: column;
       padding       : 4rpx 8rpx;
-    
+
       .out_time {
         // padding:8rpx 21rpx 0rpx 21rpx;
         padding: 4rpx 16rpx;
         color  : rgb(255, 101, 101);
       }
-    
+
       .association_wrap {
-        display: flex;
-        padding: 4rpx 16rpx;
-        
-    
+        display       : flex;
+        padding       : 4rpx 16rpx;
+        padding-bottom: 24rpx;
+
         .association_name {
           flex              : 2;
           display           : -webkit-box;
@@ -69,7 +72,7 @@
           padding           : 2rpx;
           border-radius     : 8rpx;
         }
-    
+
         .person_num {
           flex      : 1;
           color     : rgba(8, 8, 8, 0.4);
@@ -78,40 +81,67 @@
       }
     }
   }
-  .tip_wrap{
-    padding-left: 24rpx;
-    padding-top: 12rpx;
+
+  .tip_wrap {
+    padding-left  : 24rpx;
+    padding-top   : 12rpx;
     padding-bottom: 12rpx;
-    .tip_title{
-      font-size: 32rpx;
+
+    .tip_title {
+      font-size         : 32rpx;
       display           : -webkit-box;
       overflow          : hidden;
       text-overflow     : ellipsis;
       word-break        : break-all;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
-      font-weight: 700;
+      font-weight       : 700;
+      padding-top       : 12rpx;
     }
-    .tip_tip{
-      font-size: 28rpx;
+
+    .tip_tip {
+      font-size     : 28rpx;
+      padding-top   : 12rpx;
+      padding-bottom: 12rpx;
     }
   }
 }
 
 @media (prefers-color-scheme: dark) {
-
   .pic {
-    // background-color: red;
-    background-color: #f1eded;
+    background-color: black;
     filter          : invert(100%) !important;
-  }
 
-  .Show_Image {
-    /* background-color: #fff; */
-  }
+    .tip_wrap {
+      background-color: black;
+      color           : white;
 
-  .pic_Label {
-    filter: invert(100%) !important;
+      .tip_title {}
+
+      .tip_tip {}
+    }
+
+    .Show_Image {
+      filter: invert(0%) !important;
+    }
+
+    .back {
+      background-color: black;
+      color           : white;
+
+      .pic_Title {
+        color: white;
+      }
+
+      .acivity_wrap {
+        .association_wrap {
+          .association_name {}
+
+          .person_num {
+            color: white;
+          }
+        }
+      }
+    }
   }
 }
-

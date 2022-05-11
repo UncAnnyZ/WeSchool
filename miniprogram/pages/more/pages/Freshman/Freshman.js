@@ -15,13 +15,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(options);
     var date = new Date(Date.parse(new Date()));
     var Y = date.getFullYear();//年
     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);//月
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();//日
     let nowTime = Y.toString() + '-' + M.toString() + '-' + D.toString()
     var content = JSON.parse(options.content)
-    // console.log(content.endTime < nowTime);
+    // console.log('后',content);
+    // console.log('333',content);
     if (content.endTime > nowTime) {
       this.setData({
         timeOut: true
@@ -32,7 +34,6 @@ Page({
     username = args.username
     this.setData({
       content,
-      // date: util.formatTime()
     })
     wx.cloud.callFunction({
       name: "associationSend",
@@ -118,6 +119,14 @@ Page({
 
       },
     });
+  },
+  ShowImg: function (e) {
+    var Photo = this.data.content.AllPhoto
+    var index = e.target.dataset.index
+    wx.previewImage({
+      current: Photo[index],
+      urls: Photo,
+    })
   },
   // 查询是否已参与并操作
   // getPerson(){

@@ -31,3 +31,20 @@
         <view class="Game_box" id="tabItem{{index+2}}" data-index="{{index}}" bindtap="Game_setTab">{{item.title}}</view>
     </block>
 </scroll-view>
+<!-- 我的页面标签 -->
+<scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" wx:if="{{type == '我的页面标签'  && showTab}}" enhanced="{{true}}" show-scrollbar="{{false}}" style="z-index: 3; position: relative;">
+    <view class="Choose_Label bgc" scroll-x="true">
+        <!-- 下划线 -->
+        <view class="underLineBox" 
+        style="width: {{underLine_width[currentTab]}}rpx; left:{{offset || underLine_left[currentTab]}}rpx;">
+            <view class="underLine_myself" style="width: {{offset_width || underLine_width[currentTab] - 30}}rpx;"></view>
+        </view>
+        <view wx:for="{{tabItem}}" wx:key="index" 
+        class="Label-text {{item.type == 1?'activeTab_myself':''}}"
+        id="tabItem{{index+2}}"
+        data-title="{{item.title}}" data-index="{{index}}" 
+        bindtap="setTab">
+            <view class="Label_limit " style="width: {{tabItemLength[index]*18}}rpx;">{{item.title}}</view>
+        </view>
+    </view>
+</scroll-view>

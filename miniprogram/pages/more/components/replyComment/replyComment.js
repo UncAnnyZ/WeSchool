@@ -45,7 +45,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    //看看是隐藏还是显示
     popUp: function () {
       var edit_style = this.properties.edit_style;
       // picker动画样式
@@ -59,7 +59,7 @@ Component({
       })
     },
     
-
+    //点击事件控制显影
     ReplyComment: function () {
       setTimeout(() => {
         this.setData({
@@ -114,14 +114,14 @@ Component({
         }
       })
     },
-
+    //正则判断格式
     isNull(str) {
       if (str == "") return true;
       var regu = "^[ ]+$";
       var re = new RegExp(regu);
       return re.test(str);
     },
-
+    //提交事件
     replySubmit: function (e) {
       var that = this;
       let res = that.isNull(e.detail.value);
@@ -142,6 +142,7 @@ Component({
           "nickName": args.nickName,
           "username": args.username,
           "Replied": "",
+          "Star_User":[]
         }
         if(outIndex===-1 && inIndex===-1) {
           add = {
@@ -151,6 +152,7 @@ Component({
             "nickName": args.nickName,
             "username": args.username,
             "Reply": [],
+            "Star_User":[]
           }
           var be_character = {
             userName: that.properties.content.username,
