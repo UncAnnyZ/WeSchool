@@ -38,8 +38,8 @@
 
 }
 .Tab{
-  border-radius:80rpx 80rpx 0rpx 0rpx;
-  background-color:rgba(246,246,246)
+  background-color: rgba(240,240,240,1);
+
 }
 .head{
   

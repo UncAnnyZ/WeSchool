@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border-radius: 15rpx;
+  /* border-radius: 15rpx; */
   overflow: hidden;
 }
 
@@ -11,7 +11,9 @@
   overflow: hidden;
   /* margin-bottom: 2%; */
   height: auto;
-  width: 680rpx;
+  /* width: 680rpx; */
+  width: 50%;
+
   /* object-fit: cover; */
 }
 
