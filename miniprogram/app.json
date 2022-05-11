@@ -90,9 +90,9 @@
         "Game/Game",
         "UserCenter/index",
         "note_module/note_module",
-        "note_module/sendNote/sendNote",
         "JuBao/JuBao",
-        "note_module/renLingNote/renLingNote"
+        "note_module/pages/renLingNote/renLingNote",
+        "note_module/pages/sendNote/sendNote"
       ]
     },
     {

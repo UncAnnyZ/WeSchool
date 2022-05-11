@@ -7,8 +7,8 @@ page {
 }
 
 .container {
+  /* position: absolute; */
     width: 100%;
-    margin-top: 20rpx;
     height: 310rpx;
     background-color: #fff;
 }
@@ -26,8 +26,14 @@ page {
     font-weight: 550;
     text-shadow: mediumaquamarine 5rpx 5rpx 10rpx;
 }
-
-
+.container .logo {
+  position: absolute;
+  right: 40rpx;
+}
+.logo image {
+  width: 110rpx;
+  opacity: 0.3;
+}
 .clearfix {
     zoom: 1;
     clear: both;

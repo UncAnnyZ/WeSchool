@@ -1,24 +1,23 @@
-
 <view class="container">
-    <view class="inform">
-        对暗号，查看TA给你的留言
+  <view class="inform">
+    对上暗号，查看TA给你的留言
+  </view>
+  <form bindsubmit="formSubmit">
+
+    <view class="main">
+      <!-- 举报理由 -->
+      <view class="signal">
+        <view class="text">暗号：</view>
+        <input placeholder="输入暗号" placeholder-class="placeholder_class" value="{{Input_anhao}}" name="signal" bindinput="bindinput_anhao">
+        <view class="text_length">{{Input_anhao.length}}/10</view>
+        </input>
+      </view>
+      <!-- 提交 -->
+      <view class="send">
+        <button form-type="submit" hover-class="btn_hover">提交</button>
+      </view>
     </view>
-    <form bindsubmit="formSubmit">
 
-        <view class="main">
-            <!-- 举报理由 -->
-            <view class="signal">
-                <view class="text">暗号：</view>
-                <input placeholder="输入暗号" placeholder-class="placeholder_class" value="{{Input_anhao}}" name="signal" bindinput="bindinput_anhao">
-                <view class="text_length">{{Input_anhao.length}}/10</view>
-                </input>
-            </view>
-            <!-- 提交 -->
-            <view class="send">
-                <button form-type="submit" hover-class="btn_hover">提交</button>
-            </view>
-        </view>
-
-    </form>
+  </form>
 
 </view>

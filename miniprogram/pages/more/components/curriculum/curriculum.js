@@ -20,14 +20,29 @@ Component({
     },
     week: utilTime.formatDay(new Date().getDay()),
     currWeek: util.getweekString(),
-    color: [
-      '#986bfd',
-      '#a5c9fa'
-    ],
+    whichCourse: 0,
+    restCourse: 0,
   },
   lifetimes: {
-    ready(){
-      console.log(this.data.course);
+    ready() {
+      let course = this.data.course,
+        whichCourse,
+        restCourse;
+
+      course.forEach((item, index) => {
+        // 在首页 more 中计算了当前课程，并添加到字段 isHighligh: Boolean
+        if (item.isHighlight) {
+          whichCourse = index;
+          // 剩余课程数量 = 课程数量 - (当前课程索引+1)
+          restCourse = course.length - (index + 1);
+        }
+      })
+
+      this.setData({
+        whichCourse,
+        restCourse
+      })
+
     }
   },
   methods: {
