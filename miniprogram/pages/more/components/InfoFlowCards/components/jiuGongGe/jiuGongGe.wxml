@@ -1,5 +1,5 @@
 <view class="container" >
     <view class="wrap" wx:for="{{AllPhoto}}">
-        <image src="{{item}}" mode="widthFix" ></image>
+        <image src="{{item}}" mode="aspectFill" ></image>
     </view>
 </view>

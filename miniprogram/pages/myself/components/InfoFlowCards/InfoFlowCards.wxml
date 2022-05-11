@@ -16,8 +16,8 @@
   module.exports.getStar = getStar;
 </wxs>
 
-<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,240,240,1)}};">
-  <view class="card" style="z-index:3" wx:for="{{list}}" wx:if="{{list.length!=0}}" wx:for-index="idd" catchtap="navigate" data-index="{{idd}}">
+<scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,240,240,1)}}; ">
+  <view class="card" style="z-index:3" wx:for="{{list}}"  wx:for-index="idd" catchtap="navigate" data-index="{{idd}}">
     <view class="card-row">
       <view class="card-top">
       <view class="card-top-left">
@@ -63,6 +63,6 @@
   <!-- 这是要插入的组件 -->
     
   </view>
-  <view class="card-tip" style="display:{{list.length!=0?'none':'flex'}}">主人您还占未发布帖子哦~~</view>
+
   <replyComment wx:if="{{comReply}}" comReply="{{comReply}}" edit_style="{{edit_style}}" CommentList="{{CommentList}}" content="{{content}}" bind:sendEvent="xx" bind:sendCom="hh"></replyComment>
 </scroll-view>
