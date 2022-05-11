@@ -9,7 +9,6 @@ Page({
    */
   data: {
     html : [{type: 'view', text: '模版错误啦'}],
-    
   },
 
   /**
@@ -20,8 +19,7 @@ Page({
     if (args) {
       try {
         console.log( options.content)
-        // console.log(str);\
-        
+        // console.log(str);\ 
         var onload1 = app.jsRun(args,args.otherPageCode[options.content].replace(/\\\\/g,"\\"))
         
         const onloadDict = onload1()

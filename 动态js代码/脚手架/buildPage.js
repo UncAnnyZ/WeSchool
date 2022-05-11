@@ -2,7 +2,6 @@ const {
   checkPrimeSync
 } = require('crypto');
 const fs = require('fs')
-
 var inlineCss = require('inline-css');
 const mineType = require('mime-types');
 const path = require('path');
@@ -34,14 +33,12 @@ fs.readFile('src/index.js', (err, buffer) => {
         } else {
           // css处理
           let css = buffer2.toString()
+          //防止不同文件打开格式不同
           css1 = css.replace(/[\n\r]/g, "");
-
+          //匹配暗黑模式
           let darkCss = css1.match(/dark\s*\)\s*{(.*?)}\s*}/g);
           darkCss = darkCss ? darkCss[0].match(/\.(.*?)(.*?){(.*?)}/g) : darkCss;
-
-        
           let darks = new Set()
-
           for (i in darkCss) {
             var regexp = /\.(.*?)(.*?){(.*?)}/;
             let p = darkCss[i].match(regexp);
@@ -53,6 +50,7 @@ fs.readFile('src/index.js', (err, buffer) => {
           console.log(darks, 233)
           let noChange = []
           css = css ? css : '.page{}'
+
           let tagRE = /<[^>]*>/g;
           let html = buffer1.toString()
           let html3 = html.match(tagRE)
@@ -67,7 +65,7 @@ fs.readFile('src/index.js', (err, buffer) => {
             }
           }
      
-
+∑
           tagRE = /{{.*?}}/g
           let html4 = html.match(tagRE)
           for (i in html4) {

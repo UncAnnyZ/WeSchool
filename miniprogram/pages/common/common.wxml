@@ -1,24 +1,25 @@
 <import src="../../template/showCommonPage/template.wxml"></import>
 
-<template is="head-block" 
-  data="{{ type: headerType, index, array, title:title , text: text }}">
-  
+<template is="head-block" data="{{ type: headerType, index, array, title:title , text: text }}">
 </template>
+
 
 
 <view class="main">
   <view class='wx-isclass' wx:if="{{msg}}">{{msg}}</view>
-  <view class="list">
-    <block wx:key="id" wx:for="{{list}}">
-
-      <template is="card" 
-        data="{{fontSize:fontSize, line: lineSwitch, color: color[index], index: index, title: item.title, score: item.score, text: item.text }}">
-      </template>
-
+  <view class="list" >
+    <block wx:key="index" wx:for="{{list}}" >
+      <view bindtap="hideMask" data-info="{{list[index]}}">
+        <template is="card"
+          data="{{fontSize:fontSize, line: lineSwitch, color: color[index], index: index, title: item.title, score: item.score, text: item.text }}">
+        </template>
+      </view>
     </block>
   </view>
+  <block wx:if="{{isHidden && currentPage}}">
+    <template is="mask-toast" data="{{ item: maskDetail, isHidden: isHidden}}"></template>
+  </block>
   <text>\n</text>
 </view>
 
 <web-view wx:if="{{htmlSrc}}" src="{{htmlSrc}}" bindmessage="getMessage"></web-view>
-

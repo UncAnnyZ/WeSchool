@@ -1,46 +1,44 @@
 <template name="card">
 
-<view class="data">
-  <view class="data-adj">
-    <view class="upWard" style="background-color:{{(!line | !index)?'#fffcfc':'#e2e5f2'}}"></view>
-    <view class="dot" style='background-color:{{color}}'></view>
-    <view class="offWard" style="background-color: {{line?'':'#fffcfc'}};"></view>
-  </view>
-  <view class="grade" catchtap="{{catchtap}}" id="{{index}}">
-    <view class="grade-title">
-      <view class="grade-column">{{title}}</view>
-      <view class="grade-rum">
-        <text wx:for="{{text}}" wx:for-item="content" wx:key="key">{{content}}</text>
-      </view>
+  <view class="data">
+    <view class="data-adj">
+      <view class="upWard" style="background-color:{{(!line | !index)?'#fffcfc':'#e2e5f2'}}"></view>
+      <view class="dot" style='background-color:{{color}}'></view>
+      <view class="offWard" style="background-color: {{line?'':'#fffcfc'}};"></view>
     </view>
-    <view class="data-score" style='color:{{color}}; font-size:{{fontSize}};'>{{score}}</view>
+    <view class="grade" id="{{index}}">
+      <view class="grade-title">
+        <view class="grade-column">{{title}}</view>
+        <view class="grade-rum">
+          <text wx:for="{{text}}" wx:for-item="content" wx:key="key">{{content}}</text>
+        </view>
+      </view>
+      <view class="data-score" style='color:{{color}}; font-size:{{fontSize}};'>{{score}}</view>
+    </view>
   </view>
-</view>
 
 </template>
 
 
-<!-- 
-  var maskDetail = [
-    {field: '活动名称：', text: show.ktmc }, 
-    {field: '获得学分：', text: show.hdxf + '(' + show.ckxf + ')' }, 
-    {field: '状态：', text: show.shztmc, color: show.shztmc=='审核通过'?'rgb(0,230,0)':'red' }, 
-    {field: '时间：', text: show.kzsj }
-  ]
-  
-  <template wx:if="{{mask}}" is="mask-toast" data="{{ item: maskDetail }}"></template>
--->
-<template name="mask-toast">  
-  <view class="toast" catchtouchmove='return_true' catchtap="hideMask">
-    <view class="toast_contain" catchtap="return_false">
 
-      <block wx:key="index" wx:for="{{item}}">
+<!-- var maskDetail = [
+{field: '活动名称：', text: show.ktmc },
+{field: '获得学分：', text: show.hdxf + '(' + show.ckxf + ')' },
+{field: '状态：', text: show.shztmc, color: show.shztmc=='审核通过'?'rgb(0,230,0)':'red' },
+{field: '时间：', text: show.kzsj }
+] -->
+
+
+
+<template name="mask-toast">
+  <view class="toast" style="pointer-events: {{isHidden ? 'none' : 'auto'}};">
+    <view class="toast_contain">
+      <block wx:key="index" wx:for="{{item}}" >
         <view class="toast_block">
           <label>{{item.field}}</label>
-          <text style="color: {{item.color}};">{{item.text}}</text> 
-        </view> 
+          <text style="color: {{item.color}};">{{item.text}}</text>
+        </view>
       </block>
-
     </view>
   </view>
 </template>
@@ -68,23 +66,23 @@ eg:
 -->
 <template name="head-block">
 
-<view class="head">
+  <view class="head">
 
-  <view class="head-left" wx:if="{{type == 'picker'}}">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <label class="weui-input">{{array[index]}}</label>
-      <text class='iconfont icon-open'></text>
-    </picker>
-  </view>
+    <view class="head-left" wx:if="{{type == 'picker'}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <label class="weui-input">{{array[index]}}</label>
+        <text class='iconfont icon-open'></text>
+      </picker>
+    </view>
 
-  <view class="head-left" wx:if="{{type == 'text'}}">
-    <view class="weui-input">{{title}}</view>
-  </view>
+    <view class="head-left" wx:if="{{type == 'text'}}">
+      <view class="weui-input">{{title}}</view>
+    </view>
 
-  <view class="head-right">
-    <view wx:for="{{text}}" wx:key="key">{{item}}</view>
+    <view class="head-right">
+      <view wx:for="{{text}}" wx:key="key">{{item}}</view>
+    </view>
   </view>
-</view>
-<view class="head-padding"></view>
+  <view class="head-padding"></view>
 
 </template>

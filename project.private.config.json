@@ -1,187 +1,228 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
         },
-        "game": {
-            "list": []
+        {
+          "name": "课表",
+          "pathName": "pages/curriculum/curriculum",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "修改课程",
+          "pathName": "pages/curriculum/addcurriculum/addcurriculum",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "id": -1,
-                    "name": "db guide",
-                    "pathName": "pages/databaseGuide/databaseGuide",
-                    "query": ""
-                },
-                {
-                    "name": "课表",
-                    "pathName": "pages/curriculum/curriculum",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "修改课程",
-                    "pathName": "pages/curriculum/addcurriculum/addcurriculum",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "个人信息",
-                    "pathName": "pages/myself/myself",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "番茄时钟",
-                    "pathName": "pages/tomato/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "echart_demo",
-                    "pathName": "pages/tomato/text/text",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/testdaka/record/record",
-                    "pathName": "pages/more/pages/UserCenter/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/testdaka/index/index",
-                    "pathName": "pages/more/pages/UserCenter/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "登录页面",
-                    "pathName": "pages/login/login",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "社团首页",
-                    "pathName": "pages/association/association",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "校园圈",
-                    "pathName": "pages/more/more",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "个人信息页面",
-                    "pathName": "pages/myself/myself",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "课表管理页面",
-                    "pathName": "pages/curriculum/addcurriculum/addcurriculum",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "招新报名",
-                    "pathName": "pages/more/pages/Freshman/Freshman",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "发布动态页面",
-                    "pathName": "pages/more/pages/PublishContent/PublishContent",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "我的发布",
-                    "pathName": "pages/more/pages/UserContent/UserContent",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "编辑资料",
-                    "pathName": "pages/association/edit/edit",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "详细页面",
-                    "pathName": "pages/more/pages/DetailContent/DetailContent",
-                    "query": "content=%7B%22_id%22%3A%2241ae62ef621fd25c0a02f4b4699d3452%22%2C%22Other%22%3A%22%22%2C%22LoseTime%22%3A%22%22%2C%22LoseType%22%3A%22%22%2C%22campus%22%3A%22%22%2C%22Cover%22%3A%22cloud%3A%2F%2Fcloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679%2FCampusCircle_images%2F1646252632950130.png%22%2C%22AllPhoto%22%3A%5B%22cloud%3A%2F%2Fcloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679%2FCampusCircle_images%2F1646252632950130.png%22%5D%2C%22Title%22%3A%22%22%2C%22Text%22%3A%22dasdasd%22%2C%22CoverHeight%22%3A%22247rpx%22%2C%22CoverWidth%22%3A6000%2C%22Label%22%3A%22%E5%90%90%E6%A7%BD%22%2C%22Time%22%3A1646252632183%2C%22ShowHeight%22%3A247%2C%22nickName%22%3A%22.u%22%2C%22username%22%3A%2218024030112%22%2C%22iconUrl%22%3A%22https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2F5c1gkU1VMGoBhQev4hLuOkUI6afuLZ5QsA6ZDLPVicOGGPHYRp9PqdhMicTiabYOZXiaicuniaKZCYwscKibgUcOKicdqA%2F132%22%2C%22School%22%3A%22%E5%B9%BF%E4%B8%9C%E7%9F%B3%E6%B2%B9%E5%8C%96%E5%B7%A5%E5%AD%A6%E9%99%A2%22%2C%22Star%22%3A0%2C%22CommentList%22%3A%5B%7B%22Reply%22%3A%5B%5D%7D%5D%7D",
-                    "scene": null
-                },
-                {
-                    "name": "新消息提醒页面",
-                    "pathName": "pages/more/pages/NewInfo/NewInfo",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "赛事",
-                    "pathName": "pages/more/pages/Match/Match",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "打卡",
-                    "pathName": "pages/testdaka/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "电子游戏",
-                    "pathName": "pages/more/pages/Game/Game",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "商场",
-                    "pathName": "pages/HOT/HotTop/HotTop",
-                    "query": "content=商场",
-                    "scene": null
-                },
-                {
-                    "name": "小纸条页面",
-                    "pathName": "pages/more/pages/note_module/note_module",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "发送留言页面",
-                    "pathName": "pages/more/pages/note_module/sendNote/sendNote",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "举报页面",
-                    "pathName": "pages/more/pages/JuBao/JuBao",
-                    "query": "_id=d4107ab16232e9a600333ec658813256",
-                    "scene": null
-                },
-                {
-                    "name": "认领留言",
-                    "pathName": "pages/more/pages/note_module/renLingNote/renLingNote",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "引导页",
-                    "pathName": "pages/index/guidance/guidance",
-                    "query": "",
-                    "scene": null,
-                    "launchMode": "default"
-                }
-            ]
+        {
+          "name": "个人信息",
+          "pathName": "pages/myself/myself",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "番茄时钟",
+          "pathName": "pages/tomato/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "echart_demo",
+          "pathName": "pages/tomato/text/text",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/testdaka/record/record",
+          "pathName": "pages/more/pages/UserCenter/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/testdaka/index/index",
+          "pathName": "pages/more/pages/UserCenter/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录页面",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "社团首页",
+          "pathName": "pages/association/association",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "校园圈",
+          "pathName": "pages/more/more",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人信息页面",
+          "pathName": "pages/myself/myself",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "课表管理页面",
+          "pathName": "pages/curriculum/addcurriculum/addcurriculum",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "招新报名",
+          "pathName": "pages/more/pages/Freshman/Freshman",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布动态页面",
+          "pathName": "pages/more/pages/PublishContent/PublishContent",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的发布",
+          "pathName": "pages/more/pages/UserContent/UserContent",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "编辑资料",
+          "pathName": "pages/association/edit/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "详细页面",
+          "pathName": "pages/more/pages/DetailContent/DetailContent",
+          "query": "content=%7B%22_id%22%3A%2241ae62ef621fd25c0a02f4b4699d3452%22%2C%22Other%22%3A%22%22%2C%22LoseTime%22%3A%22%22%2C%22LoseType%22%3A%22%22%2C%22campus%22%3A%22%22%2C%22Cover%22%3A%22cloud%3A%2F%2Fcloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679%2FCampusCircle_images%2F1646252632950130.png%22%2C%22AllPhoto%22%3A%5B%22cloud%3A%2F%2Fcloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679%2FCampusCircle_images%2F1646252632950130.png%22%5D%2C%22Title%22%3A%22%22%2C%22Text%22%3A%22dasdasd%22%2C%22CoverHeight%22%3A%22247rpx%22%2C%22CoverWidth%22%3A6000%2C%22Label%22%3A%22%E5%90%90%E6%A7%BD%22%2C%22Time%22%3A1646252632183%2C%22ShowHeight%22%3A247%2C%22nickName%22%3A%22.u%22%2C%22username%22%3A%2218024030112%22%2C%22iconUrl%22%3A%22https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2F5c1gkU1VMGoBhQev4hLuOkUI6afuLZ5QsA6ZDLPVicOGGPHYRp9PqdhMicTiabYOZXiaicuniaKZCYwscKibgUcOKicdqA%2F132%22%2C%22School%22%3A%22%E5%B9%BF%E4%B8%9C%E7%9F%B3%E6%B2%B9%E5%8C%96%E5%B7%A5%E5%AD%A6%E9%99%A2%22%2C%22Star%22%3A0%2C%22CommentList%22%3A%5B%7B%22Reply%22%3A%5B%5D%7D%5D%7D",
+          "scene": null
+        },
+        {
+          "name": "新消息提醒页面",
+          "pathName": "pages/more/pages/NewInfo/NewInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "赛事",
+          "pathName": "pages/more/pages/Match/Match",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "打卡",
+          "pathName": "pages/testdaka/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "电子游戏",
+          "pathName": "pages/more/pages/Game/Game",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商场",
+          "pathName": "pages/HOT/HotTop/HotTop",
+          "query": "content=商场",
+          "scene": null
+        },
+        {
+          "name": "小纸条页面",
+          "pathName": "pages/more/pages/note_module/note_module",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发送留言页面",
+          "pathName": "pages/more/pages/note_module/sendNote/sendNote",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "举报页面",
+          "pathName": "pages/more/pages/JuBao/JuBao",
+          "query": "_id=d4107ab16232e9a600333ec658813256",
+          "scene": null
+        },
+        {
+          "name": "认领留言",
+          "pathName": "pages/more/pages/note_module/renLingNote/renLingNote",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "引导页",
+          "pathName": "pages/index/guidance/guidance",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/HOT/HotNoTop/HotNoTop",
+          "pathName": "pages/HOT/HotNoTop/HotNoTop",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/HOT/HotTop/HotTop",
+          "pathName": "pages/HOT/HotTop/HotTop",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/HOT/HotTest/HotTest",
+          "pathName": "pages/HOT/HotTest/HotTest",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/common/common",
+          "pathName": "pages/common/common",
+          "query": "type=commonPage&content=%E7%B4%A0%E6%8B%93",
+          "scene": null
+        },
+        {
+          "name": "pages/more/more",
+          "pathName": "pages/more/more",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/more/components/searchPage/searchPage",
+          "pathName": "pages/more/components/searchPage/searchPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/more/components/searchContent/searchContent",
+          "pathName": "pages/more/components/searchContent/searchContent",
+          "query": "",
+          "scene": null
         }
+      ]
     }
+  }
 }

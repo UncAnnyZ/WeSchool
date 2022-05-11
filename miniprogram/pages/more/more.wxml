@@ -9,12 +9,11 @@
   <view style="width: 100%; height: 200rpx; position: absolute;"> </view>
   <view style="height: {{statusBarHeight}}px;" />
   <!-- 导航栏 -->
-  <view class="head_second" style="height: {{lineHeight}}px;">
-    <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; " />
+  <navigator class="head_second" style="height: {{lineHeight}}px;" url="/pages/more/components/searchPage/searchPage" hover-class=none">
+    <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; " disabled="true" />
     <image style="width: 35rpx; height: 35rpx; margin-left:40rpx;" src="./images/search.png"></image>
-
     <!-- 消息列表 -->
-  </view>
+  </navigator>
 
 </view>
 <!-- 填充 -->
