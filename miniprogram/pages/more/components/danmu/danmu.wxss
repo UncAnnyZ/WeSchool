@@ -1,6 +1,6 @@
 page {
     height: 100vh;
-    background: #ffffff;
+    background: #fff;
     font-size: 28rpx;
     color: #333;
     box-sizing: border-box;
@@ -10,6 +10,7 @@ page {
     width: 100%;
     margin-top: 20rpx;
     height: 310rpx;
+    background-color: #fff;
 }
 
 .container .title {
@@ -174,7 +175,7 @@ button::after {
 }
 
 .shadowOverlay {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     z-index: 5;
@@ -196,7 +197,7 @@ button::after {
 }
 
 .dmGroup {
-    position: absolute;
+    /* position: absolute; */
     left: 100%;
     z-index: 10;
     width: 100%;
@@ -208,7 +209,8 @@ button::after {
 }
 
 .dmGroup.top {
-    position: absolute;
+  margin-top: 20rpx;
+    /* position: absolute; */
     height: 60rpx;
     top: 90rpx;
 }

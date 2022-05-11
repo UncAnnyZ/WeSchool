@@ -242,8 +242,8 @@ Page({
   // 显示详情 初始化
   init() {
     var args = wx.getStorageSync('args');
-    this.setData({school: args.school == '游客登录' ? args.school = '广东石油化工学院' : args.school});
-    if(args.school == '茂名职业技术学院') {
+    this.setData({school: args.school == '游客登录' ? '广东石油化工学院' : args.school});
+    if(args.school != '广东石油化工学院') {
       this.jianRongMaoZhi()
       return;
     } 
@@ -283,10 +283,8 @@ Page({
       obj['jxcd'] = []; // 教学场地，这门课上课的地点
       for (let k = 0; k < arr.length; k++) {
         console.log(arr[k]);
-        // 还没上的课
-        // if(!arr[k].pkrq) {
-        //   arr[k][pkrq] = 
-        // }
+        
+        // 除了广油，很多学校没有 pkrq 字段
         if (nowtime < new Date(arr[k].pkrq).getTime()) {
           obj['data'].push(arr[k])
           console.log(obj['data']);

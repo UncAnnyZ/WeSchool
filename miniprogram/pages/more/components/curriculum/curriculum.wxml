@@ -1,22 +1,25 @@
-<view class="container">
-    <view class="box">
-        <view class="headline">
-            <view class="date">{{time.month}}.{{time.date}} | </view>
-            <view class="week">周{{week}}</view>
-            <view class="schoolWeek">第{{currWeek}}周</view>
+<scroll-view scroll-x="true" scroll-y="false">
+  <view class="container">
+    <view class="box" style=" z-index: 2;">
+      <view class="headline">
+        <view class="date">{{time.month}}.{{time.date}} | </view>
+        <view class="week">周{{week}}</view>
+        <!-- view. -->
+        <view class="schoolWeek">第{{currWeek}}周</view>
+      </view>
+      <scroll-view scroll-x="true" class="body">
+        <block wx:for="{{course}}" wx:key="*this">
+          <view class="bodyCard">
+            <view class="decoration" style="background-color: {{color[index%2]}};"></view>
+            <viwe class="courseName {{item.isHighlight ? 'highlight' : ''}}">{{item.name}}</viwe>
+            <view class="courseInfo {{item.isHighlight ? 'highlight' : ''}}">{{item.site}}</view>
+            <view class="courseTime {{item.isHighlight ? 'highlight' : ''}}">{{item.time}}</view>
+          </view>
+        </block>
+        <view wx:if="{{msg}}" class="wx-isclass">
+          <text>{{msg}}</text>
         </view>
-        <scroll-view scroll-x="true" class="body">
-            <block wx:for="{{course}}" wx:key="*this">
-                <view class="bodyCard">
-                    <view class="decoration" style="background-color: {{color[index%2]}};"></view>
-                    <viwe class="courseName">{{item.name}}</viwe>
-                    <view class="courseInfo">{{item.site}}</view>
-                    <view class="courseTime">{{item.time}}</view>
-                </view>
-            </block>
-            <view wx:if="{{msg}}" class="wx-isclass">
-                <text>{{msg}}</text>
-            </view>
-        </scroll-view>
+      </scroll-view>
     </view>
-</view>
+  </view>
+</scroll-view>

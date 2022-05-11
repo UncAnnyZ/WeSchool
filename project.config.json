@@ -1,7 +1,14 @@
 {
+<<<<<<< HEAD
   "description": "项目配置文件",
   "packOptions": {
     "ignore": []
+=======
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
   },
   "setting": {
     "urlCheck": false,
@@ -21,7 +28,10 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": true,
+<<<<<<< HEAD
     "lazyloadPlaceholderEnable": false,
+=======
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
@@ -36,6 +46,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
+<<<<<<< HEAD
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
@@ -43,10 +54,17 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.0",
+=======
+    "showES6CompileOption": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.22.0",
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
   "appid": "wxf84451020f439de9",
   "projectname": "WeSchool",
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
+<<<<<<< HEAD
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "watchOptions": {
     "ignore": []
@@ -57,6 +75,16 @@
   "scripts": {},
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+=======
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
   "condition": {
     "plugin": {
       "list": []

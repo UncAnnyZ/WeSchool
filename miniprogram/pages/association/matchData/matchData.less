@@ -1,25 +1,52 @@
-.wrap{
+page {
+    background-color: rgb(241, 241, 241);
+}
+
+.top_wrap {
+    font-size       : 32rpx;
+    text-align      : right;
+    padding         : 6rpx;
+    color           : #63A1A0;
+    background-color: #63a1a034;
+    border-radius   : 8rpx;
+
+    .picker {}
+}
+
+.wrap {
     font-size: 32rpx;
-    .caption{
+
+    .caption {
         text-align: center;
+        color     : #63A1A0;
+        margin-top: 12rpx;
     }
-    .item_wrap{
-        .content_wrap{
-            display: flex;
-            flex-direction: row;
+
+    .item_wrap {
+        .content_wrap {
+            display         : flex;
+            flex-direction  : row;
             background-color: white;
-            padding: 12rpx;
-            margin: 12rpx;
-            border-radius: 12rpx;
-            .from{
+            padding         : 12rpx;
+            margin          : 12rpx;
+            border-radius   : 12rpx;
+
+            .from {
                 flex: 3;
             }
-            .status{
-                flex: 1;
+
+            .status {
+                flex    : 1;
                 // color: rgb(179, 128, 62);
                 // color: blue;
             }
         }
-        
+
+    }
+
+    .tip {
+        text-align: center;
+        margin-top: 24rpx;
+        color: rgb(124, 124, 124);
     }
 }

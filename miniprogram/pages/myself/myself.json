@@ -1,4 +1,11 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    
+    "TabScroll":"../more/components/TabScroll/TabScroll" ,
+  "weimob-sticky": "../more/components/sticky/index",
+  "jiuGongGe":"../more/components/InfoFlowCards/components/jiuGongGe/jiuGongGe",
+  "InfoFlowCards":"./components/InfoFlowCards/InfoFlowCards"
+  },
   "navigationStyle": "custom"
+  
 }

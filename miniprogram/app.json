@@ -14,8 +14,15 @@
     "pages/myself/myself",
     "pages/test/test",
     "pages/index/guidance/guidance",
+<<<<<<< HEAD
     "pages/more/components/searchPage/searchPage",
     "pages/more/components/searchContent/searchContent"
+=======
+    "pages/myself/fansAndfocus/fansAndfocus",
+    "pages/myself/components/InfoFlowCards/InfoFlowCards",
+    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment"
+
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
   ],
   "subPackages": [
     {

@@ -12,26 +12,19 @@ exports.main = async (event, context) => {
     return await cloud.database().collection("Campus-Circle").add({
       data: {
         AllPhoto: event.AllPhoto,
-        CommentList: null,
         Cover: event.Cover,
         CoverHeight: event.CoverHeight,
         CoverWidth: event.CoverWidth,
         Label: "社团招新",
         School: event.School,
         ShowHeight: event.ShowHeight,
-        Star: null,
-        Star_User: null,
         Text: event.Text,
         Time: Date.now(),
         Title: event.Title,
-        iconUrl: null,
-        nickName: null,
-        username: null,
         question: event.question,
         association: event.association,
         index: event.index,
         endTime: event.endTime,
-        // tapPerson: 1,
         personArr: []
       }
     })
@@ -51,27 +44,22 @@ exports.main = async (event, context) => {
     return await cloud.database().collection("Campus-Circle").add({
       data: {
         AllPhoto: event.AllPhoto,
-        CommentList: null,
         Cover: event.Cover,
         CoverHeight: event.CoverHeight,
         CoverWidth: event.CoverWidth,
         Label: "社团赛事",
         School: event.School,
         ShowHeight: event.ShowHeight,
-        Star: null,
-        Star_User: null,
         Text: event.Text,
         Time: Date.now(),
         Title: event.Title,
-        iconUrl: null,
-        nickName: null,
-        username: null,
         index: event.index,
         question: event.question,
         assoMess: event.assoMess,
         borderArr: event.borderArr,
         date: event.date,
         personArr: [],
+        match_id: event.match_id
       }
     })
   }
@@ -104,10 +92,32 @@ exports.main = async (event, context) => {
         assoName: event.assoName,
         assoCount: event.assoCount,
         pusherCount: event.pusherCount,
-        match_id: event.match_id,
+        CampusCircle_id: event.match_id,
         index: event.index,
+        match_id: event.match_id,
         read: false
       }
     })
+  }
+  // 更新活动/数量
+  else if (type == 6) {
+    return await cloud.database().collection("associtaionMath").where({ count: event.count }).limit(1000).get()
+      .then(res => {
+        let activityCount = res.data.length == 1000 ? '1000+' : res.data.length
+        cloud.database().collection("assoMatchPush").where({ assoCount: event.count }).limit(1000).get().then(res => {
+          // 参与人数
+          let personCount = res.data.length == 1000 ? '1000+' : res.data.length
+          cloud.database().collection("associationApply").where({ count: event.count }).update({
+            data: {
+              personCount: personCount,
+              activityCount: activityCount
+            }
+          })
+        })
+      })
+  }
+  // 跳转报名
+  else if (type == 7) {
+    return await cloud.database().collection("Campus-Circle").where({ index: event.index }).get()
   }
 }

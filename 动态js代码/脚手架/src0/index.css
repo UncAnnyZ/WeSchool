@@ -1,0 +1,107 @@
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+  margin:10rpx;
+}
+ 
+.left{
+  width: 338rpx;
+}
+ 
+.right{
+  width: 338rpx;
+  margin-left: 10rpx;
+}
+ .Show_Image{
+   border-radius: 15rpx;
+   width:338rpx;
+   background-color: #ebebebd8;
+ }
+.pic{
+  border-radius: 15rpx;
+  width: 338rpx;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+.pic_Label{
+  /* color:rgb(252, 219, 129);
+  margin-right: 5px;
+  font-size: 24rpx; */
+  color:white;
+  background-color: rgba(230,130,130,1);
+  font-size:20rpx;
+  padding:4rpx 8rpx;
+  /* margin: 0rpx auto ; */
+  margin-right:10rpx;
+  vertical-align: middle;
+  border-radius: 5rpx;
+}
+.pic_Title{
+  color:rgb(0, 0, 0);
+  font-size: 28rpx;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  line-height: 35rpx;
+  padding: 10rpx 21rpx 0rpx 21rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  letter-spacing: 1rpx;
+}
+.text_user{
+  width:35rpx;
+  height:35rpx;
+  border-radius: 50rpx;
+  margin: 15rpx 21rpx;
+}
+.text_username{
+  font-size: 20rpx;
+  position: relative;
+  bottom:22rpx;
+  right:10rpx;
+  color:rgba(128,128,128,0.8)
+}
+.comment{
+  width:20rpx;
+  height:20rpx;
+  position:sticky;
+  left: 240rpx;
+  bottom: 13rpx;
+}
+.commentImg{
+  width: 32rpx;
+  height: 32rpx;
+  /* position: relative;
+  bottom: 10rpx;
+  left: 150rpx; */
+  /* margin: 10rpx 0rpx 10rpx 150rpx; */
+}
+.commentNum{
+  font-size: 22rpx;
+  position:relative;
+  bottom: 8rpx;
+  padding-top: 2rpx;
+  left: 2rpx;
+  color:rgba(0,0,0,0.4)
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+  .pic{
+    background-color: #f1eded;
+    /* filter: invert(100%) !important; */
+  }
+  .pic_Label{
+    filter: invert(100%) !important;
+  }
+  .pic_Title {
+    color: #fff;
+    filter: invert(100%) !important;
+  }
+}

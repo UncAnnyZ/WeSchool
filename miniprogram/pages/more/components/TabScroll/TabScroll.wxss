@@ -88,6 +88,20 @@
   flex-direction: column;
   width: 100rpx;
 }
+/* 我的板块 */
+.Choose_Label .underLine_myself{
+  height:4rpx;
+  background-color:rgba(116,213,211);
+  border-radius: 16rpx;
+}
+.activeTab_myself{
+  color:rgba(116,213,211)
+}
+.bgc{
+  background-color: rgba(240,240,240,1);
+  border-radius: 16rpx 16rpx 0rpx 0rpx;
+  z-index:3
+}
 /* 暗黑 */
 @media (prefers-color-scheme: dark) {
   .Choose_Label{

@@ -3,9 +3,10 @@
   <scroll-view class="item_wrap" wx:for="{{freshData}}" wx:key="item">
     <view class="content_wrap" data-item="{{item}}" bindtap="godetail">
       <view class="from">来自{{item.username}}的萌新申请</view>
-      <view class="status" style="color:{{item.read==false?'blue':''}};">
+      <view class="status" style="color:{{item.read==false?'#63A1A0':''}};">
         {{item.read==false?'未读':'已读'}} >
       </view>
     </view>
   </scroll-view>
+  <view class="tip">--没有更多啦--</view>
 </view>

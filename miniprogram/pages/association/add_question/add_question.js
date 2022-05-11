@@ -11,8 +11,9 @@ Page({
       arr: [],
       id: "",
       arrLen: 1,
-      type: ""
-    }
+      type: "",
+    },
+    mustChange: false,
   },
 
   /**
@@ -67,6 +68,7 @@ Page({
       var prevPage = pages[pages.length - 2]
       var data = this.data.content
       this.data.content.id = Date.parse(new Date())
+      this.data.content.must = this.data.mustChange
       this.setData({
         content: this.data.content
       })
@@ -123,6 +125,7 @@ Page({
       var prevPage = pages[pages.length - 2]
       var data = this.data.content
       this.data.content.id = Date.parse(new Date())
+      this.data.content.must=this.data.mustChange
       this.setData({
         content: this.data.content
       })
@@ -133,6 +136,12 @@ Page({
         delta: 1
       })
     }
+  },
+  // 必选
+  mustChange(e) {
+    this.setData({
+      mustChange: e.detail.value
+    })
   },
 
   /**

@@ -64,13 +64,15 @@ Component({
       // this.setData({
       // })
       let content = {
-        _id:this.data.item._id,
+        _id: this.data.item._id,
         assoMess: this.data.item.assoMess,
         Title: this.data.item.Title,
         Text: this.data.item.Text,
         borderArr: this.data.item.borderArr,
         question: this.data.item.question,
-        date:this.data.item.date
+        date: this.data.item.date,
+        match_id: this.data.item.match_id,
+        AllPhoto: this.data.item.AllPhoto
       }
       let jsonStr = JSON.stringify(content);
       // 对数据进行URI编码，防止数据被截断。少量数据没问题，如果对象较大则容易被截断，获取不到完整数据

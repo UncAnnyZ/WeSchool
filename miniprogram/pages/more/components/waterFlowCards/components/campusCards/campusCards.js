@@ -38,7 +38,6 @@ Component({
         iconUrl: content.iconUrl,
         nickName: content.nickName
       }
-      // console.log(content);
       this.setData({
         character,be_character
       })
@@ -106,19 +105,19 @@ Component({
       for (var i = 0; i < content.Star_User.length; i++) {
         if (content.Star_User[i].username == args.username) {
           Starif = true;
-          content.Star_User.splice(content.Star_User.indexOf(content.Star_User[i]), 1);
+          content.Star_User.splice(content.Star_User.indexOf(args.username), 1);
           break
         }
       }
       // 若用户是未点赞状态，则 content.Star_User 新增该用户
       if (!Starif) {
-        let openusername = {
-          username: args.username,
-          iconUrl: args.iconUrl,
-          nickName: args.nickName,
-          Star_time: new Date().getTime()
-        };
-        content.Star_User.push(openusername);
+        // let openusername = {
+        //   username: args.username,
+        //   iconUrl: args.iconUrl,
+        //   nickName: args.nickName,
+        //   Star_time: new Date().getTime()
+        // };
+        content.Star_User.push({username: args.username});
         wx.showToast({
           title: '点赞成功',
           icon: "none"

@@ -22,8 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options);
-    count = options.count
+    count = String(options.count)
     wx.showLoading({
       title: "查询中",
       mask: true,
@@ -47,12 +46,9 @@ Page({
   },
   // 修改状态
   changeStatus(e) {
-    // let dataObj=e.currentTarget.dataset
     let item = e.currentTarget.dataset.item
     let id = item._id
     let index = e.currentTarget.dataset.index
-    // console.log(e);
-    // let 
     if (item.sendStatus == true) {
       wx.showModal({
         title: '提示',
@@ -87,7 +83,6 @@ Page({
       });
     }
     else {
-      // console.log(item);
       wx.showModal({
         title: '提示',
         content: '确认发布',
@@ -114,8 +109,8 @@ Page({
                 question: item.question,
                 assoMess: item.assoMess,
                 borderArr: item.borderArr,
-                date:item.date
-                // Label:
+                date: item.date,
+                match_id: id
               }
             }).then(res => {
               db.collection("associtaionMath").where({ _id: id }).update({

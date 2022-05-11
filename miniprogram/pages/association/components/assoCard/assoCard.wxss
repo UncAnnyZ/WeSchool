@@ -1,0 +1,50 @@
+.detail_wrap {
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  padding: 12rpx 8rpx 8rpx 8rpx;
+  height: 120rpx;
+}
+.detail_wrap .img {
+  flex: 1;
+  padding-left: 12rpx;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.detail_wrap .img image {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 24rpx;
+}
+.detail_wrap .mess_wrap {
+  flex: 3;
+}
+.detail_wrap .mess_wrap .name {
+  line-height: 60rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.detail_wrap .mess_wrap .detail {
+  display: flex;
+  flex-direction: row;
+  line-height: 60rpx;
+  color: #4d4d4d;
+}
+.detail_wrap .mess_wrap .detail .tip {
+  padding: 0 12rpx 0 12rpx;
+}
+.detail_wrap .bt_wrap {
+  text-align: center;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.detail_wrap .bt_wrap .go {
+  padding: 12rpx;
+  border-radius: 24rpx;
+  color: #022b2b;
+  background-color: #63A1A0;
+  font-size: 30rpx;
+  font-weight: 700;
+}

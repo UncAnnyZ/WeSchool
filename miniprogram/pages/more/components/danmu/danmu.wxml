@@ -1,44 +1,45 @@
-<view class="container">
+
+  <view class="container">
     <view class="title">
-       <image style="margin-left:20rpx; opacity: 0.85; height: 60rpx; width:250rpx;" src="./字体.png"> </image>
+      <image style="margin-left:20rpx; opacity: 0.85; height: 60rpx; width:250rpx;" src="./字体.png"> </image>
     </view>
     <!-- top -->
     <view class='dmGroup top' style="animation: dmAnimation2 14s  linear infinite; ">
-        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index < dmList.length/3 }}" wx:key="*this">
-            <view class='dm'>
-     
-                <view class='avatarBox'>
-                    <image wx:if="{{item.niming}}" src='../../../login/image/logo.jpg' class='avatar' mode='aspectFit'></image>
-                    <image wx:else src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
-                </view>
-                <text class='user'>{{ item.nickName }}</text>
-                <text class='content'>{{ item.content }}</text>
-            </view>
-  
+      <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index < dmList.length/3 }}" wx:key="*this">
+        <view class='dm'>
+
+          <view class='avatarBox'>
+            <image wx:if="{{item.niming}}" src='../../../login/image/logo.jpg' class='avatar' mode='aspectFit'></image>
+            <image wx:else src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+          </view>
+          <text class='user'>{{ item.nickName }}</text>
+          <text class='content'>{{ item.content }}</text>
         </view>
+
+      </view>
     </view>
     <!-- mid -->
     <view class='dmGroup mid' style="animation: dmAnimation2 14s 0.5s linear infinite; ">
-        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index >= dmList.length/3 && index < (dmList.length/3)*2 }}" wx:key="*this">
-            <view class='dm'>
-                <view class='avatarBox'>
-                    <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
-                </view>
-                <text class='user'>{{ item.nickName }}</text>
-                <text class='content'>{{ item.content }}</text>
-            </view>
+      <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index >= dmList.length/3 && index < (dmList.length/3)*2 }}" wx:key="*this">
+        <view class='dm'>
+          <view class='avatarBox'>
+            <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+          </view>
+          <text class='user'>{{ item.nickName }}</text>
+          <text class='content'>{{ item.content }}</text>
         </view>
+      </view>
     </view>
     <!-- btm -->
     <view class='dmGroup btm' style="animation: dmAnimation2 14s 1s linear infinite; ">
-        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index >= (dmList.length/3)*2  }}" wx:key="*this">
-            <view class='dm'>
-                <view class='avatarBox'>
-                    <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
-                </view>
-                <text class='user'>{{ item.nickName }}</text>
-                <text class='content'>{{ item.content }}</text>
-            </view>
+      <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index >= (dmList.length/3)*2  }}" wx:key="*this">
+        <view class='dm'>
+          <view class='avatarBox'>
+            <image src='{{ item.iconUrl }}' class='avatar' mode='aspectFit'></image>
+          </view>
+          <text class='user'>{{ item.nickName }}</text>
+          <text class='content'>{{ item.content }}</text>
         </view>
+      </view>
     </view>
-</view>
+  </view>

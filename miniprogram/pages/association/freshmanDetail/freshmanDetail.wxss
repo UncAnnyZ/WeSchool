@@ -3,9 +3,16 @@ page {
 }
 .wrap .list_wrap {
   margin: 24rpx;
-  padding: 12rpx;
+  padding: 12rpx 12rpx 24rpx 12rpx;
   background-color: white;
   border-radius: 12rpx;
+}
+.wrap .list_wrap .caption {
+  color: #63A1A0;
+  font-weight: 700;
+  padding-top: 12rpx;
+  text-align: center;
+  font-size: 32rpx;
 }
 .wrap .list_wrap .list_item {
   display: flex;

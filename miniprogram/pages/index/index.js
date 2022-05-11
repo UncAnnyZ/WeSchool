@@ -44,7 +44,8 @@ Page({
   },
   async onLoad(options) {
     
-
+    // 判断登录
+    app.loginState();
     var that = this;
     wx.onThemeChange(function (e) {
       that.setData({ dark:  e.theme  });
@@ -131,16 +132,6 @@ Page({
     return {
       title: 'WE校园'
     }
-  },
-  tomato(){
-    wx.navigateTo({
-      url: '../tomato/index/index',
-    })
-  },
-  daka(){
-    wx.navigateTo({
-      url: '../testdaka/index/index',
-    })
   },
   
 })

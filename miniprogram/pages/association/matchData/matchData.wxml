@@ -1,11 +1,17 @@
+<view class="top_wrap">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">当前选择:{{array[index]}}</view>
+  </picker>
+</view>
 <view class="wrap">
   <view class="caption">招新数据</view>
   <scroll-view class="item_wrap" wx:for="{{contetn}}" wx:key="item">
     <view class="content_wrap" data-item="{{item}}" bindtap="godetail">
       <view class="from">来自{{item.userMess.name}}的比赛申请</view>
-      <view class="status" style="color:{{item.read==false?'blue':''}};">
+      <view class="status" style="color:{{item.read==false?'#63A1A0':''}};">
         {{item.read==false?'未读':'已读'}} >
       </view>
     </view>
   </scroll-view>
+  <view class="tip">--没有更多啦--</view>
 </view>

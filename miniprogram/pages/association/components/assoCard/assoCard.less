@@ -1,0 +1,61 @@
+    .detail_wrap {
+        display       : flex;
+        flex-direction: row;
+        font-size     : 28rpx;
+        padding       : 12rpx 8rpx 8rpx 8rpx;
+        height        : 120rpx;
+
+        .img {
+            flex        : 1;
+            padding-left: 12rpx;
+            text-align: center;
+            padding-top: 10rpx;
+            image {
+                height       : 100rpx;
+                width        : 100rpx;
+                border-radius: 24rpx;
+            }
+        }
+
+        .mess_wrap {
+            flex: 3;
+
+            .name {
+                line-height: 60rpx;
+                font-size  : 32rpx;
+                font-weight: 700;
+            }
+
+            .detail {
+                display       : flex;
+                flex-direction: row;
+                line-height   : 60rpx;
+                color         : rgb(77, 77, 77);
+
+                .activity {}
+
+                .tip {
+                    padding: 0 12rpx 0 12rpx;
+                }
+
+                .hot_num {}
+            }
+        }
+
+        .bt_wrap {
+            text-align     : center;
+            flex           : 1;
+            align-items    : center;
+            justify-content: center;
+            display        : flex;
+
+            .go {
+                padding         : 12rpx;
+                border-radius   : 24rpx;
+                color           : #022b2b;
+                background-color: #63A1A0;
+                font-size       : 30rpx;
+                font-weight     : 700;
+            }
+        }
+    }

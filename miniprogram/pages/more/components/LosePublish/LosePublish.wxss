@@ -50,3 +50,12 @@ align-self: center;
 
   border:1 rpx solid rgba(236, 236, 236, 0.619);
 }
+.active{
+
+}
+@media (prefers-color-scheme: dark) {
+  .choose_lose_bael_item{
+    filter: invert(0%) !important;
+    background-color:#fff
+  }
+}

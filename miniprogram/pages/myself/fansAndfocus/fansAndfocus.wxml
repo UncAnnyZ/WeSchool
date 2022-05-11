@@ -1,0 +1,16 @@
+<!--pages/myself/fansAndfocus/fansAndfocus.wxml-->
+<view class="top">
+  <view class="{{focus?'focusBefore':'focusAfter'}}" bindtap="focus" >关注</view>
+  <view class="{{fans?'fansBefore':'fansAfter'}}" bindtap="fans" >粉丝</view>
+</view>
+<view wx:for="{{arry}}">
+  <view class="showArry">
+  <image src="{{item.iconUrl}}"/>
+  <view class="user">
+    <view class="nickName">{{item.nickName}}</view>
+    <!-- <view class="userName">{{item.userName}}</view> -->
+  </view> 
+  </view>
+  <view style="background-color: rgba(189, 189, 189, 0.24);height: 2rpx;margin-bottom: 25rpx;width: 96%;float: right;"></view>
+</view>
+<view class="null">- 这里空空如也哦 -</view>
