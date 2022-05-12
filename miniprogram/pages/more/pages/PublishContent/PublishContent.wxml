@@ -10,7 +10,7 @@
         </view>
     </view>
     <!-- 填充 -->
-    <view style="position: relative; padding-top: {{ 3 + (statusBarHeight + lineHeight)}}px; width: 100%;"></view>
+    <view style="position: relative; padding-top: {{(statusBarHeight + lineHeight)}}px; width: 100%;"></view>
     <view style="position: relative; padding-top: {{(showscroll? 140: 0) }}rpx; width: 100%;"></view>
 
     <!-- 标签选择滚动栏 -->
