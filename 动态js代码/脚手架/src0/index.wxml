@@ -1,0 +1,21 @@
+<view class="pic" bindtap="ShowContent">
+  <image class="Show_Image" lazy-load src='{{item1.Cover}}' mode="aspectFill" style="height: {{item1.ShowHeight > 500 ? 500+'rpx':item1.ShowHeight+'rpx'}};" binderror="binderrorimg" bindload='onLazyLoad'></image>
+  <view>
+    <span class="pic_Title">
+      <text>{{item1.Title || item1.Text}}</text>
+    </span>
+    <image src="{{item1.iconUrl}}" class="text_user" />
+    <span class="text_username">{{item1.nickName}}</span>
+    <div class="comment">
+      <div style="margin-right:6px;">
+
+       
+        <span class="commentNum">{{item1.Star_User?item1.Star_User.length:0}}</span>
+      </div>
+      <div style="margin-right:6px;">
+        <image src="../../../../../../images/comment.png" class="commentImg" />
+        <span class="commentNum">{{item1.CommentList?item1.CommentList.length:0}}</span>
+      </div>
+    </div>
+  </view>
+</view>

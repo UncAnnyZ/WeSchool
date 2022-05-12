@@ -1,90 +1,103 @@
 .box {
-    overflow: auto;
-    border-radius: 25rpx;
-    background-image: linear-gradient(to right, rgba(212, 240, 255, 0.3), rgba(255, 198, 227, 0.2));
-    height: 220rpx;
-    margin: 25rpx;
-    display: flex;
+  overflow: auto;
+  border-radius: 25rpx;
+  background-image: linear-gradient(rgb(216, 237, 241), rgb(221, 239, 245));
+  height: 235rpx;
+  display: flex;
 }
 
 .headline {
-    position: absolute;
-    flex-direction: row;
-    width: 100%;
+  position: absolute;
+  flex-direction: row;
+  width: 100%;
 }
 
 .date {
-    position: absolute;
-    margin-left: 30rpx;
-    margin-top: 20rpx;
-    font-size: 30rpx;
+  position: absolute;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  font-family: 'webfont';
 }
 
 .week {
-    position: absolute;
-    color: #da4776;
-    margin-left: 110rpx;
-    margin-top: 17rpx;
-    font-size: 30rpx;
+  position: absolute;
+  /* color: #da4776; */
+  margin-left: 112rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  font-family: 'webfont';
 }
-
+.restCourse {
+  position: absolute;
+  /* color: #da4776; */
+  margin-left: 200rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  font-family: 'webfont';
+}
 .schoolWeek {
-    position: absolute;
-    margin-left: 590rpx;
-    margin-top: 17rpx;
-    font-size: 30rpx;
+  position: absolute;
+  margin-left: 590rpx;
+  margin-top: 17rpx;
+  font-size: 28rpx;
 }
 
 .body {
-    white-space: nowrap;
-    display: flex;
-    height: 120rpx;
-    margin-left: 30rpx;
-    margin-top: 80rpx;
+  white-space: nowrap;
+  display: flex;
+  height: 120rpx;
+  margin-left: 30rpx;
+  margin-top: 80rpx;
 }
 
 .bodyCard {
-    width: 400rpx;
-    display: inline-block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 400rpx;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .decoration {
-    position: absolute;
-    background-color: #986bfd;
-    width: 10rpx;
-    height: 120rpx;
-    border-radius: 40rpx;
+  position: absolute;
+  background-color: rgb(26, 53, 58);
+  width: 4rpx;
+  height: 120rpx;
+  border-radius: 40rpx;
+}
+
+.highlight {
+  color: rgb(145, 158, 235) !important;
 }
 
 .courseName {
-    width: 100rpx;
-    color: rgb(66, 66, 66);
-    margin-left: 25rpx;
-    font-weight: bold;
-    font-size: 30rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 100rpx;
+  color: rgb(66, 66, 66);
+  margin-left: 25rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .courseInfo {
-    color: rgb(90, 89, 89);
-    margin-left: 25rpx;
-    padding-top: 6rpx;
-    font-size: 24rpx;
+  color: rgb(90, 89, 89);
+  margin-left: 25rpx;
+  padding-top: 6rpx;
+  font-size: 24rpx;
 }
 
 .courseTime {
-    color: rgb(90, 89, 89);
-    margin-left: 25rpx;
-    padding-top: 8rpx;
-    font-size: 24rpx;
+  color: rgb(90, 89, 89);
+  margin-left: 25rpx;
+  padding-top: 8rpx;
+  font-size: 24rpx;
 }
 
 .wx-isclass {
-    text-align: center;
-    font-size: 35rpx;
-    color: #1cbbb4;
-    margin-top: 30rpx;
-  }
+  text-align: center;
+  font-size: 35rpx;
+  color: #1cbbb4;
+  margin-top: 30rpx;
+}

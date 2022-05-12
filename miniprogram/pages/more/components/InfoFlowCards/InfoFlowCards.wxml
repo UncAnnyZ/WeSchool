@@ -1,33 +1,36 @@
 <scroll-view scroll-y style="height: {{windowHeight}}px;" style="background-color: rgba(230,230,230,0.5);">
 
-    <block wx:for="{{list}}" wx:key="*this">
-        <view class="InfoCard">
-            <!-- 头部 -->
-            <view class="InfoCard_head">
-                <view class="avatar">
-                    <image  src="{{item.iconUrl}}"></image>
-                </view>
-                <view class="head_text">
-                    <view class="head_text_title">{{item.nickName}}</view>
-                    <view class="head_text_time">·49分钟前</view>
-                </view>
-                <view style="color: #78787a; margin-left: -500rpx; margin-top: 40rpx; font-size: 20rpx;">广东石油化工学院</view>
-                <image src="../../../../images/more.png" class="more"></image>
-            </view>
-            <!-- 内容主体 -->
-            <view class="InfoCard_body">
-                <view class="textBody">
-                    <text>{{item.Text}}</text>
-                    <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
-                </view>
-            </view>
-            <!-- 底部 -->
-            <view class="InfoCard_bottom">
-                <view>点赞</view>
-                <view>回复</view>
-                <view>浏览</view>
-            </view>
+  <block wx:for="{{list}}" wx:key="*this">
+    <view class="InfoCard">
+      <!-- 头部 -->
+      <view class="InfoCard_head">
+        <view class="avatar">
+          <image src="{{item.iconUrl}}"></image>
         </view>
-    </block>
+        <view class="head_text">
+          <view class="head_text_title">{{item.nickName}}</view>
+          <view class="head_text_time">·49分钟前</view>
+        </view>
+        <view style="color: #78787a; margin-left: -500rpx; margin-top: 40rpx; font-size: 20rpx;">广东石油化工学院</view>
+        <image src="../../../../images/more.png" class="more"></image>
+      </view>
+      <!-- 内容主体 -->
+      <view class="InfoCard_body">
+        <view class="textBody">
+          <text>{{item.Text}}</text>
+          <jiuGongGe AllPhoto="{{item.AllPhoto}}"></jiuGongGe>
+        </view>
+      </view>
+      <!-- 底部 -->
+      <view class="InfoCard_bottom">
+        <view>点赞</view>
+        <view>回复</view>
+        <view>浏览</view>
+      </view>
+    </view>
 
+
+  </block>
+  <!-- 边界处理 -->
+  <view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
 </scroll-view>

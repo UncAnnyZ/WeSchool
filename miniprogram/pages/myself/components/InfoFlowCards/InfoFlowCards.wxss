@@ -4,10 +4,11 @@
   /* height: 400rpx; */
   margin:0rpx 30rpx;
   padding:0rpx 30rpx;
-  margin-top:20rpx;
+  margin-top:30rpx;
   margin-bottom: 20rpx;
   box-shadow: -5rpx 5rpx 3rpx #e7e7e7;
   border-radius: 20rpx;
+  opacity:1
 }
 
 .card-top-right-img{
@@ -52,10 +53,10 @@
   color:rgba(16, 16, 16, 0.5)
 }
 .card-content{
-  font-size: 22rpx;
+  font-size: 24rpx;
   margin-top:10rpx;
   margin-bottom: 20rpx;
-  color:rgba(102,102,102)
+  color:rgba(82,82,82)
 }
 .card-imgs{
   margin:0 auto;
@@ -148,4 +149,28 @@ button{
   background-color:transparent;  
   margin-top:40rpx;
   font-size:22rpx;
+}
+
+.DataNull{
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
+}
+.public{
+  background-color: rgba(88,203,183,1);
+  color:white;
+  border-radius: 30rpx;
+ padding: 15rpx;
+ width: 30%;
+ text-align: center;
+ margin:40rpx auto; 
+  font-weight: 800;
+}
+.public_text{
+  text-align: center;
+  color:rgba(112,112,112);
+  margin-top: 300rpx;
+
+  font-size: 26rpx;
 }

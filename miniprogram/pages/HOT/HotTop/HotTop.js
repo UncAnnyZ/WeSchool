@@ -9,7 +9,6 @@ Page({
    */
   data: {
     html : [{type: 'view', text: '模版错误啦'}],
-    
   },
 
   /**

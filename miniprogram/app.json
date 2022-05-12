@@ -5,20 +5,23 @@
     }
   },
   "pages": [
+    "pages/more/more",
     "pages/index/index",
     "pages/testdaka/index/index",
     "pages/testdaka/record/record",
     "pages/login/login",
     "pages/curriculum/curriculum",
-    "pages/more/more",
     "pages/myself/myself",
     "pages/test/test",
     "pages/index/guidance/guidance",
     "pages/myself/page/page",
+    "pages/myself/rule/rule",
+    "pages/more/components/searchPage/searchPage",
+    "pages/more/components/searchContent/searchContent",
     "pages/myself/fansAndfocus/fansAndfocus",
     "pages/myself/components/InfoFlowCards/InfoFlowCards",
     "pages/myself/components/InfoFlowCards/components/replyComment/replyComment",
-    "pages/myself/rule/rule"
+    "pages/functionPage/functionPage"
   ],
   "subPackages": [
     {
@@ -91,9 +94,9 @@
         "Game/Game",
         "UserCenter/index",
         "note_module/note_module",
-        "note_module/sendNote/sendNote",
         "JuBao/JuBao",
-        "note_module/renLingNote/renLingNote"
+        "note_module/pages/renLingNote/renLingNote",
+        "note_module/pages/sendNote/sendNote"
       ]
     },
     {
@@ -150,6 +153,7 @@
     "navigationBarTextStyle": "@navTextStyle"
   },
   "tabBar": {
+    "custom": true,
     "color": "@color",
     "selectedColor": "#6eaddf",
     "backgroundColor": "@tabBackgroundColor",

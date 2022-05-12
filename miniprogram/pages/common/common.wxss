@@ -16,7 +16,9 @@ page {
 }
 
 .list {
+  position: fixed;
   margin-bottom: 30rpx;
+  z-index: 1;
 }
 
 .icon-open {

@@ -1,7 +1,10 @@
-<scroll-view scroll-x>
+
   <view class="container">
     <view class="title">
       <image style="margin-left:20rpx; opacity: 0.85; height: 60rpx; width:250rpx;" src="./字体.png"> </image>
+    </view>
+    <view class="logo" style="top: {{statusBarHeight + lineHeight + 10}}px;">
+      <image src="./logo.png" mode="widthFix"></image>
     </view>
     <!-- top -->
     <view class='dmGroup top' style="animation: dmAnimation2 14s  linear infinite; ">
@@ -43,4 +46,3 @@
       </view>
     </view>
   </view>
-</scroll-view>

@@ -39,7 +39,7 @@ fs.readFile('dist/index.js', (err, buffer) => {
   
   })
 `
-str = str.replaceAll('class1', 'class')
+  // str = str.replaceAll('class1', 'class')
   fs.writeFile('../../miniprogram/pages/HOT/HotTest/HotTest.js', str, {
     encoding: 'utf8'
   }, err => {})
