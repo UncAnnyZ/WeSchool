@@ -150,3 +150,10 @@ button{
   margin-top:40rpx;
   font-size:22rpx;
 }
+
+.DataNull{
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
+}

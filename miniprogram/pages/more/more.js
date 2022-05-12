@@ -366,15 +366,9 @@ Page({
         }
       }) : data.tabitem,
       // 初始化 currentPageArr 和 currentWaterFlowHeight
-<<<<<<< HEAD
       currentPageArr = tabitem.map(item => { return 0; }),
       
       currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
-=======
-      currentPageArr = tabitem.map(item => { return 0; })
-      console.log(currentPageArr,"currentPageArr")
-      let currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
->>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
       // 初始化封号
       campus_account = args.campus_account ? args.campus_account : false,
       describe = args.describe ? args.describe : false,
@@ -433,6 +427,11 @@ Page({
     this.getNewInfo();
     this.handleCourse();
 
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
   },
   handleCourse() {
     var that = this,
