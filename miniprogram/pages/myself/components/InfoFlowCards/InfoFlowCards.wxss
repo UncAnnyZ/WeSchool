@@ -157,3 +157,20 @@ button{
   display: flex;
   justify-content: center;
 }
+.public{
+  background-color: rgba(88,203,183,1);
+  color:white;
+  border-radius: 30rpx;
+ padding: 15rpx;
+ width: 30%;
+ text-align: center;
+ margin:40rpx auto; 
+  font-weight: 800;
+}
+.public_text{
+  text-align: center;
+  color:rgba(112,112,112);
+  margin-top: 300rpx;
+
+  font-size: 26rpx;
+}
