@@ -30,6 +30,7 @@ Page({
     NewInfo:0, 
     navigationBar:app.globalData.navigationBarHeight,
     offsetTop: 0,
+    loadAll:false
   },
 
   onScroll(e){
@@ -161,6 +162,7 @@ getData(){
     console.log("已经拉到底了");
     return;
   }
+  console.log(currentPage)
   wx.cloud.callFunction({
     name: "NewCampusCircle",
     data: {
@@ -172,7 +174,7 @@ getData(){
       School,
       username //自己的学号
     },success(res){
-      console.log(res)
+      console.log(res.result)
       let allList = data.allList,
       currentPageArr = data.currentPageArr;
       if(res.result && res.result.data.length > 0){
@@ -197,6 +199,7 @@ getData(){
        
           //请求道的数据存在app里面
             // 数据少于一页时
+            console.log(res.result.data)
           if (res.result.data.length < 15) {
             that.setData({
               loadAll: true,
@@ -206,7 +209,7 @@ getData(){
           }
           that.setData({
             allList
-          })
+          });
       }
       else{ //不存在数据时
         console.log("err")
@@ -304,14 +307,21 @@ getData(){
     console.log(44444444)
   },
   onReachBottom() {
+    // if(!this.data.loadAll){
+    //   console.log(222)
+    // }
+    
+    setTimeout(() => {
+      wx.showLoading({
+        title: '加载更多中',
+        mask: true
+      })
+        // 请求数据库
+     this.getData();
     console.log(22222222222)
-    wx.showLoading({
-      title: '加载更多中',
-      mask: true
-    })
-    // 请求数据库
-    this.getData();
-    wx.hideLoading();
+    }, 3000);
+     wx.hideLoading();
+     
   },
   //点赞更新消息的云函数
   update_star(){
@@ -430,12 +440,6 @@ getData(){
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享

@@ -1,4 +1,4 @@
-<view class='content' style="opacity: {{list[0] ? 1 : 0}};">
+<view class='content' >
   <view class="left">
     <view wx:for="{{leftList}}" wx:key="leftList">
  
@@ -22,4 +22,4 @@
 <!-- 边界处理 -->
 <view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
 <!-- 边界处理 -->
-<view class="DataNull" wx:if="{{list.length == 0}}">正在玩命加载数据...</view>
+<!-- <view class="DataNull" wx:if="{{list.length == 0}}">正在玩命加载数据...</view> -->

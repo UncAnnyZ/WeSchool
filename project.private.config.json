@@ -1,10 +1,27 @@
 {
   "setting": {},
+<<<<<<< HEAD
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+=======
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "condition": {
     "miniprogram": {
       "list": [
         {
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
           "name": "db guide",
           "pathName": "pages/databaseGuide/databaseGuide",
           "query": ""
@@ -172,14 +189,54 @@
           "scene": null
         },
         {
-          "name": "pages/myself/myself",
-          "pathName": "pages/myself/myself",
+<<<<<<< HEAD
+          "name": "pages/HOT/HotNoTop/HotNoTop",
+          "pathName": "pages/HOT/HotNoTop/HotNoTop",
           "query": "",
           "scene": null
         },
         {
+          "name": "pages/HOT/HotTop/HotTop",
+          "pathName": "pages/HOT/HotTop/HotTop",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/HOT/HotTest/HotTest",
+          "pathName": "pages/HOT/HotTest/HotTest",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/common/common",
+          "pathName": "pages/common/common",
+          "query": "type=commonPage&content=%E7%B4%A0%E6%8B%93",
+          "scene": null
+        },
+        {
+          "name": "pages/more/more",
+          "pathName": "pages/more/more",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/more/components/searchPage/searchPage",
+          "pathName": "pages/more/components/searchPage/searchPage",
+=======
+          "name": "pages/myself/myself",
+          "pathName": "pages/myself/myself",
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
+          "query": "",
+          "scene": null
+        },
+        {
+<<<<<<< HEAD
+          "name": "pages/more/components/searchContent/searchContent",
+          "pathName": "pages/more/components/searchContent/searchContent",
+=======
           "name": "pages/login/login",
           "pathName": "pages/login/login",
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
           "query": "",
           "scene": null
         }

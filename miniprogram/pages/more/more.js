@@ -366,9 +366,15 @@ Page({
         }
       }) : data.tabitem,
       // 初始化 currentPageArr 和 currentWaterFlowHeight
+<<<<<<< HEAD
+      currentPageArr = tabitem.map(item => { return 0; }),
+      
+      currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
+=======
       currentPageArr = tabitem.map(item => { return 0; })
       console.log(currentPageArr,"currentPageArr")
       let currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
       // 初始化封号
       campus_account = args.campus_account ? args.campus_account : false,
       describe = args.describe ? args.describe : false,
@@ -517,7 +523,7 @@ Page({
     // 定时器防抖
     this.TimeOut = setTimeout(() => {
       console.log("下拉刷新")
-      // 清空瀑布流内容，并再次请求数据库
+      // 清空瀑布流内容，并再次请求数 据库
       this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
       this.getData();
       // 获取小纸条

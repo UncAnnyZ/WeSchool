@@ -11,8 +11,9 @@
   overflow: hidden;
   /* margin-bottom: 2%; */
   height: auto;
-  /* width: 680rpx; */
-  width: 50%;
+  width: 680rpx;
+  /* width: 380rpx; */
+  /* height: 200rpx */
 
   /* object-fit: cover; */
 }

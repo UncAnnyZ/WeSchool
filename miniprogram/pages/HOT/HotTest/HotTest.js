@@ -24,8 +24,6 @@ var __webpack_exports__ = {};
   \\***********************/
 
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 function runCode() {
   // pages/calendar/calendar.js
   function formatDay(day) {
@@ -47,6 +45,8 @@ function runCode() {
       case 0:
         day = "日";break;
 
+<<<<<<< HEAD
+=======
       case "一":
         day = 1;break;
       case "二":
@@ -68,6 +68,7 @@ function runCode() {
     return day;
   }
 
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
   var Page = function Page(page) {
     return page;
   };
@@ -174,15 +175,59 @@ function runCode() {
       for (var i in dictData) {
         this.data[i] = dictData[i];
       }
+<<<<<<< HEAD
+      var html = "<view>hello webpack</view>";
+=======
       var html = "<view class='page' style='margin-top: 30rpx; padding-bottom: 1rpx;'>  <view class='page__hd' style='flex-direction: column; justify-content: center; padding: 20rpx 35rpx 0 35rpx;'>    <view class='page__title' style='color: rgb(0, 0, 0); font-size: 20px; font-weight: 400; margin-bottom: 5px; margin-left: 30rpx; text-align: left;'>\\u5012\\u6570\\u65E5</view>    <view class='page__desc' style='color: rgb(97, 97, 97); font-size: 30rpx; margin-left: 30rpx; text-align: left;'>      <view>" + (_typeof(this.data.term) === "object" ? JSON.stringify(this.data.term) : this.data.term) + "</view>      <text>" + (_typeof(this.data.jsonContent.month) === "object" ? JSON.stringify(this.data.jsonContent.month) : this.data.jsonContent.month + 1) + " \\u6708" + (_typeof(this.data.jsonContent.day) === "object" ? JSON.stringify(this.data.jsonContent.day) : this.data.jsonContent.day) + " \\u65E5 " + (_typeof(this.data.jsonContent.dayOfWeek) === "object" ? JSON.stringify(this.data.jsonContent.dayOfWeek) : this.data.jsonContent.dayOfWeek) + " \\uFF08\\u6ED1\\u52A8\\u53EF\\u5220\\u9664)</text>    </view>    <view class='touch' style='padding-left: -10rpx;'>      " + this.data.list.map(function (item, index) {
         return " <view style='touch-container' id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' bindtap='showdates' bindtouchstart='touchstart' bindtouchmove='touchmove'  wx:key=' ' style='display: flex; font-size: 16px; justify-content: space-between; overflow: hidden; padding: 20rpx 0;'>        <view  " + (_this.data.dark === 'dark' ? 'style="    background-color: rgba(224, 224, 224, 0.589);  "' : '') + " style='touch-item " + (_typeof(item.isTouchMove) === "object" ? JSON.stringify(item.isTouchMove) : item.isTouchMove ? "wx&class    ;     -webkit-transform   :    translateX(0)   ;     transform   :    translateX(0)   ;   " : "") + "' style='background-color: rgba(248, 248, 248, 0.9); border-radius: 22rpx; box-shadow: 0 7rpx 7rpx #d1cece; color: #fff; display: flex; height: 110rpx; justify-content: space-around; margin-left: -130px; overflow: hidden; top: 3rpx; transform: translateX(130px); transition: all 0.4s; width: 92%;'>          <view class='weui-flex' style='margin-left:10rpx;color:#010C10;'>                       " + (_typeof(item.gapDays) === "object" ? JSON.stringify(item.gapDays) : item.gapDays > 0 ? "<view  " + (_this.data.dark === 'dark' ? 'style="    filter: invert(0%) !important;  "' : '') + " style='weui-item__title'  style='-webkit-box-orient: vertical; -webkit-line-clamp: 1; color: #444444; display: -webkit-box; font-size: 34rpx; font-weight: 550; margin-left: 15rpx; overflow: hidden; padding-top: 28rpx; text-overflow: ellipsis; width: 300rpx;'>              <text>" + (_typeof(item.holidayName) === "object" ? JSON.stringify(item.holidayName) : item.holidayName) + " \\u8FD8\\u6709</text>            </view>" : "") + "            " + (_typeof(item.gapDays) === "object" ? JSON.stringify(item.gapDays) : item.gapDays <= 0 ? "<view  " + (_this.data.dark === 'dark' ? 'style="    filter: invert(0%) !important;  "' : '') + " style='weui-item__title'  style='-webkit-box-orient: vertical; -webkit-line-clamp: 1; color: #444444; display: -webkit-box; font-size: 34rpx; font-weight: 550; margin-left: 15rpx; overflow: hidden; padding-top: 28rpx; text-overflow: ellipsis; width: 300rpx;'>              <text>" + (_typeof(item.holidayName) === "object" ? JSON.stringify(item.holidayName) : item.holidayName) + " \\u5DF2\\u7ECF</text>            </view>" : "") + "                      </view>          <view  " + (_this.data.dark === 'dark' ? 'style="    filter: invert(100%) !important;  "' : '') + " class='weui-flex__item' style='-webkit-box-flex: 1; -webkit-flex: 1; flex: 1;'>            <view style='gapDays " + (_typeof(item.gapDays) > 0 === "object" ? JSON.stringify(item.gapDays > 0) : item.gapDays > 0 ? "wx&class       ;        text-shadow     :      0px -1px 1px #865204f3 !important      ;          background-color     :      #fd9801e1 !important      ;      " : "wx&class       ;        text-shadow     :      0px -1px 1px #294161 !important      ;        background-color     :      #5685c2c2 !important      ;      ") + "  ' style='align-items: center; color: #ffff; display: flex; flex-direction: row; font-size: 62rpx; height: 110rpx; justify-content: center; text-align: center;'>              " + (_typeof(item.gapDays) === "object" ? JSON.stringify(item.gapDays) : item.gapDays > 0 ? "<text  style='flex: 1;'>" + (_typeof(item.gapDays) === "object" ? JSON.stringify(item.gapDays) : item.gapDays) + "</text>" : "") + "              " + (_typeof(item.gapDays) === "object" ? JSON.stringify(item.gapDays) : item.gapDays <= 0 ? "<text  style='flex: 1;'>" + (0 - item.gapDays) + "</text>" : "") + "              <view style='Days " + (_typeof(item.gapDays) > 0 === "object" ? JSON.stringify(item.gapDays > 0) : item.gapDays > 0 ? "wx&class     ;      background-color   :    #e27c07e8 !important    ;    " : "wx&class     ;      background-color   :    #3170a7e3 !important    ;    ") + " ' style='align-items: center; display: flex; height: 110rpx; justify-content: center; width: 115rpx;'>                <text style='color: #ffff; flex: 1; font-size: 38rpx;'>\\u5929</text>              </view>            </view>          </view>        </view>        <view  " + (_this.data.dark === 'dark' ? 'style="    filter: invert(0%) !important;  "' : '') + " style='edit " + (_typeof(item.isTouchMove) === "object" ? JSON.stringify(item.isTouchMove) : item.isTouchMove ? "wx&class    ;     -webkit-transform   :    translateX(0)   ;     transform   :    translateX(0)   ;   " : "") + "' bindtap='edit' id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' style='-webkit-transform: translateX(130px); -webkit-transition: all 0.4s; align-items: center; background-color: #f7f5f5; border-radius: 115rpx; color: #fff; display: flex; flex-direction: column; height: 95rpx; justify-content: center; margin-top: 8rpx; transform: translateX(130px); transition: all 0.4s; width: 95rpx;'>          <image  " + (_this.data.dark === 'dark' ? 'style="    filter: invert(0%) !important;  "' : '') + " src='../../../images/edit.png' style='height: 40rpx; width: 40rpx;'></image>        </view>        <view style='del " + (_typeof(item.isTouchMove) === "object" ? JSON.stringify(item.isTouchMove) : item.isTouchMove ? "wx&class    ;     -webkit-transform   :    translateX(0)   ;     transform   :    translateX(0)   ;   " : "") + "' bindtap='del' id='" + ((typeof index === "undefined" ? "undefined" : _typeof(index)) === "object" ? JSON.stringify(index) : index) + "' style='-webkit-transform: translateX(130px); -webkit-transition: all 0.4s; align-items: center; background-color: #f7f5f5; border-radius: 115rpx; color: #fff; display: flex; flex-direction: column; height: 95rpx; justify-content: center; margin-top: 8rpx; transform: translateX(130px); transition: all 0.4s; width: 95rpx;'>          <image src='../../../images/del.png' style='height: 40rpx; width: 40rpx;'></image>        </view>      </view>";
       }) + "    </view>    <view class='nav-head' style='align-items: center; background-color: #FAFAFA; border-bottom-left-radius: 100%; border-top-left-radius: 100%; box-shadow: 0px 0px 4px 0px #c7c7c7; display: flex; flex-direction: row; height: 100rpx; justify-content: space-between; position: fixed; right: 5rpx; top: 50rpx; width: 110rpx; z-index: 9;'>      <view class='img-button feedback-btn' bindtap='feedbackHandler' style='display: inline-block; height: 60rpx; margin-left: 30rpx; margin-right: 20rpx; margin-top: 10rpx; width: 70rpx;'>        <image src='../../../images/btn_feed@2x.png' style='height: 80%; width: 80%;'></image>      </view>    </view>    <view  " + (this.data.dark === 'dark' ? 'style="    filter: invert(100%) !important;  "' : '') + " class='round-click' bindtap='showPic' style='align-items: center; background-color: #bc3e49; border-radius: 100%; bottom: 50rpx; display: flex; height: 120rpx; justify-content: center; position: fixed; right: 25rpx; width: 120rpx; z-index: 9;'>      <text style='color: #fff; font-size: 32rpx; max-width: 80rpx; text-align: center;'>\\u67E5\\u770B\\u6821\\u5386</text>    </view>  </view></view>" + (_typeof(this.data.showModel) === "object" ? JSON.stringify(this.data.showModel) : this.data.showModel ? "<view style='add'  style='bottom: 0; font-family: unset; left: 0; position: absolute; right: 0; top: 0; z-index: 9999;'>    <view class='add_background' bindtap='feedbackHandler' style='background-color: rgba(0, 0, 0, 0.349); bottom: 0; font-family: unset; height: 100%; left: 0; opacity: 0.6; position: absolute; right: 0; top: 0; z-index: 9999;'></view>    <view  " + (this.data.dark === 'dark' ? 'style="    filter: invert(0%) !important;    background-color: rgb(238, 237, 237);  "' : '') + " style='add_contain' animation='" + (_typeof(this.data.animation) === "object" ? JSON.stringify(this.data.animation) : this.data.animation) + "' style='align-items: center; background-color: #fff; bottom: 0; display: flex; flex-direction: column; padding: 50rpx 0; position: fixed; width: 100%; z-index: 99999;'>      <view class='add_title' style='font-weight: 600; padding-bottom: 50rpx; size: 18px;'>        <text>\\u6DFB\\u52A0\\u5012\\u6570\\u65E5</text>      </view>      <view class='course' style='align-content: center; background-color: rgb(245, 245, 245); border-radius: 20rpx; box-sizing: unset; display: flex; flex-direction: row; margin: 20rpx; padding: 20rpx; width: 85%;'>          \\u540D\\u79F0:        <input style='padding-top:2rpx;padding-left: 10rpx;' bindinput='bindInputChange' placeholder='\\u540D\\u79F0'></input>      </view>      <view class='section' dates='1' style='background-color: rgb(245, 245, 245); border-radius: 20rpx; margin: 20rpx; padding: 20rpx; width: 85%;'>          <picker mode='date' value='" + (_typeof(this.data.date) === "object" ? JSON.stringify(this.data.date) : this.data.date) + "' start='1978-01-01' end='2050-1-23' bindchange='bindDateChange'>            <view class='picker'>              \\u65E5\\u671F:   " + (_typeof(this.data.dates) === "object" ? JSON.stringify(this.data.dates) : this.data.dates) + "            </view>          </picker>        </view>      <view  " + (this.data.dark === 'dark' ? 'style="    color: rgba(0, 0, 0, 0.808);  "' : '') + " class='add_btn' style='align-items: center; display: flex; flex-direction: row; justify-content: center; margin: 70rpx 0 50rpx; width: 85%;'>        <button bindtap='feedbackHandler' style='background-color: rgba(245, 245, 245); border-radius: 50rpx; color: rgb(54, 54, 54); size: 16px; width: 45% !important;'>\\u53D6 \\u6D88</button>        <button bindtap='addSubmit' style='background-color: rgba(245, 245, 245); border-radius: 50rpx; color: rgb(54, 54, 54); size: 16px; width: 45% !important;'>\\u4FDD \\u5B58</button>      </view>    </view></view>" : "5");
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
       this.setData({ html: this.parse(html) });
     },
 
     /**
      * 页面的初始数据
      */
+<<<<<<< HEAD
+    data: {},
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function onLoad(options) {
+      var _this = this;
+
+      options = this.options;this.data.dark = wx.getSystemInfoSync().theme;wx.onThemeChange(function (e) {
+        console.log(e.theme);_this.setdata({ dark: e.theme });
+      });this.setdata();
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function onReady() {},
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function onShow() {},
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function onHide() {},
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function onUnload() {},
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function onPullDownRefresh() {},
+
+=======
     data: {
       html: "",
       jsonContent: {
@@ -546,6 +591,7 @@ function runCode() {
     },
 
     onReady: function onReady() {},
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
     /**
      * 页面上拉触底事件的处理函数
      */
@@ -554,6 +600,9 @@ function runCode() {
     /**
      * 用户点击右上角分享
      */
+<<<<<<< HEAD
+    onShareAppMessage: function onShareAppMessage() {}
+=======
     onShareAppMessage: function onShareAppMessage(res) {
       return {
         title: '广东石油化工学院校历'
@@ -566,6 +615,7 @@ function runCode() {
         urls: ['https://s1.ax1x.com/2022/05/09/OJRwF0.jpg'] // 需要预览的图片http链接列表
       });
     }
+>>>>>>> 46b2c8e4aa2af51395ea925bb37a14da8c9a353d
   });
 }
 module.exports = runCode;
