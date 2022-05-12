@@ -1,4 +1,4 @@
-<view class="bgc" style="height: {{windowHeight - (statusBarHeight + lineHeight -20)}}px;">
+<view class="bgc">
   <view class="header-text" style="top: {{statusBarHeight+45}}px;z-index: 2">我的</view>
   <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px;position: fixed;background-color: #B1E8E5;z-index: -1;top: 0;">
   </view>

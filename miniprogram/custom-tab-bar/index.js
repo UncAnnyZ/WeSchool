@@ -19,13 +19,13 @@ Component({
       {
         pagePath: "/pages/record/record",
         bulge:true,
-        iconPath: "/img/post.png",
-        selectedIconPath: "/img/post-select.png"
+        iconPath: "/images/tabbar/发布.png",
+        selectedIconPath: "/images/tabbar/发布.png"
       },
       {
-        pagePath: "/images/tabbar/",
+        pagePath: "/pages/functionPage/functionPage",
         text: "功能",
-        iconPath: "/img/message.png",
+        iconPath: "/images/tabbar/功能.png",
         selectedIconPath: "/img/message-select.png"
       },
       {

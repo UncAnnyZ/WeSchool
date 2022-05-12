@@ -18,8 +18,8 @@
     "pages/more/components/searchContent/searchContent",
     "pages/myself/fansAndfocus/fansAndfocus",
     "pages/myself/components/InfoFlowCards/InfoFlowCards",
-    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment"
-
+    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment",
+    "pages/functionPage/functionPage"
   ],
   "subPackages": [
     {
