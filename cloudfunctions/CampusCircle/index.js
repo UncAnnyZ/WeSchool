@@ -39,6 +39,10 @@ exports.main = async (event, context) => {
       return await ReadControlLogs(event); // 读取新消息 New-Info 
     case "LoseStateLogs":
       return await LoseStateLogs(event)
+    case "addFocus":
+      return await addFocus(event)
+    case "delFocus":
+      return await delFocus(event)
   }
 
 }
@@ -130,7 +134,6 @@ async function writeComment(event) {
 }
 
 async function starCount(event) {
-  console.log(event.Star_User,"startCount函数");
   try {
     return await db.collection('Campus-Circle').where({
       _id: event.arcticle._id
@@ -208,14 +211,16 @@ async function delComment(event) {
 
 async function StarControlLogs(event) {
   // 兼容旧云函数
-  starCount(event);
+  if(event.outIndex===undefined){
+    starCount(event);
+  }
 
   const data1 = await db.collection('New-Information').where({ //查找记录
     'character.userName': event.character.userName,
+    'be_character.userName': event.be_character.userName,
     type: '点赞',
-    arcticle_id: event.arcticle._id
+    arcticle_id: event.arcticle._id,
   }).get()
-  console.log(data1.data[0], "这是data1,用于查找记录");
 
   // 没有记录，add点赞
   if (data1.data[0] == undefined) {         
@@ -226,7 +231,8 @@ async function StarControlLogs(event) {
     // status等于 -1 时，status = 0
     if(data1.data[0].status == -1 ){        
       return await db.collection('New-Information').where({
-        'character.username': event.character.username,
+        'character.userName': event.character.userName,
+        'be_character.userName': event.be_character.userName,
         type: '点赞',
         arcticle_id: event.arcticle._id
       }).update({
@@ -237,7 +243,8 @@ async function StarControlLogs(event) {
       })
     }else {   // status等于 0||1 时，变成 -1
       return await db.collection('New-Information').where({
-        'character.username': event.character.username,
+        'character.userName': event.character.userName,
+        'be_character.userName': event.be_character.userName,
         type: '点赞',
         arcticle_id: event.arcticle._id
       }).update({
@@ -325,6 +332,7 @@ async function ReadControlLogs(event) {
     .skip(event.currentPage * event.pageSize)
     .limit(event.pageSize)
     .get()
+    console.log(event);
     console.log(data);
   // 更新
   await db.collection('New-Information').where({
@@ -338,4 +346,31 @@ async function ReadControlLogs(event) {
     .catch(console.error, "更新失败")
 
   return data
+}
+async function addFocus(event) {
+  try {
+    return await addRecord(event, "关注", "")
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+async function delFocus(event) {
+  try {
+    return await db.collection('New-Information').where({ // 感觉有问题
+      'character.userName': event.username,
+      'be_character.userName': event.be_username,
+      arcticle_id: event.arcticle_id,
+      type: '关注'
+    }).update({
+      data: {
+        status: -1,
+        createTime: event.createTime
+      }
+    }).then((res) => {
+      console.log(res, "取消关注成功");
+    })
+  } catch (e) {
+    console.log(e);
+  }
 }

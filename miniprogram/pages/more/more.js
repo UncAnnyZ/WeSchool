@@ -171,7 +171,6 @@ Page({
 
   // 2. 操作数据库
   getData(e) { //分页加载数据
-    console.log(this.data.tabitem);
     let that = this,
       data = this.data,
       currentTab = data.currentTab,
@@ -367,8 +366,9 @@ Page({
         }
       }) : data.tabitem,
       // 初始化 currentPageArr 和 currentWaterFlowHeight
-      currentPageArr = tabitem.map(item => { return 0; }),
-      currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
+      currentPageArr = tabitem.map(item => { return 0; })
+      console.log(currentPageArr,"currentPageArr")
+      let currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
       // 初始化封号
       campus_account = args.campus_account ? args.campus_account : false,
       describe = args.describe ? args.describe : false,
@@ -377,6 +377,7 @@ Page({
         let allList = [];
         return allList[index] = []
       });
+      console.log(allList)
     if (campus_account === true) {
       wx.showModal({
         title: "提示",
@@ -412,6 +413,7 @@ Page({
       iconUrl: args.iconUrl,     // 获取头像
       school: args.school        // 获取学校
     })
+    console.log(this.data.allList)
   },
   onLoad: function () {
     this.init()
@@ -479,6 +481,7 @@ Page({
   },
   // 上拉触底
   onReachBottom() {
+    console.log(222)
     wx.showLoading({
       title: '加载更多中',
       mask: true

@@ -1,33 +1,37 @@
-<!-- <block wx:for="{{List}}" wx:key="index"> -->
 <wxs module="m1">
-  var color=['#066fd8', '#6fd806', '#d8066f', '#6f06d8']
+  var color=['#95c395', '#f7c1b7', '#779de6', '#6f429c']
   module.exports.message=color
 </wxs>
 <wxs src="time.wxs" module="tools"></wxs>
 <view class="pic" bindtap="ShowContent" data-index="{{index}}">
   <image class="Show_Image" lazy-load src='{{item.Cover}}' mode="aspectFill" style="height: {{item.ShowHeight > 500 ? 500+'rpx':item.ShowHeight+'rpx'}};" binderror="binderrorimg" bindload='onLazyLoad'></image>
-  <view>
-    <!-- 标签标题 -->
+  <view class="local_block">
+    <view class="local">
+      <!-- <text class="local_text" style="bottom:{{item.ShowHeight}}rpx">主办方 {{item.assoMess.association}}</text> -->
+      <text class="local_text">主办方 {{item.assoMess.association}}</text>
+    </view>
+    <view class="local2"></view>
+  </view>
+  <view class="content_wrap">
     <span class="pic_Title">
-      <!-- <span style="vertical-align: middle;" class="pic_Label">{{item.Label}}</span> -->
       <text>{{item.Text}}</text>
     </span>
-    <!-- 比赛信息 -->
     <span class="match_wrap">
-      <span class="mess_wrap">
-        <span class="time" style="color:{{tools.getDateTime(time,item.date)>0?'':'#a8dba8'}};">
-          <text style="font-size:30rpx;">{{tools.getDateTime(time,item.date)>0?tools.getDateTime(time,item.date):''}}</text>
-          {{tools.getDateTime(time,item.date)>0?'天后结束':'已截止'}}
-        </span>
-        <span class="person">{{item.personArr.length==0?'1':(item.personArr.length>100?'99+':item.personArr.length)}}人参与</span>
-      </span>
-      <span class="host">主办方 {{item.assoMess.association}}</span>
       <span class="tip_wrpa">
-        <span class="tip" style="background-color: {{m1.message[index]}}" wx:for="{{item.borderArr}}" wx:key="item">
+        <view class="tip" style="background-color: {{m1.message[index]}};" wx:for="{{item.borderArr}}" wx:key="item">
           {{item}}
-        </span>
+        </view>
       </span>
+      <view class="outTime" style="color:{{tools.getDateTime(time,item.date)>0?'':'#a8dba8'}};">
+        {{tools.getDateTime(time,item.date)>0?'剩'+tools.getDateTime(time,item.date)+'天':'已截止'}}
+      </view>
+      <!-- <view class="mess_wrap">
+        <view class="time" style="color:{{tools.getDateTime(time,item.date)>0?'':'#a8dba8'}};">
+          <view style="color:{{tools.getDateTime(time,item.date)>0?'':'#a8dba8'}};">
+            {{tools.getDateTime(time,item.date)>0?tools.getDateTime(time,item.date):''}}{{tools.getDateTime(time,item.date)>0?'天后结束':'已截止'}}
+          </view>
+        </view>
+      </view> -->
     </span>
   </view>
 </view>
-<!-- </block> -->

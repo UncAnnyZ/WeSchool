@@ -24,10 +24,11 @@ page {
         }
 
         .title {
-            text-align: center;
-            padding   : 12rpx;
-            font-size : 28rpx;
+            text-align : center;
+            padding    : 12rpx;
+            font-size  : 28rpx;
             font-weight: 700;
+            color      : #63A1A0;
         }
     }
 
@@ -44,6 +45,7 @@ page {
             text-align : center;
             font-weight: 700;
             padding    : 12rpx;
+            color      : #63A1A0;
         }
 
         .content_item {
@@ -67,11 +69,12 @@ page {
                 flex-direction : column;
 
                 .delete {
-                    color           : white;
-                    padding         : 8rpx;
-                    border-radius   : 12rpx;
-                    background-color: red;
-                    margin          : 8rpx;
+                    color              : white;
+                    padding            : 8rpx;
+                    border-radius      : 12rpx;
+                    // background-color: red;
+                    margin             : 8rpx;
+                    background-color   : #63A1A0;
                 }
 
                 .write {
@@ -85,55 +88,78 @@ page {
         }
 
         .add {
-            border-radius: 42rpx;
-            margin       : 24rpx;
-            font-size    : 48rpx;
-            text-align   : center;
-            color        : rgb(151, 151, 151);
-            border       : 1rpx solid rgb(151, 151, 151);
+            border-radius   : 42rpx;
+            margin          : 24rpx;
+            font-size       : 48rpx;
+            text-align      : center;
+            // color        : rgb(151, 151, 151);
+            color           : #63A1A0;
+            border          : 1rpx solid #63A1A0;
+            // border       : 1rpx solid rgb(151, 151, 151);
         }
     }
-    .add_man_wrap{
-        padding: 24rpx;
-        font-size: 32rpx;
+
+    .add_man_wrap {
+        padding         : 24rpx;
+        font-size       : 32rpx;
         background-color: white;
-        margin: 24rpx;
-        border-radius: 24rpx;
-        .add_caption{}
-        .inp_wrap{
-            display: flex;
+        margin          : 24rpx;
+        border-radius   : 24rpx;
+
+        .add_caption {
+            padding: 8rpx;
+            color  : #63A1A0;
+        }
+
+        .inp_wrap {
+            display       : flex;
             flex-direction: row;
-            input{
-                font-weight: 700;
-                flex: 4;
+
+            .handle_wrap {
+                font-weight     : 700;
+                flex            : 4;
+                background-color: rgba(219, 219, 219, 0.425);
+                padding         : 12rpx;
+                border-radius   : 12rpx;
+                color           : rgb(95, 95, 95);
             }
-            .add_title{
-                flex: 1;
+
+            .add_title {
+                flex       : 1;
+                text-align : center;
+                line-height: 120rpx;
+                color      : #63A1A0;
             }
         }
     }
 
     .bt_wrap {
-        padding: 48rpx;
+        padding  : 48rpx;
+        font-size: 32rpx;
 
         .send {
-            text-align      : center;
-            margin-left     : 24rpx;
-            margin-right    : 24rpx;
-            border-radius   : 24rpx;
-            padding         : 6rpx;
-            color           : white;
+            text-align   : center;
+            margin-left  : 24rpx;
+            margin-right : 24rpx;
+            border-radius: 24rpx;
+            padding      : 12rpx;
+            font-size    : 34rpx;
+            color        : white;
         }
-        .changeTime{
+
+        .changeTime {
             text-align      : center;
             margin-left     : 24rpx;
             margin-right    : 24rpx;
             border-radius   : 24rpx;
-            padding         : 6rpx;
             color           : white;
-            margin-top: 24rpx;
-            font-size: 32rpx;
-            background-color: rgb(78, 78, 78);
+            margin-top      : 24rpx;
+            background-color: #63A1A0;
+
+            .sends {
+                padding  : 12rpx;
+                font-size: 34rpx;
+            }
         }
     }
 }
@@ -154,36 +180,44 @@ page {
 
 /*对话框 */
 .commodity_attr_box {
-    border-radius: 24rpx;
-    width      : 100%;
-    overflow   : hidden;
-    position   : fixed;
-    bottom     : 0;
-    left       : 0;
-    z-index    : 2000;
-    background : #fff;
-    padding-top: 20rpx;
-    display: flex;
+    border-radius : 24rpx;
+    width         : 100%;
+    overflow      : hidden;
+    position      : fixed;
+    bottom        : 0;
+    left          : 0;
+    z-index       : 2000;
+    background    : #fff;
+    padding-top   : 20rpx;
+    display       : flex;
     flex-direction: column;
-    .title{
-        font-size: 32rpx;
+
+    .title {
+        font-size : 32rpx;
         text-align: center;
-        padding: 12rpx;
+        padding   : 12rpx;
+        // color: #63A1A0;
     }
-    .input{
-        margin: 12rpx;
+
+    .input {
+        margin : 12rpx;
         padding: 12rpx;
-        textarea{
+
+        textarea {
             height: 200rpx;
+            width : 100%;
         }
     }
-    .bt_wrap{
+
+    .bt_wrap {
         padding: 24rpx;
-        .add{
-            border-radius: 24rpx;
-            color: white;
-            padding: 6rpx;
-            text-align: center;
+
+        .add {
+            border-radius   : 24rpx;
+            color           : white;
+            padding         : 12rpx;
+            font-size       : 36rpx;
+            text-align      : center;
             background-color: #53538b;
         }
     }

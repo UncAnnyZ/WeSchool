@@ -8,8 +8,7 @@
             <swiper indicator-dots='true' indicator-color="#fff" indicator-active-color='red' current="{{current}}">
                 <block>
                     <swiper-item bind:longpress="changeImg">
-                        <image data-src="{{imgUrl}}" src="{{imgUrl}}" mode="aspectFill"
-                            style="z-index: 11;width:100%;height:100%" bindtap="previewImage" />
+                        <image data-src="{{imgUrl}}" src="{{imgUrl}}" mode="aspectFill" style="z-index: 11;width:100%;height:100%" bindtap="previewImage" />
                     </swiper-item>
                 </block>
             </swiper>
@@ -18,16 +17,17 @@
     </view>
     <!-- 招新标题 -->
     <view class="add_man_wrap">
-        <view class="add_caption">招新标题</view>
+        <view class="add_caption">社团/机构介绍(轻触修改)</view>
         <view class="inp_wrap">
-            <input placeholder="xx社团/协会招新啦~" bind:input="getTitle" value="{{add_title}}"/>
+            <textarea class="handle_wrap" maxlength="-1" placeholder="xx社团/协会招新啦~" bind:input="getTitle" value="{{add_title}}" style="height:120rpx;"></textarea>
+            <!-- <input placeholder="xx社团/协会招新啦~" bind:input="getTitle" value="{{add_title}}" /> -->
             <view class="add_title" bind:tap="add_title">保存</view>
         </view>
     </view>
     <!-- 问卷编辑 -->
     <view class="mess_item">
         <view class="title">招新问卷[{{sendStatus==false?'未发布':'已发布'}}]</view>
-        <view class="content_item" wx:for="{{freshman}}">
+        <view class="content_item" wx:for="{{freshman}}" wx:key="item">
             <view class="name">{{index+1}}.{{item.content}}</view>
             <view class="operation">
                 <view class="delete" data-item="{{item}}" bind:tap="delete">删除</view>
@@ -36,21 +36,13 @@
         </view>
         <view class="add" bind:tap="clickme">+</view>
     </view>
-    <!-- 时间选择 -->
-    <!-- <view class="bt_wrap">
-   <picker mode="date" value="{{date}}" start="2022-2-01" end="2023-1-01" bindchange="changeDate" class="sends">
-       截至时间
-   </picker>
- </view> -->
     <!-- 发布按钮 -->
     <view class="bt_wrap">
-        <view class="send" bind:tap="send"
-            style="{{sendStatus==false?'background-color: #536f8b;':'background-color: #8b538b;'}}">
+        <view class="send" bind:tap="send" style="{{sendStatus==false?'background-color: #63A1A0;':'background-color: #8b538b;'}}">
             {{sendStatus==false?'发布招新':'撤回问卷'}}
         </view>
         <view class="changeTime">
-            <picker mode="date" value="{{date}}" start="2022-2-01" end="2023-1-01" bindchange="changeDate"
-                class="sends" >
+            <picker mode="date" value="{{date}}" start="2022-2-01" end="2023-1-01" bindchange="changeDate" class="sends">
                 {{date==null?'截止时间':'截至:'+date}}
             </picker>
         </view>

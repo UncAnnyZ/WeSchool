@@ -1,0 +1,16 @@
+<view class="detail_wrap">
+  <view class="img">
+    <image src="{{item.logoUrl}}" lazy-load="{{true}}" />
+  </view>
+  <view class="mess_wrap">
+    <view class="name">#{{item.hostMess.association}}</view>
+    <view class="detail">
+      <view class="activity">{{item.activityCount}}个活动</view>
+      <view class="tip">|</view>
+      <view class="hot_num">{{item.activityCount+item.personCount}}人参与</view>
+    </view>
+  </view>
+  <view class="bt_wrap">
+    <navigator class="go" bind:tap="go" data-assoIndex="{{item.count}}">去参与</navigator>
+  </view>
+</view>

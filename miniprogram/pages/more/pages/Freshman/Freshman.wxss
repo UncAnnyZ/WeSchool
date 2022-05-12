@@ -1,6 +1,9 @@
 page {
   background-color: #f6f6f6;
 }
+.wrap swiper {
+  text-align: center;
+}
 .wrap .top {
   display: flex;
   align-items: center;
@@ -17,7 +20,7 @@ page {
   padding: 16rpx;
   border-radius: 24rpx;
   font-size: 32rpx;
-  color: rgba(49, 80, 255, 0.856);
+  color: #63A1A0;
 }
 .wrap .mess_wrap {
   padding: 24rpx;
@@ -38,10 +41,12 @@ page {
 .wrap .mess_wrap .mess_list .mess_item {
   display: flex;
   flex-direction: row;
-  padding: 4rpx;
+  padding: 18rpx;
 }
 .wrap .mess_wrap .mess_list .mess_item .title {
-  flex: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 .wrap .mess_wrap .mess_list .mess_item .content {
   flex: 3;
@@ -66,17 +71,17 @@ page {
 .wrap .apply .input_list .input_item {
   display: flex;
   flex-direction: row;
-  padding: 8rpx;
+  padding: 18rpx;
 }
 .wrap .apply .input_list .input_item .input_title {
-  flex: 2;
+  flex: 1;
 }
 .wrap .apply .input_list .input_item .input_content {
   flex: 3;
   width: auto;
   margin-left: 12rpx;
   background-color: #ececec;
-  padding-left: 8rpx;
+  padding: 8rpx;
   border-radius: 18rpx;
 }
 .wrap .end {
@@ -89,4 +94,5 @@ page {
   margin-right: 20%;
   margin-left: 20%;
   color: white;
+  width: 60%;
 }

@@ -1,13 +1,10 @@
-<!-- <block wx:for="{{List}}" wx:key="index"> -->
-<view class="pic" bindtap="ShowContent">
+<view class="pic">
   <view class="tip_wrap">
-    <view class="tip_title">we校园社团报名></view>
-    <view class="tip_tip">2.8万同学在这里</view>
+    <view class="tip_title" bind:tap="allAsso">we校园社团报名></view>
+    <view class="tip_tip" bindtap="ShowContent">2.8万同学在这里</view>
   </view>
-  <image class="Show_Image" lazy-load src='{{item.Cover}}' mode="aspectFill"
-    style="height: {{item.ShowHeight > 500 ? 500+'rpx':item.ShowHeight+'rpx'}};" binderror="binderrorimg"
-    bindload='onLazyLoad'></image>
-  <view class="back">
+  <image bindtap="ShowContent" class="Show_Image" lazy-load src='{{item.Cover}}' mode="aspectFill" style="height: {{item.ShowHeight > 500 ? 500+'rpx':item.ShowHeight+'rpx'}};" binderror="binderrorimg" bindload='onLazyLoad'></image>
+  <view class="back" bindtap="ShowContent">
     <!-- 标签标题 -->
     <span class="pic_Title">
       <text>{{item.Title||item.Text}}</text>
@@ -20,8 +17,5 @@
         <span class="person_num">{{item.personArr.length==0?'1':item.personArr.length}}人参与</span>
       </span>
     </span>
-    <!-- <image src="{{item.iconUrl}}" class="text_user" />
-      <span class="text_username">{{item.nickName}}</span> -->
   </view>
 </view>
-<!-- </block> -->

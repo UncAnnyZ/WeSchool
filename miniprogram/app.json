@@ -14,7 +14,11 @@
     "pages/myself/myself",
     "pages/test/test",
     "pages/index/guidance/guidance",
-    "pages/myself/page/page"
+    "pages/myself/page/page",
+    "pages/myself/fansAndfocus/fansAndfocus",
+    "pages/myself/components/InfoFlowCards/InfoFlowCards",
+    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment",
+    "pages/myself/rule/rule"
   ],
   "subPackages": [
     {

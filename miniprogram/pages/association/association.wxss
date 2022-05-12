@@ -1,24 +1,27 @@
 page {
-  background-color: #f6f6f6;
+  background-color: #ffffff;
 }
 .wrap {
-  background-image: linear-gradient(#1e2266, #ffe7e7);
+  background-image: linear-gradient(#232774, #ffe7e7);
 }
 .wrap .caption {
+  height: 200rpx;
   padding: 24rpx;
 }
 .wrap .caption .title {
+  padding-top: 20rpx;
   font-weight: 700;
   text-align: center;
   color: white;
 }
 .wrap .caption .tip {
-  padding-top: 18rpx;
+  padding-top: 25rpx;
   font-size: 28rpx;
   color: #e0e0e0;
 }
 .wrap .list_wrap {
   padding: 24rpx;
+  padding-top: 30rpx;
   background-color: white;
   border-top-right-radius: 32rpx;
   border-top-left-radius: 32rpx;
@@ -27,24 +30,50 @@ page {
   display: flex;
   flex-direction: row;
   padding: 8rpx;
+  margin-top: 24rpx;
 }
 .wrap .list_wrap .list_item .left {
-  flex: 1;
+ align-items: center;
+  display: flex;
+  font-size: 30rpx;
+  /* flex: 1; */
+  width: 150rpx;
+}
+.wrap .list_wrap .list_item .add_logo {
+  justify-content: center;
+  align-items: center;
+  /* flex: 3; */
+  display: flex;
+  font-size: 40rpx;
+  color: #808080;
+  background-color: #eeeeee;
+  border-radius: 5rpx;
+  width: 170rpx;
+  height: 170rpx;
+  /* padding: 12rpx 0 12rpx 24rpx; */
 }
 .wrap .list_wrap .list_item .rigth {
   flex: 3;
-  padding-left: 24rpx;
   background-color: #eeeeee;
-  border-radius: 26rpx;
+  border-radius: 9rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  /* height: 30rpx; */
+  line-height: 20rpx;
+  padding: 12rpx 0 9rpx 24rpx;
 }
 .wrap .list_wrap .submit {
   display: flex;
   justify-content: center;
   align-content: center;
   text-align: center;
-  border-radius: 48rpx;
+  border-radius: 15rpx;
   margin-top: 52rpx;
-  width: 80%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 35rpx;
+  width: 70%;
   color: white;
   background-color: #3188c3;
 }
@@ -72,19 +101,22 @@ page {
   display: flex;
   flex-direction: row;
   padding: 6rpx;
-  font-size: 34rpx;
+  padding-top: 12rpx;
+  font-size: 30rpx;
 }
 .asso_wrap .mess_item .mess_wrap .title {
   flex: 1;
+  display: flex;
+  align-items: center;
   font-weight: 600;
 }
 .asso_wrap .mess_item .mess_wrap .mess {
-  padding: 18rpx;
+  padding: 16rpx;
   padding-left: 24rpx;
   flex: 3;
   color: #858585;
   background-color: #f1f1f1;
-  border-radius: 24rpx;
+  border-radius: 15rpx;
   justify-content: center;
   align-items: center;
   line-height: 32rpx;
@@ -101,6 +133,7 @@ page {
 .asso_wrap .bt_list .bt_title_wrap {
   display: flex;
   flex-direction: row;
+  margin-top: 30rpx;
 }
 .asso_wrap .bt_list .bt_title_wrap .bt_title {
   flex: 3;
@@ -111,6 +144,8 @@ page {
 .asso_wrap .bt_list .bt_title_wrap .bt_tip {
   flex: 2;
   color: #c7c7c7;
+  text-align: right;
+  padding-right: 44rpx;
   font-size: 28rpx;
 }
 .asso_wrap .bt_list .bt_list_wrap {
@@ -122,10 +157,12 @@ page {
 }
 .asso_wrap .bt_list .bt_list_wrap .act_bt {
   flex: 1;
+  font-size: 30rpx;
+  color: rgb(56, 56, 56);
 }
 .asso_wrap .bt_list .bt_list_wrap .act_bt image {
-  height: 100rpx;
-  width: 100rpx;
+  height: 80rpx;
+  width: 80rpx;
 }
 .asso_wrap .bt_list .bt_list_wrap .race_bt {
   flex: 1;
@@ -144,6 +181,7 @@ page {
 .asso_wrap .bt_list .data_title_wrap {
   display: flex;
   flex-direction: row;
+  margin-top: 30rpx;
 }
 .asso_wrap .bt_list .data_title_wrap .data_title {
   flex: 3;
@@ -155,6 +193,8 @@ page {
   flex: 2;
   color: #c7c7c7;
   font-size: 28rpx;
+  text-align: right;
+  padding-right: 40rpx;
 }
 .asso_wrap .dele_list {
   display: flex;

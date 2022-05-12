@@ -1,0 +1,19 @@
+var ctFocus = function (e, ins) {
+  var keyboard_h = e.detail.height;
+  console.log(keyboard_h);
+  ins.selectComponent('.ReplyCom_contain').setStyle({
+    "bottom": keyboard_h + "px",
+    "opacity": 1
+  })
+  return keyboard_h
+}
+var ctBlur = function (e, ins) {
+  ins.selectComponent('.ReplyCom_contain').setStyle({
+    "bottom": "0",
+    "opacity": 0
+  })
+}
+module.exports = {
+  ctFocus:ctFocus,
+  ctBlur:ctBlur
+}

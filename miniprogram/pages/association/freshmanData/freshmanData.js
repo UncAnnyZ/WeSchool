@@ -15,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     count = wx.getStorageSync('args').username
+    count=String(count)
     this.getDate(count)
   },
   // 查询招新数据

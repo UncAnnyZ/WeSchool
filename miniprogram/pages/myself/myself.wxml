@@ -1,101 +1,70 @@
-<view class="container">
-  <!-- 头部 -->
-  <view class="head">
-    <!-- 状态栏 -->
-    <view style="height: {{statusBarHeight}}px;"></view>
-    <!-- 导航栏 -->
-    <view style="height: {{lineHeight}}px;"></view>
-  </view>
 
-  <!-- 用户信息区域 -->
-  <view class="info">
-    <view class="userInfo">
-      <!-- 头像 -->
-      <view class="userInfo_avatar">
-        <image wx:if="{{isLogin}}" src="{{storageInfo.iconUrl}}" />
-        <image src="./images/logo.jpg"></image>
-      </view>
-
-      <view class="userInfo_text" bindtap="school">
-        <view class="left">
-          <!-- 姓名 -->
-          <view>
-            <text>{{isLogin ? storageInfo.nickName : "你还没登录哟!"}}</text>
-          </view>
-          <!-- 学号 -->
-          <view>
-            <text wx:if="{{!isLogin}}">点击登录账号</text>
-            <view wx:else>学号：{{storageInfo.username}}</view>
-          </view>
-        </view>
-
-        <view class="right" wx:if="{{isLogin}}">
-          <view>{{studyDate}}</view>
-          <view>{{studyWeek}}</view>
-        </view>
-
-      </view>
-
+    <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;position: fixed;background-color: #B1E8E5;;z-index: 3;top: 0;">
+      <view class="header-text" style="top: {{statusBarHeight+10}}px;">我的</view>
     </view>
-  </view>
-
-  <view class="blocks">
-
-    <!-- 中间待定功能/学校模块 -->
-    <view class="moduleAdd">
-      <view class="firstModule moduleItem">
-        <view class="text">0</view>
-        <view class="fundamention">待定功能</view>
+    <scroll-view class="container" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="padding-top: {{statusBarHeight + lineHeight-20}}px;">
+    <view class="containers" >
+      <view class="header" >
+          <image class="header-right-img" bindtap="navigate" data-type="tip"  src="./images/img/message.png"/>
+          <view wx:if="{{NewInfo}}"  class="tip_dot">
+            <text wx:if="{{NewInfo<100}}">{{NewInfo}}</text>
+            <text wx:elif="{{NewInfo>=100}}">99+</text>
+          </view>
+        <image class="header-right-img" src="./images/img/set.png"/>
       </view>
-      <view class="secondModule moduleItem">
-        <view class="text">{{storageInfo.school ? storageInfo.school : '暂未登录'}}</view>
-        <view class="fundamention">学校</view>
-      </view>
-    </view>
-
-    <!-- 学校/学号Dialog -->
-    <view class="demoBox">
-      <!-- 学校 -->
-      <view class="demoUser" catchtap="school">
-        <view class="left">
-          <image src="images/class.png"></image>
-          <text class="title">学校</text>
+      <view class="banner bannerbgc" bindtap="toFans"> 
+        <view class="banner-fri">
+          <view class="banner-fri1">
+            <image src="{{person_info.iconUrl}}" class="banner-fri-touxiang" ></image>
+            <view class="bnaner-fri-left">
+              <view class="banner-fri-title">
+                {{person_info.nickName}}
+              </view>
+              <view class="banner-fri-content">
+                <view class="banner-fri-content-user">ID:{{person_info.username}}</view>
+                <view class="banner-fri-content-school">{{person_info.School}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="banner-fri2">
+            <image class="banner-fri2-img" src="./images/right.png"></image>
+          </view>
         </view>
-        <view class="right">
-          <text>{{isLogin ? storageInfo.school : '暂未登录'}}</text>
-        </view>
-
-      </view>
-      <!-- 学号 -->
-      <view class="demoUser" catchtap="academy">
-        <view class="left">
-          <image src="images/academy.png"></image>
-          <text class="title">学号</text>
-        </view>
-        <view class="right">
-          <text>{{isLogin ? storageInfo.username : '暂未登录'}}</text>
+        <view class="banner-sec"  >
+          <view class="block">
+            <view>{{StarNum}}</view>
+            <view>获赞</view>
+          </view>
+          <view class="block" data-type="focusNum">
+            <view>{{focusNum.length}}</view>
+            <view>关注</view>
+          </view>
+          <view class="block" data-type="fansNum">
+            <view>{{fansNum.length}}</view>
+            <view>粉丝数</view>
+          </view>
+          <view class="block">
+            <view>777</view>
+            <view>喜欢</view>
+          </view>
         </view>
       </view>
     </view>
-
-    <!--  关于我们...Dialog -->
-    <view class="more">
-      <block wx:for="{{list}}" wx:key="index">
-        <button class="more_item" catchtap="{{item.click}}" open-type="{{item.id==4?'share':''}}" hover-class="btn_hover">
-          <view class="left">
-            <image src="{{item.icon}}"></image>
-            <text class="title">{{item.title}}</text>
-          </view>
-          <view class="right">
-            <text>{{item.intro}}</text>
-            <image class="jt" src="{{right || '/pages/myself/images/right.png'}}"></image>
-          </view>
-        </button>
-      </block>
+    <view style="height: 80rpx;width: 100%;">
+      <weimob-sticky scrollTop="{{scrollTop}}" offsetTop="{{offsetTop}}">
+        <view style="background-color: #fdfdfd;">
+            <TabScroll  style="z-index: 3;position: relative;left:25rpx" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"  ></TabScroll>
+        </view>
+      </weimob-sticky>
     </view>
 
-  </view>
+    <scroll-view wx:if="{{campus_account!=true}}" class="page" >
+      <Loading wx:if="{{showLoading}}" />
+      <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight+90}}px;">
+        <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">
+          <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
+        </swiper-item>
+      </swiper>
+    </scroll-view>
+</scroll-view>
 
-
-
-</view>

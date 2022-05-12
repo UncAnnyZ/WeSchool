@@ -1,0 +1,8 @@
+<view class="boxbg">
+  <view class="title">We校园社区规范</view>
+  <view class="uptime">
+    <view class="uptime_left"></view>
+    <view class="uptime_right">更新时间：{{uptime}}</view>
+  </view>
+  <rich-text nodes="{{text}}" class="text"></rich-text>
+</view>

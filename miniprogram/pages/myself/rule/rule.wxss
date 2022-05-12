@@ -1,0 +1,47 @@
+/* pages/myself/rule/rule.wxss */
+page{
+  background: #1e2b4d;
+}
+/* #fffdf1 */
+.boxbg{
+  width: 92vw;
+  height: auto;
+  border-radius: 10rpx;
+  margin: 10rpx auto; 
+  background: #fffdf1;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  font-size: 38rpx; 
+  letter-spacing:5rpx;
+  margin-top: 40rpx;
+  margin-left: 25rpx;
+}
+.uptime{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-top: 40rpx;
+  align-items: center;
+}
+.uptime_left{
+  width: 10rpx;
+  height: 60rpx;
+  background: #dad6d5;
+  border-radius: 5rpx;
+  margin-left: 25rpx;
+}
+.uptime_right{
+  color: #b8b4b3;
+  margin-left: 25rpx;
+  font-size: 28rpx;
+  letter-spacing:3rpx;
+}
+.text{
+  width: 90%;
+  margin: 30rpx auto ;
+  /* margin-left: 25rpx; */
+  margin-bottom: 100rpx;
+}

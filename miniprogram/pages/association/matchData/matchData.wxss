@@ -1,8 +1,21 @@
+page {
+  background-color: #f1f1f1;
+}
+.top_wrap {
+  font-size: 32rpx;
+  text-align: right;
+  padding: 6rpx;
+  color: #63A1A0;
+  background-color: #63a1a034;
+  border-radius: 8rpx;
+}
 .wrap {
   font-size: 32rpx;
 }
 .wrap .caption {
   text-align: center;
+  color: #63A1A0;
+  margin-top: 12rpx;
 }
 .wrap .item_wrap .content_wrap {
   display: flex;
@@ -17,4 +30,9 @@
 }
 .wrap .item_wrap .content_wrap .status {
   flex: 1;
+}
+.wrap .tip {
+  text-align: center;
+  margin-top: 24rpx;
+  color: #7c7c7c;
 }
