@@ -159,10 +159,12 @@ Page({
     //  ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院"     // 边界处理 - 用户没登录时
     //拉取数据
     let username = args.username
-    if (currComponent.data.loadAll) {
+    if (currComponent.data.loadAll || currComponent.data.NoData) {
       console.log("已经拉到底了");
+      
       return;
     }
+
     console.log(currentPage)
     wx.cloud.callFunction({
       name: "NewCampusCircle",
@@ -213,14 +215,13 @@ Page({
           });
         }
         else { //不存在数据时
-          if (currComponent.data.leftH == 0 && currComponent.data.rightH == 0) {
+         
             currComponent.setData({
-              leftList: [],
-              rightList: [],
-              list: [null],         // 避免显示“玩命加载数据”
+              
+              NoData:true,
+              list: [],         // 避免显示“玩命加载数据”
               loadAll: true         // 显示“暂无数据”
             })
-          }
         }
         wx.createSelectorQuery()
           .select(`#InfoFlowCards${currentTab}`)
@@ -376,9 +377,21 @@ Page({
   // 滑动选择标签  
   switchTab: function (e) {
     var currentTab = e;
-
+    var that = this
+    wx.createSelectorQuery()
+    .select(`#InfoFlowCards${currentTab}`)
+    .boundingClientRect(res => {
+      // 避免高度过小
+      res.height < 100 ? res.height = 100 : '';
+      console.log(res.height)
+      that.setData({
+        currentWaterFlowHeight: res.height
+      })
+    })
+    .exec()
     if (this.data.allList[currentTab].length) {
       console.log("页面已经有数据了，不请求数据库");
+    
       return;
     } else {
       this.getData();
