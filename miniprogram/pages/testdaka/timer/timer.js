@@ -5,14 +5,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-        name: '我的名字',
-        pic_address:'../../../images/about/long.jpg',
-        txt_frequence:'打卡总次数',
-        frequence:null,
-        txt_groupNum:'我参与的小组数',
-        groupNum:null,
-        txt_hours:'我的总专注时长',
-        hours:null
+        Group_Name: '发际线与我作队',
+        time: '00:00:00',
+        state: 'ready',
+        hour: 0,
+        minutes: 0,
+        seconds: 0
     },
 
     /**
@@ -34,6 +32,50 @@ Page({
      */
     onShow: function () {
 
+    },
+
+    // 开始计时
+    begin() {
+        this.timer = setInterval(this.startTimer, 1000);
+        this.setData({
+            state: 'started'
+        })
+    },
+    startTimer() {
+        var _seconds = this.data.seconds
+        var _minute = this.data.minutes
+        var _hour = this.data.hour
+
+        _seconds += 1;
+        if (_seconds >= 60) {
+            _seconds = 0;
+            _minute = _minute + 1;
+        }
+
+        if (_minute >= 60) {
+            _minute = 0;
+            _hour = _hour + 1;
+        }
+        var ti = (_hour < 10 ? '0' + _hour : _hour) + ':' + (_minute < 10 ? '0' + _minute : _minute) + ':' + (_seconds < 10 ? '0' + _seconds : _seconds);
+
+        this.setData({
+            time: ti,
+            seconds:_seconds,
+            minutes:_minute,
+            hour:_hour,
+        })
+    },
+
+    // 暂停倒计时
+    pause() {
+        if (this.timer) {
+            clearInterval(this.timer);
+            // this.timer = null
+        }
+
+        this.setData({
+            state: 'ready'
+        })
     },
 
     /**
