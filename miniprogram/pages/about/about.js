@@ -68,10 +68,11 @@ Page({
     // }
     // ],
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad: function (options) {
     var that = this;
     console.log(app.globalData.verse)
@@ -83,7 +84,7 @@ Page({
     })
 
   },
-  
+
   copyID: function () {
     wx.setClipboardData({
       data: 'wxd1eacf33b4ed0195'

@@ -14,6 +14,8 @@
     "pages/myself/myself",
     "pages/test/test",
     "pages/index/guidance/guidance",
+    "pages/myself/page/page",
+    "pages/myself/rule/rule",
     "pages/more/components/searchPage/searchPage",
     "pages/more/components/searchContent/searchContent",
     "pages/myself/fansAndfocus/fansAndfocus",

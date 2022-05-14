@@ -17,7 +17,7 @@ Component({
     Label: '全部', // 当前标签  
     comReply: false, //控制评论组件的出现
     focus: false, //评论
-
+    NoData:false
   },
   observers: {
     'list': function (e) {
