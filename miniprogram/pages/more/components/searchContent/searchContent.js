@@ -32,63 +32,59 @@ Page({
       {
         value
       } = e.detail
+      console.log(value);
+    this.search(value)
     // waterComponent = that.selectComponent(`#waterFlowCards0`);
-    // 初始化定时器
-    clearTimeout(this.timeId)
-    this.timeId = setTimeout(() => {
-      search(value) //发送请求，间隔时间为1s
-    }, 500)
-    const search = (value) => {
-      if (value) {
-        wx.hideNavigationBarLoading();
-        wx.cloud.callFunction({
-          name: "NewCampusCircle",
-          data: {
-            url: "Card",
-            type: "search",
-            searchKey: value
-          },
-          success: res => {
-            console.log(res);
-            //历史记录关键词
-            this.setData({
-              searchInfo: res.result.data
-            })
-            let localSearchKey = wx.getStorageSync('searchKey') || []
-            const index = localSearchKey.indexOf(value)
-            console.log(index);
-            if(index !== -1) {
-              localSearchKey.splice(index, 1)
-            }
-            localSearchKey.unshift(value)
-            wx.setStorage({
-              key: 'searchKey',
-              data: localSearchKey
-            }) 
-            //定向到搜索的内容页面
-            wx.navigateTo({
-              url: `/pages/more/components/searchContent/searchContent?query=${value}`
-            })
-          },
-          fail: err => {
-            console.error
-          },
-          complete: e => {
-            wx.hideNavigationBarLoading();
-          }
-        })
-      } else {
-        // 清空瀑布流内容
-        // waterComponent.RightLeftSolution(true);
-        // 重新加载数据
-        // that.onPullDownRefresh();
-      }
-    }
-
+    
   },
-
+  search: function (value) {
+    var that = this
+    if (value) {
+      wx.hideNavigationBarLoading();
+      wx.cloud.callFunction({
+        name: "NewCampusCircle",
+        data: {
+          url: "Card",
+          type: "search",
+          searchKey: value
+        },
+        success: res => {
+          //定向到搜索的内容页面
+          wx.redirectTo({
+            url: `/pages/more/components/searchContent/searchContent?query=${value}`
+          })
+          console.log(res);
+          //历史记录关键词
+          that.setData({
+            searchInfo: res.result.data
+          })
+          let localSearchKey = wx.getStorageSync('searchKey') || []
+          const index = localSearchKey.indexOf(value)
+          console.log(index);
+          if(index !== -1) {
+            localSearchKey.splice(index, 1)
+          }
+          localSearchKey.unshift(value)
+          wx.setStorage('searchKey', localSearchKey) 
+          console.log('111');
+          
+        },
+        fail: err => {
+          console.error
+        },
+        complete: e => {
+          wx.hideNavigationBarLoading();
+        }
+      })
+    } else {
+      // 清空瀑布流内容
+      waterComponent.RightLeftSolution(true);
+      // 重新加载数据
+      // that.onPullDownRefresh();
+    }
+  },
   onLoad: function (options) {
-    console.log(options.query);
+    // console.log(options.query);
     let that = this,
     waterComponent = this.selectComponent(`#waterFlowCards0`);
     this.setData({
@@ -102,7 +98,6 @@ Page({
         searchKey: options.query
       },
       success: res => {
-        console.log(res.result.data);
         if (res.result.data.length != 0) {
           // 清空瀑布流数据
           waterComponent.RightLeftSolution(true);
@@ -133,7 +128,9 @@ Page({
         wx.hideNavigationBarLoading();
       }
     })
-
+  },
+  onShow: function () {
+    this.onLoad()
   },
   waterChange(e) {
     let currentTab = e.detail.current,

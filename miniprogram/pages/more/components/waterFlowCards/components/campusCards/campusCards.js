@@ -82,7 +82,6 @@ Component({
       //     res.eventChannel.emit('setContentData', content)
       //   },
       // })
-
       wx.navigateTo({
         // 从校园圈主页跳转
         url: `./pages/DetailContent/DetailContent?content=${data}`,
