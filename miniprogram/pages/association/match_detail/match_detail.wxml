@@ -1,22 +1,27 @@
 <view class="wrap">
-    <view class="img">
-        <image src="/images/Camera-3.png" hidden="{{imgUrl}}" bind:tap="addImg" />
-        <swiper indicator-dots='true' indicator-color="#fff" indicator-active-color='red' current="{{current}}" hidden="{{!imgUrl}}">
-            <block>
-                <swiper-item>
-                    <image data-src="{{imgUrl}}" src="{{imgUrl}}" mode="aspectFill" style="z-index: 11;width:600rpx;height:100%;" />
-                </swiper-item>
-            </block>
-        </swiper>
+    <view class="top_wrap">
+        <view class="img">
+            <image src="/images/Camera-3.png" hidden="{{imgUrl}}" bind:tap="addImg" />
+        </view>
+        <view class="img_1">
+            <swiper indicator-dots='true' indicator-color="#fff" indicator-active-color='red' current="{{current}}" hidden="{{!imgUrl}}">
+                <block>
+                    <swiper-item>
+                        <image bind:longpress="changeImg" data-src="{{imgUrl}}" src="{{imgUrl}}" mode="aspectFill" style="z-index: 11;width:100%;height:100%" class="imgUrl" />
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <view class="title" >[宣传海报]长按修改</view>
     </view>
     <view class="content_wrap">
-        <view class="top_wrap">
-            <view class="title">标题</view>
+        <view class="top_wrap_top">
+            <view class="title_top">标题</view>
             <input maxlength="-1" placeholder="赛事标题" bind:input="title" value="{{title}}" />
         </view>
         <view class="mid_wrap">
-            <view class="title">描述</view>
-            <input maxlength="-1" placeholder="赛事内容描述" bind:input="detail" value="{{contentDetail}}" />
+            <view class="title_top">描述</view>
+            <textarea class="handle_top" maxlength="-1" placeholder="赛事内容描述" bind:input="detail" value="{{contentDetail}}" style="height:120rpx;"></textarea>
         </view>
     </view>
     <!-- 奖励 -->
@@ -37,7 +42,7 @@
         <view class="item_wrap">
             <view class="item" wx:for="{{tempContent}}" wx:key="item">
                 <view class="list_1" bind:tap="toFixed" data-item="{{item}}">
-                    {{index+1}}.{{item.title}}
+                    {{index+1}}.{{item.must==true?'*':''}}{{item.title}}
                 </view>
                 <view class="list_2" bind:tap="delete" data-index="{{index}}">删除</view>
             </view>
@@ -48,7 +53,7 @@
         <view class="keep" bindtap="hold" data-status="{{false}}">保存</view>
         <!-- 选择时间 -->
         <view class="change_time">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <picker mode="date" value="{{date}}" start="2022-03-01" end="2024-09-01" bindchange="bindDateChange">
                 <view class="picker">截止日期:{{date}}</view>
             </picker>
         </view>

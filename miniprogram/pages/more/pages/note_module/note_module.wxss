@@ -1,162 +1,167 @@
 .container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    padding: 20rpx;
-    box-sizing: border-box;
-    /* margin: 20rpx; */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+  /* margin: 20rpx; */
 }
 
 /* 公示栏 */
 .container .inform {
-    width: 100%;
-    padding: 20rpx;
-    font-size: 25rpx;
-    background-color: rgb(240, 238, 238);
-    border-radius: 15rpx;
-    color: rgb(133, 131, 131);
-    box-sizing: border-box;
-    letter-spacing: 2rpx;
-    line-height: 35rpx;
-    margin-top: 20rpx;
-    margin-bottom: 15rpx;
+  width: 100%;
+  padding: 20rpx;
+  font-size: 25rpx;
+  background-color: rgb(240, 238, 238);
+  border-radius: 15rpx;
+  color: rgb(133, 131, 131);
+  box-sizing: border-box;
+  letter-spacing: 2rpx;
+  line-height: 35rpx;
+  margin-top: 20rpx;
+  margin-bottom: 15rpx;
 }
+
 .container .inform .choose_anhao {
-    text-align: center;
-    width: 150rpx;
-    height: 40rpx;
-    margin-top: 15rpx;
-    text-decoration: underline;
-    color: #2c2c2cb4;
+  text-align: center;
+  width: 150rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+  text-decoration: underline;
+  color: #2c2c2cb4;
 }
+
 .container .inform .choose_anhao_active {
-    font-size: 23rpx;
-    color: #5f5e5eb4;
+  font-size: 23rpx;
+  color: #5f5e5eb4;
 }
+
 .container .main_body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 小纸条 */
 .container .noteBox {
-    width: 92vw;
-    min-height: 200rpx;
-    /* background-color: pink; */
-    border-radius: 15rpx;
-    margin: 15rpx 0;
-    padding: 20rpx;
-    box-sizing: border-box;
-    box-shadow: rgb(223, 223, 223) 0 2rpx 7rpx;
-    /* background-image: linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%); */
+  width: 92vw;
+  min-height: 200rpx;
+  /* background-color: pink; */
+  border-radius: 15rpx;
+  margin: 15rpx 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow: rgb(223, 223, 223) 0 2rpx 7rpx;
+  /* background-image: linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%); */
 }
-
+.noteBox_active {
+  transform: scale(0.99);
+}
 /* 时间和举报 */
 .container .noteBox .first_line {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    font-size: 29rpx;
-    margin-bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 29rpx;
+  margin-bottom: 10rpx;
 }
 
 .first_line .time {
-    font-size: 25rpx;
-    font-weight: 550;
+  font-size: 25rpx;
+  font-weight: 550;
 }
 
 .first_line .jubao {
-    padding: 3rpx 15rpx;
-    font-size: 25rpx;
-    letter-spacing: 1rpx;
-    border: 1rpx solid #9b9b9b48;
-    color: rgb(82, 81, 81);
-    border-radius: 20rpx;
+  padding: 3rpx 15rpx;
+  font-size: 25rpx;
+  letter-spacing: 1rpx;
+  border: 1rpx solid #9b9b9b48;
+  color: rgb(82, 81, 81);
+  border-radius: 20rpx;
 }
 
 .container .noteBox .Line {
-    background: #9b9b9b48;
-    width: 100%;
-    height: 1rpx;
+  background: #9b9b9b48;
+  width: 100%;
+  height: 1rpx;
 }
 
 /* 第二列 */
 .container .noteBox .second_line {
-    display: flex;
-    flex-direction: row;
-    margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
 
 }
 
 /* 头像 */
 .container .noteBox .second_line .userInfo_avatar {
-    border: 5rpx solid rgba(171, 199, 233, 0.6);
+  border: 5rpx solid rgba(171, 199, 233, 0.6);
 }
 
 .userInfo_avatar,
 .userInfo_avatar image {
-    overflow: hidden;
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
+  overflow: hidden;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
 
 /* 昵称和内容 */
 .container .noteBox .second_line .userInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 20rpx;
-    width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  width: 80%;
 }
 
 
 .container .noteBox .second_line .userInfo .nickName {
-    font-size: 26rpx;
-    color: rgb(133, 131, 131);
+  font-size: 26rpx;
+  color: rgb(133, 131, 131);
 }
 
 .container .DataNull {
-    font-size: 26rpx;
-    color: #2c2c2cb4;
-    display: flex;
-    justify-content: center;
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
 }
 
 /* 发送留言 */
 .container .send_noteBox {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 220rpx;
-    box-sizing: border-box;
-    background: linear-gradient(0deg, #fff, rgb(255,255,255,0));
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 220rpx;
+  box-sizing: border-box;
+  background: linear-gradient(0deg, #fff, rgb(255, 255, 255, 0));
 }
 
 .container .send_note {
-    position: absolute;
-    left: 20rpx;
-    right: 20rpx;
-    bottom: 30rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70rpx;
-    box-sizing: border-box;
-    border-radius: 50rpx;
-    font-size: 26rpx;
-    letter-spacing: 2rpx;
-    color: #fff;
-    background: #C6FFDD;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: absolute;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70rpx;
+  box-sizing: border-box;
+  border-radius: 50rpx;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+  color: #fff;
+  background: #C6FFDD;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }

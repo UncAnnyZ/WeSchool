@@ -1,0 +1,60 @@
+<view class="container">
+
+    <view class="home">
+        <view class="home_title">
+            <view class="title">首页按键</view>
+            <view class="blank"></view>
+            <view class="manager" bindtap="Manage" style="{{ismanage}}: ?">{{manage_text}}</view>
+            <view class="save" wx:if="{{ismanage}}" bindtap="save">保存</view>
+        </view>
+
+        <view class="home_btn">
+            <view class="iconnBar_remove">
+                <movable-area class="moveArea" style="height: {{itemWrapHeight}}px;">
+                    <movable-view class="iconn" wx:for="{{list}}" wx:key="key" id="{{item.key}}" x="{{index == cur ? tranX:item.tranX}}" out-of-bounds
+                                                y="{{index == cur ? tranY:item.tranY}}" direction="all" disabled="{{index == cur ? disable:'true'}}" 
+                                                bind:longpress="longPress" capture-catch:touchmove="touchMove" catch:touchend="touchEnd" friction="10000" damping='1000'>
+                        <view class="iconn_item" id="{{item.data.url}}">
+                            <view wx:if="{{item.data.name !== '更多'}}">
+                                <navigator class="icon_item_url" url='{{ismanage ? "":item.data.url}}' open-type="{{item.data.type === 'tab跳转'? 'switchTab' : 'navigate'}}">
+                                    <image class="iconn_item_image" src="{{item.data.icon}}"></image>
+                                    <text>{{item.data.name}}</text>
+                                </navigator>
+                                <view bindtap="remove_click" id="{{index}}">
+                                    <image wx:if="{{ismanage}}" class="jianjian" src="../../../images/zan.png"></image>
+                                </view>
+                            </view>
+                            <view wx:else="" class="icon_item_url">
+                                <image class="iconn_item_image" src="{{item.icon}}"></image>
+                                <text>{{item.name}}</text>
+                            </view>
+                        </view>
+                    </movable-view>
+                </movable-area>
+            </view>
+        </view>
+    </view>
+
+    <view class="other_btn">
+        <view class="other_title">其余</view>
+        <view class="other_message" wx:if="{{!other_iconList}}">还没有多余的应用哦~~</view>
+        <view wx:else>
+            <view class="iconn_add" >
+                <view class="icon" wx:for="{{other_iconList}}" wx:key="key" direction="all" bindtap="{{ismanage ? add_click:''}}">
+                    <view class="icon_item" id="{{item.url}}">
+                        <navigator class="icon_item_url" url='{{ismanage ? "":item.url}}' open-type="{{item.type === 'tab跳转'? 'switchTab' : 'navigate'}}">
+                            <image class="icon_item_image" src="{{item.icon}}"></image>
+
+                            <text>{{item.name}}</text>
+                        </navigator>
+                        <view bindtap="add_click" id="{{index}}" wx:if="{{ismanage}}">
+                            <image wx:if="{{ismanage}}" class="jiajia" src="../../../images/zan1.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="trail">长按可排序</view>
+    <view class="trail">We校园~~</view>
+</view>

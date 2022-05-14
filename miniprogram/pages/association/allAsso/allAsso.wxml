@@ -1,0 +1,2 @@
+<assoCard wx:for="{{content}}" item="{{item}}"></assoCard>
+<view class="end_tip">--没有更多啦--</view>

@@ -1,129 +1,150 @@
+.DataNull{
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
+}
 
 .InfoCard {
-    background-color: #fff;
-    margin: 20rpx;
-    box-sizing: border-box;
-    margin-bottom: 20rpx;
-    border-radius: 20rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
 }
+
 .InfoCard .InfoCard_head {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    width: 100%;
-    height: 100rpx;
-    margin-left: 20rpx;
-    /* background-color: green; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  margin-left: 20rpx;
+  /* background-color: green; */
 }
+
 /* 头像 */
 .InfoCard .InfoCard_head .avatar {
-    width: 50rpx;
-    height: 50rpx;
-    /* background-color: #fff; */
-    /* margin-right: 20rpx; */
+  width: 50rpx;
+  height: 50rpx;
+  /* background-color: #fff; */
+  /* margin-right: 20rpx; */
 }
+
 .InfoCard .InfoCard_head .avatar image {
-    width: 50rpx;
-    height: 50rpx;
-    border-radius: 100rpx;
-    /* background-color: pink; */
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 100rpx;
+  /* background-color: pink; */
 }
+
 /* 头部文本 */
 .InfoCard .InfoCard_head .head_text {
-    margin-left: 10rpx;
-    width: 70%;
-    height: 80rpx;
-    display: flex;
-    flex-direction: row;
-    padding: 10rpx 0;
-    box-sizing: border-box;
+  margin-left: 10rpx;
+  width: 70%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 0;
+  box-sizing: border-box;
 }
+
 .head_text .head_text_title {
-    width: 100%;
-    line-height: 40rpx;
-    /* margin-bottom: 10rpx; */
-    font-weight: 550;
-    letter-spacing: 2rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 27rpx;
+  width: 100%;
+  line-height: 40rpx;
+  /* margin-bottom: 10rpx; */
+  font-weight: 550;
+  letter-spacing: 2rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 27rpx;
 }
+
 .head_text .head_text_time {
-    margin-left: -240rpx;
-    width: 100%;
-    height: 30rpx;
-    font-size: 23rpx;
-    color: #ccc;
+  margin-left: -240rpx;
+  width: 100%;
+  height: 30rpx;
+  font-size: 23rpx;
+  color: #ccc;
 }
+
 /* 设置icon */
 .InfoCard_head .more {
-    position: absolute;
-    top: 50rpx;
-    transform: rotate(90deg);
-    right: 30rpx;
-    width: 45rpx;
-    height: 45rpx;
-    filter:brightness(200%);
+  position: absolute;
+  top: 50rpx;
+  transform: rotate(90deg);
+  right: 30rpx;
+  width: 45rpx;
+  height: 45rpx;
+  filter: brightness(200%);
 }
+
 /* 主体内容 */
 .InfoCard_body .textBody {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 0 20rpx;
-    /* margin-top: 30rpx; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20rpx;
+  /* margin-top: 30rpx; */
 }
-.InfoCard_body .textBody text{
-    min-width: 50%;
-    max-height: 80rpx;
-    margin-right: 15rpx;
-    background-color: #fff;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    font-size: 26rpx;
-    margin: 20rpx 0;
-    /* color: #ccc; */
+
+.InfoCard_body .textBody text {
+  min-width: 50%;
+  max-height: 80rpx;
+  margin-right: 15rpx;
+  background-color: #fff;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 26rpx;
+  margin: 20rpx 0;
+  /* color: #ccc; */
 }
+
 .InfoCard_body .textBody .imageBox {
-    width: 40%;
-    height: 150rpx;
-    background-color: green;
-    border-radius: 15rpx;
+  width: 40%;
+  height: 150rpx;
+  background-color: green;
+  border-radius: 15rpx;
 }
-.InfoCard_body .textBody .imageBox image{
-    width: 100%;
-    height: 150rpx;
-    border-radius: 15rpx;
+
+.InfoCard_body .textBody .imageBox image {
+  width: 100%;
+  height: 150rpx;
+  border-radius: 15rpx;
 }
+
 .InfoCard_body .textBody .bodyTab {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100rpx;
-    height: 40rpx;
-    background-color: green;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100rpx;
+  height: 40rpx;
+  background-color: green;
 }
+
 /* 底部 */
 .InfoCard_bottom {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 50rpx;
-    margin-top: 30rpx;
-    background-color: #fff;
-    font-size: 26rpx;
-    color: #ccc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 50rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  color: #ccc;
 }
+
 .InfoCard_bottom :first-child::after {
-    content: '·';
-    margin: 0 10rpx;
+  content: '·';
+  margin: 0 10rpx;
 }
+
 .InfoCard_bottom :nth-child(2)::after {
-    content: '·';
-    margin:  0 10rpx;
+  content: '·';
+  margin: 0 10rpx;
 }

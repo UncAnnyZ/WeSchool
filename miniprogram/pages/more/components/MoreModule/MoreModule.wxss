@@ -1,66 +1,86 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 1282rpx;
-    height: 230rpx;
-    padding: 0 30rpx;
-    box-sizing: border-box;
-    font-size: 29rpx;
-    letter-spacing: 1rpx;
-    color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 1282rpx; */
+  height: 230rpx;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  font-size: 29rpx;
+  letter-spacing: 1rpx;
+  color: black;
 }
 
 .first {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200rpx;
-    height: 230rpx;
-    /* background-color: pink; */
-    border-radius: 15rpx;
-    background-image: linear-gradient( #90dbfc, #b5ecdf);
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  width: 200rpx;
+  height: 230rpx;
+  /* background-color: pink; */
+  border-radius: 15rpx;
+  background-image: linear-gradient(#E0D3FB, rgb(252, 251, 254));
 }
-
+.first text {
+  display: block;
+  margin: 10rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgb(110, 110, 112);
+}
+.first image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 160rpx;
+}
 .second {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 30rpx;
-    margin-left: 15rpx;
-    width: 990rpx;
-    height: 230rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 30rpx;
+  margin-left: 15rpx;
+  /* width: 990rpx; */
+  height: 230rpx;
 }
 
 .second .second_box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250rpx;
-    height: 107rpx;
-    background-color: pink;
-    border-radius: 15rpx;
-    margin: 0 15rpx 15rpx 0
+  position: relative;
+  width: 237rpx;
+  height: 107rpx;
+  background-color: pink;
+  border-radius: 15rpx;
+  margin: 0 15rpx 15rpx 0;
+  font-size: 28rpx;
 }
-
+.second_box text {
+  display: block;
+  margin: 10rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: rgb(110, 110, 112);
+}
+.second_box image {
+  position: absolute;
+  right: 20rpx;
+  bottom: 0;
+  width: 90rpx;
+}
 .second .note {
-    background-image: linear-gradient( #f9bdea, #fcd5de);
+  background-image: linear-gradient(#D7DAFC, rgb(239, 239, 251));
 }
 
 .second .game {
-    background-image: linear-gradient( #94c7f5, #aaf8fe);
+  background-image: linear-gradient(#DEF1F6, rgb(241, 245, 250));
 }
 
 .second .zanju {
-    /* background-image: linear-gradient( 135deg, #E8D07A 10%, #5312D6 100%); */
+  margin: 0;
+  background-image: linear-gradient(#EAEAF9, rgb(245, 248, 251));
 }
 
-.second .tucao {
-    background-image: linear-gradient( #e0b5f1, #c6d5f3);
-    /* background: #1D976C; */
-    /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(to top, #93F9B9, #1D976C); */
-    /* Chrome 10-25, Safari 5.1-6 */
-    /* background: linear-gradient(to top, #93F9B9, #1D976C); */
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.second .secondeHand {
+  margin: 0;
+  background-image: linear-gradient(#C0DFF6, rgb(238, 246, 249));
+
 }

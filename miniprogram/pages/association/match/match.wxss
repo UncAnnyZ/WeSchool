@@ -52,7 +52,7 @@ page {
   border-radius: 8rpx;
 }
 .wrap .item_wrap .match_wrap .right_wrap .delete {
-  background-color: red;
+  background-color: #fa2323;
   width: 100rpx;
   margin: 6rpx;
   border-radius: 8rpx;

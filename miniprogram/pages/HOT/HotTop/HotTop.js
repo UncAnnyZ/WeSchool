@@ -18,8 +18,10 @@ Page({
     var args = wx.getStorageSync('args')
     if (args) {
       try {
-        console.log( options.content)
-        // console.log(str);\ 
+        console.log(options.content)
+        console.log( args.otherPageCode)
+        // console.log(str);\
+        
         var onload1 = app.jsRun(args,args.otherPageCode[options.content].replace(/\\\\/g,"\\"))
         
         const onloadDict = onload1()

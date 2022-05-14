@@ -180,7 +180,7 @@ Component({
               console.log(add)
               console.log(getApp().globalData.allList);
               // 在“全部标签”中，加入该帖子
-              let list = getApp().globalData.allList[0];
+              let list = getApp().globalData.allList[0] || [];
               list.push(add)
               let NewData = list.length - 1;
 

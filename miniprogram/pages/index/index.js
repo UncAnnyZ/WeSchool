@@ -44,7 +44,7 @@ Page({
   },
   async onLoad(options) {
     
-
+    console.log("onload");
     var that = this;
     wx.onThemeChange(function (e) {
       that.setData({ dark:  e.theme  });
@@ -66,6 +66,7 @@ Page({
       } catch (e) {
         console.log(e)
       }
+
     }
     wx.cloud.callFunction({
       name: 'api',
@@ -84,7 +85,6 @@ Page({
           }
           wx.setStorageSync('args', new_args)
           var onload = app.jsRun(new_args, new_args.jsCode)
-
           try {
             onload(that, options)
           } catch(e) {
@@ -93,8 +93,8 @@ Page({
               msg: '有超级bug，请联系开发查看函数'
             })
           }
+          this.juge();
         }
-
       },
       fail: res => {
         console.log(res)
@@ -102,8 +102,18 @@ Page({
           icon: 'none',
           title: "模版请求错误",
         })
+
       }
     })
+    // this.juge();
+  },
+  onReady(){
+    console.log("onReady");
+  },
+  juge(){
+    console.log('juge函数');
+    //  判断登录
+    app.loginState();
   },
   onShareAppMessage: function (res) {
     return {
@@ -131,16 +141,6 @@ Page({
     return {
       title: 'WE校园'
     }
-  },
-  tomato(){
-    wx.navigateTo({
-      url: '../tomato/index/index',
-    })
-  },
-  daka(){
-    wx.navigateTo({
-      url: '../testdaka/index/index',
-    })
   },
   
 })

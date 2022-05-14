@@ -16,7 +16,7 @@ Page({
         name: "多选",
       },
       {
-        src: "../img/dan_change.png",
+        src: "../img/tian.png",
         name: "填空",
       },
     ],
@@ -36,10 +36,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // let count=options.count
     let id = options.id
     let args = wx.getStorageSync('args');
-    count = args.username
+    count = String(args.username)
     if (id) {
       db.collection("associtaionMath").where({ _id: id }).get().then(res => {
         let data = res.data[0]
@@ -51,7 +50,7 @@ Page({
           weatherChange: true,
           id: id,
           date: data.date,
-          borderArr:data.borderArr
+          borderArr: data.borderArr
         })
       })
     }
@@ -61,6 +60,10 @@ Page({
         assoMess: res.data[0].hostMess
       })
     })
+  },
+  // 修改海报
+  changeImg() {
+    this.addImg()
   },
   // 时间选择
   bindDateChange(e) {
@@ -248,15 +251,16 @@ Page({
           wx.getImageInfo({
             src: imgUrl,
             success: (res) => {
-              // let CoverHeight = res.height + 'rpx'
-              let tempHeight = res.height > 500 ? 500 : tempHeight
+              console.log(res);
+              let tempHeight = res.height > 500 ? 500 : res.height
+              let tempWidth = res.width < 370 ? 370 : res.width
               let CoverHeight = tempHeight + 'rpx'
-              let CoverWidth = res.width
+              let CoverWidth = tempWidth
               let ShowHeight = tempHeight
               if (this.data.weatherChange == false) {
                 db.collection("associtaionMath").add({
                   data: {
-                    count: userInfo.username,
+                    count: String(userInfo.username),
                     schoolName: userInfo.schoolName,
                     senderMess,
                     question,

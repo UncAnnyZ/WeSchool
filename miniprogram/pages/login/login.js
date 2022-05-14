@@ -18,9 +18,12 @@ Page({
   },
 
   back: function (params) {
-    wx.switchTab({
-      url: '/pages/myself/myself',
-    });
+      wx.navigateBack({
+        delta: 1,
+      })
+    // wx.switchTab({
+    //   url: '/pages/myself/myself',
+    // });
   },
 
   bindPickerChange: function (e) {
@@ -43,7 +46,7 @@ Page({
     }
   },
 
-  async onLoad() {
+  async onLoad(option) {
 
     wx.showLoading({
       title: '加载基础信息中',
@@ -105,14 +108,35 @@ Page({
         that.setData({
           school: that.data.school
         });
+        // that.setData({
+        //     index:6
+        // })
+        if (option.schoolName != null) {
+            console.log(option.schoolName);
+            let school = that.data.school
+            var index;
+            for (let i = 0; i < school.length; i++) {
+                if (option.schoolName == school[i]) {
+                    console.log(option.schoolName+"的下标为"+i);
+                    index = i;
+                    console.log(index);
+                }
+            }
+            that.setData({
+                index:index
+            })
+        }
       },
       fail(res) {
         console.log(res)
       }
     })
-
-
   },
+//   onShow(){
+//     this.setData({
+//         index:3
+//     })
+//   },
 
   login: function (e) {
     var that = this;

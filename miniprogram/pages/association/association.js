@@ -62,31 +62,30 @@ Page({
     ],
     data_list: [
       {
-        img: "img/freshman.png",
+        img: "img/freshman_data.png",
         name: "招新数据",
         tap: "goFreshmanData"
       },
       {
-        img: "img/match.png",
+        img: "img/match_data.png",
         name: "赛事反馈",
         tap: "goMatchData"
       },
       {
-        img: "img/delete.png",
+        img: "img/more.png",
         name: "推广数据",
         tap: "loading"
       },
       {
-        img: "img/delete.png",
+        img: "img/more.png",
         name: "创作中心",
         tap: "loading"
       },
     ],
     HtmlStatus: 0,//0为申请 1审核中 2审核通过  3注销中
     assoMess: "",
-    // showModalStatus: false,
     photoStatus: false,
-    // showModalStatus:false
+    img: false
   },
 
   /**
@@ -95,13 +94,14 @@ Page({
   onLoad: function (options) {
     let res = wx.getStorageSync('args');
     let list = this.data.list
-    card = res.username
+    card = String(res.username)
     school = res.school
     list[3].value = card
     this.setData({
       list: list
     })
     this.search(card)
+    this.updateCount(card)
   },
   // 赛事反馈
   goMatchData() {
@@ -114,14 +114,14 @@ Page({
       complete: () => { }
     });
   },
-  // goMatch(){},
   // 查询用户状态
   search(card) {
-    if (card != 'guest') {
-      card = Number(card)
-    }
+    // if (card != 'guest') {
+    //   card = Number(card)
+    // }
+    card = String(card)
     db.collection("associationApply").where({ count: card }).get().then(res => {
-      // console.log(res);
+      console.log(res);
       if (res.data.length == 0) {
         this.setData({
           HtmlStatus: 0
@@ -193,14 +193,9 @@ Page({
     });
   },
   formSubmit(e) {
+    console.log(e);
     let data = e.detail.value
-    if (data.card == 'f281q') {
-      this.search('f281q')
-      // this.setData({
-      //   HtmlStatus:2
-      // })
-    }
-    else if (data.association == "" || data.card == "" || data.name == "" || data.phone == "") {
+    if (data.association == "" || data.card == "" || data.name == "" || data.phone == "" || !this.data.imgUrl) {
       wx.showModal({
         title: '提示',
         content: '请输入完整信息',
@@ -234,7 +229,11 @@ Page({
                   data: {
                     status: false,
                     hostMess: data,
-                    count: Number(data.card)
+                    count: String(data.card),
+                    logoUrl: this.data.imgUrl,
+                    activityCount: 1,
+                    personCount: 1,
+                    school: school
                   }
                 }).then(res => {
                   this.setData({
@@ -248,78 +247,6 @@ Page({
         },
       });
     }
-  },
-  // 发布信息弹窗
-  // clickme() {
-  //   this.showModal();
-  // },
-  // showModal: function () {
-  //   // 显示遮罩层
-  //   var animation = wx.createAnimation({
-  //     duration: 200,
-  //     timingFunction: "linear",
-  //     delay: 0
-  //   })
-  //   this.animation = animation
-  //   animation.translateY(300).step()
-  //   this.setData({
-  //     animationData: animation.export(),
-  //     showModalStatus: true
-  //   })
-  //   setTimeout(function () {
-  //     animation.translateY(0).step()
-  //     this.setData({
-  //       animationData: animation.export()
-  //     })
-  //   }.bind(this), 200)
-  // },
-  // //隐藏对话框
-  // hideModal: function () {
-  //   // 隐藏遮罩层
-  //   var animation = wx.createAnimation({
-  //     duration: 200,
-  //     timingFunction: "linear",
-  //     delay: 0
-  //   })
-  //   this.animation = animation
-  //   animation.translateY(300).step()
-  //   this.setData({
-  //     animationData: animation.export(),
-  //   })
-  //   setTimeout(function () {
-  //     animation.translateY(0).step()
-  //     this.setData({
-  //       animationData: animation.export(),
-  //       showModalStatus: false
-  //     })
-  //   }.bind(this), 200)
-  // },
-  // 选择图片
-  add_img() {
-    wx.chooseImage({
-      count: 2,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: (res) => {
-        this.setData({
-          photo: res.tempFilePaths,
-          photoStatus: true
-        })
-      },
-    });
-  },
-  // 发布
-  confirm(e) {
-    console.log(e);
-  },
-  // 普通活动
-  activity() {
-    wx.navigateTo({
-      url: '/pages/association/activity/activity?count=' + card,
-      success: (result) => {
-
-      },
-    });
   },
   // 赛事
   match() {
@@ -368,9 +295,6 @@ Page({
       url: '/pages/association/edit/edit?count=' + card,
     })
   },
-
-
-
   // 跳转
   freshman() {
     let assoMess = this.data.assoMess
@@ -381,6 +305,62 @@ Page({
 
       },
     });
+  },
+  // 上传logo
+  add_logo() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        let tempUel = res.tempFilePaths[0]
+        wx.cloud.uploadFile({
+          cloudPath: 'association/' + Date.now() + 'jpg',
+          filePath: tempUel
+        }).then(res => {
+          let imgUrl = res.fileID
+          wx.showToast({
+            title: '上传成功',
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+            success: (res) => {
+              this.setData({
+                img: true,
+                imgUrl: imgUrl
+              })
+            },
+          });
+        })
+      },
+    });
+  },
+  showTip() {
+    wx.showToast({
+      title: '审核后可修改',
+      icon: 'none',
+      image: '',
+      duration: 1500,
+      mask: false,
+      success: (result) => {
+
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+  },
+  // 更新人数活动数量
+  updateCount(count) {
+    wx.cloud.callFunction({
+      name: "associationSend",
+      data: {
+        type: 6,
+        count,
+      }
+    }).then(res => {
+      console.log(res);
+    })
   },
 
   /**

@@ -1,0 +1,176 @@
+/* pages/myself/components/InfoFlowCards/InfoFlowCards.wxss */
+.card{
+  background-color: #fff;
+  /* height: 400rpx; */
+  margin:0rpx 30rpx;
+  padding:0rpx 30rpx;
+  margin-top:30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: -5rpx 5rpx 3rpx #e7e7e7;
+  border-radius: 20rpx;
+  opacity:1
+}
+
+.card-top-right-img{
+  height: 30rpx;
+  width: 9rpx;
+  position: relative;
+  right:20rpx;
+}
+.card-top{
+  display: flex;
+  position:relative;
+  padding-top:38rpx ;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-top-left{
+  /* position:absolute;
+  top:50%; */
+  /* margin-top:-25rpx; */
+  display:flex;
+  align-items: center;
+}
+.card-top-left-img{
+  border-radius: 100%;
+  margin-right:20rpx;
+  height: 90rpx;
+  width: 90rpx;
+}
+.card-top-left-text{
+  height:100rpx;
+  margin-top:20rpx
+  
+}
+.card-top-left-text1{
+  font-weight: 800;
+  font-size: 22rpx;
+  color:rgba(102,102,102);
+  margin-bottom: 10rpx;
+}
+.card-top-left-text2{
+  font-size: 18rpx;
+  color:rgba(16, 16, 16, 0.5)
+}
+.card-content{
+  font-size: 24rpx;
+  margin-top:10rpx;
+  margin-bottom: 20rpx;
+  color:rgba(82,82,82)
+}
+.card-imgs{
+  margin:0 auto;
+}
+.card-imgs>image{
+  width: 32%;
+  background-color:rgba(211,211,211);
+  margin-right: 0.5%;
+  height: 210rpx;
+}
+.card-end-start-person{
+  /* margin-top:20rpx; */
+  height:70rpx;
+  position:absolute;
+  top:50%;
+  margin-top:-35rpx;
+  font-size: 19rpx;
+  color:rgba(102,102,102);
+  vertical-align: middle;
+}
+.card-end-start-person:nth-child(1){
+  width:200rpx;
+
+  white-space: nowrap; /* 不换行 */
+  overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+  text-overflow: ellipsis;
+
+}
+.card-end-start-person-text{
+  width:150rpx;
+  white-space: nowrap; /* 不换行 */
+  overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+  text-overflow: ellipsis;
+}
+
+.card-end{
+  position:relative;
+  display: flex;
+  line-height: 2.5;
+  height: 70rpx;
+  margin-top:18rpx;
+  justify-content: space-between;
+  padding-bottom:30rpx ;
+}
+.card-end-detail{
+  position: absolute;
+  top:50%;
+  margin-top:-35rpx;
+  right:0rpx;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+button::after{ /*button的边框样式是通过::after方式实现的*/
+  border:none;
+  background-color:rgb(255 255, 255); 
+
+  }
+  .button-hover{ /*点击后样式*/
+   background-color:rgb(255 255, 255);
+   background-color: transparent;
+
+
+}
+button{
+  background-color:rgb(255 255, 255); 
+  border-radius: 0rpx;
+  padding:0rpx;
+  margin:0rpx;
+  /* display: inline-block; */
+  background-color: transparent;
+  }
+.share{
+  width:36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-top:0rpx;
+  position:absolute;
+  top:0rpx;
+  right:0rpx;
+}
+.card-end-detail>image{
+  width: 36rpx;
+  margin-left: 40rpx;
+  height: 36rpx;
+  vertical-align: middle;
+}
+.card-tip{
+  justify-content: center;
+  background-color:transparent;  
+  margin-top:40rpx;
+  font-size:22rpx;
+}
+
+.DataNull{
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
+}
+.public{
+  background-color: rgba(88,203,183,1);
+  color:white;
+  border-radius: 30rpx;
+ padding: 15rpx;
+ width: 30%;
+ text-align: center;
+ margin:40rpx auto; 
+  font-weight: 800;
+}
+.public_text{
+  text-align: center;
+  color:rgba(112,112,112);
+  margin-top: 300rpx;
+
+  font-size: 26rpx;
+}

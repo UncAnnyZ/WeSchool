@@ -100,8 +100,13 @@ page {
   color: #8a8a8a;
   padding-right: 20rpx;
   min-width: 3rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-
+.block_bottom .block_teacher {
+  width: 400rpx;
+}
 .block_btn{
   display: flex;
   flex-direction: row;

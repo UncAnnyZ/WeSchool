@@ -1,19 +1,29 @@
-
-
 <scroll-view scroll-x>
-    <view class="container">
-        <view class="first">
-            <text style="margin-top:80rpx;">恋爱匹配</text>
-        </view>
-        <view class="second">
-            <view class="second_box note" id="note_module" bindtap="naviToPage">
-            <text style="margin-left: -120rpx ;margin-top: -30rpx"> 小纸条</text>
-            </view>
-            <view class="second_box game" id="Game" bindtap="naviToPage">
-                <text style="margin-left: -150rpx ;margin-top: -30rpx">攒局</text></view>
-            <view class="second_box zanju" id="zanju">攒局</view>
-            <view class="second_box tucao" id="tucao">
-                <text style="margin-left: -90rpx ;margin-top: -30rpx">电子游戏</text></view>
-        </view>
+  <view class="container">
+    <!-- 恋爱匹配 -大盒子 -->
+    <view class="first">
+      <text>恋爱匹配</text>
+      <image src="./images/love.png" mode="widthFix"></image>
     </view>
+    <!-- 一系列小盒子 -->
+    <view class="second">
+      <view class="second_box note" id="note_module" bindtap="naviToPage">
+        <text>小纸条</text>
+        <image src="./images/note.png" mode="widthFix"></image>
+      </view>
+      <view class="second_box zanju" id="Game" bindtap="naviToPage">
+        <text>攒局</text>
+        <image src="./images/zanju.png" mode="widthFix"></image>
+      </view>
+      <view class="second_box game" id="tucao">
+        <text>电子游戏</text>
+        <image src="./images/game.png" mode="widthFix"></image>
+      </view>
+      <view class="second_box secondeHand" id="zanju">
+      <text>二手市场</text>
+      <image src="./images/market.png" mode="widthFix"></image>
+      </view>
+      
+    </view>
+  </view>
 </scroll-view>

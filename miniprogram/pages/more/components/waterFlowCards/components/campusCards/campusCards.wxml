@@ -3,8 +3,8 @@
     var starSrc = '../../../../../../images/zan1.png'
     if (item.Star_User) {
       item.Star_User.forEach(function (e) {
-
         if (e && e.username === character.userName) {
+          console.log("e",e);
           starSrc = '../../../../../../images/zan.png'
         }
 

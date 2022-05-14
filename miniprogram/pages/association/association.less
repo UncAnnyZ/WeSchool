@@ -6,8 +6,8 @@ page {
     background-image: linear-gradient(#1e2266, #ffe7e7);
 
     .caption {
-        padding: 24rpx;
 
+        padding: 24rpx;
         .title {
             font-weight: 700;
             text-align : center;
@@ -31,16 +31,27 @@ page {
             display       : flex;
             flex-direction: row;
             padding       : 8rpx;
+            margin-top    : 24rpx;
 
             .left {
                 flex: 1;
             }
 
-            .rigth {
+            .add_logo {
+                text-align      : center;
                 flex            : 3;
-                padding-left    : 24rpx;
-                background-color: rgb(238, 238, 238);
-                border-radius   : 26rpx;
+                background-color: rgb(212, 212, 212);
+                margin-top      : 10rpx;
+                border-radius   : 12rpx;
+                padding         : 12rpx 0 12rpx 24rpx;
+            }
+
+            .rigth {
+                flex               : 3;
+                // padding-left    : 24rpx;
+                background-color   : rgb(238, 238, 238);
+                border-radius      : 26rpx;
+                padding            : 12rpx 0 12rpx 24rpx;
             }
         }
 
@@ -78,13 +89,13 @@ page {
 
 .asso_wrap {
     .mess_item {
-        padding         : 24rpx;
+        padding            : 24rpx;
         // border-bottom   : 1rpx solid rgb(223, 223, 223);
-        margin-left     : 12rpx;
-        margin-right    : 12rpx;
-        border-radius   : 24rpx;
-        margin-top      : 24rpx;
-        background-color: white;
+        margin-left        : 12rpx;
+        margin-right       : 12rpx;
+        border-radius      : 24rpx;
+        margin-top         : 24rpx;
+        background-color   : white;
 
         .mess_wrap {
             display       : flex;
@@ -106,7 +117,7 @@ page {
                 border-radius   : 24rpx;
                 justify-content : center;
                 align-items     : center;
-                line-height: 32rpx;
+                line-height     : 32rpx;
             }
         }
     }
@@ -118,22 +129,22 @@ page {
         margin-top      : 24rpx;
         border-radius   : 24rpx;
         border-top      : 1rpx solid rgb(223, 223, 223);
-        margin: 12rpx;
+        margin          : 12rpx;
 
         .bt_title_wrap {
             display       : flex;
             flex-direction: row;
 
             .bt_title {
-                flex       : 3;
-                font-weight: 700;
-                font-size: 30rpx;
+                flex        : 3;
+                font-weight : 700;
+                font-size   : 30rpx;
                 padding-left: 24rpx;
             }
 
             .bt_tip {
-                flex : 2;
-                color: #c7c7c7;
+                flex     : 2;
+                color    : #c7c7c7;
                 font-size: 28rpx;
             }
         }
@@ -166,8 +177,10 @@ page {
 
                 .tip_content {}
             }
-            .delete_bt{
+
+            .delete_bt {
                 flex: 1;
+
                 image {
                     height: 100rpx;
                     width : 100rpx;
@@ -176,18 +189,21 @@ page {
                 .tip_content {}
             }
         }
-        .data_title_wrap{
-            display: flex;
+
+        .data_title_wrap {
+            display       : flex;
             flex-direction: row;
-            .data_title{
-                flex: 3;
-                font-weight: 700;
-                font-size: 30rpx;
+
+            .data_title {
+                flex        : 3;
+                font-weight : 700;
+                font-size   : 30rpx;
                 padding-left: 24rpx;
             }
-            .data_tip{
-                flex: 2;
-                color: #c7c7c7;
+
+            .data_tip {
+                flex     : 2;
+                color    : #c7c7c7;
                 font-size: 28rpx;
             }
         }
@@ -242,13 +258,15 @@ page {
     z-index         : 99999;
     border-radius   : 20rpx;
     background-color: white;
-    font-size: 34rpx;
-    .list_wrap{
+    font-size       : 34rpx;
+
+    .list_wrap {
         text-align: center;
-        .list{
-            margin-left: 24rpx;
+
+        .list {
+            margin-left : 24rpx;
             margin-right: 24rpx;
-            padding-top: 12rpx;
+            padding-top : 12rpx;
         }
     }
 }

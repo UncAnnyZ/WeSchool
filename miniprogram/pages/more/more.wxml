@@ -1,36 +1,37 @@
 <wxs module="more" src="./more.wxs"></wxs>
 
-<!-- 渐变层 -->
-<view class="gradient-layer" style="z-index: {{scrollTop > TabScrollTop-60 ? 2 : ''}};"></view>
-<!-- <view class="gradient-layer" style="background-color: #fff;" style="z-index: {{scrollTop > TabScrollTop-60 ? 2 : ''}};"></view> -->
+<scroll-view class="container" style="height: {{windowHeight}}px;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
+  <!-- 渐变层 -->
+  <view class="gradient-layer" style="height: {{scrollTop > TabScrollTop - 205 ? statusBarHeight + lineHeight + 62 : 245}}px; z-index: {{scrollTop > TabScrollTop - 60 ? 2 : ''}};"></view>
 
-<view class="head">
-  <!-- 状态栏 -->
-  <view style="width: 100%; height: 200rpx; position: absolute;"> </view>
-  <view style="height: {{statusBarHeight}}px;" />
-  <!-- 导航栏 -->
-  <navigator class="head_second" style="height: {{lineHeight}}px;" url="/pages/more/components/searchPage/searchPage" hover-class=none">
-    <input placeholder="搜索你感兴趣的内容" style="padding-left: 80rpx; margin-left: -260rpx; width:350rpx; height: 75%; background-color: #fff; border-radius: 60rpx; " disabled="true" />
-    <image style="width: 35rpx; height: 35rpx; margin-left:40rpx;" src="./images/search.png"></image>
-    <!-- 消息列表 -->
-  </navigator>
+  <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;">
+    <!-- 渐变层 - 占位 -->
+    <view class="gradient-layer1" style="height: {{scrollTop > TabScrollTop - 205 ? statusBarHeight + lineHeight + 62 : 245}}px;" />
+    <!-- 状态栏 -->
+    <view style="width: 100%; height: 200rpx; position: absolute;"> </view>
+    <view style="height: {{statusBarHeight}}px;" />
+    <!-- 导航栏 -->
+    <view class="head_second" style="height: {{lineHeight}}px;">
+      <input placeholder="搜索你感兴趣的内容" class="searchInput" bindtap="" />
+      <image style="width: 35rpx; height: 35rpx; margin-left:40rpx; z-index: 3;" src="./images/search.png"></image>
 
-</view>
-<!-- 填充 -->
-<view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
-<view style=" width: 100%;  position: absolute; height: 400rpx;"></view>
-<scroll-view class="container" style="height: {{windowHeight - (statusBarHeight + lineHeight)}}px;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
+      <!-- 消息列表 -->
+    </view>
+
+  </view>
+  <!-- 填充 -->
+  <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+
   <!-- 小纸条 - 弹幕 -->
   <danmu dmList="{{dmList}}" />
   <!-- 更多模块 -->
   <MoreModule bind:navigate="navigate" />
   <!-- 课表 -->
-  <weimob-curriculum  course="{{course}}" msg="{{msg}}" />
-  
+  <weimob-curriculum course="{{course}}" msg="{{msg}}" />
 
   <!-- 标签 -->
-  <weimob-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}" >
-    <TabScroll style="z-index: 2;" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
+  <weimob-sticky scrollTop="{{scrollTop}}" offsetTop="{{offsetTop}}" style="z-index: 3;position: relative;">
+    <TabScroll style="z-index: 3;position: relative;" type="校友圈标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true" />
   </weimob-sticky>
 
   <!-- 瀑布流 -->
