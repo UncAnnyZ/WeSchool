@@ -13,6 +13,11 @@ Page({
 
     iconList: [],
   },
+  goToMarket(){
+    wx.navigateTo({
+      url: '../market/market',
+    })
+  },
   onLoad(options) {
 
   },
