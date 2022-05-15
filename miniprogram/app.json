@@ -6,25 +6,37 @@
   },
   "pages": [
     "pages/more/more",
-    "pages/index/index",
-    "pages/testdaka/index/index",
-    "pages/testdaka/record/record",
     "pages/login/login",
     "pages/curriculum/curriculum",
     "pages/myself/myself",
-    "pages/test/test",
-    "pages/index/guidance/guidance",
-    "pages/myself/page/page",
-    "pages/myself/rule/rule",
     "pages/PublishContent/PublishContent",
-    "pages/more/components/searchPage/searchPage",
-    "pages/more/components/searchContent/searchContent",
-    "pages/myself/fansAndfocus/fansAndfocus",
-    "pages/myself/components/InfoFlowCards/InfoFlowCards",
-    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment",
     "pages/functionPage/functionPage"
   ],
   "subPackages": [
+    {
+      "name": "test",
+      "root": "pages/test",
+      "pages": [
+        "test"
+      ]
+    },
+    {
+      "name": "myself",
+      "root": "pages/myself/pages",
+      "pages": [
+        "page/page",
+        "rule/rule",
+        "fansAndfocus/fansAndfocus"
+      ]
+    },
+    {
+      "name": "index",
+      "root": "pages/index",
+      "pages": [
+        "index",
+        "guidance/guidance"
+      ]
+    },
     {
       "name": "physical",
       "root": "pages/physical",
@@ -32,6 +44,14 @@
         "physical",
         "detail/detail"
       ]
+    },
+    {
+        "name": "testdaka",
+        "root": "pages/testdaka",
+        "pages": [
+          "index/index",
+          "record/record"
+        ]
     },
     {
       "name": "common",
