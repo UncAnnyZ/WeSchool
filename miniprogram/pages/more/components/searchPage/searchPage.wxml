@@ -25,7 +25,7 @@
             </view>
             <view class="historySearch_content">
                 <view class="historySearch_content_item" >
-                    <block wx:for="{{localSearchKey}}" wx:key="index">
+                    <block wx:for="{{localSearchKey}}">
                         <view style="width: {{item.length * 50}}rpx;" bindtap="searchRedirect" data-name="{{item}}">{{item}}</view>
                     </block>
                 </view>
@@ -50,14 +50,4 @@
 </view>
 <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
 <view style=" width: 100%;  position: absolute; height: 400rpx;"></view>
-
-<scroll-view class="page" style="z-index: -1;">
-    <!-- <Loading wx:if="{{showLoading}}" /> -->
-    <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight}}px;">
-      <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">
-        <waterFlowCards height="{{windowHeight - (statusBarHeight + lineHeight) - 28}}px;" id="waterFlowCards{{index}}" list="{{item}}" tabitem="{{tabitem}}" currentTab="{{index}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" bind:setAllList="setAllList" />
-      </swiper-item>
-    </swiper>
-</scroll-view>
-
 

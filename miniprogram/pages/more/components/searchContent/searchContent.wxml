@@ -1,5 +1,4 @@
-
-<view class="gradient-layer" style="z-index: {{scrollTop > TabScrollTop-60 ? 2 : ''}};"></view>
+<view class="gradient-layer" style="z-index: 2 "></view>
 
 <view class="head" style="position: sticky; top: 0;  z-index: 2;">
     <!-- 状态栏 -->
@@ -11,7 +10,6 @@
             style="padding-left:180rpx; margin-left: -250rpx; width: 450rpx; height: 85%; background-color: #fff; border-radius: 60rpx; "
             placeholder-style="margin-left: 50rpx"
             confirm-type="search"
-            focus='true'
             bindblur="searchBlur"
             />
         <image style="width: 35rpx; height: 35rpx; margin-left:20rpx;" src="../../images/search.png"></image>
@@ -19,7 +17,7 @@
 </view>
 <!-- <view style=" width: 100%;  position: absolute; height: 400rpx;"></view> -->
 
-<scroll-view  class="page" style="z-index: -1; position: relative;" >
+<scroll-view  class="page" style="z-index: -1; " >
     <!-- <Loading wx:if="{{showLoading}}" /> -->
     <block wx:for="{{allList}}" wx:key="body" wx:for-index="index">
         <waterFlowCards height="{{windowHeight - (statusBarHeight + lineHeight) - 28}}px;" id="waterFlowCards{{index}}" list="{{item}}" tabitem="{{tabitem}}" currentTab="{{index}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" bind:setAllList="setAllList" />
