@@ -10,6 +10,5 @@
     "weimob-curriculum": "./components/curriculum/curriculum"
 
   },
-  "navigationStyle":"custom",
-  "enablePullDownRefresh": true
+  "navigationStyle":"custom"
 }

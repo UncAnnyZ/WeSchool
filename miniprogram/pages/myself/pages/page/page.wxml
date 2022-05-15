@@ -1,0 +1,39 @@
+<view style="background-image: url(https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=7499d5e999aa94ce703ee00e0bff696b&t=1652196740);background-size: 100% 100%; width: 100vw;height: 100vh;">
+  <view style="height: {{statusBarHeight}}px;width: 100%;"></view>
+  <view style="height: {{lineHeight}}px;width: 100%;display: flex;flex-direction: row;align-items: center;">
+    <image bindtap="back" src="../images/icon/back.png" style="width: 32rpx;height: 32rpx;margin-left: 35rpx;"></image> 
+    <view style="margin-left: 277rpx;">更多</view>
+  </view>
+
+  <image class="image" src="../../images/welogo.png"></image>
+  <button catchtap="exslt" class="box" style="width: 95%;padding: 0;">
+    <image src="../images/icon/guide.png" class="box_left"></image>
+    <view class="boxright">社 区 规 范</view>
+  </button>
+  <button catchtap="help" class="box" style="width: 95%;padding: 0;"> 
+    <image src="../images/icon/help.png" class="box_left"></image>
+    <view class="boxright">新 手 帮 助</view>
+  </button>
+  <button open-type="share" catchtap="onShareAppMessage" style="width: 95%;padding: 0;" class="box">
+    <image src="../images/icon/invite.png" class="box_left"></image>
+    <view class="boxright">邀 请 校 友</view>
+  </button>
+  <button catchtap="login" class="box" style="width: 95%;padding: 0;">
+    <image  src="../images/icon/login.png" class="box_left"></image>
+    <view class="boxright">登 录 / 注 销</view>
+  </button>
+
+  <image class="image2" src="../../images/welogo.png"></image>
+  <button catchtap="aboutUs" class="box" style="width: 95%;padding: 0;">
+    <image src="../images/icon/about.png" class="box_left"></image>
+    <view class="boxright">关 于 我 们</view>
+  </button>
+  <button catchtap="connection" session-from='{"nickName":"{{userInfo.nickName}}", "avatarUrl":"{{userInfo.avatarUrl}}"' type="primary" plain="true" open-type='contact' class="box" style="width: 95%;padding: 0;background: rgba(255, 255, 255, 0.596);border: 0rpx solid white;color: black;"> 
+    <image src="../images/icon/join.png" class="box_left"></image>
+    <view class="boxright">联 系 客 服</view>
+  </button>
+  <button catchtap="log" class="box" style="width: 95%;padding: 0;">
+    <image src="../images/icon/log.png" class="box_left"></image>
+    <view class="boxright">更 新 日 志</view>
+  </button>
+</view>

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "icon-bar":"../../components/iconBar/iconBar"
+  },
+  "navigationStyle": "custom"
 }

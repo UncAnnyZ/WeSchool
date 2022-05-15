@@ -1,23 +1,23 @@
 Component({
   data: {
     color: "#515151",
-    selectedColor: "#DAA520",
+    selectedColor: "#B8B896",
     backgroundColor: "#ffffff",
     list: [
       {
-        pagePath: "/pages/index/index",
+        pagePath: "/pages/more/more",
         text: "首页",
         iconPath: "/images/tabbar/主页.png",
-        selectedIconPath: "/images/tabbar/主页_sel.png"
+        selectedIconPath: "/images/tabbar/主页_sel1.png"
       },
       {
         pagePath: "/pages/curriculum/curriculum",
         text: "课表",
         iconPath: "/images/tabbar/课程表.png",
-        selectedIconPath: "/images/tabbar/课程表_sel.png"
+        selectedIconPath: "/images/tabbar/课程表_sel1.png"
       },
       {
-        pagePath: "/pages/record/record",
+        pagePath: "/pages/PublishContent/PublishContent",
         bulge:true,
         iconPath: "/images/tabbar/发布.png",
         selectedIconPath: "/images/tabbar/发布.png"
@@ -26,7 +26,7 @@ Component({
         pagePath: "/pages/functionPage/functionPage",
         text: "功能",
         iconPath: "/images/tabbar/功能.png",
-        selectedIconPath: "/img/message-select.png"
+        selectedIconPath: "/images/tabbar/功能_sel.png"
       },
       {
         pagePath: "/pages/myself/myself",

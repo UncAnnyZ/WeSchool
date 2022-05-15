@@ -48,7 +48,7 @@ Page({
       [],
       []
     ],
-    course: [],
+    course: [],   // 当天课表
     currentWaterFlowHeight: 0,
     currentPageArr: [0, 0, 0, 0, 0, 0, 0, 0],
     currentTab: 0,  // 当前 swiper-item
@@ -57,6 +57,7 @@ Page({
     scrollTop: 0,
     offsetTop: 0,
     TabScrollTop: 0,
+    layerHeight: 245,
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -64,17 +65,28 @@ Page({
   },
   TimeOut: 1,
   timeId: 0,
+
   onScroll(e) {
 
-    let statusBarHeight = this.data.statusBarHeight,
-      lineHeight = this.data.lineHeight;
+    let data = this.data,
+      statusBarHeight = data.statusBarHeight,
+      lineHeight = data.lineHeight,
+      scrollTop = e.detail.scrollTop,
+      TabScrollTop = data.TabScrollTop;
 
     wx.createSelectorQuery()
       .select('.container')
       .boundingClientRect((res) => {
+        // 滑动高度 / 标签吸顶时的滑动高度 = 百分比 ∈ [0,1]
+        var x = Number(scrollTop / (TabScrollTop - 62)) > 1 ? 1 : Number(scrollTop / (TabScrollTop - 62)),
+        // 一元一次方程：y = -(245 - a)x + 245;    y∈[a,245], x∈[0,1]
+        a = statusBarHeight + lineHeight + 62,
+        layerHeight = -(245 - a) * x + 245;
+
         this.setData({
-          scrollTop: e.detail.scrollTop,
+          scrollTop: scrollTop,
           offsetTop: res.top + statusBarHeight + lineHeight,
+          layerHeight: layerHeight
         });
       })
       .exec();
@@ -367,7 +379,7 @@ Page({
       }) : data.tabitem,
       // 初始化 currentPageArr 和 currentWaterFlowHeight
       currentPageArr = tabitem.map(item => { return 0; }),
-      
+
       currentWaterFlowHeight = data.windowHeight - data.statusBarHeight - data.lineHeight - 28,
       // 初始化封号
       campus_account = args.campus_account ? args.campus_account : false,
@@ -377,7 +389,7 @@ Page({
         let allList = [];
         return allList[index] = []
       });
-      console.log(allList)
+    console.log(allList)
     if (campus_account === true) {
       wx.showModal({
         title: "提示",
@@ -402,6 +414,7 @@ Page({
         });
       })
       .exec();
+
     this.setData({
       currentWaterFlowHeight,
       currentPageArr,

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+
+    "LosePublish":"../more/components/LosePublish/LosePublish",
+    "TabScroll": "../more/components/TabScroll/TabScroll"
+
+  },
+  "navigationStyle":"custom"
+}

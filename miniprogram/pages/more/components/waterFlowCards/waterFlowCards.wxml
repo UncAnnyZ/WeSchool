@@ -7,7 +7,8 @@
       <freshman wx:if="{{item.Label=='社团招新'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
       <match wx:elif="{{item.Label=='社团赛事'}}" item="{{item}}" type="left" currentTab="{{currentTab}}" />
       <!-- <HotComponent></HotComponent> -->
-      <HotComponent wx:else item1="{{item}}" type="left" currentTab="{{currentTab}}" />
+      <campusCards wx:else item="{{item}}" type="right" currentTab="{{currentTab}}" />
+      <!-- <HotComponent wx:else item1="{{item}}" type="left" currentTab="{{currentTab}}" /> -->
     </view>
   </view>
   <view class="right">

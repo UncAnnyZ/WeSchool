@@ -1,0 +1,83 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="head" style="background-image: {{theme ? 'linear-gradient( #a5e6ff , #fff) ':  'linear-gradient( #f6f6f6 , #f6f6f6)'}};">
+    <!-- 状态栏 -->
+    <view style="height: {{statusBarHeight}}px;" />
+    <!-- 导航栏 -->
+    <view class="navigation" style="height: {{lineHeight}}px;">
+      <image class="navigationBack" src="./images/back.png" bindtap="navigationBack"></image>
+      发布动态
+    </view>
+  </view>
+  <!-- 填充 -->
+  <view style="position: relative; padding-top: {{(statusBarHeight + lineHeight)}}px; width: 100%;"></view>
+  <view style="position: relative; padding-top: {{(showscroll? 140: 0) }}rpx; width: 100%;"></view>
+
+  <!-- 标签选择滚动栏 -->
+  <view bindtap="showTab">
+    <!-- 没有选择标签时，出现这个 -->
+    <view class="choose_Channel" wx:if="{{!choosenLabel}}">
+      <view class="left">
+        <image src="./images/sun.png"></image>
+        <text>选择频道发布</text>
+      </view>
+      <view class="right">
+        <text>合适的频道选择，会结识志同道合的人</text>
+        <image src="./images/right.png"></image>
+      </view>
+    </view>
+    <!-- 选择标签后，出现这个 -->
+    <view class="choose_Channel" wx:if="{{choosenLabel}}">
+      <view class="left">
+        <image src="./images/sun.png"></image>
+        <text>{{choosenLabel}}</text>
+      </view>
+    </view>
+  </view>
+  <TabScroll type="发布页面标签" menu="{{menu}}" bind:chooseTab="chooseTab" showTab="{{showTab}}"></TabScroll>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <!-- 主体 -->
+    <view class="mainBody">
+      <view class="mainTitle">
+        <!-- 标题 -->
+        <input placeholder="标题 闲聊/求助/组队/失物..." value="{{Input_Title}}" name="formTitle"></input>
+      </view>
+      <view class="Line"></view>
+      <view class="mainText">
+        <!-- 正文 -->
+        <textarea placeholder="记录这一刻...." value="{{Input_Text}}" name="formText" maxlength="-1"></textarea>
+      </view>
+      <view class="chooseImageBox">
+        <block wx:for="{{photo}}" wx:key="photoIndex">
+          <!-- 渲染已选择图片 -->
+          <view class="beChoosen_ImageBox">
+            <image class="beChoosen_Image" src="{{item.tempFilePath}}" bindtap="preViewImage" data-index="{{index}}" mode="aspectFill"></image>
+            <view class="del_beChoosen_Image" bindtap="del_beChoosen_Image" data-index="{{index}}">
+              <image src="./images/close.png"></image>
+            </view>
+          </view>
+        </block>
+
+        <view class="chooseImage" bindtap="chooseImage">
+          <!-- 放入图片 -->
+          <image src="./images/jia.png"></image>
+        </view>
+      </view>
+
+    </view>
+    <view wx:if="{{choosenLabel=='寻物发布'}}">
+      <LosePublish bind:detail="detail"></LosePublish>
+    </view>
+    <!-- 发布按钮 -->
+    <view class="publishBox">
+      <button class="cancel" hover-class="btn_hover" bindtap="cancel">
+        <text>取消</text>
+      </button>
+      <button class="publish" form-type="submit" hover-class="btn_hover">
+        <text>发布动态</text>
+      </button>
+    </view>
+  </form>
+
+</view>

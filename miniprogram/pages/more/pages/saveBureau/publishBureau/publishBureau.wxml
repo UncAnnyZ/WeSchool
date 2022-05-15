@@ -1,0 +1,68 @@
+<!--pages/more/pages/saveBureau/publishBureau/publishBureau.wxml-->
+<view class="head">
+  <view style="height: {{statusBarHeight}}px;" />
+  <view class="head_second" style="height: {{lineHeight}}px;">
+    <view class="arrow" bindtap="back">
+      <image src="../../../../../images/arrow.png"/>
+    </view>
+  </view>
+</view>
+<view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+
+<view class="All">
+  <view class="activityTheme">活动主题</view>
+  <view class="categories">
+    <view wx:for="{{arry}}" wx:key="id">
+      <view class="categoriesContent" bindtap="chooseLabel" id="{{index}}">
+        <view class="circle background-color_{{index%2}} circle{{index}}"></view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="activityDetails">活动详情</view>
+  <form bindsubmit="submit">
+  <view class="inputContent">
+    <view class="inputTitle">
+      <textarea placeholder="在此输入活动详情，如时间、地点和活动内容，禁止以任何形式拉群或宣传群聊" name="textarea" show-confirm-bar=""></textarea>
+    </view>
+    
+    <view class="inputImg">
+      <view wx:for="{{photo}}" wx:key="id">
+        <view class="delImg" id="{{index}}" bindtap="delImg">×</view>
+        <view class="Img">
+            <image src="{{item.tempFilePath}}" mode="aspectFill"/>
+        </view>
+      </view>
+      <view class="Img2" bindtap="addImg" >
+        <image src="../../../../../images/photo.png" />
+      </view>
+    </view>
+  </view>
+  <view class="position">位置信息</view>
+  <view class="choosePosition" bindtap="choosePosition">
+    <text>{{locationName ? locationName : "选择位置"}}</text>
+  </view>
+  <view class="totalNum">总人数</view>
+  <view class="controlNum">
+    <view class="man">
+      <text>男</text>
+      <image src="../../../../../images/sexm.png"/>
+      <view class="manNum">
+        <view class="reduceNum" data-sex="man" bindtap="reduceNum">-</view>
+        <view class="num">{{manNum.length}}</view>
+        <view class="addNum" data-sex="man" bindtap="addNum">+</view>
+      </view>
+    </view>
+    <view class="woman">
+      <text>女</text>
+      <image src="../../../../../images/sexw.png"/>
+      <view class="womanNum">
+        <view class="reduceNum" data-sex="woman" bindtap="reduceNum">-</view>
+        <view class="num">{{womanNum.length}}</view>
+        <view class="addNum" data-sex="woman" bindtap="addNum">+</view>
+      </view>
+    </view>
+  </view>
+  <button class="submit" form-type="submit"><text class="sure">确定</text>（需消耗100人品）</button>
+  </form>
+</view>

@@ -17,10 +17,10 @@
 
     <view class="main_body">
       <block wx:for="{{noteList}}" wx:key="*this">
-        <view class="noteBox" id="noteBox{{index}}" hover-class="noteBox_active" hover-stay-time="100" style="background-color: {{colorArr[index%10]}};">
+        <view class="noteBox" id="noteBox{{index}}" hover-class="noteBox_active" hover-stay-time="100" style="background-color: {{colorArr[index%4]}};">
           <view class="first_line">
             <view class="time">{{item.Time}}</view>
-            <view class="jubao" catchtap="navitoJuBao" data-id="{{item._id}}">举报</view>
+            <navigator class="jubao" url="../JuBao/JuBao?_id={{item._id}}&from_page=小纸条板块">举报</navigator>
           </view>
 
           <view class="Line"></view>

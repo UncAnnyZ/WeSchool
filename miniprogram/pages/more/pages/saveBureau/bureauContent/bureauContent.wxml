@@ -1,0 +1,137 @@
+<!--pages/more/pages/saveBureau/bureauContent/bureauContent.wxml-->
+<view class="head">
+  <view style="height: {{statusBarHeight}}px;" />
+  <view class="head_second" style="height: {{lineHeight}}px;">
+    <view class="arrow" bindtap="back">
+      <image src="../../../../../images/arrow.png"/>
+    </view>
+  </view>
+</view>
+<view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+<scroll-view>
+<view class="All">
+  <view class="member">
+    <view class="memberTitle">局内成员</view>
+    <scroll-view scroll-x="true" class="memberContent">
+      <view class="icon">
+        <view class="circle">
+          <image src="{{iconUrl}}" class="directoricon"/>
+        </view>
+        <view class="remake background-color_{{sex}}" ><text>局长</text></view>
+      </view>
+      <view class="icon" wx:for="{{manNum}}" bindtap="joinIn" id="{{index}}" data-sex="manNum" wx:key="id" bindlongtap="delNum" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd">
+        <view class="circle">
+          <image src="{{item.iconUrl}}" class="usericon" wx:if="{{item.iconUrl}}"/>
+          <image src="../../../../../images/add-bold.png"  class="add" wx:else/>
+        </view>
+        <view class="remake" style="background-color: #5D81CF;"><text>成员</text></view>
+      </view>
+      <view class="icon" wx:for="{{womanNum}}" bindtap="joinIn" id="{{index}}" data-sex="womanNum" wx:key="id" bindlongtap="delNum" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd">
+        <view class="circle">
+          <image src="{{item.iconUrl}}" class="usericon" wx:if="{{item.iconUrl}}"/>
+          <image src="../../../../../images/add-bold.png"  class="add" wx:else/>
+        </view>
+        <view class="remake" style="background-color: #EC7A73;"><text>成员</text></view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="bureauContent" bindtap="charBoxdel">
+    <view class="contentTop">
+      <view class="contentTitle">局情</view>
+      <view style="display: flex;flex-direction: column;position: relative;left: 500rpx;">
+        <image src="../../../../../images/more.png" catchtap="showReport"/>
+        <view class="charBox" wx:if="{{charBox}}">
+        <view class="angle"></view>
+        <view class="report" wx:if="{{args.username!=userName}}" catchtap="report"><text style="font-weight: 550; font-size: 25rpx;letter-spacing: 3rpx;">举报</text></view>
+        <view class="report" wx:else catchtap="delCard"><text style="font-weight: 550; font-size: 25rpx;letter-spacing: 3rpx;">删除</text></view>
+        </view>
+      </view>
+    </view>
+    <view class="iconAndname">
+      <view class="contentIcon">
+        <image src="{{iconUrl}}"/>
+      </view>
+      <view class="contentName">
+        <view class="userName">{{nickName}}</view>
+        <view class="time">{{time}}</view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="text">{{text}}</view>
+      <view class="location">{{locationName}}</view>
+      <view class="contentImage">
+        <view class="img" wx:for="{{photo}}" wx:key="id">
+          <image src="{{item}}" mode="aspectFill"/>
+        </view>
+      </view>
+    <view class="perch"></view>
+    </view>
+    <view class="contentBottom">
+      <view class="wantTogo" bindtap="joinIn" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" hover-class="wantTogo2">
+        我想去
+      </view>
+      <button class="share" open-type="share">
+        <image src="../../../../../images/share(2).png"/>
+      </button>
+    </view>
+  </view>
+  <view class="discussTitle">公开讨论</view>
+  <scroll-view class="discuss" scroll-y="true" enhanced show-scrollbar="false">
+    <view style="margin-bottom: 20rpx;" wx:for="{{showComment}}" wx:key="id" >
+      <view id="{{index}}" bindtap="editComment">
+        <view class="iconAndname">
+          <view class="discussIcon">
+            <image src="{{item.iconUrl}}"/>
+          </view>
+          <view class="contentName">
+            <view class="userName">{{item.nickName}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+        </view>
+        <view class="discussContent">{{item.input}}</view>
+      </view>
+      <view wx:for="{{item.reply}}" bindtap="editComment" wx:for-index="index1" data-in="{{index1}}" data-out="{{index}}">
+        <view class="iconAndname" style="margin-left: 80rpx;">
+          <view class="discussIcon" style="width: 65rpx;height: 65rpx;">
+            <image src="{{item.iconUrl}}"/>
+          </view>
+          <view class="contentName">
+            <view class="userName">{{item.nickName}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+        </view>
+        <view class="discussContent" style="margin-left: 168rpx;"> 回复 <text style="color: #4D7BAE;">{{item.replyName}}</text> : {{item.input}}</view>
+      </view>
+    </view>
+    <view wx:if="{{none}}" class="none">- 这里什么也没有哦 -</view>
+  </scroll-view>
+  <view class="perch2"></view>
+</view>
+</scroll-view>
+<form bindsubmit="obatinComment">
+  <view class="sendComment">
+    <view class="inputComment" catchtap="showInput">
+      <textarea placeholder="在此输入公开讨论内容" auto-height bindconfirm="obatinComment" name="textarea" focus="{{showInput}}" value="{{input}}" confirm-type="send" show-confirm-bar="" cursor-spacing="40rpx" />
+    </view>
+    <button class="send" form-type="submit" hover-class="send2">发送</button>
+  </view>
+</form>
+<view class="EditCom" wx:if="{{comEdit}}">
+  <view class="EditCom_background" bindtap="editComment"></view>
+  <view class="EditCom_contain {{edit_style}}" >
+    <view class="EditCom_Title">{{CommentName}}: {{CommentContent}}</view>
+    <view class="Line"></view>
+    <view class="ReplyComment" bindtap="replyComment" style="color:rgba(0, 89, 255, 0.699);">
+        回复
+    </view>
+    <view class="Line"></view>
+    <view class="CopyComment" bindtap="copyComment" style="color:rgba(0, 89, 255, 0.699);">
+        复制
+    </view>
+    <view class="Line"></view>
+    <view class="DelComment" bindtap="delComment" wx:if="{{ShowDelCom}}" style="color: rgba(255, 0, 0, 0.753);">
+        删除
+    </view>
+  </view>
+</view>
+

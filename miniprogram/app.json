@@ -6,22 +6,39 @@
   },
   "pages": [
     "pages/more/more",
-    "pages/index/index",
-    "pages/testdaka/index/index",
-    "pages/testdaka/record/record",
     "pages/login/login",
     "pages/curriculum/curriculum",
     "pages/myself/myself",
-    "pages/test/test",
-    "pages/index/guidance/guidance",
-    "pages/more/components/searchPage/searchPage",
-    "pages/more/components/searchContent/searchContent",
-    "pages/myself/fansAndfocus/fansAndfocus",
-    "pages/myself/components/InfoFlowCards/InfoFlowCards",
-    "pages/myself/components/InfoFlowCards/components/replyComment/replyComment",
+    "pages/PublishContent/PublishContent",
     "pages/functionPage/functionPage"
   ],
   "subPackages": [
+    {
+      "name": "test",
+      "root": "pages/test",
+      "pages": [
+        "test"
+      ]
+    },
+    {
+      "name": "myself",
+      "root": "pages/myself/pages",
+      "pages": [
+        "page/page",
+        "rule/rule",
+        "fansAndfocus/fansAndfocus",
+        "about/about",
+        "journal/journal"
+      ]
+    },
+    {
+      "name": "index",
+      "root": "pages/index",
+      "pages": [
+        "index",
+        "guidance/guidance"
+      ]
+    },
     {
       "name": "physical",
       "root": "pages/physical",
@@ -29,6 +46,14 @@
         "physical",
         "detail/detail"
       ]
+    },
+    {
+        "name": "testdaka",
+        "root": "pages/testdaka",
+        "pages": [
+          "index/index",
+          "record/record"
+        ]
     },
     {
       "name": "common",
@@ -85,7 +110,6 @@
         "DetailContent/DetailContent",
         "UserContent/UserContent",
         "NewInfo/NewInfo",
-        "PublishContent/PublishContent",
         "Freshman/Freshman",
         "Match/Match",
         "LoseDetailContent/LoseDetailContent",
@@ -96,21 +120,15 @@
         "note_module/pages/renLingNote/renLingNote",
         "note_module/pages/sendNote/sendNote",
         "Love/Love",
-        "Love/pages/detail/detail"
-      ]
-    },
-    {
-      "name": "about",
-      "root": "pages/about",
-      "pages": [
-        "about"
-      ]
-    },
-    {
-      "name": "journal",
-      "root": "pages/journal",
-      "pages": [
-        "journal"
+        "Love/pages/detail/detail",
+        "saveBureau/saveBureau",
+        "saveBureau/bureauContent/bureauContent",
+        "saveBureau/joinedBureau/joinedBureau",
+        "saveBureau/myJoined/myJoined",
+        "saveBureau/publishBureau/publishBureau",
+        "note_module/pages/noteFromRenLing/index",
+        "searchPage/searchPage",
+        "searchContent/searchContent"
       ]
     }
   ],
@@ -140,8 +158,7 @@
     "pages/myself/myself": {
       "network": "all",
       "packages": [
-        "about",
-        "journal"
+        "myself"
       ]
     }
   },
@@ -159,16 +176,22 @@
     "backgroundColor": "@tabBackgroundColor",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "/images/tabbar/主页.png",
-        "selectedIconPath": "/images/tabbar/主页_sel.png",
-        "text": "首页"
+        "pagePath": "pages/functionPage/functionPage",
+        "text": "功能",
+        "iconPath": "/images/tabbar/功能.png",
+        "selectedIconPath": "/images/tabbar/功能.png"
       },
       {
         "pagePath": "pages/curriculum/curriculum",
         "iconPath": "/images/tabbar/课程表.png",
         "selectedIconPath": "/images/tabbar/课程表_sel.png",
         "text": "课表"
+      },
+      {
+        "pagePath": "pages/PublishContent/PublishContent",
+        "bulge": true,
+        "iconPath": "/images/tabbar/发布.png",
+        "selectedIconPath": "/images/tabbar/发布.png"
       },
       {
         "pagePath": "pages/more/more",

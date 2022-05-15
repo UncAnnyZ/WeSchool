@@ -10,7 +10,7 @@
           <text wx:if="{{NewInfo<100}}">{{NewInfo}}</text>
           <text wx:elif="{{NewInfo>=100}}">99+</text>
         </view>
-        <image class="header-right-img" src="./images/img/set.png" />
+        <image class="header-right-img" bindtap="navigate" data-type="set" src="./images/img/set.png" />
       </view>
       <view class="banner bannerbgc" bindtap="toFans">
         <view class="banner-fri">

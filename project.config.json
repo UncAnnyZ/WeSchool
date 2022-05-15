@@ -45,7 +45,7 @@
     "useStaticServer": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.0",
+  "libVersion": "2.24.1",
   "appid": "wxf84451020f439de9",
   "projectname": "WeSchool",
   "miniprogramRoot": "miniprogram/",

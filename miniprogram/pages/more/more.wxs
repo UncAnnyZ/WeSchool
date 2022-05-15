@@ -1,14 +1,14 @@
 
 var funcA = function (e, ins) {
-    var scrollTop = e.detail.scrollTop;
-    console.log(scrollTop);
-    if(scrollTop > 150) {
-        // ins.selectComponent('#TabScroll').addClass('TabScroll_Fixed')
-        ins.callMethod('canWaterScroll')
-    }else {
-        ins.callMethod('cannotWaterScroll')
-    }
+  var scrollTop = e.detail.scrollTop;
+  console.log(scrollTop);
+  if (scrollTop > 150) {
+    // ins.selectComponent('#TabScroll').addClass('TabScroll_Fixed')
+    ins.callMethod('canWaterScroll')
+  } else {
+    ins.callMethod('cannotWaterScroll')
+  }
 }
 module.exports = {
-    funcA: funcA
+  funcA: funcA
 }

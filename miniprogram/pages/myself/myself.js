@@ -251,6 +251,7 @@ Page({
         username: args.username,
         type: "findFocus"
       }, success: res => {
+        console.log()
         this.setData({
           fansNum: res.result.data[0].focusNum,
           focusNum: res.result.data[0].fansNum
@@ -295,10 +296,9 @@ Page({
       }
     })
     wx.navigateTo({
-      url: '../../pages/myself/fansAndfocus/fansAndfocus?type=' + e.currentTarget.dataset.type,
-    })
+      url: '../../pages/myself/pages/fansAndfocus/fansAndfocus?type=focusNum'
+  })
   },
-
   onLoad: function (e) {
 
 
@@ -308,6 +308,7 @@ Page({
  
 
   },
+
   //上拉
   onPullDownRefresh() {
     console.log(44444444)
@@ -348,6 +349,11 @@ Page({
     if (e.currentTarget.dataset.type == "tip") {
       wx.navigateTo({
         url: '/pages/more/pages/NewInfo/NewInfo',
+      })
+    }
+    else if(e.currentTarget.dataset.type == "set"){
+      wx.navigateTo({
+        url: '/pages/myself/pages/page/page',
       })
     }
   },
@@ -432,6 +438,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 4
+      })
+    }
     this.getNewInfo()
     this.readFocus()
     this.readStar()
