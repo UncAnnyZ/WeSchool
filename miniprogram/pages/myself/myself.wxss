@@ -332,6 +332,7 @@ z-index:200
 .banner-fri-touxiang{
   width: 90rpx;
   height:90rpx;
+  border-radius:90rpx;
 }
 .bnaner-fri-left{
   margin-left:20rpx;
