@@ -206,11 +206,12 @@ Page({
       item.type=0
     })
     that.data.menuList[e.currentTarget.id].type=1
+    console.log();
     // this.scrollBottom()
     that.setData({
       choosen:true,
       menuList:that.data.menuList,
-      bottomId: that.data.menuList[e.currentTarget.id].name,
+      bottomId: that.data.menuList[e.currentTarget.id].changeLabel,
 
     })
   },
@@ -222,6 +223,7 @@ Page({
       })
       let product={
         label:item.name,
+        changeLabel:item.changeLabel,
         goodsList
       }
       productGroups.push(product)
@@ -241,12 +243,15 @@ Page({
 
    /* 菜单渲染 */
    menuRendering() {
+     let count=0
     const menuList=this.data.menuList.map((item) => {
       // item.type=0
       let obj={
         name:item.name,
-        type:0
+        type:0,
+        changeLabel:'changeLabel'+count
       }
+      count += 1
       return obj
     })
     this.setData({
