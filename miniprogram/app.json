@@ -101,7 +101,10 @@
         "saveBureau/bureauContent/bureauContent",
         "saveBureau/joinedBureau/joinedBureau",
         "saveBureau/myJoined/myJoined",
-        "saveBureau/publishBureau/publishBureau"
+        "saveBureau/publishBureau/publishBureau",
+        "note_module/pages/noteFromRenLing/index",
+        "searchPage/searchPage",
+        "searchContent/searchContent"
       ]
     },
     {
@@ -177,7 +180,7 @@
       },
       {
         "pagePath": "pages/PublishContent/PublishContent",
-        "bulge":true,
+        "bulge": true,
         "iconPath": "/images/tabbar/发布.png",
         "selectedIconPath": "/images/tabbar/发布.png"
       },

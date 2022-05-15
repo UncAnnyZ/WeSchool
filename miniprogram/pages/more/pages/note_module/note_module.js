@@ -42,8 +42,7 @@ Page({
       success(res) {
         // 数据存在时
         if (res.result && res.result.data.length > 0) {
-          // 页数++
-          that.setData({ currentPage: ++currentPage });
+
           let noteList = that.data.noteList;
           // 处理时间
           res.result.data.forEach(item => {
@@ -52,7 +51,8 @@ Page({
           // 添加新数据到 noteList 里 
           noteList = noteList.concat(res.result.data);
           that.setData({
-            noteList
+            noteList,
+            currentPage: ++currentPage // 页数++
           });
           // 若数据少于一页
           if (res.result.data.length < 30) {

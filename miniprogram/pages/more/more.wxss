@@ -137,7 +137,11 @@
   font-size: 30rpx;
   width: 100vw;
 }
-
+.head_second .inputBox {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 .head_second image {
   position: absolute;
   left: 20rpx;
