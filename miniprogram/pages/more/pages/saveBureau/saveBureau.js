@@ -186,6 +186,37 @@ Page({
       }
     })
   },
+  readPeople(){
+    let peopleList=0
+    wx.cloud.callFunction({
+      name: 'saveBureau',
+      data: {
+        type: "readPeople"
+      },
+      success: res => {
+        res.result.data.forEach((item) => {
+          let manLength=item.manNum.filter((item2) => {
+            return item2!=1
+          })
+          peopleList += manLength.length
+          let womanLength=item.womanNum.filter((item2) => {
+            return item2!=1
+          })
+          peopleList += womanLength.length
+        })
+        this.setData({
+          peopleList
+        })
+      },
+      fail: err => {
+      }
+    })
+  },
+  back(){
+    wx.navigateBack({
+      delta: 1,  // 返回上一级页面。
+    })
+  },
 
   
   /**
@@ -193,6 +224,7 @@ Page({
    */
   onLoad: function (options) {
     const args = wx.getStorageSync('args')
+    this.readPeople()
     this.setData({
       arry:this.data.arry,
     })

@@ -27,23 +27,34 @@ page{
 .savedNumber text{
   color:#E18D77;
   font-size: 40rpx;
+  /* position: absolute;
+  left: 323rpx; */
   position: absolute;
-  left: 323rpx;
+  left: 225rpx;
   bottom: 7px;
   z-index: 2;
+  width: 115rpx;
+  display: flex;
+  justify-content: center;
 }
 .backImg{
+  /* transform:rotate(90deg);
   position: absolute;
   top: 70rpx;
   left: 55rpx;
   width: 20rpx;
-  height: 28rpx;
+  height: 28rpx; */
+
+  transform: rotate(90deg);
+  position: relative;
+  bottom: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .peopleImg{
   margin-top: 15rpx;
   width: 320rpx;
   height: 90rpx;
-  margin-left: 148rpx;
 }
 .All{
   width: 100%;

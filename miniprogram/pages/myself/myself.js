@@ -295,7 +295,7 @@ Page({
       }
     })
     wx.navigateTo({
-      url: '../../pages/myself/fansAndfocus/fansAndfocus?type=' + e.currentTarget.dataset.type,
+      url: '../../pages/myself/pages/fansAndfocus/fansAndfocus?type=' + e.currentTarget.dataset.type,
     })
   },
 
