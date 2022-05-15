@@ -57,7 +57,7 @@ Page({
     scrollTop: 0,
     offsetTop: 0,
     TabScrollTop: 0,
-    scrollPielx: 0,
+    layerHeight: 245,
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -77,11 +77,16 @@ Page({
     wx.createSelectorQuery()
       .select('.container')
       .boundingClientRect((res) => {
+        // 滑动高度 / 标签吸顶时的滑动高度 = 百分比 ∈ [0,1]
+        var x = Number(scrollTop / (TabScrollTop - 62)) > 1 ? 1 : Number(scrollTop / (TabScrollTop - 62)),
+        // 一元一次方程：y = -(245 - a)x + 245;    y∈[a,245], x∈[0,1]
+        a = statusBarHeight + lineHeight + 62,
+        layerHeight = -(245 - a) * x + 245;
 
         this.setData({
           scrollTop: scrollTop,
           offsetTop: res.top + statusBarHeight + lineHeight,
-          scrollPielx: Number(scrollTop / (TabScrollTop - 62)) 
+          layerHeight: layerHeight
         });
       })
       .exec();

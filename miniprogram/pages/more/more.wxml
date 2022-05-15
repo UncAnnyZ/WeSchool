@@ -2,11 +2,11 @@
 
 <scroll-view class="container" style="height: {{windowHeight}}px;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
   <!-- 渐变层 -->
-  <view class="gradient-layer" style="height: {{scrollTop > TabScrollTop - 205 ? statusBarHeight + lineHeight + 62 : 245}}px; z-index: {{scrollTop > TabScrollTop - 60 ? 2 : ''}};"></view>
+  <view class="gradient-layer" style="height: {{layerHeight}}px; z-index: {{scrollTop > TabScrollTop - 60 ? 2 : ''}};"></view>
 
   <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;">
     <!-- 渐变层 - 占位 -->
-    <view class="gradient-layer1" style="height: {{scrollTop > TabScrollTop - 205 ? statusBarHeight + lineHeight + 62 : 245}}px;" />
+    <view class="gradient-layer1" style="height: {{layerHeight}}px;" />
     <!-- 状态栏 -->
     <view style="width: 100%; height: 200rpx; position: absolute;"> </view>
     <view style="height: {{statusBarHeight}}px;" />
@@ -15,7 +15,7 @@
       <input placeholder="搜索你感兴趣的内容" class="searchInput" bindtap="" />
       <image style="width: 35rpx; height: 35rpx; margin-left:40rpx; z-index: 3;" src="./images/search.png"></image>
     </view>
-    
+
   </view>
   <!-- 填充 -->
   <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
@@ -42,49 +42,5 @@
       </swiper-item>
     </swiper>
 
-
-
-    <!-- 发布按钮 -->
-    <view class="img-button content_btn content_btn_add" style="display:{{school=='游客登录'?'none':'fixed'}}" bindtap="showPopUps" id="PublishContent">
-      <image src="/images/btn_feed@2x.png"></image>
-    </view>
-    <!-- 我的发布按钮 -->
-    <view class="img-button content_btn content_btn_user" bindtap="navigate" style="display:{{school=='游客登录'?'none':'fixed'}}" id="UserContent">
-      <image src="../../images/User.png"></image>
-    </view>
-
-    <!-- 弹窗 -->
-    <view style="position: absolute; height: {{windowHeight - statusBarHeight - lineHeight - 28}}px;" class="popUps {{showPopUps ? 'popUpsActive' : ''}}">
-      <!-- <view class="mengban {{showPopUps ? 'mengbanActive' : ''}}"></view> -->
-      <!-- 点击事件 -->
-      <view class="bindBoxFlex">
-
-        <view class="bindBox" bindtap="show_PublishContent">
-          <view class="imageBox" style="background-color: rgb(236, 158, 200);">
-            <image src="./images/course.png"></image>
-          </view>
-          <text>快速发布</text>
-        </view>
-
-        <view class="bindBox" bindtap="navigate" id="PublishContent">
-          <view class="imageBox" style="background-color: rgb(125, 222, 200);">
-            <image src="./images/child.png"></image>
-          </view>
-          <text>其 他</text>
-        </view>
-
-      </view>
-
-      <!-- 取消 -->
-      <view class="cancelBox">
-        <view class="cancel" bindtap="showPopUps">
-          <image src="./images/close.png"></image>
-        </view>
-      </view>
-
-    </view>
-
-    <!-- 快速发布组件 -->
-    <QuickPublish id="QuickPublish" showModel="{{showModel}}" bind:ReOnLoad="onLoad"></QuickPublish>
   </scroll-view>
 </scroll-view>

@@ -140,7 +140,7 @@
   bottom: 0;
   height: 220rpx;
   box-sizing: border-box;
-  background: linear-gradient(0deg, #fff, rgb(255, 255, 255, 0));
+  background: linear-gradient(0deg, #fff, rgb(255, 255, 255, 0) 70%);
 }
 
 .container .send_note {

@@ -186,6 +186,11 @@ Page({
   },
 
   onShow: function (options) {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
     console.log(util.getweekString(),"whichWeek");
     this.kb(util.getweekString());
     this.initWeek();

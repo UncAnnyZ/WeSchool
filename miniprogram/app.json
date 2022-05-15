@@ -16,6 +16,7 @@
     "pages/index/guidance/guidance",
     "pages/myself/page/page",
     "pages/myself/rule/rule",
+    "pages/PublishContent/PublishContent",
     "pages/more/components/searchPage/searchPage",
     "pages/more/components/searchContent/searchContent",
     "pages/myself/fansAndfocus/fansAndfocus",
@@ -87,7 +88,6 @@
         "DetailContent/DetailContent",
         "UserContent/UserContent",
         "NewInfo/NewInfo",
-        "PublishContent/PublishContent",
         "Freshman/Freshman",
         "Match/Match",
         "LoseDetailContent/LoseDetailContent",
@@ -159,16 +159,22 @@
     "backgroundColor": "@tabBackgroundColor",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "/images/tabbar/主页.png",
-        "selectedIconPath": "/images/tabbar/主页_sel.png",
-        "text": "首页"
+        "pagePath": "pages/functionPage/functionPage",
+        "text": "功能",
+        "iconPath": "/images/tabbar/功能.png",
+        "selectedIconPath": "/images/tabbar/功能.png"
       },
       {
         "pagePath": "pages/curriculum/curriculum",
         "iconPath": "/images/tabbar/课程表.png",
         "selectedIconPath": "/images/tabbar/课程表_sel.png",
         "text": "课表"
+      },
+      {
+        "pagePath": "pages/PublishContent/PublishContent",
+        "bulge":true,
+        "iconPath": "/images/tabbar/发布.png",
+        "selectedIconPath": "/images/tabbar/发布.png"
       },
       {
         "pagePath": "pages/more/more",

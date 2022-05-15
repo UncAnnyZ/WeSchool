@@ -9,31 +9,14 @@ Page({
     loadAll: false,
     showLoading: 0,
     colorArr: [
-      '#F0F8FF',
-      '#F0FFFF',
-      '#FAEBD7',
-      '#F5F5DC',
-      '#FFFFF0',
-      '#E6E6FA',
-      '#c6f5c6',
-      '#FFB6C1',
-      '#FAFAD2',
-      '#F08080'
+      '#EFF9F8',
+      '#F8EBF2',
+      '#E5F3FE',
+      '#E7EAFB'
     ]
   },
   TimeOut: 1,
 
-  navitoJuBao(e) {
-    console.log(e);
-    let _id = e.currentTarget.dataset.id;
-    wx.showLoading({
-      title: '请稍等',
-    })
-    wx.navigateTo({
-      url: `../JuBao/JuBao?_id=${_id}&from_page=小纸条板块`,
-    })
-    wx.hideLoading()
-  },
   init() {
     this.setData({
       noteList: [],

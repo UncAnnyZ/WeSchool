@@ -1,2 +1,28 @@
-<!--pages/functionPage/functionPage.wxml-->
-<text>pages/functionPage/functionPage.wxml</text>
+<!-- 头部 -->
+<view style="width: 100%; z-index:2; position:fixed; background-color: white;">
+  <view class="head">
+    <!-- 状态栏 -->
+    <view style="width: 100%;height: {{statusBarHeight}}px;" />
+    <!-- 导航栏 -->
+    <view class="lineHeight" style="height: {{lineHeight}}px;">
+      应用中心
+    </view>
+  </view>
+</view>
+
+<view style="height: {{statusBarHeight + lineHeight}}px;"></view>
+
+<!-- 主体 -->
+<!-- <view class="body">
+  <block wx:for="{{cardList}}" wx:key="*this">
+  
+    <view class="card">
+      <view class="title">{{item}}</view>
+      <view class="funcBody" wx:for="{{funcList}}" wx:key="*this">
+
+      </view>
+    </view>
+
+  </block>
+</view> -->
+<icon-bar iconList="{{iconList}}"></icon-bar>
