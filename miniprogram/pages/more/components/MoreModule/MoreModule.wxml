@@ -1,7 +1,7 @@
 <scroll-view scroll-x>
   <view class="container">
     <!-- 恋爱匹配 -大盒子 -->
-    <view class="first">
+    <view class="first" id="Love" bindtap="naviToPage">
       <text>恋爱匹配</text>
       <image src="./images/love.png" mode="widthFix"></image>
     </view>

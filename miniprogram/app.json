@@ -94,7 +94,9 @@
         "note_module/note_module",
         "JuBao/JuBao",
         "note_module/pages/renLingNote/renLingNote",
-        "note_module/pages/sendNote/sendNote"
+        "note_module/pages/sendNote/sendNote",
+        "Love/Love",
+        "Love/pages/detail/detail"
       ]
     },
     {

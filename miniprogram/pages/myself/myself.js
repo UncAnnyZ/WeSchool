@@ -300,10 +300,12 @@ Page({
   },
 
   onLoad: function (e) {
+
+
+
     this.init()
     this.getData()
-    // this.readFocus()
-    // this.readStar()
+ 
 
   },
   //上拉
