@@ -20,6 +20,9 @@ exports.main = async (event) => {
     case "readMe":
       data = await readMe(event); // 
       break;
+    case "readPeople":
+      data = await readPeople(event); // 
+      break;
     case "readContent":
       data = await readContent(event); // 
       break;
@@ -133,6 +136,39 @@ async function readMe(event) {
       ),
     ).skip(page).limit(15).get();
   } catch (e) {
+    console.error(e);
+  }
+}
+
+async function readPeople(event) {
+  try{
+    // await db.collection('saveBureau').where({
+    //   _openid: 'xxx' // 填入当前用户 openid
+    // }).get({
+    //   success: function(res) {
+    //     console.log(res.data)
+    //   },
+    //   fail: console.error
+    // })
+    const MAX_LIMIT = 100
+    const countResult = await db.collection('saveBureau').count()
+    const total = countResult.total
+    // 计算需分几次取
+    const batchTimes = Math.ceil(total / 100)
+    // 承载所有读操作的 promise 的数组
+    const tasks = []
+    for (let i = 0; i < batchTimes; i++) {
+      const promise = db.collection('saveBureau').skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+      tasks.push(promise)
+    }
+    // 等待所有
+    return (await Promise.all(tasks)).reduce((acc, cur) => {
+      return {
+        data: acc.data.concat(cur.data),
+        errMsg: acc.errMsg,
+      }
+    })
+  }catch(e){
     console.error(e);
   }
 }

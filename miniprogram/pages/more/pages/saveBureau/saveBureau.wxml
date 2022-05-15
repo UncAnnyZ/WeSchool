@@ -3,10 +3,10 @@
   <view style="height: {{statusBarHeight}}px;" />
   <view class="head_second" style="height: {{lineHeight}}px;">
     <view class="savedNumber" style="top: {{lineHeight}}px;">
-      <image src="../../../../images/btn_prev@2x.png" class="backImg"></image>
+      <image src="../../../../images/arrow.png" class="backImg" bindtap="back"/>
       <image src="../../../../images/people.png" class="peopleImg"></image>
       <!-- 已攒<text>  99117 </text>人 -->
-      <text>  99117 </text>
+      <text>  {{peopleList}} </text>
     </view>
   </view>
 </view>
