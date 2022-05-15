@@ -96,7 +96,12 @@
         "note_module/note_module",
         "JuBao/JuBao",
         "note_module/pages/renLingNote/renLingNote",
-        "note_module/pages/sendNote/sendNote"
+        "note_module/pages/sendNote/sendNote",
+        "saveBureau/saveBureau",
+        "saveBureau/bureauContent/bureauContent",
+        "saveBureau/joinedBureau/joinedBureau",
+        "saveBureau/myJoined/myJoined",
+        "saveBureau/publishBureau/publishBureau"
       ]
     },
     {

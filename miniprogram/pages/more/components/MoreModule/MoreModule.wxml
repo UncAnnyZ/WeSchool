@@ -11,7 +11,7 @@
         <text>小纸条</text>
         <image src="./images/note.png" mode="widthFix"></image>
       </view>
-      <view class="second_box zanju" id="zanju" bindtap="naviToPage">
+      <view class="second_box zanju" id="saveBureau" bindtap="naviToPage">
         <text>攒局</text>
         <image src="./images/zanju.png" mode="widthFix"></image>
       </view>
