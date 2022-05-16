@@ -57,7 +57,7 @@
 
     <scroll-view wx:if="{{campus_account!=true}}" class="page">
       <Loading wx:if="{{showLoading}}" />
-      <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight+90}}px;min-height:60vh">
+      <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight+90}}px;min-height:70vh">
         <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">
           <InfoFlowCards id="InfoFlowCards{{index}}" list="{{item}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" />
         </swiper-item>

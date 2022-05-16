@@ -300,32 +300,20 @@ Page({
   })
   },
   onLoad: function (e) {
-
-
-
     this.init()
     this.getData()
- 
-
   },
 
   //上拉
   onPullDownRefresh() {
-    console.log(44444444)
   },
   onReachBottom() {
-    // if(!this.data.loadAll){
-    //   console.log(222)
-    // }
-
-
     wx.showLoading({
       title: '加载更多中',
       mask: true
     })
     // 请求数据库
     this.getData();
-    console.log(22222222222)
 
     wx.hideLoading();
 
@@ -438,6 +426,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+       // 判断登录
+    app.loginState();
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 4
