@@ -2,11 +2,10 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  padding: 20rpx;
+  padding: 0 20rpx 20rpx 20rpx;
   box-sizing: border-box;
   /* margin: 20rpx; */
 }
-
 /* 公示栏 */
 .container .inform {
   width: 100%;

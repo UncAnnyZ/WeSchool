@@ -1,0 +1,251 @@
+.containers{
+  width:100%;
+  height:100%;
+  position: fixed;
+  background-size:100% 100%;
+  z-index: -1;
+}
+.bgc{
+  width: 100%;
+  height: 100%;
+}
+.top{
+  position: relative;
+  top:0rpx;
+  width: 100%;
+  height:160rpx;
+  background-color: rgba(234,129,113);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 50rpx;
+  color:white;
+}
+
+.model3{
+  z-index: 55;
+  position: absolute;
+  top:32vh;
+  left:20%;
+  width: 70%;
+  margin:0rpx auto;
+  height:700rpx;
+  background-color: white;
+  border-radius: 50rpx;
+}
+.model{
+  z-index: 99;
+  position: relative;
+  top:30vh;
+  width: 72%;
+  margin:0rpx auto;
+  height:700rpx;
+  background-color: white;
+  border-radius: 50rpx;
+}
+.model-top{
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0rpx;
+  background-color: rgba(234,129,113);
+  border-radius: 50rpx 50rpx 0rpx 0rpx;
+  font-size:32rpx;
+}
+.model-body{
+  display: flex;
+  margin-top:22%;
+  height: 47%;
+  justify-content: center;
+  margin-left:20rpx;
+  margin-right:20rpx;
+}
+.model-body-true .model-body-choose-1-true,
+.model-body-true .model-body-choose-2-true
+{
+  width: 45%;
+  height:99%;
+  transition: all .2s;
+}
+
+.model-body-choose-text-1-true,
+.model-body-choose-text-2-true
+{
+  font-size: 30rpx;
+  transition: all .5s;
+}
+.model-body-choose-1,.model-body-choose-2{
+  transition: all .5s;
+  background-color:#b9cfeb;
+  height: 80rpx;
+  color:white;
+  font-size:38rpx;
+  border-radius: 40rpx;
+  width: 45%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  margin: 0rpx 20rpx;
+  white-space:normal;
+  word-wrap:break-word;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+.model-body-choose-text{
+  width: 100%;
+  text-align: center;
+  transition: all .5s;
+}
+.model-bottom1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:6%;
+ color: rgba(234,129,113);
+
+}
+.model-bottom2{
+  position: absolute;
+  bottom: 30rpx;
+  left:50%;
+  width: 92rpx;
+  margin-left:-42rpx;
+  margin-top:4%;
+  color: rgba(234,129,113);
+
+}
+.model-end{
+  z-index:999;
+  position: absolute;
+  top:90%;
+  left:50%;
+  color:white;
+  background-color: rgba(234,129,113);
+  padding: 20rpx 0rpx;
+  width: 45%;
+  left:210rpx;
+  text-align: center;
+  box-shadow: 2rpx 2rpx 2rpx rgba(234,129,113);
+  border-radius: 20rpx;
+}
+.active{
+  background-color: rgba(234,129,113);
+}
+.show_title{
+  margin-top:20rpx;
+  display: flex;
+  justify-content: center;
+
+}
+.show_body{
+  padding: 40rpx;
+  font-size: 28rpx;
+text-align: justify;
+
+}
+.show{
+  padding:30rpx 0rpx;
+  border-radius: 50rpx;
+  color:white;
+  width: 100%;
+  height:100%;
+/*  */
+  /* box-sizing: border-box; */
+}
+.show_title_text{
+  color:rgba(254,241,151);
+}
+.img{
+  width: 35%;
+
+}
+.imgs{
+  display: flex;
+  justify-content: center;
+}
+.share{
+  background-color: #fff;
+  width: 70%;
+  display: flex;
+  margin:0 auto;
+  margin-top:30rpx;
+  padding: 20rpx 0rpx;
+  color: rgba(234,129,113);
+  justify-content: center;
+ border-radius: 30rpx;
+
+}
+.model2{
+  position: relative;
+  top:20vh;
+  width: 72%;
+  margin:0rpx auto;
+  background-color: white;
+  border-radius: 50rpx;
+  background-color: #74b9ff;
+  padding-bottom:30rpx ;
+}
+.model2_canvas{
+  width: 100%;
+  height: 800rpx;
+  background-color: #74b9ff;
+
+  border-radius: 50rpx;
+}
+.model-body2{
+  margin:100rpx 60rpx;
+  
+  }
+  .model-body-choice2{
+    background-color:#b9cfeb;
+    margin:40rpx 0rpx;
+    border-radius: 20rpx;
+    position: absolute;
+    bottom:50%;
+    margin-bottom:-80rpx;
+    height:80rpx ;
+    left:50%;
+    margin-left:-210rpx;
+    color:white;
+    padding-left:30rpx ;
+    font-size: 28rpx;
+    width: 360rpx;
+    line-height: 80rpx;
+    text-align: center;
+    padding-right:30rpx ;
+  }
+  .model-body-choice{
+    background-color:#b9cfeb;
+    margin:40rpx 0rpx;
+    border-radius: 20rpx;
+    padding: 20rpx 0rpx;
+    color:white;
+    padding-left:30rpx ;
+    font-size: 28rpx;
+  }
+  .text{
+    height: 350rpx;
+    background-color: rgba(243,243,243);
+    width: 100%;
+    margin-top:-30rpx;
+    padding-left:20rpx ;
+    padding-right:20rpx ;
+    padding-top: 20rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    border-radius: 30rpx;
+  }
+  .model-btn{
+    position: absolute;
+    bottom:90rpx;
+    color:white;
+    padding: 8rpx 10rpx;
+    left:50%;
+    margin-left:-50rpx;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    background-color: rgba(234,129,113);
+  }

@@ -12,8 +12,11 @@
     <view style="height: {{statusBarHeight}}px;" />
     <!-- 导航栏 -->
     <view class="head_second" style="height: {{lineHeight}}px;">
-      <input placeholder="搜索你感兴趣的内容" class="searchInput" bindtap="" />
-      <image style="width: 35rpx; height: 35rpx; margin-left:40rpx; z-index: 3;" src="./images/search.png"></image>
+      <navigator class="inputBox" url="./pages/searchPage/searchPage">
+        <input placeholder="搜索你感兴趣的内容" class="searchInput" />
+        <image style="width: 35rpx; height: 35rpx; margin-left:40rpx; z-index: 3;" src="./images/search.png"></image>
+      </navigator>
+
     </view>
 
   </view>

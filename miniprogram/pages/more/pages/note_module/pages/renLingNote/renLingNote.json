@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "custom-content": "../../components/content"
+  },
+  "navigationStyle":"custom"
 }

@@ -5,7 +5,7 @@
     <view style="margin-left: 277rpx;">更多</view>
   </view>
 
-  <image class="image" src="../../index/guidance/welogo.png"></image>
+  <image class="image" src="../../images/welogo.png"></image>
   <button catchtap="exslt" class="box" style="width: 95%;padding: 0;">
     <image src="../images/icon/guide.png" class="box_left"></image>
     <view class="boxright">社 区 规 范</view>
@@ -23,7 +23,7 @@
     <view class="boxright">登 录 / 注 销</view>
   </button>
 
-  <image class="image2" src="../../index/guidance/welogo.png"></image>
+  <image class="image2" src="../../images/welogo.png"></image>
   <button catchtap="aboutUs" class="box" style="width: 95%;padding: 0;">
     <image src="../images/icon/about.png" class="box_left"></image>
     <view class="boxright">关 于 我 们</view>

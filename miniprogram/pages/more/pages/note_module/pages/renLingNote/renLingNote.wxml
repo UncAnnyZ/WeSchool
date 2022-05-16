@@ -1,7 +1,25 @@
 <view class="container">
-  <view class="inform">
-    对上暗号，查看TA给你的留言
+  <!-- 头部 -->
+  <view class="head">
+    <!-- 状态栏 -->
+    <view style="height: {{statusBarHeight}}px;" />
+    <!-- 导航栏 -->
+    <view class="lineHeight" style="height: {{lineHeight}}px;">
+      <navigator class="imgBox" url="../../note_module">
+        <image src="../../../../../../images/btn_prev@2x.png" class="backImg"></image>
+      </navigator>
+
+      认领留言
+    </view>
   </view>
+
+  <!-- 填充 -->
+  <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+  <!-- 提示栏 -->
+  <view class="inform">
+    有人把一些话留在了我的服务器里让我保存，在你有需要的时候让我告诉你。
+  </view>
+  <!-- 主体 -->
   <form bindsubmit="formSubmit">
 
     <view class="main">
@@ -14,10 +32,61 @@
       </view>
       <!-- 提交 -->
       <view class="send">
-        <button form-type="submit" hover-class="btn_hover">提交</button>
+        <button form-type="submit" hover-class="btn_hover">认领留言</button>
       </view>
     </view>
 
   </form>
 
+  <!-- 弹窗主体 -->
+  <scroll-view hidden="{{!isAnimate}}" class="popScroll" style="top: {{windowHeight}}px;" animation="{{popScroll}}" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="50" scroll-y>
+    <!-- 头部 -->
+    <view class="head" style="margin: 0;">
+      <!-- 状态栏 -->
+      <view style="height: {{statusBarHeight}}px;" />
+      <!-- 导航栏 -->
+      <view class="lineHeight" style="height: {{lineHeight}}px;">
+        <view class="imgBox" bindtap="popDown">
+          <image src="../../../../../../images/btn_prev@2x.png" class="backImg"></image>
+        </view>
+
+        {{Input_anhao}}
+      </view>
+    </view>
+    <!-- 填充 -->
+    <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+    <!-- 卡片主体 -->
+    <view style="margin: 20rpx 30rpx;">相关留言</view>
+    <view class="main_body">
+      <block wx:for="{{noteList_search}}" wx:key="*this">
+        <view class="noteBox" id="noteBox{{index}}" hover-class="noteBox_active" hover-stay-time="100" style="background-color: {{colorArr[index%4]}};">
+          <view class="first_line">
+            <view class="time">{{item.Time}}</view>
+            <navigator class="jubao" url="../JuBao/JuBao?_id={{item._id}}&from_page=小纸条板块">举报</navigator>
+          </view>
+
+          <view class="Line"></view>
+
+          <view class="second_line">
+            <view class="userInfo_avatar">
+              <image wx:if="{{item.niming}}" src="../../../../../login/image/logo.jpg"></image>
+              <image wx:else src="{{item.iconUrl}}" />
+
+            </view>
+            <view class="userInfo">
+              <view wx:if="{{item.niming}}" class="nickName">匿名用户</view>
+              <view wx:else class="nickName">{{item.nickName}}</view>
+
+              <custom-content content="{{item.content}}" maxline="2" position="left" foldable="true"></custom-content>
+
+            </view>
+          </view>
+
+        </view>
+      </block>
+    </view>
+
+    <!-- 边界处理 -->
+    <view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>
+  </scroll-view>
 </view>

@@ -51,7 +51,7 @@
   font-size:28rpx;
 }
 .banner-fri-title{
-  letter-spacing:10rpx;
+  letter-spacing:3rpx;
 
 }
 .header{
@@ -303,6 +303,7 @@ z-index:200
 .banner-fri-touxiang{
   width: 90rpx;
   height:90rpx;
+  border-radius:90rpx;
 }
 .bnaner-fri-left{
   margin-left:20rpx;

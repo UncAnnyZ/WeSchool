@@ -15,12 +15,12 @@ Page({
   },
   aboutUs(){
     wx.navigateTo({
-      url: '../../about/about', 
+      url: '../about/about', 
     })
   },
   log(){
     wx.navigateTo({
-      url: '../../journal/journal', 
+      url: '../journal/journal', 
     })
   },
   login(e) {
