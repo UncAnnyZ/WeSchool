@@ -65,8 +65,8 @@
   <replyComment wx:if="{{comReply}}" comReply="{{comReply}}" edit_style="{{edit_style}}" CommentList="{{CommentList}}" content="{{content}}" bind:sendEvent="xx" bind:sendCom="hh"></replyComment>
 </view>
 <view wx:if="{{NoData}}" >
-  <view class="public_text ">第一条动态分享点什么呢~</view>
-  <view class="public">
+  <view class="public_text">第一条动态分享点什么呢~</view>
+  <view class="public"  bindtap="topost">
     发布动态
   </view>
 </view>

@@ -189,8 +189,11 @@ Component({
         this.data.sendCom = e.detail.CommentList
       }
     },
-    onReachBottom() {
 
+    topost(){
+      wx.switchTab({
+        url: '/pages/PublishContent/PublishContent',
+      })
     }
   }
 })
