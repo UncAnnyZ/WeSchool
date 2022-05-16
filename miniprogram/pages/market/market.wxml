@@ -42,11 +42,11 @@
           <view class="null"></view>
         </scroll-view>
       </view>
-      <scroll-view class="rightScroll" style="padding-top: {{topH}}px;" scroll-with-animation scroll-into-view="{{bottomId}}" bindscroll="trackingTag" scroll-y="true" style="display: inline-block;">
-        <view wx:for="{{productGroups}}" wx:key="id" id="{{item.changeLabel}}">
+      <scroll-view class="rightScroll" style="padding-top: {{topH}}px;" scroll-with-animation scroll-into-view="{{bottomId}}" bindscroll="trackingTag" scroll-y="{{monitorScrolling}}" style="display: inline-block;">
+        <view wx:for="{{menuList}}" wx:key="id" id="{{item.changeLabel}}">
           <view class="sign">
             <view class="signContent">
-              {{item.label}}
+              {{item.name}}
               <!-- <view class="signContentone">招牌</view>
               <view class="signContenttwo">老板推荐</view> -->
             </view>
