@@ -3,30 +3,18 @@ const db = wx.cloud.database({env:'mall-7gi19fir46652cb4'})
 var app = getApp()
 Page({
   data: {
-    guige: false,
-    goods: [],
+    goods: [],                  //所有商品的列表
     mydingdan: [], //订单
     mydindantotal: 0,
     skip: 0, //订单跳过前几条
     newuser: true,
-    /* --------------------- */
-    buy: [], //购物车
-    totalprice: 0.00,
-    // totalnumber: 0,
-    /* ---------------------- */
-    tabbar: true,
+    buy: [],                    //购物车内的商品列表
+    totalprice: 0.00,           //购物车总价格，不可以删，否则下面的价格栏切换显示出现bug
     havelocation: false,
-    /* --------------------- */
-    TabCur: '0',
-    MainCur: 0,
-    VerticalNavTop: 0,
-    list: [],
-    load: true,
-    data_show:[],
-    menuList:[],
-    productGroups:[],
-    goodsList:[],
-    bottomId:" "
+    menuList:[],                //菜单列表
+    productGroups:[],           //最后用于展示在页面的商品列表
+    bottomId:" ",               //用于实现点击菜单，商品列表进行滑动操作的索引
+    scrollNum:-1                //用于实现对商品列表滑动，菜单标签出现对应选中的索引
   },
 
   onLoad: function (option)  {
@@ -85,7 +73,6 @@ Page({
                   }})
               }
               self.onShow()
-              // self.getProductGroups()
 
               wx.getSystemInfo({
                 success: function (res) {
@@ -149,6 +136,7 @@ Page({
     wx.hideHomeButton();
   },
 
+  /* 获取盒子的尺寸：宽度/距离顶部的高/距离左边的长度/... */
   obtainTop(type){
     var that=this
     const query = wx.createSelectorQuery()
@@ -169,6 +157,7 @@ Page({
     })
   },
 
+  /* 点菜/评论/商家 标签 */
   order(){
     this.obtainTop('#order')
     this.setData({
@@ -197,42 +186,39 @@ Page({
     })
   },
 
-  onReady() {
-
-  },
+  /* 点击菜单列表 */
   chooseLabel(e){
-    var that=this
-    that.data.menuList.map((item) => {
+    this.data.menuList.map((item) => {
       item.type=0
     })
-    that.data.menuList[e.currentTarget.id].type=1
-    console.log();
-    // this.scrollBottom()
-    that.setData({
+    this.data.menuList[e.currentTarget.id].type=1
+    this.setData({
       choosen:true,
-      menuList:that.data.menuList,
-      bottomId: that.data.menuList[e.currentTarget.id].changeLabel,
-
+      menuList:this.data.menuList,
+      monitorScrolling:true
     })
+    this.scrollTo(this.data.menuList[e.currentTarget.id].changeLabel)
   },
+
+  /* 商品的展示列表，将原本只存有所有商品的this.data.good，转化成格式为：
+    arry[{
+      name:'好吃'      //商品所属标签,
+      goodsList:[]      //该标签对应下的商品,
+      changeLabel:''    //用于选中菜单标签，商品列表实现对应滚动的功能
+    },{},...] */
   getProductGroups(){
-    let productGroups=[]
     this.data.menuList.forEach((item) => {
       let goodsList=this.data.goods.filter((item2) => {
         return item2.caidan===item.name
       })
-      let product={
-        label:item.name,
-        changeLabel:item.changeLabel,
-        goodsList
-      }
-      productGroups.push(product)
+      item.goodsList=goodsList
     })
     this.setData({
-      productGroups
+      menuList:this.data.menuList
     })
   },
 
+  /* 根据滑动页面的索引，来触发对应的函数，对上面的标签栏（菜单/评价/商家）进行动态渲染 */
   swiperChange(e){
     switch(e.detail.current){
       case 0: this.order(); break;
@@ -245,7 +231,6 @@ Page({
    menuRendering() {
      let count=0
     const menuList=this.data.menuList.map((item) => {
-      // item.type=0
       let obj={
         name:item.name,
         type:0,
@@ -261,50 +246,61 @@ Page({
     wx.hideLoading()
   },
 
-  trackingTag(){
-
+  /* 控制下面的商品滚动，当商品列表没占据全屏时，商品列表不滚动 */
+  onPageScroll(e){
+    if(e.scrollTop>=187){
+      this.setData({
+        monitorScrolling:true
+      })
+    }else{
+      this.setData({
+        monitorScrolling:false
+      })
+    }
   },
-  // tabSelect(e) {
-  //   this.setData({
-  //     TabCur: String(e.currentTarget.dataset.id),
-  //     MainCur: e.currentTarget.dataset.id,
-  //     VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
-  //   })
-  // },
-  // VerticalMain(e) {
-  //   let that = this;
-  //   let list = this.data.list;
-  //   console.log("list",list);
-  //   let tabHeight = 0;
-  //   if (this.data.load) {
-  //     for (let i = 0; i < list.length; i++) {
-  //       let view = wx.createSelectorQuery().select("#main-" + list[i].id);
-  //       view.fields({
-  //         size: true
-  //       }, data => {
-  //         list[i].top = tabHeight;
-  //         tabHeight = tabHeight + data.height;
-  //         list[i].bottom = tabHeight;
-  //       }).exec();
-  //     }
-  //     that.setData({
-  //       load: false,
-  //       list: list
-  //     })
-  //   }
-  //   let scrollTop = e.detail.scrollTop + 20;
-  //   for (let i = 0; i < list.length; i++) {
-  //     if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
-  //       that.setData({
-  //         VerticalNavTop: (list[i].id - 1) * 50,
-  //         TabCur: String(list[i].id)
-  //       })
-  //       return false
-  //     }
-  //   }
-  // },
 
-  /* 第一次添加购物车 */
+  /* 当商品列表不占据全屏时，点击菜单列表，页面滚动，商品列表总体往上滑，占据全屏 */
+  scrollTo(bottomId) {
+    this.setData({
+      bottomId
+    })
+    wx.createSelectorQuery().select('#labelControl').boundingClientRect(res => {
+      if(res.top!=0){
+        wx.pageScrollTo({
+          scrollTop: res.top, // 滚动到的位置（距离顶部 px）
+          duration: 500 //滚动所需时间 如果不需要滚动过渡动画，设为0（ms）
+        })
+      }
+    }).exec()
+  },
+
+  /* 实现滚动商品列表，菜单列表出现对应的选中渲染 */
+  trackingTag(e){
+    let that=this
+    const query = wx.createSelectorQuery()
+    that.data.menuList.forEach((item) => {
+      let changeLabel='#'+item.changeLabel
+      query.select(changeLabel).boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function(res){
+        that.data.menuList.map((item) => {
+          item.type=0
+        })
+        let we=res.find((item) => {
+          return -(item.height)<item.top-30
+        })
+        if(we!=undefined){
+          that.data.scrollNum= we.id.replace(/[^0-9]/ig,"");
+          that.data.menuList[that.data.scrollNum].type=1
+        }
+      })
+    })
+    that.setData({
+      menuList:that.data.menuList
+    })
+  },
+
+  /* 在购物车图标添加商品 */
   oneaddgoods(e) {
     const index = e.currentTarget.id
     if (this.data.newuser) {
@@ -339,7 +335,8 @@ Page({
       this.buy(this.data.buy)
     }
   },
-  /* 购物车+1 */
+
+  /* 在购物车弹窗添加商品 */
   addgoods(e) {
     const index = e.currentTarget.id
     this.data.buy[index].number += 1
@@ -350,7 +347,8 @@ Page({
     })
     this.buy(this.data.buy)
   },
-  /* 购物车-1 */
+
+  /* 在购物车弹窗删除商品 */
   reducenumber(e) {
     const index = e.currentTarget.id
     if(this.data.buy[index].number === 1) {
@@ -388,32 +386,22 @@ Page({
       totalyuNumber: this.data.goprice - priceSum.toFixed(2),
       totalnumber: numberSum,
     })
-    console.log("this.data.totalprice",this.data.totalprice);
   },
-  popUp: function () {          //控制卡片/评论弹窗
-    var payStyle = 'payHide';
-    // picker动画样式
-    if (payStyle == undefined || payStyle == 'payHide') {
-      payStyle = 'payShow'
-    } else {
-      payStyle = 'payHide'
-    }
-    this.setData({
-       payStyle,
-    })
-  },
+  
   /* 购物车弹出 */
   showModal() {
-    var self = this
-    if (self.data.buy.length != 0) {
-      self.popUp()
-      self.setData({
+    if (this.data.buy.length != 0) {
+      let payStyle = 'payHide'
+      payStyle === undefined || payStyle === 'payHide' ? payStyle = 'payShow' : payStyle = 'payHide'
+      this.setData({
+        payStyle,
         modalName: !this.data.modalName,
-        buy: self.data.buy,
+        buy: this.data.buy,
       })
     }
   },
-  /* 地址设置 */
+
+  /* 地址设置 */         //我也不知道这用来干啥
   userlocation(e) {
     var shop_id=this.data.shop_id
     console.log(shop_id)
@@ -439,8 +427,9 @@ Page({
       url: '../HotTop/HotTop?content=支付',
     })
   },
-  /* 用户授权 */
-  onGetUserInfo: function (e) {
+
+  /* 用户授权 */            //我也不知道这用来干啥
+  onGetUserInfo: function (e) {             
     console.log(e)
     var self = this
     var openid = app.globalData.openid
@@ -487,26 +476,13 @@ Page({
   },
   /* 下拉刷新 */
   onPullDownRefresh: function () {
-    if (!this.data.tabbar) {
-      wx.showNavigationBarLoading()
-      this.onShow()
-    } else {
-      wx.hideNavigationBarLoading()
-      wx.stopPullDownRefresh()
-    }
-  },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
+    // if (!this.data.tabbar) {
+    //   wx.showNavigationBarLoading()
+    //   this.onShow()
+    // } else {
+    //   wx.hideNavigationBarLoading()
+    //   wx.stopPullDownRefresh()
+    // }
   },
 
   /**
@@ -516,41 +492,4 @@ Page({
     
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    // result=solve( (b * cos(radians(b1))) + (c * cos(radians(c1)))  - a, (b * sin(radians(b1))) - (c * sin(radians(c1))))
-    // print(result,[b, c])
-  },
-  // select: function(e){
-	// 	// console.log('当前导航：', e);
-	// 	let _this = this,
-	// 		nav = this.data.nav,
-	// 		idx = e.currentTarget.id,
-	// 		// width = nav.list[idx].name.length * 14,
-	// 		windowWidth = this.data.windowWidth,
-	// 		offsetLeft = e.target.offsetLeft;
-	// 	// if (offsetLeft < windowWidth) {
-	// 	// 	nav.left = width + 68 - windowWidth + offsetLeft;
-	// 	// } else {
-	// 	// 	nav.left = offsetLeft - windowWidth + width + 68;
-	// 	// }
-	// 	wx.createSelectorQuery().select('.scroll_item' + idx).boundingClientRect(function(res){
-	// 		nav.active = idx;
-	// 		// nav.width = res.width - 20;
-	// 		nav.offsetLeft = offsetLeft + 11;
-	// 		_this.setData({
-	// 			nav: nav,
-	// 		})
-	// 		//可在这调用接口获取相应tab页的数据
-	// 	}).exec();
-	// }
 })
