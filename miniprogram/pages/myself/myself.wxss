@@ -61,7 +61,7 @@
   font-size:28rpx;
 }
 .banner-fri-title{
-  letter-spacing:10rpx;
+  letter-spacing:3rpx;
 
 }
 .header{
