@@ -1,4 +1,4 @@
-// pages/myself/pages/images.js
+// pages/association/admin/admin.js
 Page({
 
   /**

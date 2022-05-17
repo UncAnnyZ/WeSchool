@@ -1,0 +1,74 @@
+<view class="containers">
+  <image class="bgc" src="./images/bgc.png"></image>
+</view>
+
+<view class="title">
+  <view class="model" wx:if="{{id_<=li.length-1&&li[id_].state==1}}" >
+    <view class="model-top">{{li[id_].question}}</view>
+    <view class="model-body {{click!=0?'model-body-true':''}}">
+      <view bindtouchstart="touchstartX" class="model-body-choose-1 {{click==1?'model-body-choose-1-true':''}}"
+        bindtap="choose_ans" data-index="1">
+        <text
+          class="model-body-choose-text {{click==1?'model-body-choose-text-1-true':''}}">{{li[id_].answer[0]}}</text>
+      </view>
+      <view bindtap="test" bindtouchstart="touchstartX"
+        class="model-body-choose-2 {{click==2?'model-body-choose-2-true':''}}" bindtap="choose_ans" data-index="2">
+        <text
+          class="model-body-choose-text {{click==2?'model-body-choose-text-2-true':''}}">{{li[id_].answer[1]}}</text>
+      </view>
+    </view>
+    <view class="model-bottom">
+      <view class="model-bottom2">{{id_+1}}/{{li.length}}</view>
+    </view>
+  </view>
+  <view class="model" wx:if="{{id_<=li.length-1&&li[id_].state==2}}" >
+    <view class="model-top">{{li[id_].question}}</view>
+    <view class="model-body2 {{click!=0?'model-body-true':''}}">
+      <!-- <view class="model-body-choice2">点击选择您的身高</view> -->
+      <picker id="{{li[id_].id}}" bindchange="bindPickerChange" value="{{li[id_].height_index}}"
+        range="{{li[id_].height_array}}">
+        <view class="model-body-choice2">
+          <view wx:if="{{!li.id_.tip}}">
+            <view>{{li[id_].title}}</view>
+          </view>
+          <view wx:elif="{{li.id_.tip}}">
+            {{li[id_].question}}为 {{li.id_.height_array[height_index]}}
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="model-bottom">
+      <view class="model-bottom2">{{id_+1}}/{{li.length}}</view>
+    </view>
+  </view>
+  <view class="model" wx:if="{{id_<=li.length-1&&li[id_].state==3}}" >
+    <view class="model-top">{{li[id_].question}}</view>
+    <view class="model-body2 {{click!=0?'model-body-true':''}}">
+      <view class="model-body-choice" bindtap="choose_ans" data-index="1">{{li[id_].answer[0]}}</view>
+      <view class="model-body-choice" bindtap="choose_ans" data-index="2">{{li[id_].answer[1]}}</view>
+      <view class="model-body-choice" bindtap="choose_ans" data-index="3">{{li[id_].answer[2]}}</view>
+    </view>
+    <view class="model-bottom">
+      <view class="model-bottom2">{{id_+1}}/{{li.length}}</view>
+    </view>
+  </view>
+  <view class="model" wx:if="{{id_<=li.length-1&&li[id_].state==4}}" >
+    <view class="model-top">{{li[id_].question}}</view>
+    <view class="model-body2 ">
+      <textarea  class="text" bindinput="input" placeholder="{{li[id_].describe}}" cols="30" maxlength="100" value="{{li[id_].name}}" data-name="{{li[id_].name}}"
+        rows="10"></textarea>
+    </view>
+    <view  bindtap="next" class="model-btn" >
+      下一题
+    </view>
+    <!-- <view class="model-btn" bindtap="sumbit">
+      提交查看匹配结果
+    </view> -->
+    <view class="model-bottom">
+      <view class="model-bottom2">{{id_+1}}/{{li.length}}</view>
+    </view>
+  </view>
+
+  <view class="model-end" style="display:{{id_==0||id_>=li.length?'none':'block'}}" bindtap="choose_return">上一题</view>
+
+</view>

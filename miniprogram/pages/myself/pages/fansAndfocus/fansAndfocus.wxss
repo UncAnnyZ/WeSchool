@@ -23,9 +23,9 @@
 .focusAfter,
 .fansAfter{
   font-weight: 550;
-  color: black;
+  color: rgba(116,116,116);
   font-size: 28rpx;
-  border-bottom: 3rpx solid red;
+  border-bottom: 5rpx solid rgba(116,213,211);
 }
 .showArry{
   display: flex;

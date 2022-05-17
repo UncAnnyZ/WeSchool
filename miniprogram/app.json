@@ -7,6 +7,7 @@
   "pages": [
     "pages/more/more",
     "pages/login/login",
+    "pages/market/market",
     "pages/curriculum/curriculum",
     "pages/myself/myself",
     "pages/PublishContent/PublishContent",
@@ -26,7 +27,9 @@
       "pages": [
         "page/page",
         "rule/rule",
-        "fansAndfocus/fansAndfocus"
+        "fansAndfocus/fansAndfocus",
+        "about/about",
+        "journal/journal"
       ]
     },
     {
@@ -91,7 +94,8 @@
         "edit/edit",
         "freshmanData/freshmanData",
         "freshmanDetail/freshmanDetail",
-        "matchDataDetail/matchDataDetail"
+        "matchDataDetail/matchDataDetail",
+        "admin/admin"
       ]
     },
     {
@@ -117,6 +121,8 @@
         "JuBao/JuBao",
         "note_module/pages/renLingNote/renLingNote",
         "note_module/pages/sendNote/sendNote",
+        "Love/Love",
+        "Love/pages/detail/detail",
         "saveBureau/saveBureau",
         "saveBureau/bureauContent/bureauContent",
         "saveBureau/joinedBureau/joinedBureau",
@@ -125,20 +131,6 @@
         "note_module/pages/noteFromRenLing/index",
         "searchPage/searchPage",
         "searchContent/searchContent"
-      ]
-    },
-    {
-      "name": "about",
-      "root": "pages/about",
-      "pages": [
-        "about"
-      ]
-    },
-    {
-      "name": "journal",
-      "root": "pages/journal",
-      "pages": [
-        "journal"
       ]
     }
   ],
@@ -168,8 +160,7 @@
     "pages/myself/myself": {
       "network": "all",
       "packages": [
-        "about",
-        "journal"
+        "myself"
       ]
     }
   },
