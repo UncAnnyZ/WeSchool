@@ -2,7 +2,7 @@ var ctFocus = function (e, ins) {
   var keyboard_h = e.detail.height;
   console.log(keyboard_h);
   ins.selectComponent('.ReplyCom_contain').setStyle({
-    "bottom": keyboard_h + "px",
+    "bottom": keyboard_h + 70+"px",
     "opacity": 1
   })
   return keyboard_h
