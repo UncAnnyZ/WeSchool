@@ -9,7 +9,7 @@ var ctFocus = function (e, ins) {
 }
 var ctBlur = function (e, ins) {
   ins.selectComponent('.ReplyCom_contain').setStyle({
-    "bottom": "0",
+    "bottom": "0px",
     "opacity": 0
   })
 }

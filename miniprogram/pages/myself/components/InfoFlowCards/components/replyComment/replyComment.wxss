@@ -4,7 +4,7 @@
 
 .ReplyCom_contain {
   position: absolute;
-  bottom: -10rpx;
+  bottom: 30rpx;
   display: flex;
   justify-content: center;
   align-items: center;

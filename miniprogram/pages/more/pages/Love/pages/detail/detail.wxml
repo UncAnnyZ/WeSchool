@@ -1,6 +1,6 @@
 <view wx:if="{{state==1}}">
   <view class="containers">
-    <image class="bgc" src="../images/bgc.png"></image>
+    <image class="bgc" src="../../images/bgc.png"></image>
   </view>
   <view class="box">
     <image class="img" src="./images/Match.png"></image>

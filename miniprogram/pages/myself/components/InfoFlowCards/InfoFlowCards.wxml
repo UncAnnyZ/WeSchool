@@ -16,7 +16,7 @@
   module.exports.getStar = getStar;
 </wxs>
 
-<view  style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,240,240,1)}};" wx:if="{{list.length>0}}">
+<view wx:if="{{list.length>0}}">
   <view class="card" style="z-index:3" wx:for="{{list}}" wx:for-index="idd" catchtap="navigate" data-index="{{idd}}" >
     <view class="card-row">
       <view class="card-top">
