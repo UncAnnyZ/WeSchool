@@ -143,9 +143,9 @@ Page({
   onLoad: function (options) {
     let windowHeight = wx.getSystemInfoSync().windowHeight
     let width = wx.getSystemInfoSync().windowWidth;
-    // 屏幕高度 - (状态栏 + 头部) - 周次
+    // 屏幕高度 - (状态栏 + 头部) - 周次 - 自定义tabbar栏高度
     // +2 是为适配边框
-    let kbHeight = (windowHeight - (this.data.lineHeight + this.data.statusBarHeight) - 80*(width/750))+2;
+    let kbHeight = (windowHeight - (this.data.lineHeight + this.data.statusBarHeight) - 80*(width/750) - 48)+2;
 
     let args = wx.getStorageSync('args');
     let scheduleLength = [];

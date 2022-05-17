@@ -13,7 +13,7 @@
 
 .first {
   position: relative;
-  display: flex;
+  /* display: flex; */
   flex-shrink: 0;
   width: 214rpx;
   height: 230rpx;
@@ -26,7 +26,7 @@
   margin: 10rpx;
   font-size: 30rpx;
   font-weight: bold;
-  color: rgb(110, 110, 112);
+  color: rgb(31, 41, 44);
 }
 .first image {
   position: absolute;
@@ -58,7 +58,7 @@
   margin: 10rpx;
   font-size: 26rpx;
   font-weight: bold;
-  color: rgb(110, 110, 112);
+  color: rgb(31, 41, 44);
 }
 .second_box image {
   position: absolute;
@@ -83,4 +83,15 @@
   margin: 0;
   background-image: linear-gradient(to right,rgb(248, 213, 221), rgb(177, 241, 252));
 
+}
+/* 小文字 */
+.first .produce {
+  display: block;
+  font-size: 21rpx;
+  font-weight: 300;
+}
+.second .produce {
+  display: block;
+  font-size: 21rpx;
+  font-weight: 300;
 }

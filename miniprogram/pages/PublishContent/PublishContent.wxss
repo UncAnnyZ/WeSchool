@@ -1,5 +1,7 @@
 .container {
+  position: relative;
   letter-spacing: 2rpx;
+  height: 95vh;
 }
 /* 1. 头部 */
 .head{

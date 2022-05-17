@@ -71,7 +71,7 @@
     </view>
     <!-- 发布按钮 -->
     <view class="publishBox">
-      <button class="cancel" hover-class="btn_hover" bindtap="cancel">
+      <button class="cancel" hover-class="btn_hover" bindtap="navigationBack">
         <text>取消</text>
       </button>
       <button class="publish" form-type="submit" hover-class="btn_hover">

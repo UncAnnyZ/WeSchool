@@ -1,7 +1,7 @@
 .box {
   overflow: auto;
   border-radius: 25rpx;
-  background-image: linear-gradient(rgb(216, 237, 241), rgb(221, 239, 245));
+  background-image: linear-gradient(to right, rgb(159, 221, 248), rgb(184, 233, 230));
   height: 235rpx;
   display: flex;
 }

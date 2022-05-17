@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "waterFlowCards": "../../components/waterFlowCards/waterFlowCards"
-  },
-  "navigationStyle": "custom"
-}
