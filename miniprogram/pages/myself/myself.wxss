@@ -34,21 +34,12 @@
   background-color: rgba(240,240,240,1);
 
 }
-.head{
-  
-}
-/* @font-face {
-  font-family: 'font_my';
-  src: url('SourceHanSansCN-Bold-Alphabetic.eot');
-  font-weight: bold;
-  font-style: normal;
-} */
+
 .title{
   letter-spacing:5rpx;
   position: relative;
   top:90rpx;
   text-align:center;
-  /* font-weight:800; */
   font-size:28rpx;
 }
 .banner-fri-title{
@@ -86,7 +77,6 @@
 .containers{
   width:100%;
   height:400rpx;
-  /* background: linear-gradient(#B1E8E5 20%,#BCEBEF 30%); */
   position: relative;
   z-index:2;
 }
@@ -95,10 +85,8 @@
 
 .content{
   border-radius: 40rpx 40rpx 0rpx 0rpx;
-
   width: 100%;
   background-color:rgba(245,245,245);
-
 }
 .nav{
   position:sticky;
@@ -156,7 +144,6 @@ z-index:200
   align-items: center;
 }
 .card-top-left{
- 
   display:flex;
   align-items: center;
 }
@@ -265,12 +252,8 @@ z-index:200
 }
 .banner{
   background-color: darkgoldenrod;
-  /* height: 20rpx;
-  width: 20rpx; */
   position:relative;
   top: 60rpx;
-  /* width: 94%; */
-  /* margin:0 auto; */
   margin:0rpx 31rpx;
   border-radius: 40rpx;
   box-shadow:  2rpx 2rpx 2rpx #888888; 

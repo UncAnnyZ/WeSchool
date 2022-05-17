@@ -94,7 +94,8 @@
         "edit/edit",
         "freshmanData/freshmanData",
         "freshmanDetail/freshmanDetail",
-        "matchDataDetail/matchDataDetail"
+        "matchDataDetail/matchDataDetail",
+        "admin/admin"
       ]
     },
     {
