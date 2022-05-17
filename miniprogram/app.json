@@ -5,8 +5,9 @@
         }
     },
     "pages": [
-        "pages/testdaka/timer/timer",
+
         "pages/index/index",
+        "pages/testdaka/timer/timer",
         "pages/testdaka/index/index",
         "pages/testdaka/record/record",
         "pages/login/login",
