@@ -1,0 +1,40 @@
+<!--pages/market/address/address.wxml-->
+<view class="cu-bar bg-white solid-bottom" >
+  <view class='action'  style="margin-right: 75%">
+    <text  class='cuIcon-titles text-green '>地址设置</text> 
+  </view>
+</view>
+
+<form catchsubmit="formSubmit" catchreset="formReset">
+  <view class="cu-form-group">
+    <view class="title">学校宿舍楼</view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        当前选择：{{multiArray[0][this.data.multiIndex[0]]}}，{{multiArray[1][this.data.multiIndex[1]]}}
+      </view>
+    </picker>
+  </view>
+  <!-- <view class="cu-form-group">
+			<view class="title">宿舍楼</view>
+			<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+				<view class="picker">
+					{{pickername!=''?pickername:'点击选择'}}
+				</view>
+			</picker>
+		</view> -->
+  <view class="cu-form-group">
+    <view class="title">宿舍号</view>
+    <input name="sushehao"  placeholder="宿舍号()"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">联系人</view>
+    <input name="name"  placeholder="请输入联系人姓名"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">手机号</view>
+    <input name="tell" type="number" placeholder="求输入联系人手机号"></input>
+  </view>
+  <view class="padding flex flex-direction" >
+    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg" style="width: 400rpx; height: 100rpx;">保存地址</button>
+  </view>
+</form>

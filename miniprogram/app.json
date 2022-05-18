@@ -7,7 +7,6 @@
   "pages": [
     "pages/more/more",
     "pages/login/login",
-    "pages/market/market",
     "pages/curriculum/curriculum",
     "pages/myself/myself",
     "pages/PublishContent/PublishContent",
@@ -46,6 +45,14 @@
       "pages": [
         "physical",
         "detail/detail"
+      ]
+    },
+    {
+      "name": "market",
+      "root": "pages/market",
+      "pages": [
+        "market",
+        "address/address"
       ]
     },
     {
