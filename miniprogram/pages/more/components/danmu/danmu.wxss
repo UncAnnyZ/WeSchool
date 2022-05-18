@@ -9,7 +9,7 @@ page {
 .container {
   /* position: absolute; */
     width: 100%;
-    height: 310rpx;
+    height: 155px;
     background-color: #fff;
 }
 

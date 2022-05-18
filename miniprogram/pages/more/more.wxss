@@ -113,7 +113,11 @@
   background-color: #fff;
   border-radius: 60rpx;
 }
-
+.searchInput_holder {
+  font-size: 29rpx;
+  font-weight: 300;
+  letter-spacing: 1rpx;
+}
 .page {
   width: 100%;
   margin: 0;

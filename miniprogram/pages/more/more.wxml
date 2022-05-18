@@ -13,7 +13,7 @@
     <!-- 导航栏 -->
     <view class="head_second" style="height: {{lineHeight}}px;">
       <navigator class="inputBox" hover-class="none" url="./pages/searchPage/searchPage">
-        <input placeholder="搜索你感兴趣的内容" class="searchInput" disabled="true" />
+        <input placeholder="搜索你感兴趣的内容"	placeholder-class="searchInput_holder" class="searchInput" disabled="true" />
         <image style="width: 35rpx; height: 35rpx; margin-left:40rpx; z-index: 3;" src="./images/search.png"></image>
       </navigator>
 
