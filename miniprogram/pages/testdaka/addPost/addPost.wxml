@@ -1,0 +1,12 @@
+<view>
+  <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
+  <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;">
+    <view style="color: gray;margin-left: 40rpx;font-size: 26rpx;" bindtap="cancel">取消</view>
+    <view style="margin-left: 142rpx;font-size: 28rpx;">一个进化中的编程星球</view>
+  </view>
+  <view style="width: 100vw;height: 1rpx;border-bottom: 1rpx solid #e2e2e2;"></view>
+</view>
+
+<view style="height: {{editorHeight}}px;"><textarea id="editor" class="ql-container" placeholder="开始输入..." bindstatuschange="onStatusChange" bindready="onEditorReady"></textarea></view>
+
+<view class="toolbar"></view>

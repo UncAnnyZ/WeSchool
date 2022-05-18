@@ -2,7 +2,6 @@
 <view wx:if="{{navState==0}}" animation="{{timetableAnimation}}">
      <view>
           <view class="top" style="height: {{statusBarHeight}}px;width: 100%;background: #7c66f5;">
-               <!-- <image class="person_Info" style="height: 35px; width: 35px; position: absolute; top: 30px; left: 28px;" src="../images/personInfo.png" bindtap="seetingHandler"></image> -->
           </view>
           <view class="top2" style="height: {{lineHeight}}px;background: #7c66f5;line-height: {{lineHeight}}px;color: white;text-align: center;display: flex;align-items: center;flex-direction: row;">
                 <image style="width: 45rpx;height: 45rpx;display: flex;padding-left: 30rpx;" src="../images/personInfo.png" bindtap="seetingHandler"></image>
@@ -163,86 +162,29 @@
      </view>
      <!-- 我的小组 -->
      <view wx:if="{{studynavState==5}}">
-          <view class="top_wrap">
-               <view class="left">
-                    <view class="img">
-                         <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-                    </view>
-                    <view class="content">
-                         <view class="team_name">未命名昵称</view>
-                         <view class="my_team">我的队伍</view>
-                    </view>
-               </view>
-               <view class="right" bindtap="goToCreateRoom">
-                    <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-               </view>
+        <view class="inputBox"></view>
+        <view class="Group">
+          <view class="myGroup" wx:for="{{2}}" bindtap="myGroup">
+            <image class="myGroup_image" src="https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/%E5%BC%95%E5%AF%BC%E9%A1%B5%E5%9B%BE%E7%89%87/56d8e29adaff58e3d6700082f20728c.jpg?sign=bf77187b01bd0933542d057881f3b6dc&t=1652459417"></image>
+            <view class="myGroup_groupName">一个进化中的编程星球</view>
+            <view class="myGroup_groupUser">
+              <view class="myGroup_groupUser_name">Start from*</view>
+              <image class="myGroup_groupUser_url" src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image>
+            </view>
           </view>
-          <view class="title">我</view>
-          <!-- 横向卡片 -->
-          <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-               <!--  display: inline-block-->
-               <view wx:for="{{5}}" class="rowScroll" style="width: 120px; height: 120px; display: inline-block">
-                    <view class="row_top">
-                         <view class="row_title">写代码</view>
-                         <view class="row_detail">已进行了524分钟</view>
-                    </view>
-                    <view class="row_bottom">
-                         <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-                    </view>
-               </view>
-          </scroll-view>
-          <view class="title">队友</view>
-          <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-               <!--  display: inline-block-->
-               <view wx:for="{{5}}" class="rowScroll" style="width: 120px; height: 120px; display: inline-block">
-                    <view class="row_top">
-                         <view class="row_title">图书馆学习</view>
-                         <view class="row_detail">已进行了524分钟</view>
-                    </view>
-                    <view class="row_bottom">
-                         <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-                    </view>
-               </view>
-          </scroll-view>
+          <view class="creatGroup">
+            <view class="creatGroup_text">创立专属小组建设优质社群</view> 
+            <view class="creatGroup_buttom">
+              <!-- <image></image> -->
+              <view bindtap="goToCreateRoom">创建小组</view>  
+            </view>
+          </view>
+        </view>
+        <view style="width: 100vw;height: 200rpx;"></view> 
      </view>
      <!-- 我的任务 -->
      <view class="new_wrap" wx:elif="{{studynavState==8}}">
-          <view class="top_wrap">
-               <view class="left">
-                    <view class="img">
-                         <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-                    </view>
-                    <view class="content">
-                         <view class="team_name">未命名昵称</view>
-                         <view class="my_team">我的队伍</view>
-                    </view>
-               </view>
-               <view class="right">
-                    <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-               </view>
-          </view>
-          <view class="tip_wrap">
-               <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-                    <view wx:for="{{5}}" class="scroll_tip" style="width: 100px; height: 50px; display: inline-block">
-                         <view class="tip_content">写代码</view>
-                    </view>
-                    <view class="scroll_tip" style="width: 100px; height: 50px; display: inline-block">
-                         <view class="tip_content" style="font-size:40rpx;">+</view>
-                    </view>
-               </scroll-view>
-          </view>
-          <view class="list_wrap" wx:for="{{2}}">
-               <view class="list_left">
-                    <view class="left_top">写代码</view>
-                    <view class="left_time">今日计时524mins</view>
-               </view>
-               <view class="list_right">
-                    <view class="right_top">
-                         <image src="https://z3.ax1x.com/2021/10/15/58cq9e.png"></image>
-                    </view>
-                    <view class="right_tip">进行中</view>
-               </view>
-          </view>
+
      </view>
      <!-- 其他小组 -->
      <view wx:elif="{{studynavState==6}}" class="selfstudy_othergroup">
@@ -258,8 +200,8 @@
                <!-- <view></view> -->
           </view>
           <view class="selfstudy_othergroup_longbox">
-               <view class="selfstudy_othergroup_longbox_left" bindtap="getgroupdata"></view>
-               <view class="selfstudy_othergroup_longbox_right" bindtap="getgroupdata"></view>
+               <view class="selfstudy_othergroup_longbox_left" bindtap="getmember"></view>
+               <view class="selfstudy_othergroup_longbox_right" bindtap="getmember"></view>
           </view>
           <view class="selfstudy_othergroup_mygroup">
                <view style="display: flex;flex-direction: row;margin: 41rpx auto;width: 650rpx;height:80rpx ;margin-bottom: 0;">
@@ -287,13 +229,13 @@
                     </view>
                </scroll-view>
           </view>
-          <view class="selfstudy_othergroup_lablegroup" wx:for="{{room}}">
+          <view class="selfstudy_othergroup_lablegroup" wx:for="{{room}}" wx:key="index"  data-roomlable="{{item.roomlable}}" data-roomindex="{{index}}" bindtap="getRoomlable"> 
                <view style="display: flex;flex-direction: row;margin: 0rpx auto;width: 650rpx;height:80rpx ;margin-bottom: 0;">
-                    <view style="height: 80rpx;width: 50%;text-align: left;line-height: 80rpx;font-size: 28rpx;font-weight: 550;">{{item.roomlable}}</view>
+                    <view style="height: 80rpx;width: 50%;text-align: left;line-height: 80rpx;font-size: 28rpx;font-weight: 550;">{{item.roomlable}}</view> 
                     <view style="height: 80rpx;width: 50%;text-align: right;line-height: 80rpx;font-size: 23rpx;color: gray;" bindtap="more">see more</view>
-               </view>
-               <scroll-view class="lablegroup_scrollview" scroll-x="true" style=" display: flex;white-space: nowrap;">
-                    <view wx:for="{{item.roomlist}}" class="lablegroup_scrollview_data" style="display: inline-block;" bindtap="intoshowgroup">
+               </view> 
+               <scroll-view class="lablegroup_scrollview" scroll-x="true" style=" display: flex;white-space: nowrap;">   
+                    <view data-group_name="{{item.group_name}}" data-roomlistindex="{{index}}" wx:for="{{item.roomlist}}" wx:key="index"  class="lablegroup_scrollview_data" style="display: inline-block;" bindtap="intoshowgroup">
                          <view class="lablegroup_scrollview_data_image">
                               <image src="{{item.imgUrl}}"></image>
                          </view>
@@ -332,33 +274,34 @@
           <!-- 小组弹窗 -->
           <view class="{{showgroup?'showgroup':'showgroup_close'}}">
                <view class="{{showgroup?'showgroup_box':'showgroup_box_close'}}">
-                    <view class="showgroup_box_title">摆烂小组
+                    <view class="showgroup_box_title">{{showgroup.group_name}}
                          <view bindtap="tuishowgroup" style="width: 50rpx;height: 50rpx;float: right;line-height: 50rpx;text-align: center;position: absolute;right: 20rpx;">×</view>
                     </view>
-                    <view class="showgroup_box_introduce">能学就学 不学拉倒</view>
+                    <view class="showgroup_box_introduce">{{showgroup.introduce}}</view>
                     <view class="showgroup_box_prenum">
                          <!-- <image></image> -->
-                         <view>5</view>
-                         <view>/20</view>
+                         <view>{{showgroup.peo}}</view>
+                         <view>/{{showgroup.roomNum}}</view> 
                     </view>
-                    <view class="showgroup_box_uuid">小组id：1234567890qwertyuiopasdfghjkl</view>
+                    <view class="showgroup_box_uuid">组长：{{showgroup.wxname}}</view>
+                    <view class="showgroup_box_uuid">小组id：{{showgroup.uuid}}</view>
                     <view class="showgroup_box_userimage">
                          <view>自习室成员</view>
-                         <view>
+                         <view class="showgroup_box_userimage_box">
                               <!-- 成员 -->
-                              <view>
-                                   <image></image>
+                              <view class="showgroup_box_userimage_groupMember" wx:for="{{showgroup.groupMember}}">
+                                   <image class="showgroup_box_userimage_groupMember_image" src="{{item.member_url}}"></image>
                                    <view></view>
                               </view>
                               <!-- 加号 -->
-                              <view>
-                                   <image></image>
+                              <view class="showgroup_box_userimage_add" bindtap="joinGroup">
+                                   <image class="showgroup_box_userimage_add_image" src="../images/addmember.png"></image>
                                    <view></view>
                               </view>
                          </view>
                     </view>
                     <view class="showgroup_box_turninto">
-                         <view>加入该小组</view>
+                         <view bindtap="joinGroup">加入该小组</view>
                     </view>
                </view>
           </view>

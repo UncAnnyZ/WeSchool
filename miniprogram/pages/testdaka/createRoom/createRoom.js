@@ -162,6 +162,7 @@ Page({
                             let imgUrl = res.fileID
                             db.collection("daka_group_member_information").add({
                                 data: {
+                                  group_name: this.data.roomName,
                                   member_name:this.data.args.nickName,
                                   member_url:this.data.args.iconUrl,
                                   member_username:this.data.args.username,

@@ -14,7 +14,9 @@
     "pages/testdaka/index/index",
     "pages/testdaka/record/record",
     "pages/testdaka/allgroup/allgroup",
-    "pages/testdaka/createRoom/createRoom"
+    "pages/testdaka/createRoom/createRoom",
+    "pages/testdaka/myGroup/myGroup",
+    "pages/testdaka/addPost/addPost"
   ],
   "subPackages": [
     {
