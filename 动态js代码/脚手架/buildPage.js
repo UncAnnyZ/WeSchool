@@ -65,7 +65,7 @@ fs.readFile('src/index.js', (err, buffer) => {
             }
           }
      
-∑
+
           tagRE = /{{.*?}}/g
           let html4 = html.match(tagRE)
           for (i in html4) {

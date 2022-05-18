@@ -1,1 +1,61 @@
-/* pages/association/admin/admin.wxss */
+page {
+  background-color: #f6f6f6;
+}
+.wrap .top_wrap {
+  margin: 24rpx;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 24rpx;
+}
+.wrap .top_wrap .tip_wrap {
+  display: flex;
+  flex-direction: row;
+  padding: 24rpx;
+}
+.wrap .top_wrap .tip_wrap .title {
+  flex: 1;
+  font-size: 32rpx;
+}
+.wrap .top_wrap .tip_wrap .tip {
+  color: #4d4d4d;
+}
+.wrap .top_wrap .add {
+  text-align: center;
+  margin: 24rpx;
+  margin-top: 42rpx;
+  background-color: #63A1A0;
+  color: white;
+  border-radius: 12rpx;
+  padding: 8rpx;
+}
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  height: 300rpx;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-radius: 24rpx;
+}
+.commodity_attr_box .bot_title {
+  text-align: center;
+  padding: 24rpx;
+  font-weight: 700;
+}

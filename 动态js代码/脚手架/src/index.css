@@ -1,0 +1,134 @@
+page{
+  background-color: #F6F6F6;
+}
+/* .container{
+  
+} */
+.title{
+  display:table;
+  margin:0 auto;
+  margin-top:70rpx; 
+}
+.title-text{
+  margin-bottom: 26rpx;
+  font-size: 30rpx;
+  font-weight: 800;
+  color:rgba(0, 0, 0, 0.7)
+}
+.title-data{
+  margin-bottom: 15rpx;
+  display: flex;
+}
+.title-choose{
+  /* float: left; */
+  margin-top:20rpx;
+  display: flex;
+  margin-bottom: 45rpx;
+  font-size: 23rpx;
+}
+.title-choose-text{
+  /* float: left; */
+  display: flex;
+  background-color:#B2E2F7;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  color:white;
+}
+.title-choose-input{
+  border:1rpx solid #B2E2F7;
+  position: absolute;
+  right: 53rpx;
+  border-radius: 10rpx;
+  /* float: right; */
+}
+.title-choose-image{
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.title-choose-inch{
+  position: absolute;
+  right: 53rpx;
+}
+.title-data-input{
+  padding-left:18rpx;
+  color:#C1C2C5;
+  height: 80rpx;
+  width: 500rpx;
+  border:1rpx solid #DCE0E7;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+}
+.title-data-submit{
+  margin-right: 10rpx;
+  font-size: 24rpx;
+  background-color: #A1DFCD;
+  color:white;
+  border-radius: 20rpx;
+  padding: 0rpx 30rpx;
+  margin-left: 26rpx;
+  line-height: 42rpx;
+  display: flex;
+  align-items: center;
+}
+.title-data-submit-submit{
+  width: 48rpx;
+  height: 48rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.body{
+  border-top:1rpx solid rgba(187,187,187,0.3);
+  margin:0 25rpx;
+  margin-bottom: 30rpx;
+}
+.body-describe{
+  display: flex;
+  padding: 30rpx 0rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid rgba(187,187,187,0.3);
+  /* border-top: 1rpx solid #BBBBBB; */
+}
+
+.body-describe-text{
+  margin-left: 24rpx;
+}
+.body-describe-data{
+  /* padding: 0rpx 10rpx; */
+  position: absolute;
+  right: 60rpx;
+  border-bottom: 1rpx solid rgba(187,187,187,0.5);
+}
+.end{
+  position:relative;
+  bottom:10rpx;
+  left: 50%;
+  margin-left: -100rpx;
+  /* margin:0 auto; */
+  /* margin-top: 70rpx; */
+  width: 200rpx;
+  height: 80rpx;
+  line-height:80rpx ;
+  color:#FCFCFC;
+  /* background-color: rgba(250,130,140,0.8); */
+  background-color: #A1DFCD;
+  border-radius: 20rpx;
+  font-weight: 800;
+}
+.end-text{
+  text-align: center;
+  font-size: 26rpx;
+}
+
+picker{
+  display: flex;
+}
+.top{
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 33rpx;
+  color:rgba(0, 0, 0, 0.5)
+}

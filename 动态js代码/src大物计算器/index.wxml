@@ -17,7 +17,7 @@
           </picker>
         </view>
         <view wx:if="{{show=='input'}}" class="title-choose-input">
-          <input type="number" style="padding-left:10rpx" placeholder="请输入仪器误差" value="{{other_err}}" bindinput="err_input"/>
+          <input  style="padding-left:10rpx" placeholder="请输入仪器误差" value="{{other_err}}" bindinput="err_input"/>
         </view>
 
     </view>

@@ -79,6 +79,11 @@ Page({
     }
   
   },
+  return(){
+    wx.switchTab({
+      url: '/pages/more/more',
+    })
+  },
   copy(){
     wx.setClipboardData({
       data: this.data.content.weixin_id,
@@ -98,7 +103,7 @@ Page({
   rewrite(){
     wx.removeStorageSync('mathed_time')
     wx.navigateTo({
-      url: '/pages/qus/qus',
+      url: '/pages/more/Love/qus/qus',
     })
   },
   /**

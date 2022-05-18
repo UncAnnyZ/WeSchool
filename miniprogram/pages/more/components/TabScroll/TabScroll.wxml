@@ -32,7 +32,7 @@
     </block>
 </scroll-view>
 <!-- 我的页面标签 -->
-<scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" wx:if="{{type == '我的页面标签'  && showTab}}" enhanced="{{true}}" show-scrollbar="{{false}}" style="z-index: 3; position: relative;  background-color: rgba(240,240,240,1);right:20rpx">
+<scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" wx:if="{{type == '我的页面标签'  && showTab}}" enhanced="{{true}}" show-scrollbar="{{false}}" style="z-index: 3; position: relative;  background-color: rgba(234,241,244,1);right:20rpx">
     <view class="Choose_Label bgc" scroll-x="true">
         <!-- 下划线 -->
         <view class="underLineBox" 
