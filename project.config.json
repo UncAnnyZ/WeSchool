@@ -22,10 +22,9 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": true,
-    "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -37,12 +36,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "disableUseStrict": false,
-    "minifyWXML": true,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true
+    "showES6CompileOption": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.1",
@@ -53,6 +47,11 @@
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
   "condition": {
     "miniprogram": {
       "list": [
@@ -93,10 +92,5 @@
         }
       ]
     }
-  },
-  "srcMiniprogramRoot": "miniprogram/",
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
   }
 }

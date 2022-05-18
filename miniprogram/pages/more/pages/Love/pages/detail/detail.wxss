@@ -141,3 +141,9 @@
   box-shadow: 6rpx 0rpx 20rpx rgb(70, 68, 68);
   border-radius: 50rpx;
 }
+.btn1{
+  position:absolute;
+  top:60%;
+  left:50%;
+  margin-left:-140rpx
+}

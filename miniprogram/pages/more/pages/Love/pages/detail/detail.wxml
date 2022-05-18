@@ -6,6 +6,9 @@
     <image class="img" src="./images/Match.png"></image>
     <view class="match-text">正在匹配中，匹配时间为1小时~</view>
   </view>
+  <view class="btn btn1" bindtap="return">
+    返回首页
+ </view>
 </view>
 <view wx:elif="{{state==2}}">
   <view class="containers">
@@ -46,7 +49,10 @@
           获得微信号
         </view>
         <view class="btn" bindtap="rewrite">
-          重新填写信息
+          重新填写
+        </view>
+        <view class="btn" bindtap="return">
+          返回首页
         </view>
       </view>
     </view>
