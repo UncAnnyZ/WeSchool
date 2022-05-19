@@ -28,6 +28,30 @@ page {
   border-radius: 12rpx;
   padding: 8rpx;
 }
+.list_wrap {
+  background-color: white;
+  margin: 24rpx;
+  padding: 24rpx;
+  border-radius: 12rpx;
+}
+.list_wrap .list_title {
+  text-align: center;
+  padding: 12rpx;
+}
+.list_wrap .list_item {
+  display: flex;
+  flex-direction: row;
+  padding: 24rpx;
+}
+.list_wrap .list_item .count {
+  flex: 2;
+  text-align: center;
+}
+.list_wrap .list_item .delete {
+  flex: 1;
+  text-align: right;
+  color: red;
+}
 /*使屏幕变暗  */
 .commodity_screen {
   width: 100%;
@@ -43,7 +67,6 @@ page {
 }
 /*对话框 */
 .commodity_attr_box {
-  height: 300rpx;
   width: 100%;
   overflow: hidden;
   position: fixed;
@@ -58,4 +81,25 @@ page {
   text-align: center;
   padding: 24rpx;
   font-weight: 700;
+}
+.commodity_attr_box textarea {
+  height: 150rpx;
+  background-color: #ececec;
+  margin: 12rpx;
+  padding: 12rpx;
+  border-radius: 12rpx;
+  width: 94%;
+}
+.commodity_attr_box .tip {
+  padding: 24rpx;
+  font-size: 24rpx;
+  color: #4d4d4d;
+}
+.commodity_attr_box .bt {
+  text-align: center;
+  padding: 12rpx;
+  margin: 24rpx;
+  background-color: #63A1A0;
+  color: white;
+  border-radius: 12rpx;
 }
