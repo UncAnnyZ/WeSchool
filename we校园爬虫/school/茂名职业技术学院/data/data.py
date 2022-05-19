@@ -2,7 +2,8 @@ from school.茂名职业技术学院.data.achievement.achievement import achieve
 from school.茂名职业技术学院.data.curriculum.curriculum import curriculum
 from database.sql import updata, search
 
-def data(username,password,session,other,msg):
+
+def data(username, password ,session ,other ,msg):
     try:
         ach = achievement(session)
         cur = curriculum(session)

@@ -9,7 +9,6 @@ from pyquery import PyQuery as pq
 
 
 def login(username, password, session: requests.Session):
-
     def login(username, password, session: requests.Session):
         import time
         import json
@@ -17,8 +16,7 @@ def login(username, password, session: requests.Session):
             nowTime = str(round(time.time() * 1000))
             res = session.get(
                 'https://jwglxt.haut.edu.cn/jwglxt/zfcaptchaLogin?type=resource&instanceId=zfcaptchaLogin&name=zfdun_captcha.js')
-            # print(res.text)
-            # print(res.text)
+
             rtk = re.findall('rtk:\'(.*)\'', res.text)[0]
 
             url = f'https://jwglxt.haut.edu.cn/jwglxt/zfcaptchaLogin?type=refresh&rtk={rtk}&time={nowTime}&instanceId=zfcaptchaLogin'
