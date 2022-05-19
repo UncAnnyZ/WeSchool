@@ -32,11 +32,6 @@ Page({
         delta: 1,
       })
     },
-    temp(){
-      wx.navigateTo({
-        url: '/pages/testdaka/roomCreate/roomCreate',
-      })
-    },
     /**
      * 生命周期函数--监听页面加载
      */

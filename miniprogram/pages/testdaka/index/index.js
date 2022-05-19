@@ -5,6 +5,7 @@ var app = getApp();
 var util = require('../../../utils/util');
 var startX, endX, startXCurri, endXCurri;
 var moveFlag, moveFlagCurri = true;
+var roomlistindex;
 Page({
     data: {
       //左侧个人信息栏
@@ -90,20 +91,17 @@ Page({
       // 自习室的data
       studynavState:5,
       room:[
-        {roomlable:'学习',roomlist:[
-          {roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334166.jpg?sign=2c62d981969547d39dd8963604d4d644&t=1649941917'},
-          {roomname:'四级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334163.jpg?sign=adec39668f0b66b92ecc449344dcba12&t=1649941978'},
-          {roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},
-        ]},
-        {roomlable:'运动',roomlist:[{roomname:'跑步',roomintroduce:'每天两公里',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'俯卧撑',roomintroduce:'每天50个',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334166.jpg?sign=2c62d981969547d39dd8963604d4d644&t=1649941917'},]
+        {roomlable:'学习',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334166.jpg?sign=2c62d981969547d39dd8963604d4d644&t=1649941917'}]
         },
-        {roomlable:'娱乐',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334168.jpg?sign=e827576c04b49178377da50924629615&t=1649942001'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'运动',roomlist:[{group_name:'跑步',introduce:'每天两公里',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
         },
-        {roomlable:'日常',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'娱乐',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334168.jpg?sign=e827576c04b49178377da50924629615&t=1649942001'}]
         },
-        {roomlable:'游戏',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'日常',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
         },
-        {roomlable:'其他',roomlist:[{roomname:'六级',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},{roomname:'读书',roomintroduce:'每天50个单词',roomper:'99',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},]
+        {roomlable:'游戏',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
+        },
+        {roomlable:'其他',roomlist:[{group_name:'六级',introduce:'每天50个单词',roomNum:'99',imgUrl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'}]
         }
       ],
       cardlist:[
@@ -114,6 +112,7 @@ Page({
         {roomname:'六级必过',roomintroduce:'每天打卡两篇阅读和50个单词',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334167.jpg?sign=78a5c6809e599ef778b87539c67a6ec6&t=1649941340'},
         {roomname:'考研必上岸',roomintroduce:'必上岸，冲冲',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334167.jpg?sign=78a5c6809e599ef778b87539c67a6ec6&t=1649941340'}
       ],
+      showgroup:{},
       animationData: {},
       showgroup:false
     },
@@ -166,54 +165,105 @@ Page({
     moveFlagCurri = true; // 回复滑动事件
   },
     //自习室小组的js
+    myGroup(){
+      wx.navigateTo({
+        url: '../myGroup/myGroup',
+      })
+    },
+    //创建小组
+    goToCreateRoom(){
+      wx.navigateTo({
+        url: '../createRoom/createRoom',
+      })
+    },
+
     //获取小组信息数据
+    getmember(){
+      wx.cloud.database().collection('daka_group_member_information').get().then(res =>{
+        // console.log(res);
+        this.setData({
+          memberarr:res.data
+        })
+        console.log(this.data.memberarr);
+      })
+    },
     getgroupdata:function(){
+      wx.showLoading({
+        title: '加载中',
+      })
+      console.log("触发");
       wx.cloud.database().collection('data_group_information').get().then(res =>{
         console.log(res);
         let a = res.data;
-        this.abc(a);
+        this.processingData(a);
+        this.getmember();
+        wx.hideLoading();
       })
     },
-    abc(a){
+    processingData(a){
        var sum = []
-      //  let a =[]
        let c= []
-       let res=[]
-      //  {id:1,time:1}
-    //   a=[
-    //     {cate: "番茄时钟", date: "2022/03/31 00:39:43", time: 1},
-    //     {cate: "工作", date: "2022/03/31 01:07:16", time: 1},
-    //     {cate: "休息", date: "2022/03/31 01:09:12", time: 1},
-    //     {cate: "休息", date: "2022/03/31 01:13:26", time: 1},
-    //     {cate: "睡觉", date: "2022/03/31 02:53:35", time: 1},
-    //     {cate: "写bug", date: "2022/03/31 02:54:46", time: 1},
-    //     {cate: "修bug", date: "2022/03/31 02:55:59", time: 1},
-    //     {cate: "修bug", date: "2022/03/31 02:57:10", time: 1},
-    // ]
-     console.log(a);
+       let res={}
      for (var i = 0 ;i<a.length;i++){
           if(res[a[i]["qxbq"]]==undefined){
               let re = []
               re.push(a[i])
-               console.log(i+1)
-              console.log(a[i]["qxbq"])
               res[a[i]["qxbq"]]=re
-              console.log(res)
           }
           else{
-              console.log(i+1)
-              console.log(a[i]["qxbq"])
               c= res[a[i]["qxbq"]]
               var sum = 0
               c.push(a[i])
-              console.log(c);
               res[a[i]["qxbq"]]=c
           }
-     }  
-        console.log(res);//哈希表
-        console.log(res['休息'][0]);
+     }
+      let room = []
+      for(var key in res ){
+        let obj = {
+          roomlable : String(key),
+          roomlist : res[key]
+        }
+        room.push(obj)
+      }
+      console.log(room);
+      this.setData({
+        room : room
+      })
     },
-    intoshowgroup(){
+    //渲染小组弹窗数据
+    getRoomlable(e){
+      // console.log(e); 
+      let roomindex = e.currentTarget.dataset.roomindex;
+      let memberarr = this.data.memberarr;
+      let groupMember = [];
+      console.log(memberarr);
+      for (let i = 0; i < memberarr.length; i++) {
+        if (memberarr[i].uuid == this.data.room[roomindex].roomlist[roomlistindex].uuid) {
+          if (groupMember.length<=13) {
+            let arr = memberarr[i]
+            groupMember.push(arr)
+          }else{
+            break;
+          }
+        }
+      }
+      let showgroup = {
+        wxname:this.data.room[roomindex].roomlist[roomlistindex].wxname,
+        group_name:this.data.room[roomindex].roomlist[roomlistindex].group_name,
+        introduce:this.data.room[roomindex].roomlist[roomlistindex].introduce,
+        peo:groupMember.length,
+        roomNum:this.data.room[roomindex].roomlist[roomlistindex].roomNum,
+        uuid:this.data.room[roomindex].roomlist[roomlistindex].uuid,
+        groupMember:groupMember,        
+      }
+      console.log(showgroup);
+      this.setData({
+        showgroup,
+      })
+    },
+    intoshowgroup(e){
+      // console.log(e);
+      roomlistindex = e.currentTarget.dataset.roomlistindex
       this.setData({
         showgroup:true
       })
@@ -222,6 +272,92 @@ Page({
       this.setData({
         showgroup:false
       })
+    },
+    //加入小组
+    joinGroup(){ 
+      var args = wx.getStorageSync('args');
+      var uuid = this.data.showgroup.uuid;
+      var username = args.username;
+      var roomNum = this.data.showgroup.roomNum;
+      var group_name = this.data.showgroup.group_name;
+      wx.showLoading({
+        title: '加入中',
+        mask: true,
+      })
+      // var datalength = 0;
+      console.log(uuid);
+      wx.cloud.database().collection('daka_group_member_information').where({uuid:uuid}).get()
+      .then(res =>{
+        console.log(res);
+        var datalength = res.data.length
+        var isExist = false
+        for (let i = 0; i < res.data.length; i++) {
+          if(res.data[i].member_username == username){
+            isExist = true
+          }
+        }
+        this.setData({
+          datalength:datalength,
+          isExist:isExist
+        })
+        console.log(datalength);
+        console.log(isExist);
+      }).then(res =>{
+        let isExist = this.data.isExist;
+        let datalength = this.data.datalength;
+        if (!isExist && datalength < roomNum) {
+          wx.cloud.database().collection('daka_group_member_information').add({
+            data:{
+              group_name:group_name,
+              member_name:args.nickName,
+              member_url:args.iconUrl,
+              member_username:args.username,
+              task:[],
+              time_logs:[],
+              totalTime:0,
+              uuid,
+            }
+          }).then(res =>{
+            let data = {
+              group_name:group_name,
+              member_name:args.nickName,
+              member_url:args.iconUrl,
+              member_username:args.username,
+              task:[],
+              time_logs:[],
+              totalTime:0,
+              uuid,
+            }
+            let showgroup = this.data.showgroup
+            let memberarr = this.data.memberarr
+            showgroup.groupMember.push(data),
+            memberarr.push(data)
+            this.setData({
+              showgroup:showgroup,
+              memberarr:memberarr
+            })
+            console.log(this.data.showgroup.groupMember);
+            wx.hideLoading({
+              success: (res) => {
+                wx.showToast({
+                  title: '加入成功',
+                  icon: 'none',
+                })
+              },
+            })
+          })
+        } else {
+          wx.hideLoading({
+            success: (res) => {
+              wx.showToast({
+                title: '加入失败，已加入或已满人',
+                icon: 'none',
+              })
+            },
+          })
+        }
+      })
+
     },
     // 卡片动画
     cardtouchstart(e) {
@@ -334,7 +470,7 @@ Page({
           })
         
       },
-      init_canvas2(){
+    init_canvas2(){
           let wpx = wx.getSystemInfoSync().windowWidth/375
           const query = wx.createSelectorQuery()
           query.select('#bottombox_clock_active')
@@ -350,8 +486,8 @@ Page({
               ctx2,canvas2
             })
           })
-      },
-        //更新开始键点击事件
+    },
+    //更新开始键点击事件
     start: function() {
         console.log('start');
         let ctx2 = this.data.ctx2
@@ -1593,4 +1729,7 @@ Page({
     onShareAppMessage: function () {
 
     }
+    // 计时js开始
+
+    //计时js结束
 })

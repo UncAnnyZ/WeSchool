@@ -6,7 +6,6 @@
           <view class="allstudyroom">全部自习室</view>
      </view>
 </view>
-<navigator url="/pages/testdaka/roomCreate/roomCreate">temp</navigator>
 <view class="selfstudy_othergroup_longbox">
                <view class="selfstudy_othergroup_longbox_left"></view>
                <view class="selfstudy_othergroup_longbox_right"></view>

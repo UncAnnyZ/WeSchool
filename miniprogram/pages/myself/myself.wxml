@@ -48,7 +48,7 @@
         <view class="fundamention">待定功能</view>
       </view>
       <view class="secondModule moduleItem">
-        <view class="text">xx大学</view>
+        <view class="text">{{storageInfo.school ? storageInfo.school : '暂未登录'}}</view>
         <view class="fundamention">学校</view>
       </view>
     </view>
@@ -62,7 +62,7 @@
           <text class="title">学校</text>
         </view>
         <view class="right">
-          <text>xx大学</text>
+          <text>{{isLogin ? storageInfo.school : '暂未登录'}}</text>
         </view>
 
       </view>

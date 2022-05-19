@@ -173,6 +173,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "我的小组页",
+          "pathName": "pages/testdaka/myGroup/myGroup",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

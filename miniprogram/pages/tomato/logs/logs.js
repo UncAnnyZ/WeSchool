@@ -68,6 +68,7 @@ Page({
           //   { value: 484, name: '思考' },
           //   { value: 300, name: '运动' }
           // ],
+          
           emphasis: {
             itemStyle: {
               shadowBlur: 10,
