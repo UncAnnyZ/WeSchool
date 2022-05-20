@@ -1,17 +1,12 @@
-/* pages/more/components/searchContent/searchContent.wxss */
-.gradient-layer {
-    transform: translate(0, -60rpx);
-    width: 100%;
-    position: fixed;
-    height: 130px;
-    box-shadow: inset 0rpx 0rpx 80rpx 60rpx rgba(255, 255, 255);
-    background-image: linear-gradient(
-      to right,
-      rgba(212, 240, 255, 0.9) 25%,
-      rgba(255, 198, 227, 0.8)
-    );
+
+  .searchInput {
+    padding-left: 80rpx;
+    margin-left: -200rpx;
+    width: 400rpx;
+    height: 75%;
+    border-radius: 60rpx;
+    background-color: rgb(248, 248, 248);
   }
-  
   .head_second {
     position: relative;
     display: flex;
@@ -23,7 +18,7 @@
   
   .head_second image {
     position: absolute;
-    left: 20rpx;
+    left: 35rpx;
     width: 45rpx;
     height: 45rpx;
   }

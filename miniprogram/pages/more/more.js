@@ -56,7 +56,7 @@ Page({
     scrollTop: 0,
     offsetTop: 0,
     TabScrollTop: 0,
-    layerHeight: 60 + 155 + 30,
+    layerHeight: 60 + 180 + 30,
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -79,9 +79,9 @@ Page({
         // 滑动高度 / 标签吸顶时的滑动高度 = 百分比 ∈ [0,1];;;;;   y = kx + b
         var x = Number(scrollTop / (TabScrollTop - 62)) > 1 ? 1 : Number(scrollTop / (TabScrollTop - 62)),
           // k = - (高度max - 高度min)
-          k = - ((statusBarHeight + lineHeight + 155 + 30) - (statusBarHeight + lineHeight + 62)),
+          k = - ((statusBarHeight + lineHeight + 180 + 30) - (statusBarHeight + lineHeight + 62)),
           // b = 高度max
-          b = (statusBarHeight + lineHeight + 155 + 30),
+          b = (statusBarHeight + lineHeight + 180 + 30),
           layerHeight = k * x + b;
 
         this.setData({
@@ -417,7 +417,7 @@ Page({
       .exec();
 
     this.setData({
-      layerHeight: data.statusBarHeight + data.lineHeight + 155 + 30,   // 155是弹幕高度，30是渐变层偏移量
+      layerHeight: data.statusBarHeight + data.lineHeight + 180 + 30,   // 180是弹幕高度，30是渐变层偏移量
       currentWaterFlowHeight,
       currentPageArr,
       currentTab: 0,            // 返回到第一个标签
