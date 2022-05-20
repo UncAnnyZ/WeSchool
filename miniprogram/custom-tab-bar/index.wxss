@@ -47,3 +47,11 @@
 .tab-bar-item .tab-bar-view {
   font-size: 10px;
 }
+@media (prefers-color-scheme: dark) {
+  .tab-bar {
+    filter: invert(0.9);
+  }
+  .tab-bar-view {
+    filter: invert(1);
+  }
+}

@@ -101,3 +101,8 @@
   color: #1cbbb4;
   margin-top: 30rpx;
 }
+@media (prefers-color-scheme: dark) {
+  .bodyCard {
+    filter: invert(1);
+  }
+}

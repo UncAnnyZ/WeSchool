@@ -398,12 +398,25 @@
   .content_btn {
     filter: invert(1) !important;
   }
-
+  .gradient-layer, .gradient-layer1, .gradient-layer-white {
+    box-shadow: inset 0 0 30px 20px rgb(243,243,243);
+    background-image:linear-gradient(rgb(243,243,243), rgb(243,243,243))
+  }
   .head {
     position: fixed;
     background-color: #faf9f9;
   }
-
+  .head_second image {
+    opacity: 0.3;
+    filter: brightness(1) !important;
+  }
+  .searchInput {
+    opacity: 0.3;
+    color: rgb(255, 255, 255);
+  }
+  .searchInput_holder {
+    color: rgb(255, 255, 255);
+  }
   scroll-view {
     filter: invert(100%) !important;
   }

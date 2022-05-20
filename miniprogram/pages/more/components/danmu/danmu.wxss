@@ -27,6 +27,13 @@ page {
   text-shadow: mediumaquamarine 5rpx 5rpx 10rpx;
 }
 
+.title .title_img {
+  margin-left: 20rpx;
+  opacity: 0.85;
+  height: 60rpx;
+  width: 250rpx;
+}
+
 .container .logo {
   position: absolute;
   right: 40rpx;
@@ -403,4 +410,11 @@ button::after {
   to {
     left: -100%;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .title .title_img {
+    filter: brightness(2) !important;
+  }
+
 }
