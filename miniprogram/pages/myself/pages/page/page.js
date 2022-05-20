@@ -33,7 +33,7 @@ Page({
           if (res.confirm) {
             console.log('用户点击确定');
             wx.redirectTo({
-              url: '../../login/login' 
+              url: '/pages/login/login' 
             })
           } else if (res.cancel) {
             console.log('用户点击取消')

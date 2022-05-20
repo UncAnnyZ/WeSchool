@@ -362,9 +362,33 @@ Page({
       console.log(res);
     })
   },
-  admin(){
-    wx.navigateTo({
-      url: '/pages/association/admin/admin',
+  admin() {
+    wx.showLoading({
+      title: '查询中',
+      mask: true,
+      success: (result) => {
+        db.collection('associationApply').where({ count: card }).get().then(res => {
+          if(res.data.length==0){
+            wx.hideLoading();
+            wx.showToast({
+              title: '没有权限',
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result)=>{
+                
+              },
+            });
+          }
+          else{
+            wx.hideLoading();
+            wx.navigateTo({
+              url: '/pages/association/admin/admin',
+            });
+          }
+        })
+      },
     });
   },
 })

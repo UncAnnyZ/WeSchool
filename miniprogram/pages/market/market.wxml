@@ -36,7 +36,7 @@
     <view style="display: flex;flex-direction: row;white-space: nowrap;background-color: white;height: 100%;width: 100%;">
       <view style="position: sticky;top: {{topH}}px;height:{{windowHeight-30}}px;width: 20%;">
         <scroll-view scroll-y="true"  id="leftScroll"  class="leftScroll" scroll-with-animation>
-          <view wx:for="{{menuList}}" class="recommend" id="{{index}}" bindtap="chooseLabel" style="background-color: {{item.type===1 ? 'white' : ''}};"><image src="../images/fire.png"/><view>{{item.name}}</view></view>
+          <view wx:for="{{menuList}}" class="recommend" id="{{index}}" bindtap="chooseLabel" style="background-color: {{item.type===1 ? 'white' : ''}};"><image src="../../images/fire.png"/><view>{{item.name}}</view></view>
           <view class="null"></view>
           <view class="null"></view>
           <view class="null"></view>
@@ -51,7 +51,7 @@
               <view class="signContenttwo">老板推荐</view> -->
             </view>
           </view>
-          <view wx:for="{{item.goodsList}}" wx:key="id" >
+          <view wx:for="{{item.goodsList}}" wx:key="id" wx:for-index="inIndex">
             <view class="goods">
               <view class="goodsImg">
                 <image src="{{item.img}}" mode="aspectFill"/>
@@ -63,9 +63,9 @@
                 <view class="goodsPrice">
                   ￥<text class="price">{{item.price}}</text>
                 </view>
-                <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods">
+                <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods" data-inIndex="{{inIndex}}" data-outIndex="{{index}}">
                   <view class="goodsNum" wx:if="{{item.number!=0}}">{{item.number}}</view>
-                  <image src="../images/购物车.png"/>
+                  <image src="../../images/购物车.png"/>
                 </view>
               </view>
             </view>
@@ -133,7 +133,7 @@
         <view class="settlePrice_2">￥{{totalprice}} </view>
         <view class="freight_2">预估另需配送费￥1</view>
       </view>
-      <view class="goSettle_2" bindtap="pay">去结算</view>
+      <view class="goSettle_2" catchtap="pay">去结算</view>
     </view>
   </view>
 

@@ -197,9 +197,7 @@
 /* 暗黑处理 */
 @media (prefers-color-scheme: dark) {
   /* 头部 */
-  .head {
-    /* background-image: linear-gradient( #f6f6f6 , #f6f6f6); */
-  }
+
   .navigationBack {
     filter: invert(0) !important;
   }

@@ -1,6 +1,6 @@
 
 const db = wx.cloud.database();
-let args = wx.getStorageInfoSync("args")
+let args = wx.getStorageSync("args")
 Page({
 
   /**
@@ -194,7 +194,7 @@ Page({
   onLoad: function (options) {
     if(wx.getStorageSync('mathed_time')){
       wx.navigateTo({
-        url: '/pages/more/pages/Love/detail/detail',
+        url: '/pages/more/pages/Love/pages/detail/detail',
       })
     }
  
@@ -229,7 +229,7 @@ Page({
             // if(res.data.code==="200"){
               let result = JSON.stringify( that.data.result)
               wx.navigateTo({
-                url: '/pages/detail/detail?state=1&&content='+result,
+                url: '/pages/more/pages/Love/pages/detail/detail?state=1&&content='+result,
               })
             // }
             // else{

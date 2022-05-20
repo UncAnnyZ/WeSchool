@@ -265,6 +265,8 @@ Page({
     })
   },
   onLoad: function (options) {
+    this.setData({choose:1})
+    console.log(this.data.choose)
     let args = wx.getStorageSync('args');
     // 兼容打卡一键分享
     let photo = [{

@@ -6,6 +6,7 @@
   margin-bottom: 20rpx;
 }
 .containers{
+  margin-top: 0rpx;
   width:100%;
   height:100%;
   position: fixed;
@@ -17,16 +18,19 @@
   height: 100%;
 }
 .box{
-  margin:200rpx auto;
+  position: absolute;
+  top:300rpx;
+  padding:200rpx auto;
   text-align: center;
-  justify-content: center;
+  left:15%;
+  /* left:194rpx; */
   
 }
 .match-text{
   font-size: 35rpx;
   color:white;
   font-weight: 800;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   /* color:rgba(116,116,116) */
   
 }
@@ -117,11 +121,11 @@
   /* background-color: rgba(234,129,113); */
   background-color:#7e9ec9;
 
-  padding: 20rpx;
+  padding: 15rpx;
   width: 30%;
   border-radius: 20rpx;
   text-align: center;
-  margin:30rpx auto;
+  margin:20rpx auto;
   display: flex;
   justify-content: center;
 }
@@ -136,4 +140,10 @@
   background-color: rgba(234,129,113);
   box-shadow: 6rpx 0rpx 20rpx rgb(70, 68, 68);
   border-radius: 50rpx;
+}
+.btn1{
+  position:absolute;
+  top:60%;
+  left:50%;
+  margin-left:-140rpx
 }

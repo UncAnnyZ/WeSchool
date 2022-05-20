@@ -1,1 +1,35 @@
-<view>hello webpack</view>
+<view class="container">
+  <text class="top">大学物理实验数据计算器</text>
+  <view class="title">
+    <view class="title-text">原始数据</view>
+    <view class="title-data">
+      <input class="title-data-input"  bindinput="input" placeholder="数据之间以空格分隔如(3.02 2.99 2.8) " />
+      <view class="title-data-submit" bindtap="submit"><image class="title-data-submit-submit" src="./images/computer.png"></image></view>
+    </view>
+
+      <view class="title-choose">
+        <picker mode = "selector" range="{{multiArray}}" value="{{multiIndex}}" bindchange="bindMultiPickerChange">
+          <view class="title-choose-text"><text >{{instrument_name}}</text><image class="title-choose-image" src="./images/down.png"></image></view>
+      </picker>
+        <view wx:if='{{show=="choose"}}' class="title-choose-inch">
+          <picker mode = "selector" range="{{calibration}}" value="{{calibrationIndex}}" bindchange="bindpickerchange">
+          <view class="title-choose-text"><text >{{calibrationItem}}</text><image class="title-choose-image" src="./images/down.png"></image></view>
+          </picker>
+        </view>
+        <view wx:if="{{show=='input'}}" class="title-choose-input">
+          <input  style="padding-left:10rpx" placeholder="请输入仪器误差" value="{{other_err}}" bindinput="err_input"/>
+        </view>
+
+    </view>
+  </view>
+  <view class="body" >
+    <view class="body-describe"   wx:for="{{data_show}}">
+      <!-- <view>{{item}}</view> -->
+      <text class="body-describe-text" >{{item.name}}:</text>
+      <view class="body-describe-data">{{item.res}}</view>
+    </view>
+  </view> 
+</view>
+<view class="end">
+  <view class="end-text" bindtap="Check">查看公式</view>
+</view>

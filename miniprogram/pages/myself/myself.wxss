@@ -29,22 +29,14 @@
   width: 100%;
   height: 100%;
 }
-@font-face {
-  font-family: myfont;
-  font-weight: bold;
-  font-style: normal;
 
-}
 .Tab{
   background-color: rgba(240,240,240,1);
 
 }
-.head{
-  
-}
+
 .title{
   letter-spacing:5rpx;
-  font-family: "font_my";
   position: relative;
   top:90rpx;
   text-align:center;
@@ -72,15 +64,16 @@
   z-index:1
 }
 .header-right-img{
-  width: 35rpx;
-  height: 38rpx;
+  width: 42rpx;
+  height: 42rpx;
   display: flex;
   align-items: center;
-  margin:0rpx 20rpx;
+  padding:0rpx 20rpx;
 }
 .container {
   position: relative;
-  margin-top:-10rpx;
+  margin-top:-20rpx;
+  width:100%;
 }
 .containers{
   width:100%;

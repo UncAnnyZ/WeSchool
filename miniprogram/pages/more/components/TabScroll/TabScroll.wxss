@@ -98,7 +98,6 @@
   color:rgba(116,213,211)
 }
 .bgc{
-  background-color: rgba(240,240,240,1);
   border-radius: 16rpx 16rpx 0rpx 0rpx;
   z-index:3
 }

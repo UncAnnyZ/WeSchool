@@ -17,10 +17,22 @@ Page({
     scrollNum:-1                //用于实现对商品列表滑动，菜单标签出现对应选中的索引
   },
 
+  // www(){
+  //   wx.cloud.callFunction({
+  //     name: 'market',
+  //     env:'mall-7gi19fir46652cb4',
+  //     data: {
+  //       type: "read",
+  //       _id:"uncanny"
+  //     },
+  //     success: res => {console.log("res2333",res);}
+  //   })
+  // },
   onLoad: function (option)  {
     const args = wx.getStorageSync('args')
     var self = this
     this.order()
+    // this.www()
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -57,7 +69,7 @@ Page({
                   newuser: false,
                   username: userinfores.data[0].username,
                   usertximg: userinfores.data[0].usertximg,
-                  userlocation: userinfores.data[0].userlocation,
+                  // userlocation: userinfores.data[0].userlocation,
                   havelocation: userinfores.data[0].havelocation,
                 })
                 self.obtainTop('#labelControl')
@@ -96,9 +108,9 @@ Page({
   onShow(e) {
     var self = this
     var skip = self.data.skip
-    this.setData({
-      userlocation: self.data.userlocation
-    })
+    // this.setData({
+    //   userlocation: self.data.userlocation
+    // })
     
     if(!self.data.newuser){
       db.collection('dindan').where({
@@ -192,30 +204,7 @@ Page({
       item.type=0
     })
     this.data.menuList[e.currentTarget.id].type=1
-    this.setData({
-      choosen:true,
-      menuList:this.data.menuList,
-      monitorScrolling:true
-    })
     this.scrollTo(this.data.menuList[e.currentTarget.id].changeLabel)
-  },
-
-  /* 商品的展示列表，将原本只存有所有商品的this.data.good，转化成格式为：
-    arry[{
-      name:'好吃'      //商品所属标签,
-      goodsList:[]      //该标签对应下的商品,
-      changeLabel:''    //用于选中菜单标签，商品列表实现对应滚动的功能
-    },{},...] */
-  getProductGroups(){
-    this.data.menuList.forEach((item) => {
-      let goodsList=this.data.goods.filter((item2) => {
-        return item2.caidan===item.name
-      })
-      item.goodsList=goodsList
-    })
-    this.setData({
-      menuList:this.data.menuList
-    })
   },
 
   /* 根据滑动页面的索引，来触发对应的函数，对上面的标签栏（菜单/评价/商家）进行动态渲染 */
@@ -230,38 +219,40 @@ Page({
    /* 菜单渲染 */
    menuRendering() {
      let count=0
-    const menuList=this.data.menuList.map((item) => {
+     const menuList=this.data.menuList.map((item) => {
+      let goodsList=this.data.goods.filter((item2) => {
+        return item2.caidan===item.name
+      })
       let obj={
         name:item.name,
         type:0,
-        changeLabel:'changeLabel'+count
+        changeLabel:'changeLabel' + count ++,
+        goodsList
       }
-      count += 1
       return obj
     })
     this.setData({
       menuList
     })
-    this.getProductGroups()
+    console.log("menuList",menuList);
     wx.hideLoading()
   },
 
   /* 控制下面的商品滚动，当商品列表没占据全屏时，商品列表不滚动 */
   onPageScroll(e){
-    if(e.scrollTop>=187){
-      this.setData({
-        monitorScrolling:true
-      })
-    }else{
-      this.setData({
-        monitorScrolling:false
-      })
-    }
+    let monitorScrolling=false
+    e.scrollTop>=187 ? monitorScrolling=true : ''
+    this.setData({
+      monitorScrolling
+    })
   },
 
   /* 当商品列表不占据全屏时，点击菜单列表，页面滚动，商品列表总体往上滑，占据全屏 */
   scrollTo(bottomId) {
     this.setData({
+      choosen:true,
+      menuList:this.data.menuList,
+      monitorScrolling:true,
       bottomId
     })
     wx.createSelectorQuery().select('#labelControl').boundingClientRect(res => {
@@ -302,74 +293,68 @@ Page({
 
   /* 在购物车图标添加商品 */
   oneaddgoods(e) {
-    const index = e.currentTarget.id
-    if (this.data.newuser) {
-      wx.showToast({
-        title: '成功',
-        icon: 'success',
-        duration: 1000
-      })
-    } else {
-      const buyIndex = this.data.buy.findIndex((item) => {
-        return item.name===this.data.goods[index].name
-      })
-      if(buyIndex!=-1){
-        this.data.buy[buyIndex].number += 1
-      }else{
-        let goods = {
-          guige: false,
-          id: this.data.goods[index].id,
-          img: this.data.goods[index].img,
-          name: this.data.goods[index].name,
-          price: this.data.goods[index].price,
-          discount: this.data.goods[index].discount,
-          nowprice: this.data.goods[index].nowprice,
-          shangpu: this.data.goods[index].shangpu, //所属商铺
-          shopid: this.data.goods[index].shopid,
-          number: 1, //用户购物车数量
-          // index: this, //在goods列表里的index
-        }
-        this.data.buy.push(goods)
+    const inIndex=e.currentTarget.dataset.inindex
+    const outIndex=e.currentTarget.dataset.outindex
+    const buyIndex = this.data.buy.findIndex((item) => {
+      return item.name===this.data.menuList[outIndex].goodsList[inIndex].name
+    })
+    if(buyIndex!=-1){
+      this.data.buy[buyIndex].number += 1
+    }else{
+      let goods = {
+        guige: false,
+        id: this.data.menuList[outIndex].goodsList[inIndex].id,
+        img: this.data.menuList[outIndex].goodsList[inIndex].img,
+        name: this.data.menuList[outIndex].goodsList[inIndex].name,
+        price: this.data.menuList[outIndex].goodsList[inIndex].price,
+        discount: this.data.menuList[outIndex].goodsList[inIndex].discount,
+        nowprice: this.data.menuList[outIndex].goodsList[inIndex].nowprice,
+        shangpu: this.data.menuList[outIndex].goodsList[inIndex].shangpu, //所属商铺
+        shopid: this.data.menuList[outIndex].goodsList[inIndex].shopid,
+        number: 1, //用户购物车数量
+        // index: this, //在goods列表里的index
       }
-      this.data.goods[index].number += 1
-      this.buy(this.data.buy)
+      this.data.buy.push(goods)
     }
+    this.data.menuList[outIndex].goodsList[inIndex].number += 1
+    this.buy()
   },
 
   /* 在购物车弹窗添加商品 */
   addgoods(e) {
     const index = e.currentTarget.id
-    this.data.buy[index].number += 1
-    this.data.goods[index].number += 1
-    this.setData({
-      buy: this.data.buy,
-      goods: this.data.goods,
+    this.data.menuList.forEach((item) => {
+      item.goodsList.map((item) => {
+        if(this.data.buy[index].name===item.name){
+          item.number += 1
+        }
+      })
     })
-    this.buy(this.data.buy)
+    this.data.buy[index].number += 1
+    this.buy()
   },
 
   /* 在购物车弹窗删除商品 */
   reducenumber(e) {
     const index = e.currentTarget.id
-    if(this.data.buy[index].number === 1) {
-      this.data.buy.splice(index,1)
-    }else{
-      this.data.buy[index].number -= 1;
-    }
-    this.data.goods[index].number -= 1
-    this.setData({
-      buy: this.data.buy,
-      goods: this.data.goods
+    const name = this.data.buy[index].name
+    this.data.buy[index].number === 1 ? this.data.buy.splice(index,1) : this.data.buy[index].number -= 1;
+    this.data.menuList.forEach((item) => {
+      item.goodsList.map((item) => {
+        if(name===item.name){
+          item.number -= 1
+        }
+      })
     })
-    this.buy(this.data.buy)
+    this.buy()
   },
 
-  buy(buy) {
-    let numberSum = buy.reduce((numberSum, item) => {
+  buy() {
+    let numberSum = this.data.buy.reduce((numberSum, item) => {
       return numberSum + item.number;
     },0)
      // 购物车加购的商品价格（priceSum）加一
-    let priceSum = buy.reduce((priceSum, item) => {
+    let priceSum = this.data.buy.reduce((priceSum, item) => {
       return priceSum + item.number * item.nowprice;
       // return priceSum + item.number * (item.nowprice * item.zhekou * 0.1);      //---后期优化，无折扣商品：zhekou=10；有折扣商品：zhekou=zhekou*0.1
     },0)
@@ -385,6 +370,8 @@ Page({
       totalTrue: priceSum.toFixed(2) < this.data.goprice,
       totalyuNumber: this.data.goprice - priceSum.toFixed(2),
       totalnumber: numberSum,
+      menuList:this.data.menuList,
+      buy:this.data.buy,
     })
   },
   
@@ -401,88 +388,19 @@ Page({
     }
   },
 
-  /* 地址设置 */         //我也不知道这用来干啥
-  userlocation(e) {
-    var shop_id=this.data.shop_id
-    console.log(shop_id)
-    wx.navigateTo({
-      url: '../HotTop/HotTop?content=地址&shop_id='+shop_id,
-    })
-  },
   /* 跳转支付 */
-  pay(e) {
-    console.log("pay");
-    var self = this
-    var buy = self.data.buy
+  pay() {
     wx.setStorage({
       key: "pay",
       data: {
-        buy: buy,
-        totalnumber: self.data.totalnumber,
-        totalprice: self.data.totalprice,
+        buy: this.data.buy,
+        totalnumber: this.data.totalnumber,
+        totalprice: this.data.totalprice,
       }
     })
     wx.navigateTo({
-
-      url: '../HotTop/HotTop?content=支付',
+      url:'../HOT/HotTop/HotTop?content=支付'
     })
-  },
-
-  /* 用户授权 */            //我也不知道这用来干啥
-  onGetUserInfo: function (e) {             
-    console.log(e)
-    var self = this
-    var openid = app.globalData.openid
-    if (self.data.newuser && e.detail.userInfo) {
-      wx.showLoading({
-        mask: 'none',
-        title: '用户信息建立中...',
-      })
-      db.collection('userinfo').add({
-        // data 字段表示需新增的 JSON 数据
-        data: {
-          username: e.detail.userInfo.nickName,
-          usertximg: e.detail.userInfo.avatarUrl,
-          userlocation: {},
-          havelocation: false
-        },
-        success: function (res) {
-          wx.setStorage({
-            key: "userinfo",
-            data: {
-              _id: res._id,
-              _openid: openid,
-              username: e.detail.userInfo.nickName,
-              usertximg: e.detail.userInfo.avatarUrl,
-              userlocation: {},
-              havelocation: false
-            }
-          })
-          self.setData({
-            newuser: false,
-            username: e.detail.userInfo.nickName,
-            usertximg: e.detail.userInfo.avatarUrl,
-            userlocation: {},
-            havelocation: false
-          })
-          console.log(res)
-        },
-        fail: console.error,
-        complete: function (res) {
-          wx.hideLoading()
-        },
-      })
-    }
-  },
-  /* 下拉刷新 */
-  onPullDownRefresh: function () {
-    // if (!this.data.tabbar) {
-    //   wx.showNavigationBarLoading()
-    //   this.onShow()
-    // } else {
-    //   wx.hideNavigationBarLoading()
-    //   wx.stopPullDownRefresh()
-    // }
   },
 
   /**

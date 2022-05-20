@@ -7,7 +7,6 @@
   "pages": [
     "pages/more/more",
     "pages/login/login",
-    "pages/market/market",
     "pages/curriculum/curriculum",
     "pages/myself/myself",
     "pages/PublishContent/PublishContent",
@@ -46,6 +45,14 @@
       "pages": [
         "physical",
         "detail/detail"
+      ]
+    },
+    {
+      "name": "market",
+      "root": "pages/market",
+      "pages": [
+        "market",
+        "address/address"
       ]
     },
     {
@@ -180,31 +187,31 @@
       {
         "pagePath": "pages/functionPage/functionPage",
         "text": "功能",
-        "iconPath": "/images/tabbar/功能.png",
-        "selectedIconPath": "/images/tabbar/功能.png"
+        "iconPath": "/images/tabbar/fuc.png",
+        "selectedIconPath": "/images/tabbar/fuc_sel.png"
       },
       {
         "pagePath": "pages/curriculum/curriculum",
-        "iconPath": "/images/tabbar/课程表.png",
-        "selectedIconPath": "/images/tabbar/课程表_sel.png",
+        "iconPath": "/images/tabbar/schedule.png",
+        "selectedIconPath": "/images/tabbar/schedule_sel.png",
         "text": "课表"
       },
       {
         "pagePath": "pages/PublishContent/PublishContent",
         "bulge": true,
-        "iconPath": "/images/tabbar/发布.png",
-        "selectedIconPath": "/images/tabbar/发布.png"
+        "iconPath": "/images/tabbar/pub.png",
+        "selectedIconPath": "/images/tabbar/pub.png"
       },
       {
         "pagePath": "pages/more/more",
-        "iconPath": "/images/tabbar/圈子.png",
-        "selectedIconPath": "/images/tabbar/圈子_sel.png",
+        "iconPath": "/images/tabbar/CampusCicle.png",
+        "selectedIconPath": "/images/tabbar/CampusCicle_sel.png",
         "text": "校园圈"
       },
       {
         "pagePath": "pages/myself/myself",
-        "iconPath": "/images/tabbar/作者.png",
-        "selectedIconPath": "/images/tabbar/作者_sel.png",
+        "iconPath": "/images/tabbar/Author.png",
+        "selectedIconPath": "/images/tabbar/Author_sel.png",
         "text": "我的"
       }
     ]
