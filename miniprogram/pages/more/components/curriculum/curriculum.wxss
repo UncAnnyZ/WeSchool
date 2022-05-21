@@ -7,21 +7,22 @@
 }
 
 .headline {
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
   flex-direction: row;
   width: 100%;
 }
 
 .date {
-  position: absolute;
-  margin-left: 30rpx;
-  margin-top: 20rpx;
+  /* position: absolute; */
+  /* margin-left: 30rpx;
+  margin-top: 20rpx; */
   font-size: 28rpx;
   font-family: 'webfont';
 }
 
 .week {
-  position: absolute;
+  /* position: absolute; */
   /* color: #da4776; */
   margin-left: 112rpx;
   margin-top: 20rpx;
@@ -29,7 +30,7 @@
   font-family: 'webfont';
 }
 .restCourse {
-  position: absolute;
+  /* position: absolute; */
   /* color: #da4776; */
   margin-left: 200rpx;
   margin-top: 20rpx;
@@ -37,7 +38,7 @@
   font-family: 'webfont';
 }
 .schoolWeek {
-  position: absolute;
+  /* position: absolute; */
   margin-left: 590rpx;
   margin-top: 17rpx;
   font-size: 28rpx;
