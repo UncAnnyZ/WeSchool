@@ -60,11 +60,11 @@ Page({
       adminCount: e.detail.value
     })
   },
-  getAdmin(count){
-    db.collection('associationApply').where({count}).get().then(res=>{
-      if(res.data[0].adminArr){
+  getAdmin(count) {
+    db.collection('associationApply').where({ count }).get().then(res => {
+      if (res.data[0].adminArr) {
         this.setData({
-          list:res.data[0].adminArr
+          list: res.data[0].adminArr
         })
       }
     })
@@ -162,9 +162,8 @@ Page({
       });
     }
   },
-  delete(e){
-    // console.log(e);
-    let tar=e.currentTarget.dataset.count
+  delete(e) {
+    let tar = e.currentTarget.dataset.count
     wx.showModal({
       title: '警告',
       content: '确认移除管理员权限',
@@ -174,33 +173,30 @@ Page({
       confirmText: '移除',
       confirmColor: 'red',
       success: (result) => {
-        if(result.confirm){
+        if (result.confirm) {
           wx.showLoading({
             title: '删除中',
             mask: true,
-            success: (result)=>{
-              
+            success: (result) => {
+              db.collection('associationApply').where({ count }).update({
+                data: {
+                  adminArr: _.pullAll([tar])
+                }
+              }).then(res => {
+                wx.hideLoading();
+                wx.showToast({
+                  title: '移除成功',
+                  icon: 'none',
+                  image: '',
+                  duration: 1500,
+                  mask: false,
+                  success: (result) => {
+                    this.getAdmin(count)
+                  },
+                });
+              })
             },
-            fail: ()=>{},
-            complete: ()=>{}
           });
-          // // wx.showLoading({
-          // //   title: '删除中',
-          // //   mask: true,
-          // //   success: (result)=>{
-          //     db.collection('associationApply').where({count}).update({
-          //       data:{
-          //         adminArr:_.pull({
-          //           adminArr:_.eq(tar)
-          //         })
-          //         // adminArr:_.eq(tar)
-          //       }
-          //     }).then(res=>{
-          //       console.log(res);
-          //       this.getAdmin(count)
-          //     })
-          // //   },
-          // // });
         }
       },
     });
