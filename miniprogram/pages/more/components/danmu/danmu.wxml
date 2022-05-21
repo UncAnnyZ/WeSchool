@@ -6,7 +6,7 @@
     <image src="./logo.png" mode="widthFix"></image>
   </view>
   <!-- top -->
-  <view class='dmGroup top' style="animation: dmAnimation2 14s  linear infinite; ">
+  <view class='dmGroup top' style="animation: dmAnimation2 16s  linear infinite; ">
     <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index < dmList.length/3 }}" wx:key="*this">
       <view class='dm'>
 
@@ -22,7 +22,7 @@
     </view>
   </view>
   <!-- mid -->
-  <view class='dmGroup mid' style="animation: dmAnimation2 14s 0.5s linear infinite; ">
+  <view class='dmGroup mid' style="animation: dmAnimation2 16s 0.5s linear infinite; ">
     <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index >= dmList.length/3 && index < (dmList.length/3)*2 }}" wx:key="*this">
       <view class='dm'>
         <view class='avatarBox'>
@@ -36,7 +36,7 @@
     </view>
   </view>
   <!-- btm -->
-  <view class='dmGroup btm' style="animation: dmAnimation2 14s 1s linear infinite; ">
+  <view class='dmGroup btm' style="animation: dmAnimation2 16s 1s linear infinite; ">
     <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index >= (dmList.length/3)*2  }}" wx:key="*this">
       <view class='dm'>
         <view class='avatarBox'>

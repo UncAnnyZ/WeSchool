@@ -4,52 +4,56 @@
   background-image: linear-gradient(to right, rgb(159, 221, 248), rgb(184, 233, 230));
   height: 235rpx;
   display: flex;
+  flex-direction: column;
 }
 
 .headline {
   /* position: absolute; */
   display: flex;
   flex-direction: row;
+  justify-content:space-between;
   width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
 }
-
+.headline .firstBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 28rpx;
+}
 .date {
-  /* position: absolute; */
-  /* margin-left: 30rpx;
-  margin-top: 20rpx; */
   font-size: 28rpx;
   font-family: 'webfont';
 }
-
+.date::after {
+  position: absolute;
+  margin-left: 8rpx;
+  content: "";
+  width: 1rpx;
+  height: 30rpx;
+  background-color: rgb(51, 51, 51);
+}
 .week {
-  /* position: absolute; */
-  /* color: #da4776; */
-  margin-left: 112rpx;
-  margin-top: 20rpx;
+  margin: 0 20rpx;
   font-size: 28rpx;
   font-family: 'webfont';
 }
 .restCourse {
-  /* position: absolute; */
-  /* color: #da4776; */
-  margin-left: 200rpx;
-  margin-top: 20rpx;
   font-size: 28rpx;
   font-family: 'webfont';
 }
 .schoolWeek {
-  /* position: absolute; */
-  margin-left: 590rpx;
-  margin-top: 17rpx;
   font-size: 28rpx;
 }
 
 .body {
   white-space: nowrap;
   display: flex;
-  height: 120rpx;
-  margin-left: 30rpx;
-  margin-top: 80rpx;
+  justify-content: center;
+  align-items: center;
+  flex: auto;
 }
 
 .bodyCard {
@@ -100,7 +104,6 @@
   text-align: center;
   font-size: 35rpx;
   color: #1cbbb4;
-  margin-top: 30rpx;
 }
 @media (prefers-color-scheme: dark) {
   .bodyCard {

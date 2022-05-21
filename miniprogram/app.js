@@ -78,7 +78,7 @@ App({
         let statusBarHeight = res.statusBarHeight; // 获取状态栏的高度
 
         this.globalData.statusBarHeight = statusBarHeight;
-
+        this.globalData.pixelRatio = res.pixelRatio
         // 根据胶囊的位置计算文字的行高以及距离状态栏文本的位置
         let lineHeight = (rect.top - statusBarHeight) * 2 + rect.height;
         this.globalData.lineHeight = lineHeight;

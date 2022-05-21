@@ -8,6 +8,7 @@ Page({
     lineHeight: getApp().globalData.lineHeight,
     rectHeight: getApp().globalData.rectHeight,
     windowHeight: getApp().globalData.windowHeight,
+    pixelRatio: getApp().globalData.pixelRatio,     // rpx 与 px 的转换比例
     // 标签兜底
     tabitem: [
       {
@@ -56,7 +57,7 @@ Page({
     scrollTop: 0,
     offsetTop: 0,
     TabScrollTop: 0,
-    layerHeight: 60 + 180 + 30,
+    layerHeight: 60 + 350 / getApp().globalData.pixelRatio + 30,
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -79,9 +80,9 @@ Page({
         // 滑动高度 / 标签吸顶时的滑动高度 = 百分比 ∈ [0,1];;;;;   y = kx + b
         var x = Number(scrollTop / (TabScrollTop - 62)) > 1 ? 1 : Number(scrollTop / (TabScrollTop - 62)),
           // k = - (高度max - 高度min)
-          k = - ((statusBarHeight + lineHeight + 180 + 30) - (statusBarHeight + lineHeight + 62)),
+          k = - ((statusBarHeight + lineHeight + 350 / data.pixelRatio + 30) - (statusBarHeight + lineHeight + 62)),
           // b = 高度max
-          b = (statusBarHeight + lineHeight + 180 + 30),
+          b = (statusBarHeight + lineHeight + 350 / data.pixelRatio + 30),
           layerHeight = k * x + b;
 
         this.setData({
@@ -344,6 +345,16 @@ Page({
     var currentTab = e;
 
     if (this.data.allList[currentTab].length) {
+      wx.createSelectorQuery()
+        .select(`#waterFlowCards${currentTab}`)
+        .boundingClientRect(res => {
+          // 避免高度过小
+          res.height < 100 ? res.height = 100 : '';
+          that.setData({
+            currentWaterFlowHeight: res.height
+          })
+        })
+        .exec();
       console.log("页面已经有数据了，不请求数据库");
       return;
     } else {
@@ -417,7 +428,7 @@ Page({
       .exec();
 
     this.setData({
-      layerHeight: data.statusBarHeight + data.lineHeight + 180 + 30,   // 180是弹幕高度，30是渐变层偏移量
+      layerHeight: data.statusBarHeight + data.lineHeight + 350 / data.pixelRatio + 30,   // 180是弹幕高度，30是渐变层偏移量
       currentWaterFlowHeight,
       currentPageArr,
       currentTab: 0,            // 返回到第一个标签
@@ -431,6 +442,7 @@ Page({
     console.log(this.data.allList)
   },
   onLoad: function () {
+    console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
   },
