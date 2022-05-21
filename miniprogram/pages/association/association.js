@@ -2,6 +2,7 @@
 let school = ''
 let db = wx.cloud.database()
 let card = ""//学号
+const _ = db.command
 Page({
 
   /**
@@ -82,15 +83,11 @@ Page({
         tap: "loading"
       },
     ],
-    HtmlStatus: 0,//0为申请 1审核中 2审核通过  3注销中
+    HtmlStatus: 0,//0为申请 1审核中 2审核通过  3注销中 4管理员
     assoMess: "",
     photoStatus: false,
     img: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let res = wx.getStorageSync('args');
     let list = this.data.list
@@ -107,29 +104,31 @@ Page({
   goMatchData() {
     wx.navigateTo({
       url: '/pages/association/matchData/matchData',
-      success: (result) => {
-
-      },
-      fail: () => { },
-      complete: () => { }
     });
   },
   // 查询用户状态
   search(card) {
-    // if (card != 'guest') {
-    //   card = Number(card)
-    // }
     card = String(card)
     db.collection("associationApply").where({ count: card }).get().then(res => {
-      console.log(res);
       if (res.data.length == 0) {
-        this.setData({
-          HtmlStatus: 0
+        db.collection('associationApply').where({
+          adminArr: _.all([card])
+        }).get().then(res => {
+          let adminCard = res.data[0].count
+          if (res.data.length == 0) {
+            this.setData({
+              HtmlStatus: 0
+            })
+          }
+          else {
+            this.setData({
+              HtmlStatus: 4,
+              adminCard: adminCard
+            })
+          }
         })
       }
       else {
-        // console.log(res.data[0].status);
-        // console.log(res.data[0].status===false);
         if (res.data[0].status === false) {
           this.setData({
             HtmlStatus: 1
@@ -172,9 +171,6 @@ Page({
   goFreshmanData() {
     wx.navigateTo({
       url: '/pages/association/freshmanData/freshmanData',
-      success: (result) => {
-
-      },
     });
   },
   // 开发中
@@ -193,7 +189,6 @@ Page({
     });
   },
   formSubmit(e) {
-    console.log(e);
     let data = e.detail.value
     if (data.association == "" || data.card == "" || data.name == "" || data.phone == "" || !this.data.imgUrl) {
       wx.showModal({
@@ -250,50 +245,101 @@ Page({
   },
   // 赛事
   match() {
-    wx.navigateTo({
-      url: '/pages/association/match/match?count=' + card,
-      success: (result) => {
-
-      },
-    });
+    if (this.data.adminCard) {
+      wx.navigateTo({
+        url: '/pages/association/match/match?count=' + this.data.adminCard,
+      });
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/association/match/match?count=' + card,
+      });
+    }
   },
   // 注销社团
   delete() {
-    wx.showModal({
-      title: '警告',
-      content: '注销负责人身份',
-      showCancel: true,
-      cancelText: '取消',
-      cancelColor: '#000000',
-      confirmText: '确定',
-      confirmColor: '#3CC51F',
+    wx.showLoading({
+      title: '查询中',
+      mask: true,
       success: (result) => {
-        if (result.confirm) {
-          wx.showLoading({
-            title: "注销中",
-            mask: true,
-            success: (res) => {
-              db.collection("associationApply").where({ count: card }).update({
-                data: {
-                  status: 0
+        db.collection('associationApply').where({ count: card }).get().then(res => {
+          if (res.data.length == 0) {
+            wx.hideLoading();
+            wx.showToast({
+              title: '没有权限',
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result) => {
+
+              },
+            });
+          }
+          else {
+            wx.hideLoading();
+            wx.showModal({
+              title: '警告',
+              content: '注销负责人身份',
+              showCancel: true,
+              cancelText: '取消',
+              cancelColor: '#000000',
+              confirmText: '确定',
+              confirmColor: '#3CC51F',
+              success: (result) => {
+                if (result.confirm) {
+                  wx.showLoading({
+                    title: "注销中",
+                    mask: true,
+                    success: (res) => {
+                      db.collection("associationApply").where({ count: card }).update({
+                        data: {
+                          status: 0
+                        }
+                      }).then(res => {
+                        wx.hideLoading();
+                        this.setData({
+                          HtmlStatus: 3
+                        })
+                      })
+                    },
+                  });
                 }
-              }).then(res => {
-                wx.hideLoading();
-                this.setData({
-                  HtmlStatus: 3
-                })
-              })
-            },
-          });
-        }
+              },
+            });
+          }
+        })
       },
     });
   },
   // 编辑资料
   edit() {
-    wx.navigateTo({
-      url: '/pages/association/edit/edit?count=' + card,
-    })
+    wx.showLoading({
+      title: '查询中',
+      mask: true,
+      success: (result) => {
+        db.collection('associationApply').where({ count: card }).get().then(res => {
+          if (res.data.length == 0) {
+            wx.hideLoading();
+            wx.showToast({
+              title: '没有权限',
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result) => {
+              },
+            });
+          }
+          else {
+            wx.hideLoading();
+            wx.navigateTo({
+              url: '/pages/association/edit/edit?count=' + card,
+            });
+          }
+        })
+      },
+    });
   },
   // 跳转
   freshman() {
@@ -301,9 +347,6 @@ Page({
     assoMess = JSON.stringify(assoMess)
     wx.navigateTo({
       url: '/pages/association/freshman/freshman?assoMess=' + assoMess,
-      success: (result) => {
-
-      },
     });
   },
   // 上传logo
@@ -346,8 +389,6 @@ Page({
       success: (result) => {
 
       },
-      fail: () => { },
-      complete: () => { }
     });
   },
   // 更新人数活动数量
@@ -359,7 +400,6 @@ Page({
         count,
       }
     }).then(res => {
-      console.log(res);
     })
   },
   admin() {
@@ -368,7 +408,7 @@ Page({
       mask: true,
       success: (result) => {
         db.collection('associationApply').where({ count: card }).get().then(res => {
-          if(res.data.length==0){
+          if (res.data.length == 0) {
             wx.hideLoading();
             wx.showToast({
               title: '没有权限',
@@ -376,12 +416,12 @@ Page({
               image: '',
               duration: 1500,
               mask: false,
-              success: (result)=>{
-                
+              success: (result) => {
+
               },
             });
           }
-          else{
+          else {
             wx.hideLoading();
             wx.navigateTo({
               url: '/pages/association/admin/admin',
