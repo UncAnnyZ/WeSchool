@@ -28,7 +28,7 @@ Page({
     }
     if(!wx.getStorageSync('mathed_time')&&!e.content){
       wx.navigateTo({
-        url: '/pages/qus/qus',
+        url: '/pages/more/pages/Love/Love',
       })
       return -1
     }
@@ -81,6 +81,7 @@ Page({
   
   },
   return(){
+  
     wx.switchTab({
       url: '/pages/more/more',
     })
@@ -104,7 +105,7 @@ Page({
   rewrite(){
     wx.removeStorageSync('mathed_time')
     wx.navigateTo({
-      url: '/pages/more/Love/qus/qus',
+      url: '/pages/more/pages/Love/Love',
     })
   },
   /**

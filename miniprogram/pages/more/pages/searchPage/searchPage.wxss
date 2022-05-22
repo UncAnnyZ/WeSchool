@@ -74,6 +74,3 @@
   border-radius: 60rpx;
   color: rgb(33,33,33);
 }
-@media (prefers-color-scheme: dark) { 
-  
-}
