@@ -157,7 +157,7 @@
 
 .publishBox {
   position: absolute;
-  bottom: 30rpx;
+  bottom: 100rpx;
   width: 100%;
   /* height: 100rpx; */
   display: flex;
