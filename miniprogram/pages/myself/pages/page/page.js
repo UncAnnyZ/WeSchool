@@ -9,8 +9,8 @@ Page({
     lineHeight: getApp().globalData.lineHeight,
   },
   back(){
-    wx.navigateBack({
-      delta: 1,
+    wx.switchTab({
+      url: '/pages/myself/myself',
     })
   },
   aboutUs(){
