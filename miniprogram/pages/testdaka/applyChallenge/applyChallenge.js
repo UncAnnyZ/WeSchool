@@ -1,4 +1,4 @@
-// pages/testdaka/myGroup/myGroup.js
+// pages/testdaka/applyChallenge/app;yChallenge.js
 Page({
 
   /**
@@ -7,22 +7,15 @@ Page({
   data: {
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
+    dayRequire:"21",
+    title:"标题",
+    guide:"123",
   },
-  abc(){
-    wx.navigateTo({
-      url: 'pages/testdaka/myGroup/myGroup',
-    })
+  cancel(){
+    
   },
-  back(){
-    wx.navigateBack({
-      delta: 1,
-    })
-  },
-  
-  addPost(){
-    wx.navigateTo({
-      url: '../addPost/addPost',
-    })
+  confirm(){
+
   },
   /**
    * 生命周期函数--监听页面加载

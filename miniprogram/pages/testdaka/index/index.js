@@ -176,7 +176,6 @@ Page({
         url: '../createRoom/createRoom',
       })
     },
-
     //获取小组信息数据
     getmember(){
       wx.cloud.database().collection('daka_group_member_information').get().then(res =>{

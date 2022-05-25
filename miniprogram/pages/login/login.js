@@ -16,7 +16,6 @@ Page({
     url: '',
     urls: []
   },
-
   back: function (params) {
     wx.switchTab({
       url: '/pages/myself/myself',

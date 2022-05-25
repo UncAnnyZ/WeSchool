@@ -1,29 +1,13 @@
-// pages/testdaka/myGroup/myGroup.js
+// pages/testdaka/dakaChallenge/dakaChallenge.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    statusBarHeight: getApp().globalData.statusBarHeight,
-    lineHeight: getApp().globalData.lineHeight,
+
   },
-  abc(){
-    wx.navigateTo({
-      url: 'pages/testdaka/myGroup/myGroup',
-    })
-  },
-  back(){
-    wx.navigateBack({
-      delta: 1,
-    })
-  },
-  
-  addPost(){
-    wx.navigateTo({
-      url: '../addPost/addPost',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

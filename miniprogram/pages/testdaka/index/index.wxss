@@ -747,6 +747,7 @@ page {
   z-index: 999;
   margin: 25rpx;
   transition: all .5s;
+  box-shadow: 0rpx 10rpx 20rpx 0.1rpx rgb(228, 228, 228);
 }
 
 .tabBar_ring {
@@ -760,6 +761,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* box-shadow: 0rpx 10rpx 20rpx 0.1rpx rgb(228, 228, 228); */
 }
 
 .icon {
@@ -1377,6 +1379,7 @@ wx-slider .wx-slider-handle-wrapper {
   font-size: 15rpx;
   color: rgb(56, 56, 56);
 }
+/* 弹窗 */
 .showgroup_close{
   overflow: hidden;
   height: 10rpx;

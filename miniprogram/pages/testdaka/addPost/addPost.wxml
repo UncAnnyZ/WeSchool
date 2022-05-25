@@ -1,3 +1,4 @@
+<!-- 顶部 -->
 <view>
   <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
   <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;">
@@ -6,7 +7,66 @@
   </view>
   <view style="width: 100vw;height: 1rpx;border-bottom: 1rpx solid #e2e2e2;"></view>
 </view>
-
-<view style="height: {{editorHeight}}px;"><textarea id="editor" class="ql-container" placeholder="开始输入..." bindstatuschange="onStatusChange" bindready="onEditorReady"></textarea></view>
-
-<view class="toolbar"></view>
+<!-- 输入 -->
+<view><textarea maxlength="{{maxlength}}" show-confirm-bar="{{false}}" confirm-type="send" bindblur="inputblur" bindfocus="inputfocus" bindinput="inputText" class="ql-container" placeholder="点击此处说点什么..."></textarea></view>
+<!-- 工具栏-->
+<view class="toolbar" style="position: absolute;bottom: {{keyboardHight}}px;">
+    <!-- 字数显示和任务显示 -->
+    <view class="numberShow" hidden="{{numberShow}}">
+        <view class="numberShow_text">({{cursor}}/{{maxlength}})</view>
+    </view>
+    <view class="functionShow" hidden="{{functionShow}}">
+        <view class="functionShow_list" bindtap="showPunch">
+            <image src="../images/dakaadd.png"></image>
+            <view>打卡</view>
+        </view>
+        <view class="functionShow_list">
+            <image src="../images/work.png"></image>
+            <view>作业</view>
+        </view>
+    </view>
+    <!-- 工具栏 -->
+    <view style="width: 100vw;height: {{toolbarHight}}rpx;display: flex;flex-direction: row;border-top: 1rpx solid #f0f0f0;">
+        <image class="toolbar_image1" style="margin-top: 25rpx;margin-left: 35rpx;" src="../images/pictrue.png"></image>
+        <image class="toolbar_image1" style="margin-top: 20rpx;margin-left: 45rpx;width: 55rpx;height: 55rpx;" src="../images/wenjianjia.png"></image>
+        <image class="toolbar_image1" style="margin-top: 25rpx;margin-left: 45rpx;" src="../images/biaoqing.png"></image>
+        <image class="toolbar_image1" style="margin-top: 28rpx;margin-left: 45rpx;width: 37rpx;height: 37rpx;" src="../images/jinghao.png" bindtap="tap"></image>
+        <view class="toolbar_send">发送</view>
+    </view>
+    <!-- 隐藏的底部功能渲染 -->
+    <view class="toolbar_showOther" hidden="{{showOther}}">
+        <view class="toolbar_showOther_tap">
+            <view class="toolbar_showOther_tao_title">请点击选择标签</view>
+            <view class="toolbar_showOther_tap_text"></view>
+            <view class="toolbar_showOther_tap_add">+ 添加标签</view>
+        </view>
+        <view></view>
+        <view></view>
+    </view>
+</view>
+<!-- 打卡弹窗 -->
+<view class="{{showgroup?'showgroup':'showgroup_close'}}">
+    <view class="{{showgroup?'showgroup_box':'showgroup_box_close'}}">
+        <view class="showgroup_box_title">
+              <view style="display: flex;">选择打卡挑战</view>
+              <view bindtap="closePunch" style="width: 50rpx;height: 50rpx;float: right;line-height: 50rpx;text-align: center;position: absolute;right: 20rpx;">×</view>
+        </view>
+        <view class="showgroup_card">
+          <scroll-view class="scrollView" scroll-y="true">
+            <view class="scrollView_card" wx:for="{{5}}">
+              <view class="scrollView_card_box1">21 天打卡挑战</view>
+              <view class="scrollView_card_box2">早睡</view>
+              <view class="scrollView_card_box3">长期有效</view>
+              <view class="scrollView_card_box4">
+                <view class="scrollView_card_box4_leftBox">2 人已报名</view>
+                <view class="scrollView_card_box4_rightBox"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
+              </view>
+              <view class="scrollView_card_box5">去打卡</view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class="showgroup_box_turninto">
+              <view bindtap="joinGroup" bindtap="addDaka">发布打卡挑战</view>
+        </view>
+    </view>
+</view>
