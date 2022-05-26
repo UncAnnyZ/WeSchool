@@ -353,4 +353,23 @@ button{
   page {
     filter: invert(0) !important;
   }
+  button,
+  switch,
+  scroll-view{
+    filter: invert(90%) !important;
+  }
+
+  image{
+    filter: invert(100%) !important;
+  }
+
+  .data-score {
+    filter: invert(90%) !important;
+  }
+  .dot{
+    filter: invert(90%) !important;
+  }
+  .head-title{
+    filter: invert(40%) !important;
+  }
 }
