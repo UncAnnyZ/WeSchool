@@ -69,12 +69,6 @@ Page({
       }
     })
   },
-  // 点击事件 - 取消按钮
-  cancel() {
-    wx.navigateBack({
-      delta: 1
-    })
-  },
   // 点击事件 - 发布
   formSubmit(e) {
     let { formTitle, formText } = e.detail.value;

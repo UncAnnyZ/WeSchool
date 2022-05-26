@@ -28,13 +28,13 @@ Page({
     }
     if(!wx.getStorageSync('mathed_time')&&!e.content){
       wx.navigateTo({
-        url: '/pages/qus/qus',
+        url: '/pages/more/pages/Love/Love',
       })
       return -1
     }
     else{
       console.log(time - wx.getStorageSync('mathed_time').time)
-      if(time - wx.getStorageSync('mathed_time').time>=1*60*60*1000){
+      if(time - wx.getStorageSync('mathed_time').time>=0.001*60*60*1000){
       console.log(wx.getStorageSync('mathed_time').content)
         wx.showLoading({
           title: '匹配中'
@@ -58,7 +58,7 @@ Page({
                 success(res){
                   wx.removeStorageSync('mathed_time')
                   wx.navigateTo({
-                    url: '/pages/detail/detail',
+                    url: '/pages/more/Love/pages/detail/detail',
                   })
                 }
               })
@@ -68,6 +68,7 @@ Page({
               // })
             }
             else{
+              console.log(res)
               wx.showToast({
                 title: '匹配有问题，请联系客服',
                 icon:"none"
@@ -80,6 +81,7 @@ Page({
   
   },
   return(){
+  
     wx.switchTab({
       url: '/pages/more/more',
     })
@@ -103,7 +105,7 @@ Page({
   rewrite(){
     wx.removeStorageSync('mathed_time')
     wx.navigateTo({
-      url: '/pages/more/Love/qus/qus',
+      url: '/pages/more/pages/Love/Love',
     })
   },
   /**

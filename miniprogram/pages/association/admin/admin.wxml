@@ -7,7 +7,17 @@
         <view class="add" bind:tap="showModal">添加成员</view>
     </view>
 </view>
+<view class="list_wrap">
+    <view class="list_title">管理员列表</view>
+    <view class="list_item" wx:for="{{list}}" wx:key="item">
+        <view class="count">{{item}}</view>
+        <view class="delete" bind:tap="delete" data-count='{{item}}'>删除</view>
+    </view>
+</view>
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
     <view class="bot_title">添加管理员</view>
+    <textarea placeholder="请输入对方学号" bind:input="handleCount"></textarea>
+    <view class="tip">*注:管理员必须为该社团所在学校成员</view>
+    <view class="bt" bind:tap="certain">确定添加</view>
 </view>

@@ -35,6 +35,37 @@ page {
         }
     }
 }
+
+.list_wrap {
+    background-color: white;
+    margin: 24rpx;
+    padding: 24rpx;
+    border-radius: 12rpx;
+
+    .list_title {
+        text-align: center;
+        padding: 12rpx;
+    }
+
+    .list_item {
+        display: flex;
+        flex-direction: row;
+        padding: 24rpx;
+
+        .count {
+            flex: 2;
+            text-align: center;
+        }
+
+        .delete {
+            flex: 1;
+            text-align: right;
+            color: red;
+        }
+    }
+
+}
+
 // 弹窗
 /*使屏幕变暗  */
 .commodity_screen {
@@ -48,10 +79,10 @@ page {
     overflow: hidden;
     z-index: 1000;
     color: #fff;
-  }
-  /*对话框 */
-  .commodity_attr_box {
-    height: 300rpx;
+}
+
+/*对话框 */
+.commodity_attr_box {
     width: 100%;
     overflow: hidden;
     position: fixed;
@@ -61,10 +92,36 @@ page {
     background: #fff;
     padding-top: 20rpx;
     border-radius: 24rpx;
-    .bot_title{
+
+    .bot_title {
         text-align: center;
         padding: 24rpx;
         font-weight: 700;
     }
-  }
-  
+
+    .bot_title {}
+
+    textarea {
+        height: 150rpx;
+        background-color: #ececec;
+        margin: 12rpx;
+        padding: 12rpx;
+        border-radius: 12rpx;
+        width: 94%;
+    }
+
+    .tip {
+        padding: 24rpx;
+        font-size: 24rpx;
+        color: #4d4d4d;
+    }
+
+    .bt {
+        text-align: center;
+        padding: 12rpx;
+        margin: 24rpx;
+        background-color: #63A1A0;
+        color: white;
+        border-radius: 12rpx;
+    }
+}

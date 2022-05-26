@@ -1,4 +1,4 @@
-<view class="gradient-layer" style="z-index: 2 "></view>
+
 
 <view class="head" style="position: sticky; top: 0;  z-index: 2;">
     <!-- 状态栏 -->
@@ -7,7 +7,7 @@
     <!-- 导航栏 -->
     <view class="head_second" style="height: {{lineHeight}}px;" >
         <input value="{{placeHolder}}"
-            style="padding-left:180rpx; margin-left: -250rpx; width: 450rpx; height: 85%; background-color: #fff; border-radius: 60rpx; "
+            class="searchInput"
             placeholder-style="margin-left: 50rpx"
             confirm-type="search"
             bindblur="searchBlur"

@@ -1,5 +1,6 @@
 <!-- <view wx:if="{{tabbar}}"> -->
   <!-- 商铺 -->
+<view style="height: 100%;width: 100%;background-color: #ffe16b;padding-top: 35rpx;">
   <view class="top" >
     <view class="topName">{{shopname}}</view>
     <view class="topSold">月售2823  配送约30分钟</view>
@@ -61,7 +62,7 @@
                 <view class="goodsBrief">开胃韩式泡菜 + 五常大米 + 肥牛</view>
                 <view class="goodsSold">月售 {{item.yuenumber}}</view>
                 <view class="goodsPrice">
-                  ￥<text class="price">{{item.price}}</text>
+                  ￥ <text class="price"> {{item.price}}</text>
                 </view>
                 <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods" data-inIndex="{{inIndex}}" data-outIndex="{{index}}">
                   <view class="goodsNum" wx:if="{{item.number!=0}}">{{item.number}}</view>
@@ -167,3 +168,4 @@
       <view style="height: 216rpx;"></view>
     </view>
   </view>
+</view>

@@ -11,7 +11,6 @@ page{
   background-color: rgb(255, 255, 255);
   height: 310rpx;
   width: 100%;
-  margin-top: 50rpx;
   border-top-left-radius: 40rpx;
   border-top-right-radius: 40rpx;
   display: flex;

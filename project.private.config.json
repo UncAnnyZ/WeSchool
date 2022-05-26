@@ -85,6 +85,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "搜索页",
+          "pathName": "pages/more/pages/searchPage/searchPage",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "searchContent",
+          "pathName": "pages/more/pages/searchContent/searchContent",
+          "query": "query=ceshi",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -3,16 +3,19 @@
     <!-- 恋爱匹配 -大盒子 -->
     <view class="first" id="Love" bindtap="naviToPage">
       <text>恋爱匹配</text>
+      <text class="produce">匹配你的灵魂伴侣</text>
       <image src="./images/love.png" mode="widthFix"></image>
     </view>
     <!-- 一系列小盒子 -->
     <view class="second">
       <view class="second_box note" id="note_module" bindtap="naviToPage">
         <text>小纸条</text>
+        <text class="produce">留下你的秘密</text>
         <image src="./images/note.png" mode="widthFix"></image>
       </view>
       <view class="second_box zanju" id="saveBureau" bindtap="naviToPage">
         <text>攒局</text>
+        <text class="produce">拼车/活动</text>
         <image src="./images/zanju.png" mode="widthFix"></image>
       </view>
       <view class="second_box game" id="Game" bindtap="showToast">
@@ -20,7 +23,7 @@
         <image src="./images/game.png" mode="widthFix"></image>
       </view>
       <view class="second_box secondeHand" id="market" bindtap="showToast">
-        <text>二手市场</text>
+        <text>外卖</text>
         <image src="./images/market.png" mode="widthFix"></image>
       </view>
 

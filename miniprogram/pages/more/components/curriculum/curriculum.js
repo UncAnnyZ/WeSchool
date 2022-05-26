@@ -16,7 +16,9 @@ Component({
   data: {
     time: {
       month: new Date().getMonth() + 1,
-      date: new Date().getDate()
+      date: new Date().getDate(),
+      hours: new Date().getHours(),
+      minutes: new Date().getMinutes()
     },
     week: utilTime.formatDay(new Date().getDay()),
     currWeek: util.getweekString(),
@@ -26,6 +28,8 @@ Component({
   lifetimes: {
     ready() {
       let course = this.data.course,
+        time = this.data.time,
+        args = wx.getStorageSync('args'),
         whichCourse,
         restCourse;
 
@@ -35,6 +39,15 @@ Component({
           whichCourse = index;
           // 剩余课程数量 = 课程数量 - (当前课程索引+1)
           restCourse = course.length - (index + 1);
+
+          if(args.courseTime) {
+            let courseTime_school = args.courseTime,
+              courseIndex = Number(item.time.replace(/[^\d.]/g, '')),
+              schoolTime = Number(courseTime_school[courseIndex - 1].split(':').join('.')),
+              nowTime = Number(`${time.hours}.${time.minutes}`); 
+            // 三元不等式, 重新对 restCourse 进行计算
+            restCourse = nowTime > schoolTime ? course.length - (index + 1) : course.length - (index)
+          }
         }
       })
 

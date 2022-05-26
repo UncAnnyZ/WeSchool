@@ -1,8 +1,11 @@
 
 const db = wx.cloud.database({env:'mall-7gi19fir46652cb4'})
 var app = getApp()
+let page=0
 Page({
   data: {
+    statusBarHeight: getApp().globalData.statusBarHeight,
+    lineHeight: getApp().globalData.lineHeight,
     goods: [],                  //所有商品的列表
     mydingdan: [], //订单
     mydindantotal: 0,
@@ -17,22 +20,10 @@ Page({
     scrollNum:-1                //用于实现对商品列表滑动，菜单标签出现对应选中的索引
   },
 
-  // www(){
-  //   wx.cloud.callFunction({
-  //     name: 'market',
-  //     env:'mall-7gi19fir46652cb4',
-  //     data: {
-  //       type: "read",
-  //       _id:"uncanny"
-  //     },
-  //     success: res => {console.log("res2333",res);}
-  //   })
-  // },
   onLoad: function (option)  {
     const args = wx.getStorageSync('args')
     var self = this
     this.order()
-    // this.www()
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -106,46 +97,51 @@ Page({
   },
 
   onShow(e) {
-    var self = this
-    var skip = self.data.skip
+    // var self = this
+    // var skip = self.data.skip
     // this.setData({
     //   userlocation: self.data.userlocation
     // })
     
-    if(!self.data.newuser){
-      db.collection('dindan').where({
-        _openid: app.globalData.openid
-      }).count().then(totalres => {
+    // if(!self.data.newuser){
+    //   db.collection('dindan').where({
+    //     _openid: app.globalData.openid
+    //   }).count().then(totalres => {
    
-        if (totalres.total > 20) {
-          skip = totalres.total - 20
-        }
-        db.collection('dindan')
-          .where({
-            _openid: app.globalData.openid
-          })
-          .skip(skip)
-          .limit(20)
-          .get()
-          .then(res => {
+    //     if (totalres.total > 20) {
+    //       skip = totalres.total - 20
+    //     }
+    //     db.collection('dindan')
+    //       .where({
+    //         _openid: app.globalData.openid
+    //       })
+    //       .skip(skip)
+    //       .limit(20)
+    //       .get()
+    //       .then(res => {
      
-            self.setData({
-              mydindantotal: totalres.total,
-              mydingdan: res.data.reverse()
-            })
-            wx.hideNavigationBarLoading()
-            wx.stopPullDownRefresh()
-            console.log(res.data)
-          })
-          .catch(err => {
-            wx.hideNavigationBarLoading()
-            wx.stopPullDownRefresh()
-            console.error(err)
-          })
-      })
-    }
+    //         self.setData({
+    //           mydindantotal: totalres.total,
+    //           mydingdan: res.data.reverse()
+    //         })
+    //         wx.hideNavigationBarLoading()
+    //         wx.stopPullDownRefresh()
+    //         console.log(res.data)
+    //       })
+    //       .catch(err => {
+    //         wx.hideNavigationBarLoading()
+    //         wx.stopPullDownRefresh()
+    //         console.error(err)
+    //       })
+    //   })
+    // }
 
-    wx.hideHomeButton();
+    // wx.hideHomeButton();
+    db.collection('order').orderBy('orderTime', 'desc').where({_openid: app.globalData.openid}).skip(page).limit(15).get().then(res => {
+      this.setData({
+        allOrders:res.data
+      })
+    });
   },
 
   /* 获取盒子的尺寸：宽度/距离顶部的高/距离左边的长度/... */
@@ -231,17 +227,17 @@ Page({
       }
       return obj
     })
+    menuList[0].type=1
     this.setData({
       menuList
     })
-    console.log("menuList",menuList);
     wx.hideLoading()
   },
 
   /* 控制下面的商品滚动，当商品列表没占据全屏时，商品列表不滚动 */
   onPageScroll(e){
     let monitorScrolling=false
-    e.scrollTop>=187 ? monitorScrolling=true : ''
+    e.scrollTop>=this.data.statusBarHeight+this.data.lineHeight+70 ? monitorScrolling=true : ''
     this.setData({
       monitorScrolling
     })

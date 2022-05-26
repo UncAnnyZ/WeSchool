@@ -88,10 +88,18 @@
   width: 100%;
   position: fixed;
   background-color: #fff;
-  box-shadow: inset 0 0 40px 20px rgb(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 30px 10px rgb(255, 255, 255, 0.9);
   /* background-image: linear-gradient(to right, rgba(212, 240, 255, 0.9) 25%, rgba(255, 198, 227, 0.8)); */
-  background-image: linear-gradient(to right, #dfd5f8 25%, #d6d4f9 35% , #e1f0f5 75%, #e9e1f8 100%);
+  background-image: linear-gradient(to right, #dfd5f8 25%, #d6d4f9 35%, #e1f0f5 75%, #e9e1f8 100%);
   /* background-image:linear-gradient(red 0%, orange 25%, yellow 50%, green 75%, blue 100%) */
+}
+
+.gradient-layer-white {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(rgb(255,255,255,0), #fff);
 }
 
 .gradient-layer1 {
@@ -99,10 +107,10 @@
   position: absolute;
   width: 100%;
   background-color: #fff;
-  box-shadow: inset 0 0 40px 20px rgba(255, 255, 255,0.9);
+  box-shadow: inset 0 0 40px 10px rgba(255, 255, 255, 0.9);
   /* background-image: linear-gradient(to right, rgba(212, 240, 255, 0.9) 25%, rgba(255, 198, 227, 0.8)); */
   /* background-image:linear-gradient(to right, red 0%, orange 25%, yellow 50%, green 75%, blue 100%) */
-  background-image: linear-gradient(to right, #dfd5f8 25%, #d6d4f9 35% , #e1f0f5 75%, #e9e1f8 100%);
+  background-image: linear-gradient(to right, #dfd5f8 25%, #d6d4f9 35%, #e1f0f5 75%, #e9e1f8 100%);
 }
 
 .searchInput {
@@ -114,6 +122,12 @@
   border-radius: 60rpx;
 }
 
+.searchInput_holder {
+  font-size: 29rpx;
+  font-weight: 300;
+  letter-spacing: 1rpx;
+}
+
 .page {
   width: 100%;
   margin: 0;
@@ -122,7 +136,7 @@
 .head {
   position: fixed;
   /* background-color: white; */
-  z-index: 2;
+  z-index: 999;
   width: 100%;
   /* overflow-x: auto; */
   overflow: hidden;
@@ -137,11 +151,13 @@
   font-size: 30rpx;
   width: 100vw;
 }
+
 .head_second .inputBox {
   display: flex;
   align-items: center;
   height: 100%;
 }
+
 .head_second image {
   position: absolute;
   left: 20rpx;
@@ -382,12 +398,25 @@
   .content_btn {
     filter: invert(1) !important;
   }
-
+  .gradient-layer, .gradient-layer1, .gradient-layer-white {
+    box-shadow: inset 0 0 30px 20px rgb(243,243,243);
+    background-image:linear-gradient(rgb(243,243,243), rgb(243,243,243))
+  }
   .head {
     position: fixed;
     background-color: #faf9f9;
   }
-
+  .head_second image {
+    opacity: 0.3;
+    filter: brightness(1) !important;
+  }
+  .searchInput {
+    opacity: 0.3;
+    color: rgb(255, 255, 255);
+  }
+  .searchInput_holder {
+    color: rgb(255, 255, 255);
+  }
   scroll-view {
     filter: invert(100%) !important;
   }

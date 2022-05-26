@@ -45,7 +45,7 @@ Page({
           
           //定向到搜索的内容页面
           wx.navigateTo({
-            url: `/pages/more/components/searchContent/searchContent?query=${value}`
+            url: `/pages/more/pages/searchContent/searchContent?query=${value}`
           })
           //历史记录关键词
           let localSearchKey = this.data.localSearchKey

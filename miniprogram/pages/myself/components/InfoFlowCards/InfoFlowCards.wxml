@@ -43,6 +43,9 @@
           <view wx:elif="{{item.Star_User.length==0&&item.Label!='寻物发布'}}">
             <view class="card-end-start-person-text">暂无点赞 </view>
           </view>
+          <view wx:elif="{{!item.Star_User&&item.Label!='寻物发布'}}">
+            <view class="card-end-start-person-text">暂无点赞 </view>
+          </view>
           <view wx:elif="{{item.Label=='寻物发布'}}">
             <view class="card-end-start-person-text">{{item.LoseState?'已找到':'未找到'}} </view>
           </view>

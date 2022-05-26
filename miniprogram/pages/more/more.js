@@ -1,7 +1,6 @@
 var app = getApp()
 const args = wx.getStorageSync('args'),
   util = require('../../utils/util')
-
 Page({
   data: {
     // 配置
@@ -9,6 +8,7 @@ Page({
     lineHeight: getApp().globalData.lineHeight,
     rectHeight: getApp().globalData.rectHeight,
     windowHeight: getApp().globalData.windowHeight,
+    pixelRatio: getApp().globalData.pixelRatio,     // rpx 与 px 的转换比例
     // 标签兜底
     tabitem: [
       {
@@ -57,7 +57,7 @@ Page({
     scrollTop: 0,
     offsetTop: 0,
     TabScrollTop: 0,
-    layerHeight: 245,
+    layerHeight: 60 + 350 / getApp().globalData.pixelRatio + 30,
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -77,11 +77,13 @@ Page({
     wx.createSelectorQuery()
       .select('.container')
       .boundingClientRect((res) => {
-        // 滑动高度 / 标签吸顶时的滑动高度 = 百分比 ∈ [0,1]
+        // 滑动高度 / 标签吸顶时的滑动高度 = 百分比 ∈ [0,1];;;;;   y = kx + b
         var x = Number(scrollTop / (TabScrollTop - 62)) > 1 ? 1 : Number(scrollTop / (TabScrollTop - 62)),
-        // 一元一次方程：y = -(245 - a)x + 245;    y∈[a,245], x∈[0,1]
-        a = statusBarHeight + lineHeight + 62,
-        layerHeight = -(245 - a) * x + 245;
+          // k = - (高度max - 高度min)
+          k = - ((statusBarHeight + lineHeight + 350 / data.pixelRatio + 30) - (statusBarHeight + lineHeight + 62)),
+          // b = 高度max
+          b = (statusBarHeight + lineHeight + 350 / data.pixelRatio + 30),
+          layerHeight = k * x + b;
 
         this.setData({
           scrollTop: scrollTop,
@@ -343,6 +345,16 @@ Page({
     var currentTab = e;
 
     if (this.data.allList[currentTab].length) {
+      wx.createSelectorQuery()
+        .select(`#waterFlowCards${currentTab}`)
+        .boundingClientRect(res => {
+          // 避免高度过小
+          res.height < 100 ? res.height = 100 : '';
+          that.setData({
+            currentWaterFlowHeight: res.height
+          })
+        })
+        .exec();
       console.log("页面已经有数据了，不请求数据库");
       return;
     } else {
@@ -416,6 +428,7 @@ Page({
       .exec();
 
     this.setData({
+      layerHeight: data.statusBarHeight + data.lineHeight + 350 / data.pixelRatio + 30,   // 180是弹幕高度，30是渐变层偏移量
       currentWaterFlowHeight,
       currentPageArr,
       currentTab: 0,            // 返回到第一个标签
@@ -424,11 +437,12 @@ Page({
       campus_account,           // 初始化封号
       allList,                  // 初始化allList
       iconUrl: args.iconUrl,     // 获取头像
-      school: args.school        // 获取学校
+      school: args.school,       // 获取学校
     })
     console.log(this.data.allList)
   },
   onLoad: function () {
+    console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
   },
@@ -460,6 +474,7 @@ Page({
 
       const args = wx.getStorageSync('args'),
         courseTime_school = args.courseTime,
+        // 遍历 course ，返回形式 {start: 课程开始时间, end: 课程结束时间}
         courseTime_today = course.map(item => {
           const index = Number(item.time.replace(/[^\d.]/g, ''));
           return {

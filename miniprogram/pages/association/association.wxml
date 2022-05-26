@@ -12,7 +12,9 @@
             </view>
             <view class="list_item">
                 <view class="left">上传logo</view>
-                <view class="add_logo" bind:tap="{{img==false?'add_logo':'showTip'}}">{{img==false?'+':'已上传'}}</view>
+                <view class="add_logo" bind:tap="{{img==false?'add_logo':'showTip'}}">
+                    {{img==false?'+':'已上传'}}
+                </view>
             </view>
             <button class="submit" size="mini" formType="submit">提交</button>
         </form>
@@ -30,7 +32,7 @@
     </view>
     <view class="test_tip">账号注销中...</view>
 </view>
-<view class="asso_wrap" wx:elif="{{HtmlStatus==2}}">
+<view class="asso_wrap" wx:elif="{{HtmlStatus==2||HtmlStatus==4}}">
     <view class="mess_item">
         <view class="mess_wrap" wx:for="{{assoMess}}" wx:key="item">
             <view class="title">{{item.name}}</view>
@@ -60,5 +62,4 @@
             </view>
         </view>
     </view>
-    
 </view>
