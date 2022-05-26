@@ -1,4 +1,4 @@
-<wxs module="more" src="./more.wxs"></wxs>
+<!-- <wxs module="more" src="./more.wxs"></wxs> -->
 
 <view class="head">
   <!-- 状态栏 -->

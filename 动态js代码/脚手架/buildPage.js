@@ -31,6 +31,7 @@ function AstRead(html, css, js, otherCss, darkCss) {
 
           item = htmlNode[' wx:for-item'] || item || 'item'
           index = htmlNode[' wx:for-index'] || index || 'index'
+          
           if (htmlNode[eKey]) {
             let tagRE = /{{.*?}}/g
             let inside = (htmlNode[eKey]).toString().match(tagRE)
@@ -323,7 +324,13 @@ function re(k, p1, noChange, eKey, otherCss, noThisData = false) {
 
     if (array[j].match(/^[a-zA-Z]/) || array[j].match(/^\[/)) {
       if (eKey == ' wx:for') {
-        p1 += '(this.data.' + array[j] + ')'
+        console.log(array[j].split(".")[0],233)
+        if(noChange.includes(array[j].split(".")[0])){
+          p1 +=  '(' + array[j] + ')'
+        }else{
+          p1 += '(this.data.' + array[j] + ')'
+        }
+  
       } else {
         noChange.forEach(e => {
           console.log(e, array[j])

@@ -1715,3 +1715,162 @@
         </block>
     </movable-view>
 </template>
+<template name="test-cyqswiper1">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper2">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper3">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper4">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper5">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper6">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper7">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper8">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper9">
+  <cyqswiper bindchange="{{item.bindchange}}"  style="height: 95%; top:{{item.top}}"  style="{{item.style}}" current="{{item.current}}" >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper>
+</template>
+<template name="test-cyqswiper-item1">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+<template name="test-cyqswiper-item2">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+<template name="test-cyqswiper-item3">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+
+<template name="test-cyqswiper-item4">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+<template name="test-cyqswiper-item5">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+
+<template name="test-cyqswiper-item6">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+<template name="test-cyqswiper-item7">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+<template name="test-cyqswiper-item7">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+
+<template name="test-cyqswiper-item8">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+
+<template name="test-cyqswiper-item9">
+  <cyqswiper-item  style="{{item.style}}"  >
+    <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+  </cyqswiper-item>
+</template>
+
+
+

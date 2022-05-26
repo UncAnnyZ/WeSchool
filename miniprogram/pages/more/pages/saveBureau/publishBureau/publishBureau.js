@@ -92,33 +92,33 @@ Page({
     }
   },
 
-  choosePosition(){
-    var that = this
-    var getPosition = ""
-    wx.getLocation({
-      isHighAccuracy: true, // 开启地图精准定位
-      type: 'gcj02', // 地图类型写这个
-      success: function (res) {
-        getPosition = res
-      }
-    })
-    wx.chooseLocation({
-      latitude: getPosition.latitude,
-      longitude: getPosition.longitude,
-      success(res) {
-        that.setData({
-          locationName:res.name
-        })
-      },
-      fail(res){
-        console.log(res)
-        wx.showToast({
-          title: '请求失败！',
-          icon: 'none',
-        })
-      }
-    })
-  },
+  // choosePosition(){
+  //   var that = this
+  //   var getPosition = ""
+  //   wx.getLocation({
+  //     isHighAccuracy: true, // 开启地图精准定位
+  //     type: 'gcj02', // 地图类型写这个
+  //     success: function (res) {
+  //       getPosition = res
+  //     }
+  //   })
+  //   wx.chooseLocation({
+  //     latitude: getPosition.latitude,
+  //     longitude: getPosition.longitude,
+  //     success(res) {
+  //       that.setData({
+  //         locationName:res.name
+  //       })
+  //     },
+  //     fail(res){
+  //       console.log(res)
+  //       wx.showToast({
+  //         title: '请求失败！',
+  //         icon: 'none',
+  //       })
+  //     }
+  //   })
+  // },
   addNum(e){
     var sex=e.currentTarget.dataset.sex
     if(sex === "man"){
