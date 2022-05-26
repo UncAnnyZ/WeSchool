@@ -1542,3 +1542,79 @@
         <text></text>{{item.text}}
     </textarea>
 </template>
+
+<template name="test-swiper1">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper2">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper3">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper4">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper5">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper6">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper7">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper8">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+<template name="test-swiper9">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+    </swiper>
+</template>
+
+<template name="test-swiper-item1">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item2">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item3">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item4">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item5">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item6">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item7">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item8">
+    <swiper-item>
+    </swiper-item>
+</template>
+<template name="test-swiper-item9">
+    <swiper-item>
+    </swiper-item>
+</template>
+
+

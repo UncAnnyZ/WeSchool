@@ -315,6 +315,17 @@ Page({
     this.data.menuList[outIndex].goodsList[inIndex].number += 1
     this.buy()
   },
+  orderPageJump(){
+    wx.setStorage({
+      key: "allOrders",
+      data: {
+        allOrders:this.data.allOrders
+      }
+    })
+    wx.navigateTo({
+      url:'../HOT/HotTest/HotTest?content=支付'
+    })
+  },
 
   /* 在购物车弹窗添加商品 */
   addgoods(e) {
@@ -395,7 +406,7 @@ Page({
       }
     })
     wx.navigateTo({
-      url:'../HOT/HotTop/HotTop?content=支付'
+      url:'../HOT/HotTest/HotTest?content=支付'
     })
   },
 

@@ -1,5 +1,3 @@
-<!-- <view wx:if="{{tabbar}}"> -->
-  <!-- 商铺 -->
 <view style="height: 100%;width: 100%;background-color: #ffe16b;padding-top: 35rpx;">
   <view class="top" >
     <view class="topName">{{shopname}}</view>
@@ -15,7 +13,7 @@
     <view class="topNotice">公告： 油校学生可以小程序下单备注一下送到南门或西门</view>
   </view>
 
-  <view style="display: flex;flex-direction: row; align-items: center; height: 72rpx;width: 100%;position: sticky;background-color: white;top: 0rpx;z-index: 3;border-bottom: 2rpx solid #94949438;" id="labelControl">
+  <view  class="labelControl" id="labelControl">
     <view class="order_1" bindtap="order" id="order" style="font-weight:{{order_2}};">
     点菜
     </view>
@@ -25,100 +23,100 @@
     <view class="business_1" bindtap="business" id="business" style="font-weight:{{business_2}};">
     商家
     </view>
-    <view style="background-color: #FFD633;width: {{widthLength}}px;height: 4rpx;position: absolute;left:{{leftLength}}px;bottom: 0;transition: left .4s;" class="dede"></view>
+    <view class="labelControlLine" style="width: {{widthLength}}px;left:{{leftLength}}px;"></view>
   </view>
 
-  <!-- <view class="rotation">
-    <view class="rotationImg">
-    </view>
-  </view> -->
+  
   <swiper bindchange="bindchange" style="height: 95%;width: 100%;position: sticky;top: {{topH}}px;" current="{{navState}}" bindchange="swiperChange">
-  <swiper-item>
-    <view style="display: flex;flex-direction: row;white-space: nowrap;background-color: white;height: 100%;width: 100%;">
-      <view style="position: sticky;top: {{topH}}px;height:{{windowHeight-30}}px;width: 20%;">
-        <scroll-view scroll-y="true"  id="leftScroll"  class="leftScroll" scroll-with-animation>
-          <view wx:for="{{menuList}}" class="recommend" id="{{index}}" bindtap="chooseLabel" style="background-color: {{item.type===1 ? 'white' : ''}};"><image src="../../images/fire.png"/><view>{{item.name}}</view></view>
-          <view class="null"></view>
-          <view class="null"></view>
-          <view class="null"></view>
+    <swiper-item>
+      <view style="display: flex;flex-direction: row;white-space: nowrap;background-color: white;height: 100%;width: 100%;">
+        <view style="position: sticky;top: {{topH}}px;height:{{windowHeight-30}}px;width: 20%;">
+          <scroll-view scroll-y="true"  id="leftScroll"  class="leftScroll" scroll-with-animation>
+            <view wx:for="{{menuList}}" class="recommend" id="{{index}}" bindtap="chooseLabel" style="background-color: {{item.type===1 ? 'white' : ''}};"><image src="../../images/fire.png"/><view>{{item.name}}</view></view>
+            <view class="null"></view>
+            <view class="null"></view>
+            <view class="null"></view>
+          </scroll-view>
+        </view>
+        <scroll-view class="rightScroll" style="padding-top: {{topH}}px;" scroll-with-animation scroll-into-view="{{bottomId}}" bindscroll="trackingTag" scroll-y="{{monitorScrolling}}" style="display: inline-block;">
+          <view wx:for="{{menuList}}" wx:key="id" id="{{item.changeLabel}}">
+            <view class="sign">
+              <view class="signContent">
+                {{item.name}}
+                <!-- <view class="signContentone">招牌</view>
+                <view class="signContenttwo">老板推荐</view> -->
+              </view>
+            </view>
+            <view wx:for="{{item.goodsList}}" wx:key="id" wx:for-index="inIndex">
+              <view class="goods">
+                <view class="goodsImg">
+                  <image src="{{item.img}}" mode="aspectFill"/>
+                </view>
+                <view class="goodsContent">
+                  <view class="goodsName">{{item.name}}</view>
+                  <view class="goodsBrief">开胃韩式泡菜 + 五常大米 + 肥牛</view>
+                  <view class="goodsSold">月售 {{item.yuenumber}}</view>
+                  <view class="goodsPrice">
+                    ￥ <text class="price"> {{item.price}}</text>
+                  </view>
+                  <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods" data-inIndex="{{inIndex}}" data-outIndex="{{index}}">
+                    <view class="goodsNum" wx:if="{{item.number!=0}}">{{item.number}}</view>
+                    <image src="../../images/购物车.png"/>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view style="width: 100%;height: 200rpx;"></view>
+          <view style="width: 100%;height: 200rpx;"></view>
+          <view style="width: 100%;height: 200rpx;"></view>
+          <view style="width: 100%;height: 200rpx;"></view>
+          <view style="width: 100%;height: 200rpx;"></view>
+          <view style="width: 100%;height: 200rpx;"></view>
         </scroll-view>
       </view>
-      <scroll-view class="rightScroll" style="padding-top: {{topH}}px;" scroll-with-animation scroll-into-view="{{bottomId}}" bindscroll="trackingTag" scroll-y="{{monitorScrolling}}" style="display: inline-block;">
-        <view wx:for="{{menuList}}" wx:key="id" id="{{item.changeLabel}}">
-          <view class="sign">
-            <view class="signContent">
-              {{item.name}}
-              <!-- <view class="signContentone">招牌</view>
-              <view class="signContenttwo">老板推荐</view> -->
-            </view>
+    </swiper-item>
+    <swiper-item>
+      <view style="background-color: rgb(123, 255, 0);width: 100%;height: 100%;"></view>
+    </swiper-item>
+    <swiper-item >
+      <view class="merchants" >
+        <view class="merchantsPositioning">
+          <view class="positionDetails">
+            <text>茂名市人民南路97号首层1号商铺之一（经营场所信息自主申报）</text>
           </view>
-          <view wx:for="{{item.goodsList}}" wx:key="id" wx:for-index="inIndex">
-            <view class="goods">
-              <view class="goodsImg">
-                <image src="{{item.img}}" mode="aspectFill"/>
-              </view>
-              <view class="goodsContent">
-                <view class="goodsName">{{item.name}}</view>
-                <view class="goodsBrief">开胃韩式泡菜 + 五常大米 + 肥牛</view>
-                <view class="goodsSold">月售 {{item.yuenumber}}</view>
-                <view class="goodsPrice">
-                  ￥ <text class="price"> {{item.price}}</text>
-                </view>
-                <view class="goodsAdd" id="{{index}}" bindtap="oneaddgoods" data-inIndex="{{inIndex}}" data-outIndex="{{index}}">
-                  <view class="goodsNum" wx:if="{{item.number!=0}}">{{item.number}}</view>
-                  <image src="../../images/购物车.png"/>
-                </view>
-              </view>
-            </view>
+          <view class="foodSafety">
+            <text>食品安全档案</text>
           </view>
-        <!-- <view style="width: 100%;height: 200rpx;"></view> -->
+          <view class="environmentalProtection">
+            <text>商家青山档案</text>
+          </view>
         </view>
-        <view style="width: 100%;height: 200rpx;"></view>
-        <view style="width: 100%;height: 200rpx;"></view>
-        <view style="width: 100%;height: 200rpx;"></view>
-        <view style="width: 100%;height: 200rpx;"></view>
-        <view style="width: 100%;height: 200rpx;"></view>
-        <view style="width: 100%;height: 200rpx;"></view>
-      </scroll-view>
+        <view class="merchantsDelivery">
+          <view class="distributionServices">
+            <text>配送服务：高品质配送</text>
+          </view>
+          <view class="deliveryTime">
+            <text>配送时间：10:30-23:59</text>
+          </view>
+        </view>
+        <view class="merchantsDetail">
+          <view class="detailIntroduce">
+            <text>沙茶面是福建省厦门市的一道传统小吃，属于闽菜；</text>
+          </view>
+          <view class="merchantsServices">
+            <text>商家服务：可开发票  跨天预订  到店自取 （享优惠）</text>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class="showOrder">
+    <view  class="orderNums" bindtap="orderPageJump">
+    <view class="orderIcon">{{allOrders.length}}</view>
+      <image src="../../images/order.png"/>
     </view>
-  </swiper-item>
-  <swiper-item>
-    <view style="background-color: rgb(123, 255, 0);width: 100%;height: 100%;"></view>
-  </swiper-item>
-  <swiper-item >
-    <view class="merchants" >
-      <view class="merchantsPositioning">
-        <view class="positionDetails">
-          <text>茂名市人民南路97号首层1号商铺之一（经营场所信息自主申报）</text>
-        </view>
-        <view class="foodSafety">
-          <text>食品安全档案</text>
-        </view>
-        <view class="environmentalProtection">
-          <text>商家青山档案</text>
-        </view>
-      </view>
-      <view class="merchantsDelivery">
-        <view class="distributionServices">
-          <text>配送服务：高品质配送</text>
-        </view>
-        <view class="deliveryTime">
-          <text>配送时间：10:30-23:59</text>
-        </view>
-      </view>
-      <view class="merchantsDetail">
-        <view class="detailIntroduce">
-          <text>沙茶面是福建省厦门市的一道传统小吃，属于闽菜；</text>
-        </view>
-        <view class="merchantsServices">
-          <text>商家服务：可开发票  跨天预订  到店自取 （享优惠）</text>
-        </view>
-      </view>
-    </view>
-  </swiper-item>
-</swiper>
-<!-- </view> -->
-
+  </view>
 
   <view class="settle">
     <view class="showDiscount_1" wx:if="{{!modalName}}">
