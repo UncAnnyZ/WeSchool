@@ -349,3 +349,8 @@ button{
   top:0rpx;
   right:0rpx;
 }
+@media (prefers-color-scheme: dark) {
+  page {
+    filter: invert(0) !important;
+  }
+}
