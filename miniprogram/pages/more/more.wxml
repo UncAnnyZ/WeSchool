@@ -48,7 +48,7 @@
 
     <!-- 攒局按钮 -->
     
-    <button bindtap="navigateSave" id="saveBureau" style="background-color: aqua; position: absolute;top: 0;">攒局</button>
+    <!-- <button bindtap="navigateSave" id="saveBureau" style="background-color: aqua; position: absolute;top: 0;">攒局</button> -->
     <!-- 发布按钮 -->
     <view class="img-button content_btn content_btn_add" style="display:{{school=='游客登录'?'none':'fixed'}}" bindtap="showPopUps" id="PublishContent">
       <image src="/images/btn_feed@2x.png"></image>
