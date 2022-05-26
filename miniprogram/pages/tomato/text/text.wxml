@@ -7,10 +7,10 @@
 <!-- 不可滑动页 -->
 <view>
   <view wx:if="{{navState==0}}" class="style-default">
-    <ec-canvas type="2d" id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+    <!-- <ec-canvas type="2d" id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas> -->
   </view>
   <view wx:elif="{{navState==1}}" class="style-default">
-    <ec-canvas type="2d" id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
+    <!-- <ec-canvas type="2d" id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas> -->
   </view>
   <view wx:else="{{navState==2}}" class="style-default">3</view>
 </view>

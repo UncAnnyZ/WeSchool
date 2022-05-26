@@ -7,14 +7,17 @@
 }
 .userUrl{
   background: rgba(0, 0, 0, 0.089);
-  width: 200rpx;
+  width: auto;
   height: 65rpx;
   border-radius: 100rpx;
   display: flex;
+  position: absolute;
   align-items: center;
   /* justify-content: center;  */
+  /* top: 120rpx; */
+  left: 33rpx;
   margin-top: 120rpx;
-  margin-left: 33rpx;
+  /* margin-left: 33rpx;  */
   box-shadow: 0rpx 0rpx 3rpx 0.1rpx white;
 }
 .userUrl >image{
@@ -156,7 +159,8 @@
 .textBox_post_topBox_right{
   display: flex;
   align-items: center;
-
+  position: absolute;
+  right: 30rpx;
 }
 .textBox_post_topBox_right >view{
   width: 0px;
@@ -164,7 +168,7 @@
   border-width: 4px;
   border-style: solid;
   border-color:#b3b3b3 transparent transparent transparent;
-  margin-left: 365rpx;
+  /* margin-left: 365rpx; */
 }
 .textBox_post_textBox{
   display: flex;

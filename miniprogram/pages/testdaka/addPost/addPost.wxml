@@ -2,13 +2,13 @@
 <view>
   <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
   <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;">
-    <view style="color: gray;margin-left: 40rpx;font-size: 26rpx;" bindtap="cancel">取消</view>
-    <view style="margin-left: 142rpx;font-size: 28rpx;">一个进化中的编程星球</view>
+    <view style="color: gray;font-size: 26rpx;position: absolute;left: 40rpx;" bindtap="cancel">取消</view>
+    <view style="font-size: 28rpx;margin: 0 auto;">{{groupname}}</view>
   </view>
   <view style="width: 100vw;height: 1rpx;border-bottom: 1rpx solid #e2e2e2;"></view>
 </view>
 <!-- 输入 -->
-<view><textarea maxlength="{{maxlength}}" show-confirm-bar="{{false}}" confirm-type="send" bindblur="inputblur" bindfocus="inputfocus" bindinput="inputText" class="ql-container" placeholder="点击此处说点什么..."></textarea></view>
+<view><textarea maxlength="{{maxlength}}" show-confirm-bar="{{false}}" confirm-type="send" bindblur="inputblur" value="{{value}}" bindfocus="inputfocus" bindinput="inputText" class="ql-container" placeholder="点击此处说点什么..."></textarea></view>
 <!-- 工具栏-->
 <view class="toolbar" style="position: absolute;bottom: {{keyboardHight}}px;">
     <!-- 字数显示和任务显示 -->
@@ -31,14 +31,24 @@
         <image class="toolbar_image1" style="margin-top: 20rpx;margin-left: 45rpx;width: 55rpx;height: 55rpx;" src="../images/wenjianjia.png"></image>
         <image class="toolbar_image1" style="margin-top: 25rpx;margin-left: 45rpx;" src="../images/biaoqing.png"></image>
         <image class="toolbar_image1" style="margin-top: 28rpx;margin-left: 45rpx;width: 37rpx;height: 37rpx;" src="../images/jinghao.png" bindtap="tap"></image>
-        <view class="toolbar_send">发送</view>
+        <view class="toolbar_send" bindtap="send">发送</view>
     </view>
     <!-- 隐藏的底部功能渲染 -->
     <view class="toolbar_showOther" hidden="{{showOther}}">
         <view class="toolbar_showOther_tap">
-            <view class="toolbar_showOther_tao_title">请点击选择标签</view>
+            <view class="toolbar_showOther_tao_title">请点击选择打卡标签（标签选择后不能更改）</view>
             <view class="toolbar_showOther_tap_text"></view>
-            <view class="toolbar_showOther_tap_add">+ 添加标签</view>
+            <view class="showDayNum_box_changer">
+            <radio-group class="showDayNum_box_changeBox" bindchange="checkboxValue">
+                <label class="showDayNum_box_changer_radio" wx:for="{{checkboxarr}}" data-name="{{item.name}}" bindtap="radio">
+                    <radio value="{{item.value}}" checked="{{checked}}" color="#7c66f5"/>
+                    <view >{{item.name}}</view>
+                </label>
+            </radio-group>
+            </view>
+            <view style="width: 100vw;height: 190rpx;display: flex;justify-content: center;align-items: center;" wx:if="{{checkboxarr==''?true:false}}">暂无标签，快去创建一个打卡挑战吧</view>
+            <view class="toolbar_showOther_tap_addconfirm" style="bottom: 110rpx;height: 80rpx;line-height: 80rpx;" bindtap="checkboxconfirm" >确定</view>
+            <view class="toolbar_showOther_tap_add"  bindtap="checkboxcancel" >取消</view>
         </view>
         <view></view>
         <view></view>
@@ -53,15 +63,16 @@
         </view>
         <view class="showgroup_card">
           <scroll-view class="scrollView" scroll-y="true">
-            <view class="scrollView_card" wx:for="{{5}}">
-              <view class="scrollView_card_box1">21 天打卡挑战</view>
-              <view class="scrollView_card_box2">早睡</view>
-              <view class="scrollView_card_box3">长期有效</view>
+            <view class="scrollView_card" wx:for="{{challengeArr}}">
+              <view class="scrollView_card_box1">{{item.totalday}} 天打卡挑战</view>
+              <view class="scrollView_card_box2">{{item.challengename}}</view>
+              <view class="scrollView_card_box3">{{item.deadlinetime}}</view>
               <view class="scrollView_card_box4">
-                <view class="scrollView_card_box4_leftBox">2 人已报名</view>
-                <view class="scrollView_card_box4_rightBox"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
+                <view class="scrollView_card_box4_leftBox">{{item.peoplenum}} 人已报名</view>
+                <view class="scrollView_card_box4_rightBox"><image src="{{item.wxurl}}"></image></view>
               </view>
-              <view class="scrollView_card_box5">去打卡</view>
+              <view wx:if="{{!item.isexist}}" bindtap="applyChallenge" class="scrollView_card_box5">去报名</view>
+              <view wx:if="{{item.isexist}}" bindtap="dakaChallenge"  class="scrollView_card_box5">{{item.isdaka?'今日已打卡':'去打卡'}}</view>
             </view>
           </scroll-view>
         </view>

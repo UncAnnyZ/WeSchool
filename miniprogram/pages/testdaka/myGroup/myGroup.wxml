@@ -7,38 +7,45 @@
     <image style="width: 43rpx;height: 43rpx;margin-left: 33rpx;transform: rotate(180deg);" src="./images/more.png"></image>
   </view>
   <view class="userUrl">
-    <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image>
+    <image src="{{myurl}}"></image>
+    <view style="margin-left: 15rpx;margin-right: 20rpx;font-size: 26rpx;color: rgb(241, 241, 241);">{{myname}}</view>
   </view>
 </view>
 <view class="textBox">
   <view class="textBox_title">
-    <view class="textBox_title_left">我的吃喝记录</view>
+    <view class="textBox_title_left">{{groupname}}</view>
     <view class="textBox_title_right">分享</view>
   </view>
   <view class="textBox_tag"></view>
   <view class="textBox_daka">
-    <view class="textBox_daka_daka">
+    <view class="textBox_daka_daka" bindtap="intoChallenge">
       <image class="textBox_daka_daka_left" src="./images/daka.png"></image>
       <view class="textBox_daka_daka_center">打卡挑战</view>
       <view class="textBox_daka_daka_right">去打卡</view>
     </view>
   </view>
-  <view class="textBox_post" wx:for="{{10}}">
+  <view class="textBox_post" wx:for="{{postarr}}" bindtap="intoPost">
     <view class="textBox_post_topBox">
       <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
       <view class="textBox_post_topBox_userInfo">
         <view class="textBox_post_topBox_userInfo_name">
-          <view class="textBox_post_topBox_userInfo_name_name">Start from*</view>
-          <view class="textBox_post_topBox_userInfo_name_title">星主</view>
+          <view class="textBox_post_topBox_userInfo_name_name">{{item.wxname}}</view>
+          <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{item.isleader}}">组长</view>
         </view>
-        <view class="textBox_post_topBox_userInfo_time">13小时前</view>
+        <view class="textBox_post_topBox_userInfo_time">{{item.sendtime}}</view>
       </view>
       <view class="textBox_post_topBox_right"><view></view></view>
     </view>
-    <view class="textBox_post_textBox">打卡挑战</view>
+    <view class="textBox_post_textBox">{{item.text}}</view>
     <view class="textBox_post_bottomBox">
-      <image class="textBox_post_bottomBox_left" src="./images/zan.png"></image>
-      <image class="textBox_post_bottomBox_center" src="./images/huifu.png"></image>
+      <view style="display: flex;flex-direction: row;">
+        <image class="textBox_post_bottomBox_left" src="{{item.mylike?'../showPost/image/yidianzan.png':'./images/zan.png'}}"></image>
+        <view style="margin-left: {{item.likenum == 0?0:10}}rpx;color:#efb336;">{{item.likenum == 0?'':item.likenum}}</view>
+      </view>
+      <view style="display: flex;flex-direction: row;">
+        <image class="textBox_post_bottomBox_center" src="./images/huifu.png"></image>
+        <view style="margin-left: {{item.comment.length == 0?0:10}}rpx;">{{item.comment.length == 0?"":item.comment.length}}</view>
+      </view>
       <image class="textBox_post_bottomBox_right" src="./images/zhuanfa.png"></image>
     </view> 
     <view class="textBox_post_line"><view></view></view>

@@ -194,6 +194,34 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "全部打卡挑战",
+          "pathName": "pages/testdaka/allchallenge/allchallenge",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "动态详情页",
+          "pathName": "pages/testdaka/showPost/showPost",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "小组成员设置",
+          "pathName": "pages/testdaka/groupSet/userSet/userSet",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "小组组长设置",
+          "pathName": "pages/testdaka/groupSet/leaderSet/leaderSet",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

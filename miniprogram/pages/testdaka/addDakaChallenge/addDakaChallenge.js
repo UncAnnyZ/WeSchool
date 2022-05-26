@@ -25,8 +25,9 @@ Page({
     checked:false,
     inputDayValue:'',
     showDeadLineDisabled:true,
-    DeadLineValue:'请填写时间',
     showDeadLineInput:'',
+    //缓存
+    args:'',
     // 最后需要上传的数据在这里
     titleInput:'',
     textInput:'',
@@ -37,32 +38,39 @@ Page({
   //发布
   send(e){
     console.log(e);
-    let titleInput = this.data.titleInput //标题
-    let textInput = this.data.textInput //规则
-    let checkboxValue = this.data.checkboxValue //累计打卡天数
-    let DeadLine = this.data.DeadLine //长期有效还是截止时间
-    let DeadLineValue = this.data.DeadLineValue //指定截止时间时要填写
-    if (titleInput == '') {
+    let challengename = this.data.titleInput //标题
+    let challengeguide = this.data.textInput //规则
+    let totalday = this.data.checkboxValue //累计打卡天数
+    let deadline = this.data.DeadLine //长期有效还是截止时间
+    let deadlinetime = this.data.DeadLineValue //指定截止时间时要填写
+    let uid = this.guid()
+    let challengeid = this.hash(this.data.args.username + uid)//打卡挑战id
+    let wxurl = this.data.args.iconUrl//头像
+    let wxname = this.data.args.nickName//名字
+    let usernum = this.data.args.username//学号
+    let ispastdue = false//是否过期
+    // let  = 
+    if (challengename == '') {
       wx.showToast({
         title: '请填写标题',
         icon:'none'
       })
-    } else if (textInput == '') {
+    } else if (challengeguide == '') {
       wx.showToast({
         title: '请填写规则',
         icon:'none'
       })
-    } else if (checkboxValue == '请选择天数') {
+    } else if (totalday == '请选择天数') {
       wx.showToast({
         title: '请选择累计打卡天数',
         icon:'none'
       })
-    } else if (DeadLine == '') {
+    } else if (deadline == '') {
       wx.showToast({
         title: '请填写打卡截止时间',
         icon:'none'
       })
-    } else if (DeadLineValue == '') {
+    } else if (deadlinetime == '') {
       wx.showToast({
         title: '请填写打卡截止时间',
         icon:'none'
@@ -71,6 +79,37 @@ Page({
       console.log("数据填写完成");
       //上传数据库
     }
+  },
+  guid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0,
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+  },
+  hash(input) {
+        var I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
+
+        var hash = 5389;
+        var i = input.length - 1;
+
+        if (typeof input == 'string') {
+            for (; i > -1; i--)
+                hash += (hash << 5) + input.charCodeAt(i);
+        }
+        else {
+            for (; i > -1; i--)
+                hash += (hash << 5) + input[i];
+        }
+        var value = hash & 0x7FFFFFFF;
+
+        var retValue = '';
+        do {
+            retValue += I64BIT_TABLE[value & 0x3F];
+        }
+        while (value >>= 1);
+
+        return retValue;
   },
   //标题输入
   titleInput(e){
@@ -209,7 +248,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+    let args = wx.getStorageSync('args');
+    this.setData({
+        args
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

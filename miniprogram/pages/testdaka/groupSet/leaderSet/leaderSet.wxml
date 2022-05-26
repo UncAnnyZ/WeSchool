@@ -1,0 +1,60 @@
+<view class="showgroup_box_userimage">
+    <view>小组成员</view>
+    <view class="showgroup_box_userimage_box">
+        <!-- 成员 -->
+        <view class="showgroup_box_userimage_groupMember" wx:for="{{groupMember}}">
+        <image class="showgroup_box_userimage_groupMember_image" src="{{item.wxurl}}"></image>
+        <view></view>
+        </view>
+        <!-- 加号 -->
+        <view class="showgroup_box_userimage_add" bindtap="joinGroup">
+        <image class="showgroup_box_userimage_add_image" src="../../images/addmember.png"></image>
+        <view></view>
+        </view>
+    </view>
+</view>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">小组名片</view>
+    <view class="bottomBox_button_box2">{{myname}}</view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">小组id</view>
+    <view class="bottomBox_button_box2">{{groupid}}</view>
+    <view class="bottomBox_button_box3"></view>
+</button>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">成员管理</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">打卡挑战管理</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">编辑资料</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">我的发布</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">分享小组</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="transfer" style="margin-top: 25rpx;">
+    <view class="bottomBox_button_box1" style="color: skyblue;">移交小组长</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>
+<button class="bottomBox_button" bindtap="secede" style="margin-top: 25rpx;">
+    <view class="bottomBox_button_box1" style="color: tomato;">解散小组</view>
+    <view class="bottomBox_button_box2"></view>
+    <view class="bottomBox_button_box3">></view>
+</button>

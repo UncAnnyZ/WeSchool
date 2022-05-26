@@ -34,7 +34,7 @@ page{
 }
 .centerBox_title{
   letter-spacing: 5rpx;
-  font-size: 35rpx;
+  font-size: 41rpx;
 }
 .centerBox_tap{
   width: auto;

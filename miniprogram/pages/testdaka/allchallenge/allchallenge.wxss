@@ -1,0 +1,160 @@
+page{
+  background: #f5f6f8;
+}
+.nav{
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+.nav_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bottomline{
+  width: 41rpx;
+  height: 5rpx;
+  background: #000;
+  border-radius: 50rpx;
+  margin: 15rpx auto;
+}
+.bottomline_close{
+  width: 41rpx;
+  height: 5rpx;
+  /* background: #000; */
+  border-radius: 20rpx;
+  margin: 15rpx auto;
+}
+.nav-switch-style{
+  color: black;
+  font-size: 28rpx;
+  letter-spacing: 3rpx;
+}
+.nav-switch-style-close{
+  color: gray;
+}
+.box{
+    height: 90vh;
+    width: 100%;
+}
+.style-roll{
+  height: auto;
+  width: 100%;
+  overflow-x: scroll;
+}
+.swiperitem{
+  height: auto;
+  width: 100vw;
+}
+/* .textbox{
+  height: 90rpx;
+  width: 100%;
+  background-color: red;
+} */
+.style-roll .swiperbox{
+  height: 100%;
+  width: 100%;
+}
+.style-roll .swiperbox2{
+  height: 100%;
+  width: 100%;
+}
+.showgroup_card{
+  width: 100vw;
+  height: 90vh;
+  margin-top: 8rpx;
+}
+.scrollView{
+  width: 100vw;
+  height: 100%;
+}
+.scrollView_card{
+  background: white;
+  margin: 0 auto;
+  /* height: 375rpx; */
+  height: auto;
+  margin-bottom: 30rpx;
+  width: 79%;
+  border-radius: 15rpx;
+  padding: 39rpx;
+  display: flex;
+  flex-direction: column;
+}
+.scrollView_card_box1{
+  width: 178rpx;
+  height: 43rpx;
+  background: #f6f6f6;
+  border-radius: 23rpx 23rpx 23rpx 0rpx;
+  font-size: 22rpx;
+  letter-spacing: 3rpx;
+  text-align: center;
+  line-height: 45rpx;
+  color: #a4a5a7;
+  margin-top: 10rpx;
+}
+.scrollView_card_box2{
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+  margin-top: 25rpx;
+  margin-bottom: 35rpx;
+}
+.scrollView_card_box3{
+  color: #a4a5a7;
+  font-size: 23rpx;
+  margin-bottom: 20rpx;
+}
+.scrollView_card_box4{
+  color: #a4a5a7;
+  font-size: 25rpx;
+  margin-bottom: 35rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+}
+.scrollView_card_box4_leftBox{
+  color: #a4a5a7;
+  width: auto;
+  height: auto;
+}
+.scrollView_card_box4_rightBox{
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: 0;
+}
+.scrollView_card_box4_rightBox >image{
+  width: 41rpx;
+  height: 41rpx;
+  border-radius: 50%;
+}
+.scrollView_card_box5{
+  background: #f7f5ff;
+  width: auto;
+  height: 95rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #7c66f5;
+  border-radius: 10rpx;
+}
+.showgroup_box_turninto{
+  position: absolute;
+  bottom: 30rpx;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.showgroup_box_turninto >view{
+  height: 98rpx;
+  width: 450rpx;
+  border-radius: 80rpx;
+  text-align: center;
+  line-height: 98rpx;
+  background:#7c66f5 ;
+  color: white;
+}
+

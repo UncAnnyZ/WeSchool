@@ -1,0 +1,160 @@
+/* pages/testdaka/showPost/showPost.wxss */
+.textBox_post{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+.textBox_post_topBox{
+  width: 100%;
+  height: auto; 
+  /* background: gray;  */
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+}
+.textBox_post_topBox_userUrl{
+  width: 15%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* background: pink; */
+}
+.textBox_post_topBox_userUrl >image{
+  width: 55rpx;
+  height: 55rpx;
+  border-radius: 50%;
+  /* margin-top: 30rpx; */ 
+}
+.textBox_post_topBox_userInfo{
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 30rpx; */
+}
+.textBox_post_topBox_userInfo_name{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.textBox_post_topBox_userInfo_name_name{
+  color: #fda959;
+  font-size: 27rpx;
+  letter-spacing: 2rpx;
+}
+.textBox_post_topBox_userInfo_name_title{
+  background: #fda959;
+  color: white;
+  width: 60rpx;
+  height: 30rpx;
+  border-radius: 10rpx;
+  margin-left: 15rpx; 
+  font-size: 18rpx;
+  text-align: center;
+  line-height: 30rpx;
+  letter-spacing: 2rpx;
+}
+.textBox_post_topBox_userInfo_time{
+  color: #b3b3b3;
+  font-size: 18rpx;
+  letter-spacing: 1rpx;
+}
+.textBox_post_topBox_right{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 35rpx;
+}
+.textBox_post_topBox_right >view{
+  width: 0px;
+  height: 0px;
+  border-width: 4px;
+  border-style: solid;
+  border-color:#b3b3b3 transparent transparent transparent;
+  /* margin-left: 365rpx; */
+}
+.textBox_post_textBox{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+  width: 670rpx;
+  height: auto;
+  margin: 50rpx auto;
+  font-size: 26rpx;
+  flex-wrap: wrap;
+}
+.textBox_post_bottomBox{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* background: pink; */
+  align-items: center;
+  /* margin-left: 110rpx;  */
+}
+.textBox_post_bottomBox_left{
+  width: 35rpx;
+  height: 35rpx;
+}
+.textBox_post_bottomBox_center{
+  width: 35rpx;
+  height: 35rpx;
+}
+.textBox_post_bottomBox_right{
+  width: 35rpx;
+  height: 35rpx;
+}
+.textBox_post_line{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.textBox_post_line >view{
+  width: 700rpx;
+  height: 1rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+.textBox_post_zan{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 670rpx;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.textBox_post_zan_image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.textBox_post_zan_name{
+  font-size: 25rpx;
+  margin-left: 10rpx;
+  color: #fda959;
+}
+.textBox_post_bigZan{
+  width: 300rpx;
+  height: 80rpx;
+  background: #f6f6f6;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50rpx auto;
+}
+.textBox_post_bigZan_image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.comment{
+
+}
+.comment_comment{
+  margin:15rpx 115rpx;
+  width: auto;
+  height: auto;
+  flex-wrap: wrap;
+  font-size: 26rpx;
+  letter-spacing: 3rpx;
+}

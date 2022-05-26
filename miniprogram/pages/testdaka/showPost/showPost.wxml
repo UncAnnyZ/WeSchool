@@ -1,0 +1,42 @@
+<view class="textBox_post">
+    <view class="textBox_post_topBox">
+      <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
+      <view class="textBox_post_topBox_userInfo">
+        <view class="textBox_post_topBox_userInfo_name">
+          <view class="textBox_post_topBox_userInfo_name_name">{{post.wxname}}</view>
+          <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{post.isleader}}">星主</view>
+        </view>
+        <view class="textBox_post_topBox_userInfo_time">{{post.sendtime}}</view>
+      </view>
+      <view class="textBox_post_topBox_right"><view></view></view>
+    </view>
+    <view class="textBox_post_textBox">
+      <!-- <view style="color: #6f7f8f;margin-right: 10rpx;">#打卡</view> -->
+      <view>{{post.text}}</view> 
+    </view>
+    <view class="textBox_post_zan" hidden="{{post.likenum == 0 ? true : false}}">
+      <image class="textBox_post_zan_image" src="./image/yidianzan.png"></image>
+      <view class="textBox_post_zan_name" wx:for="{{post.likename}}">{{item}}</view>
+    </view>
+    <view class="textBox_post_bigZan">
+      <image class="textBox_post_bigZan_image" src="{{post.mylike ? './image/yidianzan.png' : './image/weidianzan.png'}}"></image>
+    </view>
+    <view style="margin: 20rpx 30rpx;color: gray;font-size: 26rpx;">评论({{post.comment.length}})</view>
+    <view class="textBox_post_line"><view></view></view>
+  </view>
+<view class="comment" wx:for="{{post.comment}}">
+    <view class="textBox_post_topBox">
+      <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
+      <view class="textBox_post_topBox_userInfo">
+        <view class="textBox_post_topBox_userInfo_name">
+          <view class="textBox_post_topBox_userInfo_name_name">{{item.name}}</view>
+          <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{item.isleader}}">组长</view>
+        </view>
+        <view class="textBox_post_topBox_userInfo_time">{{item.time}}</view>
+      </view>
+      <!-- <view class="textBox_post_topBox_right"><view></view></view> -->
+    </view>
+    <view class="comment_comment">
+      <view>{{item.text}}</view> 
+    </view>
+</view>

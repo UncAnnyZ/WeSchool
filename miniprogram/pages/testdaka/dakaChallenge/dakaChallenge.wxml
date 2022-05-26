@@ -1,2 +1,75 @@
-<!--pages/testdaka/dakaChallenge/dakaChallenge.wxml-->
-<text>pages/testdaka/dakaChallenge/dakaChallenge.wxml</text>
+<view class="bg">
+<view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
+<view style="height: {{lineHeight}}px;width: 100vw;display: flex;align-items: center;position: sticky;top: {{statusBarHeight}}px;">
+    <view bindtap="cancel" style="display: flex;align-items: center;justify-content: center;margin-left: 37rpx;"><view style="width: 30rpx;height: 50rpx; color: white;font-size: 40rpx;line-height: 50rpx;" bindtap="back">＜</view></view>
+</view>
+<view class="title">{{challenge.challengename}}</view>
+<view class="aftertitle">
+  <view class="aftertitle_left">
+    <image class="aftertitle_left_image" src="./image/people.png"></image>
+    <view class="aftertitle_left_view">{{pernum}}人参加</view>
+  </view>
+  <view class="aftertitle_center">
+    <image class="aftertitle_center_image" src="./image/daka.png"></image>
+    <view class="aftertitle_center_view">{{totaldegree}}次打卡</view>
+  </view>
+  <view class="aftertitle_right">
+    <image class="aftertitle_center_image" src="./image/complete.png"></image>
+    <view class="aftertitle_center_view">{{isCompletePerNum}}人已完成打卡</view>
+  </view>
+</view>
+<view class="infoBox">
+  <view class="infoBox_guide">{{challenge.challengeguide}}</view>
+  <view class="infoBox_centerBox">
+    <!-- <view class="infoBox_centerBox_leftBox">
+      <view class="infoBox_centerBox_leftBox_top">
+        <image class="infoBox_centerBox_leftBox_top_image" src="./image/rank.png"></image>
+        <view class="infoBox_centerBox_leftBox_top_text">打卡排行榜</view>
+        <view class="infoBox_centerBox_leftBox_top_jiantou">></view>
+      </view>
+      <view class="infoBox_centerBox_leftBox_bottom">
+        <image class="infoBox_centerBox_leftBox_bottom_image" src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image>
+      </view>
+    </view> -->
+    <view class="infoBox_centerBox_rightBox">
+      <view class="infoBox_centerBox_rightBox_top">
+        <image class="infoBox_centerBox_rightBox_top_image" src="./image/totaldaka.png"></image>
+        <view class="infoBox_centerBox_rightBox_top_text">累计打卡</view>
+        <view class="infoBox_centerBox_rightBox_top_jiantou">></view>
+      </view>
+      <view class="infoBox_centerBox_rightBox_bottom">
+        <view class="infoBox_centerBox_rightBox_bottom_text">{{totalday}}天</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="todayinfo">每天都要记得打卡噢！</view>
+<view class="textBox_post" wx:for="{{postarr}}" bindtap="intoPost">
+    <view class="textBox_post_topBox">
+      <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
+      <view class="textBox_post_topBox_userInfo">
+        <view class="textBox_post_topBox_userInfo_name">
+          <view class="textBox_post_topBox_userInfo_name_name">{{item.wxname}}</view>
+          <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{item.isleader}}">组长</view>
+        </view>
+        <view class="textBox_post_topBox_userInfo_time">{{item.sendtime}}</view>
+      </view>
+      <view class="textBox_post_topBox_right"><view></view></view>
+    </view>
+    <view class="textBox_post_textBox">{{item.text}}</view>
+    <view class="textBox_post_bottomBox">
+      <view style="display: flex;flex-direction: row;">
+        <image class="textBox_post_bottomBox_left" src="{{item.mylike?'../showPost/image/yidianzan.png':'../myGroup/images/zan.png'}}"></image>
+        <view style="margin-left: {{item.likenum == 0?0:10}}rpx;color:#efb336;">{{item.likenum == 0?'':item.likenum}}</view>
+      </view>
+      <view style="display: flex;flex-direction: row;">
+        <image class="textBox_post_bottomBox_center" src="../myGroup/images/huifu.png"></image>
+        <view style="margin-left: {{item.comment.length == 0?0:10}}rpx;">{{item.comment.length == 0?"":item.comment.length}}</view>
+      </view>
+      <image class="textBox_post_bottomBox_right" src="../myGroup/images/zhuanfa.png"></image>
+    </view> 
+    <view class="textBox_post_line"><view></view></view>
+</view>
+<view style="width: 100vw;height: auto;padding: 30rpx 0;text-align: center;letter-spacing: 2rpx;font-size: small;color: #b3b3b3;">没有更多内容</view>
+<view class="senddaka">发打卡</view>
+</view>

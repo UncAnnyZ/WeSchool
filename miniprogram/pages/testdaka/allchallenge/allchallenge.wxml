@@ -1,0 +1,59 @@
+<!-- 导航条 -->
+<view class="nav">
+  <view class="nav_box">
+    <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-switch-style-close'}}">进行中</view>
+    <view class="{{navState==0 ? 'bottomline':'bottomline_close'}}"></view>
+  </view>
+  <view class="nav_box">
+    <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-switch-style-close'}}">已结束</view>
+    <view class="{{navState==1 ? 'bottomline':'bottomline_close'}}"></view>
+  </view>
+</view>
+<!-- 滑动页 -->
+<swiper bindchange="bindchange" current="{{navState}}" class="box" duration="500">
+
+    <swiper-item class="swiperitem">
+      <view class="style-roll">
+        <view class="showgroup_card">
+          <scroll-view class="scrollView" scroll-y="true">
+            <view class="scrollView_card" wx:for="{{challengeArr}}">
+              <view class="scrollView_card_box1">{{item.totalday}} 天打卡挑战</view>
+              <view class="scrollView_card_box2">{{item.challengename}}</view>
+              <view class="scrollView_card_box3">{{item.deadlinetime}}</view>
+              <view class="scrollView_card_box4">
+                <view class="scrollView_card_box4_leftBox">{{item.peoplenum}} 人已报名</view>
+                <view class="scrollView_card_box4_rightBox"><image src="{{item.wxurl}}"></image></view>
+              </view>
+              <view wx:if="{{!item.isexist}}" bindtap="applyChallenge" class="scrollView_card_box5">去报名</view>
+              <view wx:if="{{item.isexist}}" bindtap="dakaChallenge" class="scrollView_card_box5">{{item.isdaka?'今日已打卡':'去打卡'}}</view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class="showgroup_box_turninto">
+              <view bindtap="joinGroup" bindtap="addDaka">发布打卡挑战</view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item class="swiperitem">
+      <view class="style-roll">
+        <view class="showgroup_card">
+          <scroll-view class="scrollView" scroll-y="true">
+            <view class="scrollView_card" wx:for="{{isdeadchallengeArr}}">
+              <view class="scrollView_card_box1">{{item.totalday}} 天打卡挑战</view>
+              <view class="scrollView_card_box2">{{item.challengename}}</view>
+              <view class="scrollView_card_box3">{{item.deadlinetime}}</view>
+              <view class="scrollView_card_box4">
+                <view class="scrollView_card_box4_leftBox">{{item.peoplenum}} 人已报名</view>
+                <view class="scrollView_card_box4_rightBox"><image src="{{item.wxurl}}"></image></view>
+              </view>
+              <!-- <view wx:if="{{!item.isexist}}" class="scrollView_card_box5">去报名</view> -->
+              <view class="scrollView_card_box5">已结束</view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </swiper-item>
+
+</swiper>
+

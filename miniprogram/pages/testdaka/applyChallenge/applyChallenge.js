@@ -7,9 +7,35 @@ Page({
   data: {
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
+    // 需要渲染的数据页面携带值传参获得
     dayRequire:"21",
     title:"标题",
     guide:"123",
+    //缓存
+    args:'',
+    //上传数据库需要的数据
+    //数据需要页面携带值传参获得
+    total:0,
+    dayrequire:0,
+    challengeuuid:'',
+    challengename:'',
+  },
+  send(){
+    let wxurl = this.data.args.iconUrl
+    let wxname = this.data.args.nickName
+    let usernum = this.data.args.username
+    let total = this.data.total
+    let iscomplete = false
+    let dayrequire = this.data.dayrequire
+    let dakalog = []
+    let challengeuuid = this.data.challengeuuid
+    let challengename = this.data.challengename
+    //这些就是报名一个挑战需要上传到dakaChallenge_member的数据
+  },
+  back(){
+    wx.navigateBack({
+      delta: 1,
+    })
   },
   cancel(){
     
@@ -21,7 +47,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let args = wx.getStorageSync('args');
+    this.setData({
+        args,
+    })
   },
 
   /**

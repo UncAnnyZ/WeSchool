@@ -1,0 +1,81 @@
+page{
+  background: #f5f6f8;
+}
+.showgroup_box_userimage{
+  /* background: blue; */
+  height: 320rpx;
+  width: 92%;  
+  font-size: 25rpx;
+  padding: 10rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.showgroup_box_userimage_box{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 95%; 
+  flex-wrap: wrap;
+  align-content: flex-start;
+  /* position: absolute;  */
+}
+.showgroup_box_userimage_groupMember{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-top: 20rpx;
+  margin-right: 15rpx;
+}
+.showgroup_box_userimage_groupMember_image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.showgroup_box_userimage_add{
+
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-top: 15rpx;
+  /* margin-left: 10rpx; */
+}
+.showgroup_box_userimage_add_image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+button:not([size=mini]) {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+.bottomBox_button{
+  background: white;
+  /* height: 100rpx; */
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  font-weight: 500;
+  font-size: 27rpx;
+  letter-spacing: 3rpx;
+  line-height: 70rpx;
+  padding-left:30rpx;
+  padding-right: 30rpx;
+  /* margin-left: 30rpx; */
+  position: relative;
+}
+.bottomBox_button_box1{
+
+}
+.bottomBox_button_box2{
+  position: absolute;
+  right: 70rpx;
+  color: gray;
+}
+.bottomBox_button_box3{
+  position: absolute;
+  right: 30rpx;
+  color: gray;
+}

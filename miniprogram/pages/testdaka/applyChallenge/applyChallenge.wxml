@@ -1,6 +1,6 @@
     <view style="height: {{statusBarHeight}}px;width: 100vw;"></view>
     <view style="height: {{lineHeight}}px;width: 100vw;display: flex;align-items: center;">
-      <view bindtap="cancel" style="width: 38rpx;height: 38rpx;border-radius: 50%;background-color: rgba(255, 255, 255, 0.548);display: flex;align-items: center;justify-content: center;margin-left: 37rpx;"><view style="color: white;font-size: 23rpx;line-height: 25rpx;">x</view></view>
+      <view bindtap="cancel" style="width: 38rpx;height: 38rpx;border-radius: 50%;background-color: rgba(255, 255, 255, 0.548);display: flex;align-items: center;justify-content: center;margin-left: 37rpx;"><view style="color: white;font-size: 23rpx;line-height: 25rpx;" bindtap="back">x</view></view>
     </view>
     <view class="topBox">
       <image class="topBox_image" src="../images/rili.png"></image>

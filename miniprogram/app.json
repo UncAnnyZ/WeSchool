@@ -19,7 +19,11 @@
     "pages/testdaka/addPost/addPost",
     "pages/testdaka/addDakaChallenge/addDakaChallenge",
     "pages/testdaka/dakaChallenge/dakaChallenge",
-    "pages/testdaka/applyChallenge/applyChallenge"
+    "pages/testdaka/applyChallenge/applyChallenge",
+    "pages/testdaka/allchallenge/allchallenge",
+    "pages/testdaka/showPost/showPost",
+    "pages/testdaka/groupSet/userSet/userSet",
+    "pages/testdaka/groupSet/leaderSet/leaderSet"
   ],
   "subPackages": [
     {
