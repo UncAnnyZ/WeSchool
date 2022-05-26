@@ -3,6 +3,7 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 
 // 云函数入口函数
+console.log('15616')
 const login = require('./login/index');
 const indexLoading = require('./indexLoading/index');
 const sloveExcel = require('./sloveExcel/index');

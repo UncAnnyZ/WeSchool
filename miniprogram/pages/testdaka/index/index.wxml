@@ -184,7 +184,6 @@
      </view>
      <!-- 我的任务 -->
      <view class="new_wrap" wx:elif="{{studynavState==8}}">
-
      </view>
      <!-- 其他小组 -->
      <view wx:elif="{{studynavState==6}}" class="selfstudy_othergroup">

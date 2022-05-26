@@ -8,7 +8,11 @@ Page({
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
   },
-
+  abc(){
+    wx.navigateTo({
+      url: 'pages/testdaka/myGroup/myGroup',
+    })
+  },
   back(){
     wx.navigateBack({
       delta: 1,

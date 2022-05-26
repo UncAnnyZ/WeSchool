@@ -1,0 +1,78 @@
+/* pages/testdaka/applyChallenge/app;yChallenge.wxss */
+page{
+  background-image: linear-gradient(to bottom, #7c66f5 6%, #ffffff 38% , #ffffff 55%, #ffffff 100%);
+  /* background-image: linear-gradient(to bottom, #7c66f5 10%, #d6d4f9 35% , #e1f0f5 75%, #e9e1f8 100%); */
+}
+.topBox{
+  width: 270rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  background: white;
+  border-radius: 18rpx;
+  margin-left: 37rpx;
+}
+.topBox_image{
+  width: 41rpx;
+  height: 41rpx;
+}
+.topBox_day{
+  font-size: 27rpx;
+  letter-spacing: 2rpx;
+}
+.centerBox{
+  height: 68vh;
+  width: 620rpx;
+  background: white;
+  border-radius: 18rpx;
+  margin: 0 auto;
+  /* margin-left: 37rpx; */
+  margin-top: 25rpx;
+  padding: 30rpx;
+}
+.centerBox_title{
+  letter-spacing: 5rpx;
+  font-size: 35rpx;
+}
+.centerBox_tap{
+  width: auto;
+  height: auto;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.centerBox_tap_leftBox{
+  width: 6rpx;
+  height: 27rpx;
+  border-radius: 20rpx;
+  background: orange;
+  margin-left: 5rpx;
+}
+.centerBox_tap_rightBox{
+  margin-left: 20rpx;
+  color: orange;
+  /* line-height: 27rpx; */
+  font-size: 28rpx;
+  letter-spacing: 3rpx;
+}
+.centerBox_textarea{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: rgb(85, 85, 85);
+  letter-spacing: 3rpx;
+}
+.bottomBox{
+  background: #7c66f5;
+  width: 620rpx;
+  padding: 30rpx;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 18rpx;
+}

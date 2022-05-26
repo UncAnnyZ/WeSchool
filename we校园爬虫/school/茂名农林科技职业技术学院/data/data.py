@@ -1,10 +1,11 @@
 from school.茂名农林科技职业技术学院.data.achievement.achievement import achievement
 from database.sql import updata, search
 
-def data(session,password, username,msg,other):
+
+def data(session, password, username, msg, other):
 
     try:
-        achievements=achievement(session)
+        achievements = achievement(session)
         obj = {
             "username": username,
             "password": password,

@@ -5,10 +5,11 @@ from school.河南工业大学.data.curriculum.curriculum import curriculum
 from school.河南工业大学.data.achievement.achievement import achievement
 from database.sql import updata, search
 
-def data(session,password, username,msg,other):
+
+def data(session, password, username, msg, other):
     try:
-        cur = json.dumps(curriculum(username,session))
-        ach = json.dumps(achievement(username,session))
+        cur = json.dumps(curriculum(username, session))
+        ach = json.dumps(achievement(username, session))
         obj = {
             "username": username,
             "password": password,

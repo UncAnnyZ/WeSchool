@@ -7,18 +7,81 @@ Page({
   data: {
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
-    editorHeight:300,
+    keyboardHight:0,
+    showOther:true,
+    toolbarHight:120,
+    numberShow:true,
+    functionShow:false,
+    cursor:0,
+    maxlength:500,
+    showgroup:false
+  },
+  //添加打卡挑战的跳转
+  addDaka(){
+    wx.navigateTo({
+      url: '../addDakaChallenge/addDakaChallenge',
+    })
+  },
+  //显示打卡弹窗
+  showPunch(){
+    this.setData({
+      showgroup:true
+    })
+  },
+  //隐藏弹窗
+  closePunch(){
+    this.setData({
+      showgroup:false
+    })
+  },
+  //输入框不聚焦
+  inputblur(){
+      this.setData({
+        toolbarHight:120,
+        functionShow:false,
+        numberShow:true
+      })
+  },
+  //输入框聚焦
+  inputfocus(){
+      this.setData({
+        showOther:true,
+        functionShow:true,
+        numberShow:false
+      })
+  },
+  inputText(e){
+    console.log(e.detail.value);
+    console.log(e);
+    this.setData({
+        cursor:e.detail.cursor
+    })
   },
   cancel(){
     wx.navigateBack({
       delta: 1,
     })
   },
+  tap(){
+      this.setData({
+        showOther:!this.data.showOther
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.onKeyboardHeightChange((res) => {
+        console.log('wx.onKeyboardHeightChange的res',res);
+        this.setData({
+            keyboardHight:res.height
+        })
+        if (res.height > 0) {
+            this.setData({
+                toolbarHight:90
+            })
+        }
+    })
   },
 
   /**

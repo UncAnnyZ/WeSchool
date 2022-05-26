@@ -22,8 +22,6 @@ def curriculum(username, session):
     }
     arr = []
     for test in json.loads(res.text)['kbList']:
-
-        # print(test)
         zcd = test['zcd'].split("周")
         jc = re.findall('(\d+)-(\d+)', test['jcs'])[0]
         if int(jc[0]) < 10:

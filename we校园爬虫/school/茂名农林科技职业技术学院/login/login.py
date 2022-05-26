@@ -7,7 +7,7 @@ from school.茂名农林科技职业技术学院.code.code import code_ocr
 def login(session: requests.session(), username, password):
     def login_test(session: requests.session(), username, password):
         try:
-            code, cookie = code_ocr(username,session)
+            code, cookie = code_ocr(username, session)
             import os
             if os.path.exists("NL_code.png" + username):
                 os.remove("NL_code.png" + username)

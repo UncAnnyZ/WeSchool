@@ -16,7 +16,10 @@
     "pages/testdaka/allgroup/allgroup",
     "pages/testdaka/createRoom/createRoom",
     "pages/testdaka/myGroup/myGroup",
-    "pages/testdaka/addPost/addPost"
+    "pages/testdaka/addPost/addPost",
+    "pages/testdaka/addDakaChallenge/addDakaChallenge",
+    "pages/testdaka/dakaChallenge/dakaChallenge",
+    "pages/testdaka/applyChallenge/applyChallenge"
   ],
   "subPackages": [
     {

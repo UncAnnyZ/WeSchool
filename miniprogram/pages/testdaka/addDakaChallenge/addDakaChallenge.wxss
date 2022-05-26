@@ -1,0 +1,315 @@
+/* pages/testdaka/addDakaChallenge/addDakaChallenge.wxss */
+page {
+  background: #f6f6f6;
+}
+.topBox{
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 30rpx;
+  height: 160rpx;
+}
+.topBox_view{
+
+}
+.topBox_input{
+
+}
+.centerBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* padding: 0 30rpx; */
+  margin-top: 20rpx;
+  background: white;
+  height: 500rpx;
+}
+.centerBox_view{
+  margin-left: 30rpx
+}
+.centerBox_text{
+  width: 700rpx;
+  margin: 0 auto;
+  height: 390rpx;
+}
+.centerBoxNumber{
+  width: 100vw;
+  height: 45rpx;
+  margin-top: 10rpx;
+  background: white;
+  padding-left: 30rpx;
+  letter-spacing: 3rpx;
+  color: gray;
+  font-size: 26rpx;
+}
+.centerBoxNumber_view{
+
+}
+.bottomBox{
+  width: 100vw;
+  /* height: 300rpx; */
+  margin-top: 30rpx;
+  background: white;
+  position: relative;
+}
+button:not([size=mini]) {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+.bottomBox_button{
+  background: white;
+  /* height: 100rpx; */
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  font-weight: 500;
+  font-size: 27rpx;
+  letter-spacing: 3rpx;
+  line-height: 70rpx;
+  padding-left:30rpx;
+  padding-right: 30rpx;
+  /* margin-left: 30rpx; */
+  position: relative;
+}
+.bottomBox_button_box1{
+
+}
+.bottomBox_button_box2{
+  position: absolute;
+  right: 70rpx;
+  color: gray;
+}
+.bottomBox_button_box3{
+  position: absolute;
+  right: 30rpx;
+  color: gray;
+}
+/* 累计打卡弹窗 */
+.showDayNum_close{
+  overflow: hidden;
+  height: 10rpx;
+  width: 100vw;
+  transition: all 0.7s;
+  position:fixed;
+  bottom: 0;
+}
+
+.showDayNum_box_close{
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 1rpx;
+  background: white;
+  border-radius: 20rpx 20rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.6s;
+}
+.showDayNum{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  font-family: unset;
+  background-color: rgba(0, 0, 0, 0.164);
+  /* opacity: 0.6; */
+  height: 100vh;
+  width: 100vw;
+  /* transition: all 0.7s; */
+}
+.showDayNum_box{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 550rpx;
+  background: white;
+  border-radius: 20rpx 20rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+}
+.showDayNum_box_title{
+  /* background: pink; */
+  /* font-weight: 600; */
+  height:110rpx;
+  width: 90%;
+  margin: 0 auto;
+  line-height: 120rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: center;
+}
+.showDayNum_box_title_cancel{
+  font-size: 27rpx;
+  letter-spacing: 3rpx;
+  color: gray;
+}
+.showDayNum_box_title_title{
+  letter-spacing: 3rpx;
+}
+.showDayNum_box_title_confirm{
+  font-size: 27rpx;
+  letter-spacing: 3rpx;
+  color: #7c66f5;
+}
+.showDayNum_box_changeBox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+.showDayNum_box_changer_radio{
+  display: flex;
+  flex-direction: row;
+  padding:20rpx 0rpx;
+  width: 143rpx;
+}
+.showDayNum_box_changer{
+
+}
+.showDayNum_box_inputDay{
+  width: 150rpx;
+  height: auto;
+  border-bottom: gray;
+  /* background: #000; */
+  margin: 0 auto;
+  margin-top: 60rpx;
+}
+.showDayNum_box_line{
+  width: 300rpx;
+  height: 20rpx;
+  border-bottom: gray;
+  /* background: #000; */
+  margin: 0 auto;
+  border-bottom: 1rpx solid gray;
+}
+
+
+/* 弹窗结束 */
+
+/* 打卡截止时间弹窗 */
+.showDeadLine_close{
+  overflow: hidden;
+  height: 10rpx;
+  width: 100vw;
+  transition: all 0.7s;
+  position:fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showDeadLine_box_close{
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 1rpx;
+  background: white;
+  border-radius: 20rpx 20rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  /* transition: all 0.6s; */
+  align-items: center;
+  justify-content: center;
+}
+.showDeadLine{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  font-family: unset;
+  background-color: rgba(0, 0, 0, 0.164);
+  /* opacity: 0.6; */
+  height: 100vh;
+  width: 100vw;
+  /* transition: all 0.7s; */
+  display: flex;
+  /* justify-self:end; */
+  align-items: center;
+  justify-content: center;
+}
+.showDeadLine_box{
+  width: 83vw;
+  /* margin: 0 auto; */
+  height: auto;
+  background: white;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+  padding: 43rpx;
+}
+.showDeadLine_box_title{
+  height:auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.showDeadLine_box_check{
+  display: flex;
+  flex-direction: row;
+}
+.showDeadLine_box_input{
+  display: flex;
+  flex-direction: column;
+}
+
+.showDeadLine_box_input_check{
+  display: flex;
+  flex-direction: row;
+}
+.showDeadLine_box_input_input{
+  width: 260rpx;
+  height: auto;
+  border-bottom: gray;
+  /* background: #000; */
+  margin: 0 auto;
+  margin-top: 60rpx;
+}
+.showDeadLine_box_input_line{
+  width: 500rpx;
+  height: 20rpx;
+  border-bottom: gray;
+  /* background: #000; */
+  margin: 0 auto;
+  border-bottom: 1rpx solid gray;
+}
+.showDeadLine_box_bottombox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* margin:150rpx; */
+  margin-top: 60rpx;
+}
+.showDeadLine_box_bottombox_cancel{
+  color: #7c66f5;
+}
+.showDeadLine_box_bottombox_confirm{
+  color: #7c66f5;
+}
+/* 弹窗结束 */
+.send{
+  margin-top: 30rpx;
+  background: white;
+  width: 100vw;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  letter-spacing: 5rpx;
+  font-size: 28rpx;
+}
