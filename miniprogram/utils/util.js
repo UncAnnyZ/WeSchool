@@ -73,12 +73,13 @@ const getweekString = () => {
     return 1;
   }
   var Date2 = new Date(wx.getStorageSync('configData').timeYear);
-  var dayOfWeek = Date2.getDay();
+  var dayOfWeek = Date1.getDay();
   //如果把周日算在一周的最后一天，请加上下面这句
-  dayOfWeek = dayOfWeek == 0 ? 7 : dayOfWeek
+  // dayOfWeek = dayOfWeek == 0 ? 7 : dayOfWeek
   //如果把周日算在一周的第一天，请删除上面这句
   var num = (Date1 - Date2) / 1000 / 3600 / 24;
   var whichWeek = Math.ceil((num + dayOfWeek) / 7);
+  // var whichWeek = Math.ceil((num) / 7);
   return whichWeek;
 }
 
