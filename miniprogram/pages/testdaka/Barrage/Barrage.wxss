@@ -1,0 +1,222 @@
+page {
+    background: -webkit-linear-gradient(#1B2347, #3C3E67, #615B8B, #8A7CB7);
+    width: 100%;
+    height: 100%;
+}
+
+.Wish_Wall {
+    width: 100%;
+    height: 100%;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 190px;
+}
+
+.head_btn {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    width: 200px;
+    height: 28px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.btn_2 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #ffffff;
+    height: 100%;
+}
+
+.btn_3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    background: #ffffff;
+    color: #004db5;
+    border-radius: 20px;
+    width: 150px;
+    height: 24px;
+    box-shadow: 0.1rpx 0.1rpx 10rpx 0.1rpx rgba(228, 228, 228, 0.384);
+    border: 1px outset #ffffff;
+}
+
+.apply {
+    margin-top: 150px;
+    position: absolute;
+    background: #ffffff;
+    border-radius: 20px;
+    height: 355px;
+    z-index: 10;
+}
+
+.input {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background: #EFEFEF;
+    color: #BCBCBC;
+    height: 180px;
+    margin: 15px 10px 10px 10px;
+    border-radius: 20px;
+}
+
+.apply_txt {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.btn_apply {
+    margin: 20px 40px 10px 40px;
+    background: #EFF1FD;
+    font-weight: bold;
+    color: #8FBACE;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.btn_cancel {
+    margin: 10px 40px 10px 40px;
+    background: #EFF1FD;
+    font-weight: bold;
+    color: #8FBACE;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+}
+
+.top {
+    /* position: absolute; */
+    position: absolute;
+    left: 100%;
+    z-index: 10;
+    width: 100%;
+    animation-timing-function: linear;
+    animation-fill-mode: none;
+    transform: translateZ(0);
+    white-space: nowrap;
+    height: 60rpx;
+}
+
+.dm {
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    position: relative;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 15rpx 0 15rpx;
+    background: #ffffff25;
+    border-radius: 20px;
+    /* overflow: hidden; */
+    font-size: 24rpx;
+    /* color: #fff; */
+}
+
+.dm::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -10rpx;
+    left: 40rpx;
+    border-left: 20rpx solid;
+    opacity: 0.2;
+    border-left: 20rpx solid #ffffff25;
+    border-bottom: 10rpx solid transparent;
+}
+
+.dm::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -10rpx;
+    left: 40rpx;
+    border-left: 20rpx solid;
+    opacity: 0.2;
+    border-left: 20rpx solid #ffffff25;
+    border-bottom: 10rpx solid transparent;
+}
+
+
+.dm .content {
+    display: inline-block;
+    color: #ffffff;
+    max-width: 400rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-right: 10rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+container_Like {
+    display: inline-block;
+    max-width: 100rpx;
+    height: 53rpx;
+    font-size: 23rpx;
+    line-height: 50rpx;
+    margin-right: 10rpx;
+    white-space: nowrap;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.dm .like {
+    margin-top: 15rpx;
+    margin-right: 5rpx;
+    width: 35rpx;
+    height: 35rpx;
+}
+
+@keyframes dmAnimation2 {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes dmAnimation {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .title .title_img {
+        filter: brightness(2) !important;
+    }
+}
