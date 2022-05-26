@@ -1,0 +1,76 @@
+<view class="topBox">
+  <view class="topBox_view">标题</view>
+  <input class="topBox_input" bindinput="titleInput" placeholder="为打卡挑战定一个清晰的目标吧..." type="text"/>
+</view>
+<view class="centerBox">
+  <view class="centerBox_view">规则</view>
+  <textarea class="centerBox_text" bindinput="textInput" placeholder="参与本次打卡挑战有哪些规则？" maxlength="{{maxlength}}">
+  </textarea>
+</view>
+<view class="centerBoxNumber">
+  <view class="centerBoxNumber_view">({{inputNum}}/{{maxlength}})</view>
+</view>
+<view class="bottomBox">
+  <button class="bottomBox_button" bindtap="showDayNum">
+    <view class="bottomBox_button_box1">累计打卡</view>
+    <view class="bottomBox_button_box2">{{checkboxValue}}</view>
+    <view class="bottomBox_button_box3">></view>
+  </button>
+  <button class="bottomBox_button" bindtap="showDeadLine">
+    <view class="bottomBox_button_box1">打卡截止时间</view>
+    <view class="bottomBox_button_box2">{{DeadLineValue}}</view>
+    <view class="bottomBox_button_box3">></view>
+  </button>
+</view>
+<view class="send" bindtap="send">发布</view>
+<!-- 累计打卡弹窗 -->
+<view class="{{showDayNum?'showDayNum':'showDayNum_close'}}">
+    <view class="{{showDayNum?'showDayNum_box':'showDayNum_box_close'}}">
+        <view class="showDayNum_box_title">
+            <view class="showDayNum_box_title_cancel" bindtap="tuiShowDayNum">取消</view>
+            <view class="showDayNum_box_title_title">累计打卡</view>
+            <view class="showDayNum_box_title_confirm" bindtap="showDayNuConfirm">确定</view>
+        </view>
+        <view class="showDayNum_box_changer">
+            <radio-group class="showDayNum_box_changeBox" bindchange="checkboxValue">
+                <label class="showDayNum_box_changer_radio" wx:for="{{checkboxarr}}">
+                    <radio value="{{item.value}}" checked="{{checked}}" disabled="{{disabled}}" color="#7c66f5"/>
+                    <view>{{item.name}}天</view>
+                </label>
+            </radio-group>
+        </view>
+        <view style="height: auto;width: auto;display: flex;flex-direction: row;margin: 0 auto;">
+            <input class="showDayNum_box_inputDay" value="{{inputDayValue}}" bindinput="inputDayinput" bindfocus="inputDayfocus" bindblur="inputDayblur" placeholder="{{inputDayPlaceholder}}" type="text"></input>
+            <view style="margin-top: 63rpx;color: gray;" hidden="{{showDay}}">天</view>
+        </view>
+        <view class="showDayNum_box_line"></view>
+    </view>
+</view>
+<!-- 打卡截止时间弹窗 -->
+<view class="{{showDeadLine?'showDeadLine':'showDeadLine_close'}}">
+    <view class="{{showDeadLine?'showDeadLine_box':'showDeadLine_box_close'}}">
+        <view class="showDeadLine_box_title">
+            <view>打卡截止时间</view>
+        </view>
+        <radio-group bindchange="bindChangeRadio">
+          <view class="showDeadLine_box_check">
+            <radio style="margin:30rpx 0;" value="longtime" color="#7c66f5"></radio>
+            <view style="margin-top: 30rpx;margin-left: 30rpx;letter-spacing: 5rpx;">长期有效</view>
+          
+          </view>
+          <view style="background-color: rgb(231, 231, 231);width:100%;height: 1rpx;"></view>
+          <view class="showDeadLine_box_input">
+            <view class="showDeadLine_box_input_check">
+              <radio style="margin: 30rpx 0;" value="shorttime" color="#7c66f5"></radio>
+              <view style="margin-top: 30rpx;margin-left: 30rpx;letter-spacing: 3rpx;" >指定截止时间</view>
+            </view>
+            <input class="showDeadLine_box_input_input" bindinput="showDeadLineInput" disabled="{{showDeadLineDisabled}}" value="{{showDeadLineInput}}" placeholder="例:2022年05月20日" type="text" name="" id=""/>
+            <view class="showDeadLine_box_input_line"></view>
+          </view>
+        </radio-group>
+        <view class="showDeadLine_box_bottombox">
+          <view class="showDeadLine_box_bottombox_cancel" bindtap="tuiShowDeadLine">取消</view>
+          <view class="showDeadLine_box_bottombox_confirm" bindtap="confirmShowDeadLine">确定</view>
+        </view>
+    </view>
+</view>

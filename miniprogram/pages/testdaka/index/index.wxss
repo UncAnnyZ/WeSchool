@@ -1,6 +1,6 @@
 /* pages/testdaka/index/index.wxss */
 page {
-  background-color: #F4F4F4;
+  /* background-color: #F4F4F4; */
 }
 
 .date-string {
@@ -12,7 +12,8 @@ page {
 }
 
 .bg {
-  background-color: #F4F4F4;
+  /* background-color: #F4F4F4; */
+
   /* height: 100vh; */
   height: auto;
   /* height: 130vh; */
@@ -28,6 +29,7 @@ page {
   margin: 0rpx 30rpx 20rpx 30rpx;
   position: relative;
   top: 20rpx;
+  box-shadow: 0rpx 0rpx 40rpx 0.1rpx rgb(228, 228, 228);
 }
 
 .dayclock .dayclock_title {
@@ -745,6 +747,7 @@ page {
   z-index: 999;
   margin: 25rpx;
   transition: all .5s;
+  box-shadow: 0rpx 10rpx 20rpx 0.1rpx rgb(228, 228, 228);
 }
 
 .tabBar_ring {
@@ -758,6 +761,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* box-shadow: 0rpx 10rpx 20rpx 0.1rpx rgb(228, 228, 228); */
 }
 
 .icon {
@@ -786,8 +790,8 @@ page {
 }
 
 .icon_text_false {
-  transition: all .7s;
-  height: 0.5rpx;
+  transition: all .5s;
+  height: 0rpx;
   width: 2rpx;
   overflow: hidden;
   font-size: 1rpx;
@@ -799,7 +803,7 @@ page {
   padding-top: 10rpx;
   font-size: 20rpx;
   color: #7c66f5;
-  transition: all .7s;
+  transition: all .5s;
   text-align: center;
 }
 
@@ -1095,10 +1099,9 @@ wx-slider .wx-slider-handle-wrapper {
   transition: all .7s;
   font-size: 33rpx;
 }
-
 .topbar {
   color: black;
-  margin-left: 20rpx;
+  margin-left: 38rpx;
   font-size: 25rpx;
   transition: all .7s;
 }
@@ -1245,6 +1248,7 @@ wx-slider .wx-slider-handle-wrapper {
   margin-top: 39rpx;
 }
 .lablegroup_scrollview_data{
+  box-shadow: 0rpx 10rpx 30rpx 0.1rpx rgb(228, 228, 228);
   margin-top: 2rpx;
   margin-left: 41rpx;
   height: 190rpx;
@@ -1375,6 +1379,7 @@ wx-slider .wx-slider-handle-wrapper {
   font-size: 15rpx;
   color: rgb(56, 56, 56);
 }
+/* 弹窗 */
 .showgroup_close{
   overflow: hidden;
   height: 10rpx;
@@ -1414,12 +1419,12 @@ wx-slider .wx-slider-handle-wrapper {
   position: absolute;
   bottom: 0;
   width: 100vw;
-  height: 700rpx;
+  height: 770rpx;
   background: white;
   border-radius: 20rpx 20rpx 0 0;
   display: flex;
   flex-direction: column;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .showgroup_box_title{
   /* background: pink; */
@@ -1462,10 +1467,46 @@ wx-slider .wx-slider-handle-wrapper {
 }
 .showgroup_box_userimage{
   /* background: blue; */
-  height: 300rpx;
-  width: 100%;
+  height: 320rpx;
+  width: 92%;  
   font-size: 25rpx;
   padding: 10rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.showgroup_box_userimage_box{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 95%; 
+  flex-wrap: wrap;
+  align-content: flex-start;
+  /* position: absolute;  */
+}
+.showgroup_box_userimage_groupMember{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-top: 20rpx;
+  margin-right: 15rpx;
+}
+.showgroup_box_userimage_groupMember_image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.showgroup_box_userimage_add{
+
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-top: 15rpx;
+  /* margin-left: 10rpx; */
+}
+.showgroup_box_userimage_add_image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
 }
 .showgroup_box_turninto{
   /* background: pink; */
@@ -1488,157 +1529,105 @@ wx-slider .wx-slider-handle-wrapper {
 .self_wrap {
   padding: 24rpx;
 }
-.top_wrap {
+/* 我的小组css开始 */
+.inputBox{
+  width: 680rpx;
+  height: 75rpx;
+  border-radius: 10rpx;
+  background: rgba(233, 233, 233, 0.507);
+  margin: 0 auto; 
+  margin-top: 6rpx;
+}
+.Group{
+  width: 100vw;
+  height: auto;
   display: flex;
   flex-direction: row;
-  margin-top: 24rpx;
-  padding: 12rpx;
+  flex-wrap: wrap;
 }
-
-.left {
-  display: flex;
-  flex-direction: row;
-  flex: 4;
-  background-color: white;
-  padding: 12rpx;
-  border-radius: 12rpx;
-}
-
-.img {
-
-}
-
-.img image {
-  height: 80rpx;
-  width: 80rpx;
-  border-radius: 50%;
-}
-
-.content {
+.myGroup{
+  width: 320rpx;
+  height: 403rpx;
+  background: rgba(233, 233, 233, 0.507);
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-left: 39.5rpx;
+  margin-top: 36rpx;
   display: flex;
   flex-direction: column;
-  padding-left: 24rpx;
 }
-
-.team_name {
-  font-weight: 700;
+.myGroup_image{
+  width: 100%;
+  height: 293rpx;
 }
-
-.my_team {
-  padding-top: 12rpx;
-  color: #666666;
+.myGroup_groupName{
+  margin: 13rpx;
+  margin-bottom: 0rpx;
+  letter-spacing: 2rpx;
+  font-size: 28rpx;
+  margin-top: 15rpx;
 }
-
-.right {
-  flex: 1;
-  background-color: white;
-  margin-left: 12rpx;
-  border-radius: 12rpx;
-  text-align: center;
+.myGroup_groupUser{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  display: flex;
+  padding-top: 3rpx;
 }
-
-.right image {
-  padding-left: 24rpx;
-  height: 80rpx;
-  width: 80rpx;
+.myGroup_groupUser_name{
+  padding: 13rpx;
+  font-size: 23rpx;
+  width: 79%;
+  color: rgb(117, 117, 117);
 }
-
-.title {
-  padding: 24rpx;
-  font-weight: 700;
+.myGroup_groupUser_url{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%; 
 }
-
-.rowScroll {
-  background-color: white;
-  padding: 24rpx;
-  margin: 24rpx;
-  border-radius: 12rpx;
-  display: flex;
-  flex-direction: column;
-}
-
-.row_top {
-  /* background-color: rebeccapurple; */
+.creatGroup{
+  width: 320rpx;
+  height: 403rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-left: 39.5rpx;
+  margin-top: 36rpx;
   display: flex;
   flex-direction: column;
-  flex: 4;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; 
+  box-shadow: inset 0 0 40px 20px rgba(255, 255, 255,0.9);
+  background-image: linear-gradient(to right, #dfd5f8 25%, #d6d4f9 35% , #e1f0f5 75%, #e9e1f8 100%);
 }
-
-.row_title {
-  font-size: 36rpx;
-  font-weight: 700;
+.creatGroup_text{
+  width: 120rpx;
+  height: 25%;
+  font-size: 20rpx;
+  color: #a89bf3b9; 
 }
-
-.row_detail {
-  padding-top: 12rpx;
-}
-
-.row_bottom {
-  text-align: right;
-  flex: 1;
-  position: relative;
-  top: 50rpx;
-  right: 8rpx;
-}
-
-.row_bottom image {
-  height: 80rpx;
-  width: 80rpx;
-}
-
-.scroll_tip {
-  background-color: white;
-  margin: 12rpx 12rpx 12rpx 24rpx;
-  text-align: center;
-  border-radius: 12rpx;
-}
-.tip_content{
-  line-height: 50rpx;
-  margin-top: 25rpx;
-  font-size: 34rpx;
-}
-.list_wrap{
+.creatGroup_buttom{
+  width: 195rpx;
+  height: 58rpx;
+  border-radius: 30rpx;
+  background: #7c66f5;
+  margin-top: 60rpx;
   display: flex;
   flex-direction: row;
-  padding: 24rpx;
-  background-color: white;
-  margin: 24rpx;
-  border-radius: 12rpx;
-  height: 100rpx;
+  align-items: center;
+  justify-content: center;
 }
-.list_left{
-  display: flex;
-  flex-direction: column;
-  flex: 3;
-}
-.left_top{
-  font-size: 34rpx;
-  font-weight: 700;
-}
-.left_time{
-  font-size: 22rpx;
-  color: #666666;
-  padding-top: 20rpx;
+.creatGroup_buttom >image{
 
 }
-.list_right{}
-.right_top{
-  text-align: right;
-}
-.right_top image{
-  height: 40rpx;
-  width: 40rpx;
-}
-.right_tip{
-  background-color: #b2edf1;
+.creatGroup_buttom >view{
+  font-size: 23rpx;
+  line-height: 58rpx;
   color: white;
-  padding: 12rpx;
-  border-radius: 12rpx;
-  font-size: 24rpx;
-  margin-top: 8rpx;
+  letter-spacing: 2rpx;
 }
+/* 我的小组css结束 */
 @keyframes add_show {
     0% {
         opacity: 0;

@@ -11,7 +11,9 @@ def achievement(session):
 
         currentYear = datetime.now().year
         # print(type(currentYear))
+        print(currentYear)
         max = (currentYear - 2017) * 2
+        print(max)
         threads = []
         for i in range(1, max):
             threads.append(threading.Thread(target=get_achievement, args=(session, i,achievements)))
@@ -25,7 +27,7 @@ def achievement(session):
         return achievements
 
 
-def get_achievement(session, i,achievements):
+def get_achievement(session, i, achievements):
     time = {
         1: "2017-2018-1",
         2: "2018-2019-1",

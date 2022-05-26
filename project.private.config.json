@@ -173,6 +173,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "我的小组页",
+          "pathName": "pages/testdaka/myGroup/myGroup",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "打卡挑战",
+          "pathName": "pages/testdaka/dakaChallenge/dakaChallenge",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "打卡挑战报名",
+          "pathName": "pages/testdaka/applyChallenge/applyChallenge",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

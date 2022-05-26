@@ -1,0 +1,48 @@
+<view class="imageBg">
+  <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
+  <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;"> 
+    <image style="width: 43rpx;height: 43rpx;margin-left: 20rpx;" bindtap="back" src="./images/back.png"></image>
+    <image style="width: 39rpx;height: 43rpx;margin-left: 289rpx;" src="./images/rank.png"></image>
+    <image style="width: 39rpx;height: 43rpx;margin-left: 33rpx;" src="./images/shousuo.png"></image>
+    <image style="width: 43rpx;height: 43rpx;margin-left: 33rpx;transform: rotate(180deg);" src="./images/more.png"></image>
+  </view>
+  <view class="userUrl">
+    <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image>
+  </view>
+</view>
+<view class="textBox">
+  <view class="textBox_title">
+    <view class="textBox_title_left">我的吃喝记录</view>
+    <view class="textBox_title_right">分享</view>
+  </view>
+  <view class="textBox_tag"></view>
+  <view class="textBox_daka">
+    <view class="textBox_daka_daka">
+      <image class="textBox_daka_daka_left" src="./images/daka.png"></image>
+      <view class="textBox_daka_daka_center">打卡挑战</view>
+      <view class="textBox_daka_daka_right">去打卡</view>
+    </view>
+  </view>
+  <view class="textBox_post" wx:for="{{10}}">
+    <view class="textBox_post_topBox">
+      <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
+      <view class="textBox_post_topBox_userInfo">
+        <view class="textBox_post_topBox_userInfo_name">
+          <view class="textBox_post_topBox_userInfo_name_name">Start from*</view>
+          <view class="textBox_post_topBox_userInfo_name_title">星主</view>
+        </view>
+        <view class="textBox_post_topBox_userInfo_time">13小时前</view>
+      </view>
+      <view class="textBox_post_topBox_right"><view></view></view>
+    </view>
+    <view class="textBox_post_textBox">打卡挑战</view>
+    <view class="textBox_post_bottomBox">
+      <image class="textBox_post_bottomBox_left" src="./images/zan.png"></image>
+      <image class="textBox_post_bottomBox_center" src="./images/huifu.png"></image>
+      <image class="textBox_post_bottomBox_right" src="./images/zhuanfa.png"></image>
+    </view> 
+    <view class="textBox_post_line"><view></view></view>
+  </view>
+  <view style="width: 100vw;height: auto;padding: 30rpx 0;text-align: center;letter-spacing: 2rpx;font-size: small;color: #b3b3b3;">没有更多内容</view>
+</view>
+<view class="addText" bindtap="addPost"><image src="./images/xie.png"></image></view>

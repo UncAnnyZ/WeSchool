@@ -1,0 +1,17 @@
+    <view style="height: {{statusBarHeight}}px;width: 100vw;"></view>
+    <view style="height: {{lineHeight}}px;width: 100vw;display: flex;align-items: center;">
+      <view bindtap="cancel" style="width: 38rpx;height: 38rpx;border-radius: 50%;background-color: rgba(255, 255, 255, 0.548);display: flex;align-items: center;justify-content: center;margin-left: 37rpx;"><view style="color: white;font-size: 23rpx;line-height: 25rpx;">x</view></view>
+    </view>
+    <view class="topBox">
+      <image class="topBox_image" src="../images/rili.png"></image>
+      <view class="topBox_day">{{dayRequire}}天打卡挑战</view>
+    </view>
+    <view class="centerBox">
+      <view class="centerBox_title">{{title}}</view>
+      <view class="centerBox_tap">
+        <view class="centerBox_tap_leftBox"></view>
+        <view class="centerBox_tap_rightBox">打卡规则</view>
+      </view>
+      <textarea class="centerBox_textarea" disabled="true" value="{{guide}}"></textarea>
+    </view>
+    <view class="bottomBox" bindtap="confirm">我已准备好</view>

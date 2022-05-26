@@ -16,17 +16,18 @@ def login_NL(username, password):
             "code":"707"
         }
 
-def getData_NL(username, password,other):
+
+def getData_NL(username, password, other):
     try:
         session = requests.session()
         msg = login(session, username, password)
         if msg != {"msg": 'welcome'}:
             return msg
-    except Exception as e :
+    except Exception as e:
         return {
             "msg": "登录失败,请找管理员",
             "error": str(e),
             "code": "707"
         }
-    return data(session,password, username,msg,other)
+    return data(session, password, username, msg, other)
 
