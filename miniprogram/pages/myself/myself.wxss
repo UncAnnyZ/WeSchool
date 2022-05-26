@@ -64,8 +64,8 @@
   z-index:1
 }
 .header-right-img{
-  width: 42rpx;
-  height: 42rpx;
+  width: 40rpx;
+  height: 40rpx;
   display: flex;
   align-items: center;
   padding:0rpx 20rpx;
@@ -272,6 +272,7 @@ z-index:200
   font-weight:800;
   margin-bottom:10rpx;
   font-size:29rpx;
+  text-align:center;
 
 }
 .block>view:nth-child(2){
@@ -281,6 +282,7 @@ z-index:200
 
 }
 .block{
+  min-width:48rpx;
   margin:0 auto;
   color:rgba(51,51,51);
 
