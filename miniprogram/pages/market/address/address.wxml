@@ -1,40 +1,83 @@
-<!--pages/market/address/address.wxml-->
-<view class="cu-bar bg-white solid-bottom" >
-  <view class='action'  style="margin-right: 75%">
-    <text  class='cuIcon-titles text-green '>地址设置</text> 
+
+<!-- 地址信息 -->
+<view class="container">
+  <view class="allContent">
+    <view bindtap="location" wx:if="{{userinfo.havelocation}}">
+      <view class="locateInformation">
+        <view class="addressLabel">学校</view>
+        <view>{{userinfo.userlocation.school}}-{{userinfo.userlocation.location}}-{{userinfo.userlocation.sushehao}}</view>
+      </view>
+      <view class="userInformation">{{userinfo.userlocation.name}} 女士 {{userinfo.userlocation.tell}}</view>
+    </view>
+    <view bindtap="location" wx:else>
+			<view class="addAddress">点击添加地址</view>
+		</view>
+    <view>
+    </view>
+    <view class="deliveryTips">为减少接触，降低风险，推荐使用无接触配送</view>
+    <view class="deliveryTime">
+      <view class="sendOutTime">
+        <view class="sendOut">预约情况</view>
+        <!-- <view class="time" style="color:#ff9429;">17:32-17:47送达</view> -->
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}" style="color:#ff9429;">
+          <view class="picker">
+            {{picker[index]}}
+          </view>
+        </picker>
+      </view>
+      <view class="timeTips">因订单距离较远，路程不确定因素多，送达时间可能波动</view>
+    </view>
+  </view>
+  <view class="productContent">
+    <view class="businessName">
+      <view>{{shop.name}}</view>
+      <view class="dedicatedIcon">美团专送</view>
+    </view>
+    <view class="productDetails" wx:for="{{buy.buy}}">
+      <view class="productImg">
+        <image mode="aspectFill" src="{{item.img}}"/>
+      </view>
+      <view class="detailContent">
+        <view class="productTitle">
+          <view class="productName">{{item.name}}</view>
+          <view class="productPrice">￥{{item.nowprice}}</view>
+        </view>
+        <view class="productSpecifications">600毫升+正常冰+正常糖+柠香</view>
+        <view class="productNumber">x{{item.number}}</view>
+      </view>
+    </view>
+    <view class="deliveryFee">
+      <view>配送费</view>
+      <view class="fee">￥0.9</view>
+    </view>
+    <view class="deliveryFeeActivity">活动减3元配送费</view>
+    <view class="productDiscounts">
+      <view class="discountsTitle">商家优惠</view>
+      <view class="discountsDetail">暂无优惠</view>
+    </view>
+    <view class="totalPrice">
+      <view>优惠规则</view>
+      <view class="subtotal">
+        <view>小计</view> 
+        <view class="subtotalNumber">￥{{buy.totalprice}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="remarkers">
+    <view class="remarkersTitle">备注</view>
+    <textarea class="remarkersInput" bindinput="remarks" maxlength="-1" placeholder="请备注忌口、需求"></textarea>
   </view>
 </view>
-
-<form catchsubmit="formSubmit" catchreset="formReset">
-  <view class="cu-form-group">
-    <view class="title">学校宿舍楼</view>
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-      <view class="picker">
-        当前选择：{{multiArray[0][this.data.multiIndex[0]]}}，{{multiArray[1][this.data.multiIndex[1]]}}
-      </view>
-    </picker>
+<view class="settle">
+  <view class="settleAll" bindtap="showModal">
+    <view class="settlePrice">
+      <view class="settlePriceNumber">￥{{buy.totalprice}}</view>
+      <!-- <view class="settleDiscounds">已优惠1元</view> -->
+    </view>
+    <view class="goSettle" bindtap="newpay">
+    提交订单
+    </view>
   </view>
-  <!-- <view class="cu-form-group">
-			<view class="title">宿舍楼</view>
-			<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-				<view class="picker">
-					{{pickername!=''?pickername:'点击选择'}}
-				</view>
-			</picker>
-		</view> -->
-  <view class="cu-form-group">
-    <view class="title">宿舍号</view>
-    <input name="sushehao"  placeholder="宿舍号()"></input>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">联系人</view>
-    <input name="name"  placeholder="请输入联系人姓名"></input>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">手机号</view>
-    <input name="tell" type="number" placeholder="求输入联系人手机号"></input>
-  </view>
-  <view class="padding flex flex-direction" >
-    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg" style="width: 400rpx; height: 100rpx;">保存地址</button>
-  </view>
-</form>
+</view>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- <button  bindtap="testpay" class="cu-btn bg-green margin-tb-sm lg">免支付</button> -->

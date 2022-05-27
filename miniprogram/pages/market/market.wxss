@@ -11,7 +11,6 @@ page{
   background-color: rgb(255, 255, 255);
   height: 310rpx;
   width: 100%;
-  margin-top: 50rpx;
   border-top-left-radius: 40rpx;
   border-top-right-radius: 40rpx;
   display: flex;
@@ -62,6 +61,18 @@ page{
   color: #656565b8;
   font-size: 25rpx;
 }
+.labelControl{
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  height: 72rpx;
+  width: 100%;
+  position: sticky;
+  background-color: white;
+  top: 0rpx;
+  z-index: 3;
+  border-bottom: 2rpx solid #94949438;
+}
 .business_1,
 .comment_1,
 .order_1{
@@ -76,6 +87,13 @@ page{
   display: flex;
   align-self: flex-end;
   margin:0rpx 0rpx 4rpx 10rpx;
+}
+.labelControlLine{
+  background-color: #FFD633;
+  height: 4rpx;
+  position: absolute;
+  bottom: 0;
+  transition: left .4s;
 }
 .rotation{
   background-color: white;
@@ -350,6 +368,42 @@ page{
   white-space: nowrap;
 }
 
+.showOrder{
+  height: 71rpx;
+  width: 110rpx;
+  position: fixed;
+  top: 70%;
+  right: 0rpx;
+  border-bottom-left-radius: 40rpx;
+  border-top-left-radius: 40rpx;
+  box-shadow: -2px 0px 4px #dcdcdc73;
+  background-color: white;
+  overflow: hidden;
+}
+.orderNums{
+  width: 63%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffd50745;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orderIcon{
+  position: absolute;
+  top: 0rpx;
+  color:red;
+  height: 20rpx;
+  width: auto;
+  right: 42rpx;
+  font-size: 19rpx;
+  letter-spacing: -1rpx;
+}
+.orderNums image{
+  width: 60%;
+  height: 60%;
+}
 .settle{
   position:fixed;
   bottom:0;

@@ -286,6 +286,7 @@ z-index:200
   font-weight:800;
   margin-bottom:10rpx;
   font-size:29rpx;
+  text-align:center;
 
 }
 .block>view:nth-child(2){
@@ -295,6 +296,7 @@ z-index:200
 
 }
 .block{
+  min-width:48rpx;
   margin:0 auto;
   color:rgba(51,51,51);
 

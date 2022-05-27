@@ -1,35 +1,41 @@
+
+<!-- 地址信息 -->
 <view class="container">
-  <text class="top">大学物理实验数据计算器</text>
-  <view class="title">
-    <view class="title-text">原始数据</view>
-    <view class="title-data">
-      <input class="title-data-input"  bindinput="input" placeholder="数据之间以空格分隔如(3.02 2.99 2.8) " />
-      <view class="title-data-submit" bindtap="submit"><image class="title-data-submit-submit" src="./images/computer.png"></image></view>
-    </view>
-
-      <view class="title-choose">
-        <picker mode = "selector" range="{{multiArray}}" value="{{multiIndex}}" bindchange="bindMultiPickerChange">
-          <view class="title-choose-text"><text >{{instrument_name}}</text><image class="title-choose-image" src="./images/down.png"></image></view>
-      </picker>
-        <view wx:if='{{show=="choose"}}' class="title-choose-inch">
-          <picker mode = "selector" range="{{calibration}}" value="{{calibrationIndex}}" bindchange="bindpickerchange">
-          <view class="title-choose-text"><text >{{calibrationItem}}</text><image class="title-choose-image" src="./images/down.png"></image></view>
-          </picker>
+  <view class="labelControl">
+    <view class="showAllOrders" id="showAllOrders" bindtap="showAllOrders" style="font-weight: {{showAllOrdersHeight}};">全部订单</view>
+    <view class="unpaid" id="unpaid" bindtap="unpaid" style="font-weight: {{unpaidHeight}};">待付款</view>
+    <view class="paid" id="paid" bindtap="paid" style="font-weight: {{paidHeight}};">已付款</view>
+    <view class="labelControlLine" style="width:{{widthLength}}px;left:{{leftLength}}px;"></view>
+  </view>
+  <swiper bindchange="bindchange" style="height: 100%;width: 94%;" current="{{navState}}" bindchange="swiperChange">
+  <swiper-item>
+  <view style="width: 94%;display: flex;flex-direction: column;padding: 10rpx 0rpx 20rpx 0rpx;">
+    <view style="background-color: white;width: 100%;display: flex;flex-direction: column;border-radius: 15rpx;color: black;margin-top: 15rpx;padding:20rpx;" wx:for="{{allOrders}}">
+      <view style="font-weight: 550;color: black;display: flex;flex-direction: row;align-items: center;padding: 5rpx 0rpx;border-bottom: 1rpx solid #94949438;padding-bottom: 20rpx;">
+        <view>{{item.buy[0].shangpu}}</view>
+        <view style="margin-left: auto;font-weight: 400;font-size: 24rpx;" wx:if="{{item.paymentStatus}}">已付款</view>
+        <view style="margin-left: auto;color: red;font-weight: 400;font-size: 24rpx;" wx:else>待付款</view>
+      </view>
+      <view style="display: flex;flex-direction: row;width: 100%;" wx:for="{{item.buy}}">
+        <view style="width: 160rpx;display: flex;flex-direction: column;margin:15rpx 15rpx 0rpx 0rpx;">
+          <view style="height: 108rpx;background-color: #e4e4e457;border-radius: 12rpx;overflow: hidden;">
+            <image src="{{item.img}}" mode="aspectFill" style="height: 100%;width: 100%;"/>
+          </view>
+          <view style="font-size: 20rpx;color: #464646de;margin:5rpx 0rpx 0rpx 5rpx;">
+          {{item.name}}
+          </view>
         </view>
-        <view wx:if="{{show=='input'}}" class="title-choose-input">
-          <input  style="padding-left:10rpx" placeholder="请输入仪器误差" value="{{other_err}}" bindinput="err_input"/>
+      </view>
+      <view style="display: flex;flex-direction: row;height: 40rpx;width: 100%;font-size: 24rpx;color: #464646de;margin:20rpx 0rpx 0rpx 5rpx;align-items: center;">
+        <view>
+        下单时间： {{item.orderTime}}
         </view>
-
+        <view style="margin-left: auto;display: flex;flex-direction: row;margin-right: 5rpx;align-items: center;">
+        合计 <view style="font-weight: 500;font-size: 31rpx;color: black;"> ￥{{item.totalPrice}}</view>
+        </view>
+      </view>
     </view>
   </view>
-  <view class="body" >
-    <view class="body-describe"   wx:for="{{data_show}}">
-      <!-- <view>{{item}}</view> -->
-      <text class="body-describe-text" >{{item.name}}:</text>
-      <view class="body-describe-data">{{item.res}}</view>
-    </view>
-  </view> 
+  </swiper-item>
 </view>
-<view class="end">
-  <view class="end-text" bindtap="Check">查看公式</view>
-</view>
+

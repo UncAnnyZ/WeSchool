@@ -106,7 +106,7 @@ Page({
       },
 
       {question:"自我描述",describe:"请输入自我描述(限定100字内)",state:4,qus:"introduce"},
-      {question:"请输入你的微信号",describe:"此信息只用于给匹配对象展示",state:4,qus:"weixin_id"},
+      {question:"请输入你的联系方式",describe:"请输入你的联系方式（手机号或微信号，此信息只用于给匹配对象展示）",state:4,qus:"weixin_id"},
 
     ],
     input_content:"", //输入

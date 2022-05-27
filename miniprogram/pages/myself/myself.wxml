@@ -61,7 +61,7 @@
     
     <view style="height: 58rpx;width: 100%;" class="Tab">
       <weimob-sticky scrollTop="{{scrollTop+30}}" offsetTop="{{offsetTop+9}}">
-        <view style="background-color: rgba(234,245,245,1);">
+        <view style="background-color: rgba(234,242,244,1);">
           <TabScroll style="z-index: 3;position: relative;left:25rpx;background-color:rgba(245,245,245,1);oapcity:0.1" type="我的页面标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"></TabScroll>
         </view>
       </weimob-sticky>

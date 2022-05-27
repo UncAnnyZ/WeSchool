@@ -1,84 +1,83 @@
-<view class="bg-red flex justify-center">
-	<view class="action">
-		<text wx:if="{{userinfo.userlocation.school==sf}}">有问题联系电话:xxxxx！</text>
-	</view>
-</view>
-<!-- 地址信息 -->
-<view class="cu-card article">
-	<view class="cu-item shadow" style="margin:30rpx 30rpx 0 30rpx" bindtap="location">
-		<view wx:if="{{userinfo.havelocation}}">
-			<view class="title">
-				<view class="text-cut text-xl text-black text-bold">
-					{{userinfo.userlocation.school}}-{{userinfo.userlocation.location}}-{{userinfo.userlocation.sushehao}}</view>
-			</view>
-			<view class="title" style="font-weight:10;line-height:30rpx">
-				<view class="text-cut">{{userinfo.userlocation.name}}-{{userinfo.userlocation.tell}}</view>
-			</view>
-		</view>
-		<view wx:else>
-			<view class="title">
-				<view class="text-cut text-xl text-black text-bold text-blue">点击添加地址</view>
-			</view>
-		</view>
-	</view>
-</view>
-<!-- 商品信息 -->
-<view class="cu-card article">
-	<view class="cu-item shadow" style="margin:10rpx 30rpx;padding-bottom:0">
-		<view class="title">
-			<view class="text-cut text text-black">{{shop.name}}</view>
-		</view>
-		<view wx:for="{{buy.buy}}">
-			<view class="padding-xs flex align-center">
-				<image class="cu-avatar radius lg" src="{{item.img}}" style="width: 130rpx;height: 130rpx;left: 20rpx;"></image>
-				<view class="flex-sub" style="padding-left: 30rpx;">
-					<view class=" text-xl">
-						<text class="text-black text-bold">{{item.name}}</text>
-					</view>
-					<view style="font-size: 30rpx;">￥{{item.nowprice}}X{{item.number}}</view>
-				</view>
-				<view class="cu-avatar radius lg" style="width: 130rpx;height: 130rpx;background-color:white">
-					<text style="color:black;font-size:40rpx"></text>
-				</view>
-			</view>
-		</view>
-		<view class="flex title justify-end solids-top" style="font-weight:10">
-			<view class="text-cut text-xxl">
-				<text class="text-red text-bold">￥{{buy.totalprice}}</text>
-			</view>
-		</view>
-	</view>
-</view>
-<view class="cu-card article">
-	<view class="cu-item shadow" style="margin:10rpx 30rpx;padding-bottom:0">
-		<view class="cu-form-group">
-			<view>预约情况</view>
-			<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-				<view class="picker">
-					{{picker[index]}}
-				</view>
-			</picker>
-		</view>
-	</view>
-</view>
-<view class="cu-card article">
-	<view class="shadow" style="margin:10rpx 60rpx;padding-bottom:0">
-		<text decode="true">注：上午11点之后不可预约今天中午，\n&emsp;&emsp;下午17点之后不可预约今天晚上\n</text><text decode="true" wx:if="{{userinfo.userlocation.school==sf}}">师范:\n&emsp;&emsp;周一到周五中午东门自取\n&emsp;&emsp;周五下午到周日送到宿舍！</text>
-	</view>
-</view>
-<!-- 备注 -->
-<view class="cu-card article">
-	<view class="cu-item shadow" style="margin:0rpx 30rpx 0 30rpx">
-		<view class="title">
-			<view class="text-cut text-xl text-black text-bold">备注</view>
-		</view>
-		<view class="cu-form-group">
-			<textarea bindinput="beizu" style="margin: 0rpx" maxlength="-1" placeholder="请备注忌口、需求"></textarea>
-		</view>
-	</view>
-</view>
 
-<view wx:if="{{allok}}" class="padding flex flex-direction">
-	<button bindtap="newpay" class="cu-btn bg-green margin-tb-sm lg">支付</button>
-	<!-- <button  bindtap="testpay" class="cu-btn bg-green margin-tb-sm lg">免支付</button> -->
+<!-- 地址信息 -->
+<view class="container">
+  <view class="allContent">
+    <view bindtap="location" wx:if="{{userinfo.havelocation}}">
+      <view class="locateInformation">
+        <view class="addressLabel">学校</view>
+        <view>{{userinfo.userlocation.school}}-{{userinfo.userlocation.location}}-{{userinfo.userlocation.sushehao}}</view>
+      </view>
+      <view class="userInformation">{{userinfo.userlocation.name}} 女士 {{userinfo.userlocation.tell}}</view>
+    </view>
+    <view bindtap="location" wx:else>
+			<view class="addAddress">点击添加地址</view>
+		</view>
+    <view>
+    </view>
+    <view class="deliveryTips">为减少接触，降低风险，推荐使用无接触配送</view>
+    <view class="deliveryTime">
+      <view class="sendOutTime">
+        <view class="sendOut">预约情况</view>
+        <!-- <view class="time" style="color:#ff9429;">17:32-17:47送达</view> -->
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}" style="color:#ff9429;">
+          <view class="picker">
+            {{picker[index]}}
+          </view>
+        </picker>
+      </view>
+      <view class="timeTips">因订单距离较远，路程不确定因素多，送达时间可能波动</view>
+    </view>
+  </view>
+  <view class="productContent">
+    <view class="businessName">
+      <view>{{shop.name}}</view>
+      <view class="dedicatedIcon">美团专送</view>
+    </view>
+    <view class="productDetails" wx:for="{{buy.buy}}">
+      <view class="productImg">
+        <image mode="aspectFill" src="{{item.img}}"/>
+      </view>
+      <view class="detailContent">
+        <view class="productTitle">
+          <view class="productName">{{item.name}}</view>
+          <view class="productPrice">￥{{item.nowprice}}</view>
+        </view>
+        <view class="productSpecifications">600毫升+正常冰+正常糖+柠香</view>
+        <view class="productNumber">x{{item.number}}</view>
+      </view>
+    </view>
+    <view class="deliveryFee">
+      <view>配送费</view>
+      <view class="fee">￥0.9</view>
+    </view>
+    <view class="deliveryFeeActivity">活动减3元配送费</view>
+    <view class="productDiscounts">
+      <view class="discountsTitle">商家优惠</view>
+      <view class="discountsDetail">暂无优惠</view>
+    </view>
+    <view class="totalPrice">
+      <view>优惠规则</view>
+      <view class="subtotal">
+        <view>小计</view> 
+        <view class="subtotalNumber">￥{{buy.totalprice}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="remarkers">
+    <view class="remarkersTitle">备注</view>
+    <textarea class="remarkersInput" bindinput="remarks" maxlength="-1" placeholder="请备注忌口、需求"></textarea>
+  </view>
 </view>
+<view class="settle">
+  <view class="settleAll" bindtap="showModal">
+    <view class="settlePrice">
+      <view class="settlePriceNumber">￥{{buy.totalprice}}</view>
+      <!-- <view class="settleDiscounds">已优惠1元</view> -->
+    </view>
+    <view class="goSettle" bindtap="newpay">
+    提交订单
+    </view>
+  </view>
+</view>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- <button  bindtap="testpay" class="cu-btn bg-green margin-tb-sm lg">免支付</button> -->
