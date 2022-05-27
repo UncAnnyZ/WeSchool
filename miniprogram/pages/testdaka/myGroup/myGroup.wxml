@@ -1,6 +1,6 @@
-<view class="imageBg">
+<view class="imageBg" style="background-image: url({{groupData.wxurl}});">
   <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
-  <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;"> 
+  <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;">
     <image style="width: 43rpx;height: 43rpx;margin-left: 20rpx;" bindtap="back" src="./images/back.png"></image>
     <image style="width: 39rpx;height: 43rpx;margin-left: 289rpx;" src="./images/rank.png"></image>
     <image style="width: 39rpx;height: 43rpx;margin-left: 33rpx;" src="./images/shousuo.png"></image>
@@ -13,7 +13,7 @@
 </view>
 <view class="textBox">
   <view class="textBox_title">
-    <view class="textBox_title_left">{{groupname}}</view>
+    <view class="textBox_title_left">{{groupData.groupName}}</view>
     <view class="textBox_title_right">分享</view>
   </view>
   <view class="textBox_tag"></view>

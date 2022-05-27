@@ -108,14 +108,55 @@ Page({
         {cardname:'卡片一'},{cardname:'卡片二'},{cardname:'卡片三'}
       ],
       myroomlist:[
-        {roomname:'四级必过',roomintroduce:'每天打卡一小时单词',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},
-        {roomname:'六级必过',roomintroduce:'每天打卡两篇阅读和50个单词',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334167.jpg?sign=78a5c6809e599ef778b87539c67a6ec6&t=1649941340'},
-        {roomname:'考研必上岸',roomintroduce:'必上岸，冲冲',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334167.jpg?sign=78a5c6809e599ef778b87539c67a6ec6&t=1649941340'}
+        // {roomname:'四级必过',roomintroduce:'每天打卡一小时单词',imageurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/tomato_daka/%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202204022334164.jpg?sign=620bbc816e83dea9b521e516814b7af2&t=1649941236'},
       ],
       showgroup:{},
       animationData: {},
-      showgroup:false
+      showgroup:false,
+      //我的小组数据渲染
+      myGroupArr:[
+        // {bgurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/%E5%BC%95%E5%AF%BC%E9%A1%B5%E5%9B%BE%E7%89%87/56d8e29adaff58e3d6700082f20728c.jpg?sign=bf77187b01bd0933542d057881f3b6dc&t=1652459417',groupName:'一个进化中的编程星球',wxname:'名字',wxurl:'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132',groupIntro:"介绍"}
+      ]
     },
+
+    getMyGroupArr(){
+      let args = wx.getStorageSync('args');
+      wx.cloud.callFunction({
+        name:"daka",
+        data:{
+          type:"getMyGroupByUserNum",
+          usernum:args.username,
+        }
+      }).then(res=>{
+        console.log(res.result);
+        let data = res.result.data;
+        let length = data.length;
+        let myGroup = [];
+        let myGroup1 = [];
+        for(let i = 0; i < length; i++){
+          let group = {
+            bgurl : data[i].bgurl,
+            groupName : data[i].group_name,
+            wxname : data[i].wxname,
+            wxurl  : data[i].wxurl,
+            groupIntro : data[i].groupIntro,
+            uuid : data[i].uuid
+          };
+          let group1 = {
+            roomname:data[i].group_name,
+            roomintroduce:data[i].groupIntro,
+            imageurl:data[i].bgurl,
+            uuid : data[i].uuid
+          }
+          myGroup.push(group);
+          myGroup1.push(group1);
+        }
+
+        this.setData({myGroupArr:myGroup});
+        this.setData({myroomlist:myGroup1});
+      })
+    },
+    
     //个人信息栏滑动方法
     // 弹出 - 设置页面
   seetingHandler: function (e) {
@@ -165,9 +206,13 @@ Page({
     moveFlagCurri = true; // 回复滑动事件
   },
     //自习室小组的js
-    myGroup(){
+    myGroup(e){
+      console.log(e);
+      let groupData = this.data.myGroupArr[e.currentTarget.dataset.index]
+      console.log(groupData);
+      var thisGroupData = JSON.stringify(groupData)
       wx.navigateTo({
-        url: '../myGroup/myGroup',
+        url: '../myGroup/myGroup?thisGroupData=' + thisGroupData,
       })
     },
     //创建小组
@@ -176,28 +221,81 @@ Page({
         url: '../createRoom/createRoom',
       })
     },
+
     //获取小组信息数据
-    getmember(){
-      wx.cloud.database().collection('daka_group_member_information').get().then(res =>{
-        // console.log(res);
-        this.setData({
-          memberarr:res.data
-        })
-        console.log(this.data.memberarr);
+    async getmember(){
+      //heng
+      let result = await wx.cloud.callFunction({
+        name:"daka",
+        data:{
+          type:"getmember"
+        }
+      });
+      console.log(result);
+      this.setData({
+        memberarr:result.result.data
       })
+      console.log(this.data.memberarr);
+//heng
+      let result1 = await wx.cloud.callFunction({
+        name:"daka",
+        data:{
+          type:"getmember",
+        }
+      })
+      let res = result1.result;
+      console.log(res);
+      this.setData({
+          memberarr:res.data
+      })
+      console.log(this.data.memberarr);
+      // wx.cloud.database().collection('daka_group_member_information').get().then(res =>{
+      //   // console.log(res);
+      //   this.setData({
+      //     memberarr:res.data
+      //   })
+      //   console.log(this.data.memberarr);
+      // })
     },
-    getgroupdata:function(){
+
+    async getgroupdata(){
       wx.showLoading({
         title: '加载中',
       })
       console.log("触发");
-      wx.cloud.database().collection('data_group_information').get().then(res =>{
-        console.log(res);
-        let a = res.data;
-        this.processingData(a);
-        this.getmember();
-        wx.hideLoading();
+//heng
+      let result = await wx.cloud.callFunction({
+        name:"daka",
+        data:{
+          type:"getgroupdata"
+        }
+      });
+      let res = result.result;
+      let a = res.data;
+      this.processingData(a);
+      this.getmember();
+      this.getMyGroupArr();
+      wx.hideLoading();
+//heng
+      let result1 = await wx.cloud.callFunction({
+        name:"daka",
+        data:{
+          type:"getgroupdata",
+        }
       })
+      let res1 = result1.result;
+      console.log(res1);
+      let b = res1.data;
+      this.processingData(b);
+      this.getmember();
+      wx.hideLoading();
+      // wx.cloud.database().collection('data_group_information').get().then(res =>{
+      //   console.log(res);
+      //   let a = res.data;
+      //   this.processingData(a);
+      //   this.getmember();
+      //   wx.hideLoading();
+      // })
     },
     processingData(a){
        var sum = []
@@ -253,7 +351,9 @@ Page({
         peo:groupMember.length,
         roomNum:this.data.room[roomindex].roomlist[roomlistindex].roomNum,
         uuid:this.data.room[roomindex].roomlist[roomlistindex].uuid,
-        groupMember:groupMember,        
+        groupMember:groupMember,    
+        bgurl:this.data.room[roomindex].roomlist[roomlistindex].imgUrl,
+        wxurl:this.data.room[roomindex].roomlist[roomlistindex].wxurl
       }
       console.log(showgroup);
       this.setData({
@@ -285,13 +385,22 @@ Page({
       })
       // var datalength = 0;
       console.log(uuid);
-      wx.cloud.database().collection('daka_group_member_information').where({uuid:uuid}).get()
-      .then(res =>{
+//heng
+      wx.cloud.callFunction({
+        name:"daka",
+        data:{
+          type:"getGroupMemberByUUID",
+          uuid:uuid
+        }
+      }).then(res =>{
+      // let res = result.result;
+      // wx.cloud.database().collection('daka_group_member_information').where({uuid:uuid}).get()
+      // .then(res =>{
         console.log(res);
-        var datalength = res.data.length
+        var datalength = res.result.data.length
         var isExist = false
-        for (let i = 0; i < res.data.length; i++) {
-          if(res.data[i].member_username == username){
+        for (let i = 0; i < res.result.data.length; i++) {
+          if(res.result.data[i].member_username == username){
             isExist = true
           }
         }
@@ -302,9 +411,15 @@ Page({
         console.log(datalength);
         console.log(isExist);
       }).then(res =>{
-        let isExist = this.data.isExist;
-        let datalength = this.data.datalength;
-        if (!isExist && datalength < roomNum) {
+        let bgurl = this.data.showgroup.bgurl
+        let wxname = this.data.showgroup.wxname
+        let wxurl =this.data.showgroup.wxurl
+        let groupIntro = this.data.showgroup.introduce
+        console.log(bgurl,wxname,wxurl,groupIntro);
+        let isExisted = this.data.isExist;
+        let datalength1 = this.data.datalength;
+        if (!isExisted && datalength1 < roomNum) {
+      //heng
           wx.cloud.database().collection('daka_group_member_information').add({
             data:{
               group_name:group_name,
@@ -315,6 +430,10 @@ Page({
               time_logs:[],
               totalTime:0,
               uuid,
+              bgurl:bgurl,
+              wxname:wxname,
+              wxurl:wxurl,
+              groupIntro:groupIntro
             }
           }).then(res =>{
             let data = {
@@ -355,7 +474,9 @@ Page({
             },
           })
         }
+        
       })
+      // })
 
     },
     // 卡片动画
@@ -515,10 +636,10 @@ Page({
           }
     },
     //动态画圆
-    drawActive: function() {
+    async drawActive() {
         let ctx2 = this.data.ctx2;
         var _this = this; //此this指向该页的page
-        var timer = setInterval(function() {
+        var timer = setInterval(async function() {
             var angle = 1.5 + 2 * (_this.data.time * 60 * 1000 - _this.data.mTime) / (_this.data.time * 60 * 1000);
             var currentTime = _this.data.mTime - 100;
             _this.setData({
@@ -559,7 +680,15 @@ Page({
                 
                 let storageInfo=_this.data.storageInfo
                 let username = String(storageInfo.username)
-                wx.cloud.database().collection("totaltime").where({username:username}).get().then(res=>{
+//heng
+                let result = await wx.cloud.callFunction({
+                  name:"daka",
+                  data:{
+                    type:"getTotalTime_ByUserName"
+                  }
+                });
+                let res = result.result;
+                // wx.cloud.database().collection("totaltime").where({username:username}).get().then(res=>{
                     let name = storageInfo.nickName
                     let touxiangurl = storageInfo.iconUrl
                     let len = res.data.length
@@ -594,7 +723,7 @@ Page({
                             console.log('添加成功')
                         })
                     }
-                })
+                  // })
                 _this.setData({
                     timeStr: '00:00',
                     okShow: true,
@@ -687,12 +816,20 @@ Page({
           url: '../text/text',
         })
     },
-    changeType: function(e) {
+    async changeType(e) {
             let username = wx.getStorageSync('args').username
-            wx.cloud.database().collection("totaltime").where({username:username}).get().then(res=>{
-                let logs = res.data[0].logs
+//heng
+            let result = await wx.cloud.callFunction({
+              name:"daka",
+              data:{
+                type:"getTotalTime_ByUserName"
+              }
+            });
+            let res = result.result;
+            // wx.cloud.database().collection("totaltime").where({username:username}).get().then(res=>{
+            let logs = res.data[0].logs
                 //console.log(this.data.list)
-            })
+            // })
     },
     res(res){
         console.log(res)
