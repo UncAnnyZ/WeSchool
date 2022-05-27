@@ -1,0 +1,22 @@
+<!-- 顶部 -->
+<view>
+  <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
+  <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;">
+    <view style="color: gray;font-size: 26rpx;position: absolute;left: 40rpx;" bindtap="cancel">取消</view>
+    <view style="font-size: 28rpx;margin: 0 auto;">{{groupname}}</view>
+  </view>
+  <view style="width: 100vw;height: 1rpx;border-bottom: 1rpx solid #e2e2e2;"></view>
+</view>
+<!-- 输入 -->
+<view><textarea maxlength="{{maxlength}}" show-confirm-bar="{{false}}" confirm-type="send" bindblur="inputblur" value="{{value}}" bindfocus="inputfocus" bindinput="inputText" class="ql-container" placeholder="点击此处说点什么..."></textarea></view>
+<!-- 工具栏-->
+<view class="toolbar" style="position: absolute;bottom: {{keyboardHight}}px;">
+    <!-- 字数显示和任务显示 -->
+    <view class="numberShow">
+        <view class="numberShow_text">({{cursor}}/{{maxlength}})</view>
+    </view>
+    <!-- 工具栏 -->
+    <view style="width: 100vw;height: {{toolbarHight}}rpx;display: flex;flex-direction: row;border-top: 1rpx solid #f0f0f0;align-items: center;">
+        <view class="toolbar_send" style="margin:0 auto;"  bindtap="send">发送</view>
+    </view>
+</view>

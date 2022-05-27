@@ -1,0 +1,25 @@
+<view class="Wish_Wall">
+    <view class="head">
+        <view class="head_btn">
+            <view class="btn_2">许愿墙</view>
+        </view>
+        <view class="btn_3" bindtap="want">我要许愿|还愿</view>
+        <view wx:if="{{click}}" class="apply">
+            <textarea class="input" placeholder="在这里写下愿望" cols="30" rows="10"></textarea>
+            <view class="apply_txt">通过审核后，将会随机进行展示</view>
+            <view class="btn_apply" bindtap="apply">许下愿望</view>
+            <view class="btn_cancel" bindtap="cancel">取消</view>
+        </view>
+    </view>
+    <view class="container">
+        <view class='top' wx:for="{{danmuList}}" wx:key="*this" style="top: {{item.top}}px; animation: dmAnimation2 {{item.time}}s linear 0.5s forwards; ">
+            <view class='dm'>
+                <view class="container_Like">
+                    <image wx:if="{{item.zan}}" class="like" src="../images/zan.png"></image>
+                    <image wx:else class="like" src="../images/zan1.png"></image>
+                </view>
+                <text class='content'>{{ item.text }}</text>
+            </view>
+        </view>
+    </view>
+</view>

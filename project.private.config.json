@@ -223,6 +223,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "发布打卡",
+          "pathName": "pages/testdaka/addDaka/addDaka",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -20,6 +20,11 @@ Page({
     isCompletePerNum:0,//完成打卡人数
     totaldegree:0//累计打卡次数
   },
+  gotoDaka(){
+    wx.navigateTo({
+      url: '../addDaka/addDaka',
+    })
+  },
   back(){
     wx.navigateBack({
       delta: 1,

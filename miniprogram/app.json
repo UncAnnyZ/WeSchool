@@ -18,7 +18,8 @@
     "pages/testdaka/allchallenge/allchallenge",
     "pages/testdaka/showPost/showPost",
     "pages/testdaka/groupSet/userSet/userSet",
-    "pages/testdaka/groupSet/leaderSet/leaderSet"
+    "pages/testdaka/groupSet/leaderSet/leaderSet",
+    "pages/testdaka/addDaka/addDaka"
   ],
   "subPackages": [
     {
