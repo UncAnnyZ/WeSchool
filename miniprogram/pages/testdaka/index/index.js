@@ -114,7 +114,11 @@ Page({
       ],
       showgroup:{},
       animationData: {},
-      showgroup:false
+      showgroup:false,
+      //我的小组数据渲染
+      myGroupArr:[
+        {bgurl:'https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/%E5%BC%95%E5%AF%BC%E9%A1%B5%E5%9B%BE%E7%89%87/56d8e29adaff58e3d6700082f20728c.jpg?sign=bf77187b01bd0933542d057881f3b6dc&t=1652459417',groupName:'一个进化中的编程星球',wxname:'名字',wxurl:'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132'}
+      ]
     },
     //个人信息栏滑动方法
     // 弹出 - 设置页面

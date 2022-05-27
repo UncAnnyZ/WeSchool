@@ -71,5 +71,5 @@
     <view class="textBox_post_line"><view></view></view>
 </view>
 <view style="width: 100vw;height: auto;padding: 30rpx 0;text-align: center;letter-spacing: 2rpx;font-size: small;color: #b3b3b3;">没有更多内容</view>
-<view class="senddaka">发打卡</view>
+<view class="senddaka" bindtap="gotoDaka">发打卡</view>
 </view>

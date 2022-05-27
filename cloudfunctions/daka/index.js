@@ -20,7 +20,7 @@ exports.main = async (event, context) => {
             return await getAllDakaRecord(event);
         case "updateIsDaka":
             return updateIsDaka(event);
-    }
+    } 
 }
 
 function save_dakaRecord(event){
