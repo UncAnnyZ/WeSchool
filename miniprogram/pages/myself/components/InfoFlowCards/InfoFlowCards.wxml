@@ -53,7 +53,7 @@
 
         <view class="card-end-detail">
           <image style="display:{{item.Label!='寻物发布'? '':'none'}};width:39rpx" data-index="{{idd}}" catchtap="star_tap" src="{{m1.getStar(item,character)}}"></image>
-          <image catchtap="Reply" data-index="{{idd}}" src="../../images/img/icon_comment.png"> </image>
+          <!-- <image catchtap="Reply" data-index="{{idd}}" src="../../images/img/icon_comment.png"> </image> -->
           <button style="padding:0rpx;margin-left:40rpx;margin-right:0rpx;height:40rpx;width:40rpx;position:relative;" size="mini" data-index="{{idd}}" open-type="share" data-type="{{currentTab}}" catchtap="share">
             <image class="share" src="../../images/img/icon_share.png"></image>
           </button>
