@@ -29,11 +29,34 @@ Page({
     //    //上传personalDynamic这个数据库的表的对应说说的comment，数组push
     let addcomment = {name:name,text:text,time:time,url:url,usernum:usernum,isleader:isleader}
   },
+  trimPostData(postData){
+    let post = {
+      wxname:postData.wxname,
+      wxurl:postData.wxurl,
+      usernum:postData.usernum,
+      text:postData.text,
+      sendtime:postData.sendtime,
+      mylike:postData.mylike,
+      likenum:postData.likenum,
+      groupuuid:postData.groupuuid,
+      comment:postData.comment,
+      challengename:postData.challengename,
+      challengeid:postData.challengeid,
+      _id:postData._id,
+      isleader:postData.isleader,
+      likename:postData.likename,
+    }
+    this.setData({
+      post
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var post = JSON.parse(options.thisPostData)
     let args = wx.getStorageSync('args');
+    this.trimPostData(post);
     this.setData({
         args,
         myname:args.nickName,

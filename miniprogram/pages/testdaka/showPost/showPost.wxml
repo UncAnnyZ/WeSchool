@@ -4,7 +4,7 @@
       <view class="textBox_post_topBox_userInfo">
         <view class="textBox_post_topBox_userInfo_name">
           <view class="textBox_post_topBox_userInfo_name_name">{{post.wxname}}</view>
-          <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{post.isleader}}">星主</view>
+          <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{post.isleader}}">组长</view>
         </view>
         <view class="textBox_post_topBox_userInfo_time">{{post.sendtime}}</view>
       </view>
@@ -29,7 +29,7 @@
       <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
       <view class="textBox_post_topBox_userInfo">
         <view class="textBox_post_topBox_userInfo_name">
-          <view class="textBox_post_topBox_userInfo_name_name">{{item.name}}</view>
+          <view class="textBox_post_topBox_userInfo_name_name" style="color:rgb(141, 141, 180);">{{item.name}}</view>
           <view class="textBox_post_topBox_userInfo_name_title" wx:if="{{item.isleader}}">组长</view>
         </view>
         <view class="textBox_post_topBox_userInfo_time">{{item.time}}</view>

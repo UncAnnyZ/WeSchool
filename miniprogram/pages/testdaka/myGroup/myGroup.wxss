@@ -13,11 +13,8 @@
   display: flex;
   position: absolute;
   align-items: center;
-  /* justify-content: center;  */
-  /* top: 120rpx; */
   left: 33rpx;
   margin-top: 120rpx;
-  /* margin-left: 33rpx;  */
   box-shadow: 0rpx 0rpx 3rpx 0.1rpx white;
 }
 .userUrl >image{
@@ -39,18 +36,15 @@
   height: 120rpx;
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
-  /* background: pink; */
 }
 .textBox_title_left{
-  /* background: yellow; */
   font-size: 33rpx;
   margin-left: 30rpx;
 }
 .textBox_title_right{
-  /* background: pink; */
-  margin-left: 410rpx;
+  position: absolute;
+  right: 30rpx;
   width: 90rpx;
   height: 45rpx;
   background: #eae6ff;

@@ -1,4 +1,4 @@
-<view class="imageBg" style="background-image: url({{groupData.wxurl}});">
+<view class="imageBg" style="background-image: url({{groupData.bgurl}});">
   <view style="height: {{statusBarHeight}}px;width: 100vw;position: sticky;top: 0;"></view>
   <view style="height: {{lineHeight}}px;width: 100vw;display: flex;flex-direction: row;align-items: center;position: sticky;top:{{statusBarHeight}}px;">
     <image style="width: 43rpx;height: 43rpx;margin-left: 20rpx;" bindtap="back" src="./images/back.png"></image>
@@ -24,7 +24,7 @@
       <view class="textBox_daka_daka_right">去打卡</view>
     </view>
   </view>
-  <view class="textBox_post" wx:for="{{postarr}}" bindtap="intoPost">
+  <view class="textBox_post" wx:for="{{postarr}}" data-index="{{index}}" bindtap="intoPost">
     <view class="textBox_post_topBox">
       <view class="textBox_post_topBox_userUrl"><image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132"></image></view>
       <view class="textBox_post_topBox_userInfo">
@@ -40,7 +40,7 @@
     <view class="textBox_post_bottomBox">
       <view style="display: flex;flex-direction: row;">
         <image class="textBox_post_bottomBox_left" src="{{item.mylike?'../showPost/image/yidianzan.png':'./images/zan.png'}}"></image>
-        <view style="margin-left: {{item.likenum == 0?0:10}}rpx;color:#efb336;">{{item.likenum == 0?'':item.likenum}}</view>
+        <view style="margin-left: {{item.likenum == 0?0:10}}rpx;color:{{item.mylike?'#efb336':''}};">{{item.likenum == 0?'':item.likenum}}</view>
       </view>
       <view style="display: flex;flex-direction: row;">
         <image class="textBox_post_bottomBox_center" src="./images/huifu.png"></image>

@@ -24,17 +24,46 @@ Page({
       data:{
         type:"getPostByGroupId",
         groupId:groupData.uuid,
-        // groupId:"JkSJEChwYs2bNGjRIkSJEiRo06dOHDB",
       }
     }).then(res=>{
-      console.log(res);
+      // console.log(res);
       let data = res.result.data;
+      let postarr = []
+      let usernum = this.data.groupData.groupUsername
+      for (let i = 0; i < data.length; i++) {
+        let sendtime =  "刚刚"
+        let isleader = usernum==data[i].usernum?true:false
+        // console.log(isleader);
+        let obj = {
+          wxname:data[i].wxname,
+          wxurl:data[i].wxurl,
+          text:data[i].text,
+          sendtime:sendtime,
+          mylike:data[i].mylike,
+          likenum:data[i].likenum,
+          likename:data[i].likename,
+          usernum:data[i].usernum,
+          groupuuid:data[i].groupuuid,
+          comment:data[i].comment,
+          challengename:data[i].challengename,
+          challengeid:data[i].challengeid,
+          _id:data[i]._id,
+          isleader:isleader,
+        }
+        postarr.push(obj)
+      }
+      this.setData({
+        postarr,
+      })
     })
   },
   
-  intoPost(){
+  intoPost(e){
+    console.log(e);
+    let postData = this.data.postarr[e.currentTarget.dataset.index]
+    var thisPostData= JSON.stringify(postData)
     wx.navigateTo({
-      url: '../showPost/showPost',
+      url: '../showPost/showPost?thisPostData=' + thisPostData,
     })
   },
   abc(){
@@ -62,10 +91,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
+    // console.log(options);
     let args = wx.getStorageSync('args');
     var groupData = JSON.parse(options.thisGroupData)
-    console.log(groupData);
+    // console.log(groupData);
     this.setData({
         args,
         myname:args.nickName,

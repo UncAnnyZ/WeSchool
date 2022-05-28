@@ -160,6 +160,11 @@ Page({
                         filePath: this.data.aimgurl[0], //要上传的图片/文件路径 这里使用的是选择图片返回的临时地址
                         success: res => {
                             let imgUrl = res.fileID
+                            wx.cloud.getTempFileURL({
+                              fileList: [imgUrl],
+                              success: res => {
+                                console.log("获取url地址：",res.fileList[0].tempFileURL);
+                                let imghttpUrl = res.fileList[0].tempFileURL
                             db.collection("daka_group_member_information").add({
                                 data: {
                                   group_name: this.data.roomName,
@@ -169,6 +174,10 @@ Page({
                                   task:[],
                                   time_logs:[],
                                   totalTime:0,
+                                  bgurl:imghttpUrl,
+                                  groupIntro:this.data.roomBrief,
+                                  wxname:this.data.args.nickName,
+                                  wxurl:this.data.args.iconUrl,
                                   uuid,
                                 }
                             })
@@ -181,7 +190,7 @@ Page({
                                     uuid,
                                     wxname: this.data.args.nickName,
                                     wxurl: this.data.args.iconUrl,
-                                    imgUrl,
+                                    imgUrl:imghttpUrl,
                                     roomNum:Number(this.data.roomNum),
                                     qxbq:this.data.qxbq,
                                     creattime:new Date(),
@@ -202,7 +211,10 @@ Page({
                                     },
                                 });
                             })
-                        }
+                          },
+                          fail: console.error
+                        })
+                      }
                     })
 
                 },

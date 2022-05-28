@@ -1,9 +1,5 @@
 {
   "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
   "setting": {
     "urlCheck": true,
     "scopeDataCheck": false,
@@ -18,12 +14,10 @@
     "newFeature": false,
     "uglifyFileName": false,
     "uploadWithSourceMap": true,
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "nodeModules": false,
     "enhance": true,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "showShadowRootInWxmlPanel": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -42,9 +36,6 @@
     "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.22.0",
-  "appid": "wxf84451020f439de9",
-  "projectname": "WeSchool%20-%20%E5%89%AF%E6%9C%AC%20(2)",
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
@@ -102,5 +93,11 @@
         }
       ]
     }
-  }
+  },
+  "libVersion": "2.24.2",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "appid": "wxf84451020f439de9"
 }

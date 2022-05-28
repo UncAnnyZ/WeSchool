@@ -140,13 +140,15 @@ Page({
             wxname : data[i].wxname,
             wxurl  : data[i].wxurl,
             groupIntro : data[i].groupIntro,
-            uuid : data[i].uuid
+            uuid : data[i].uuid,
+            groupUsername:data[i].groupUsername
           };
           let group1 = {
             roomname:data[i].group_name,
             roomintroduce:data[i].groupIntro,
             imageurl:data[i].bgurl,
-            uuid : data[i].uuid
+            uuid : data[i].uuid,
+            groupUsername:data[i].groupUsername
           }
           myGroup.push(group);
           myGroup1.push(group1);
@@ -344,6 +346,7 @@ Page({
           }
         }
       }
+      console.log(this.data.room[roomindex].roomlist[roomlistindex]);
       let showgroup = {
         wxname:this.data.room[roomindex].roomlist[roomlistindex].wxname,
         group_name:this.data.room[roomindex].roomlist[roomlistindex].group_name,
@@ -353,7 +356,8 @@ Page({
         uuid:this.data.room[roomindex].roomlist[roomlistindex].uuid,
         groupMember:groupMember,    
         bgurl:this.data.room[roomindex].roomlist[roomlistindex].imgUrl,
-        wxurl:this.data.room[roomindex].roomlist[roomlistindex].wxurl
+        wxurl:this.data.room[roomindex].roomlist[roomlistindex].wxurl,
+        groupUsername:this.data.room[roomindex].roomlist[roomlistindex].username
       }
       console.log(showgroup);
       this.setData({
@@ -415,9 +419,11 @@ Page({
         let wxname = this.data.showgroup.wxname
         let wxurl =this.data.showgroup.wxurl
         let groupIntro = this.data.showgroup.introduce
-        console.log(bgurl,wxname,wxurl,groupIntro);
+        // console.log(bgurl,wxname,wxurl,groupIntro);
         let isExisted = this.data.isExist;
         let datalength1 = this.data.datalength;
+        let groupUsername= this.data.showgroup.groupUsername
+        // 弹窗学号
         if (!isExisted && datalength1 < roomNum) {
       //heng
           wx.cloud.database().collection('daka_group_member_information').add({
@@ -433,7 +439,8 @@ Page({
               bgurl:bgurl,
               wxname:wxname,
               wxurl:wxurl,
-              groupIntro:groupIntro
+              groupIntro:groupIntro,
+              groupUsername
             }
           }).then(res =>{
             let data = {
