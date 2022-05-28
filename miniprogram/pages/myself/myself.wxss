@@ -264,12 +264,11 @@ z-index:200
   height:80rpx;
 }
 .banner{
-  background-color: darkgoldenrod;
   position:relative;
   top: 30rpx;
   margin:0rpx 31rpx;
   border-radius: 40rpx;
-  box-shadow:  2rpx 2rpx 2rpx #888888; 
+  box-shadow:  0rpx 3rpx 8rpx #b1b1b1; 
   margin-bottom: 40rpx;
 }
 

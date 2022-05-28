@@ -38,7 +38,7 @@
             </view>
           </view>
           <view class="banner-fri2">
-            <image class="banner-fri2-img" src="./images/right.png"></image>
+            <image class="banner-fri2-img" src="./images/img/right.png"></image>
           </view>
         </view>
         <view class="banner-sec">
@@ -54,7 +54,6 @@
             <view>{{fansNum.length}}</view>
             <view>粉丝数</view>
           </view>
-
         </view>
       </view>
     </view>
