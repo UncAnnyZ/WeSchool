@@ -265,10 +265,8 @@
   display: flex;
 }
 .banner-fri2-img{
-  position:relative;
-  left:130rpx;
-  width:80rpx;
-  height:80rpx;
+  width:40rpx;
+  height:40rpx;
 }
 .banner{
   background-color: darkgoldenrod;

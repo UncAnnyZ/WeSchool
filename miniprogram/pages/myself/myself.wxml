@@ -41,7 +41,7 @@
             </view>
           </view>
           <view class="banner-fri2">
-            <image class="banner-fri2-img" src="./images/right.png"></image>
+            <image class="banner-fri2-img" src="./images/img/content_more.png"></image>
           </view>
         </view>
         <view class="banner-sec">
