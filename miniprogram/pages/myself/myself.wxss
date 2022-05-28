@@ -264,9 +264,14 @@
 .banner-fri1{
   display: flex;
 }
+.banner-fri2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .banner-fri2-img{
-  width:40rpx;
-  height:40rpx;
+  width: 35rpx;
+  height: 35rpx;
 }
 .banner{
   background-color: darkgoldenrod;
