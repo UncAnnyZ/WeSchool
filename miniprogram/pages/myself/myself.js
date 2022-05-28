@@ -14,7 +14,7 @@ Page({
       iconUrl: args.iconUrl,
       nickName: args.nickName,
       username: args.username,
-      School: args.School,
+      School: args.school,
       focusNum: 0,
       fansNum: 0,
       StarNum: 0

@@ -55,11 +55,11 @@
 }
 .header{
   width: 100%;
+  position:sticky;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family:"myfont";
-  padding: 0 30rpx;
+  padding: 0 20rpx;
   box-sizing:border-box;
 }
 .iconBox {
@@ -72,7 +72,6 @@
   position: relative;
   color:rgba(51,51,51,1);
   font-size: 50rpx;
-  font-weight: 700;
   letter-spacing: 3rpx;
   left: 10rpx;
   z-index:1
@@ -86,7 +85,6 @@
 }
 .container {
   position: relative;
-  margin-top:-20rpx;
   width:100%;
 }
 .containers{
