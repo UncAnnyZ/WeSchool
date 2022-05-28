@@ -278,7 +278,7 @@
   top: 30rpx;
   margin:0rpx 31rpx;
   border-radius: 40rpx;
-  box-shadow:  0rpx 3rpx 8rpx #b1b1b1; 
+  box-shadow:  0rpx 3rpx 7rpx 1rpx rgb(140,140,140,0.7); 
   margin-bottom: 40rpx;
 }
 
@@ -376,16 +376,18 @@ button{
   page {
     filter: invert(0) !important;
   }
-  button,
-  switch,
-  scroll-view{
-    filter: invert(90%) !important;
+  scroll-view {
+    filter: invert(0%) !important;
   }
-
-  image{
-    filter: invert(100%) !important;
+  .banner-fri-touxiang {
+    filter: invert(0%) !important;
   }
-
+  .banner-fri2-img {
+    filter: invert(0%) !important;
+  }
+  .header-right-img {
+    filter: invert(0%) !important;
+  }
   .data-score {
     filter: invert(90%) !important;
   }
