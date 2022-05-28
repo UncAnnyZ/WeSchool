@@ -158,10 +158,10 @@ Page({
     let currComponent = that.selectComponent(`#InfoFlowCards${currentTab}`);
     //  ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院"     // 边界处理 - 用户没登录时
     //拉取数据
-    let username = args.username
+    let username = args.username;
+
     if (currComponent.data.loadAll || currComponent.data.NoData) {
       console.log("已经拉到底了");
-      
       return;
     }
 
@@ -304,9 +304,6 @@ Page({
     this.getData()
   },
 
-  //上拉
-  onPullDownRefresh() {
-  },
   onReachBottom() {
     wx.showLoading({
       title: '加载更多中',
@@ -456,7 +453,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log("下拉");
   },
 
 
