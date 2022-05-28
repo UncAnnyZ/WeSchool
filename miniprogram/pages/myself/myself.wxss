@@ -388,13 +388,10 @@ button{
   .header-right-img {
     filter: invert(0%) !important;
   }
-  .data-score {
-    filter: invert(90%) !important;
+  .card-top-left-img {
+    filter: invert(0) !important;
   }
-  .dot{
-    filter: invert(90%) !important;
-  }
-  .head-title{
-    filter: invert(40%) !important;
+  .wrap image{
+    filter: invert(0) !important;
   }
 }

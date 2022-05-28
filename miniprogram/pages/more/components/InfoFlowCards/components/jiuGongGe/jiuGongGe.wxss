@@ -132,3 +132,9 @@
 .wrap:nth-child(6):nth-last-child(1) {
   margin-top: 4rpx;
 }
+
+@media (prefers-color-scheme: dark) {
+  .img {
+    filter: invert(0) !important;
+  }
+}

@@ -33,3 +33,12 @@
   margin-left: 30rpx; 
   font-size: 29rpx;
 }
+@media (prefers-color-scheme: dark) {
+  page {
+    filter: invert(0) !important;
+  }
+  image {
+    filter: invert(0) !important;
+  }
+
+}

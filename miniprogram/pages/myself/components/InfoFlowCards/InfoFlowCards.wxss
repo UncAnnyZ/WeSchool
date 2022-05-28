@@ -175,3 +175,14 @@ button{
 
   font-size: 26rpx;
 }
+@media (prefers-color-scheme: dark) {
+  .card-top-left-img {
+    filter: invert(0%) !important;
+  }
+  .card-end-detail .img1 {
+    filter: invert(0%) !important;
+  }
+  button {
+    filter: invert(0%) !important;
+  }
+}
