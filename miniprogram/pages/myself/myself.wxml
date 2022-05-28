@@ -1,6 +1,6 @@
-<view class="bgc">
+<scroll-view class="container" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="height: {{windowHeight - (statusBarHeight + lineHeight -20)}}px;">
   <!-- 头部 -->
-  <view class="head">
+  <view class="head" style="width: 100%; position: fixed; z-index: 999;">
     <!-- 状态栏 -->
     <view style="height: {{statusBarHeight}}px;"></view>
     <!-- 导航栏 -->
@@ -8,20 +8,23 @@
       WE校园
     </view>
   </view>
+  <!-- 填充 -->
+  <view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
   <!-- 第一栏 -->
-  <view class="header">
-    <view class="header-text">我的</view>
-    <view class="iconBox">
-      <image src="./images/img/message.png" class="header-right-img" data-type="tip" bindtap="navigate" />
-      <view wx:if="{{NewInfo}}" class="tip_dot">
-        <text wx:if="{{NewInfo<100}}">{{NewInfo}}</text>
-        <text wx:elif="{{NewInfo>=100}}">99+</text>
+  <view class="box">
+    <view class="header">
+      <view class="header-text">我的</view>
+      <view class="iconBox">
+        <image src="./images/img/message.png" class="header-right-img" data-type="tip" bindtap="navigate" />
+        <view wx:if="{{NewInfo}}" class="tip_dot">
+          <text wx:if="{{NewInfo < 100}}">{{NewInfo}}</text>
+          <text wx:elif="{{NewInfo >= 100}}">99+</text>
+        </view>
+        <image class="header-right-img" bindtap="navigate" data-type="set" src="./images/img/set.png" />
       </view>
-      <image class="header-right-img" bindtap="navigate" data-type="set" src="./images/img/set.png" />
+
     </view>
-  </view>
- 
-  <scroll-view class="container" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="height: {{windowHeight - (statusBarHeight + lineHeight -20)}}px;">
+
     <view class="containers">
       <view class="banner bannerbgc" bindtap="toFans">
         <view class="banner-fri">
@@ -58,9 +61,9 @@
         </view>
       </view>
     </view>
-    
+
     <view style="height: 58rpx;width: 100%;" class="Tab">
-      <weimob-sticky scrollTop="{{scrollTop+100}}" offsetTop="{{offsetTop-60}}">
+      <weimob-sticky scrollTop="{{scrollTop+(statusBarHeight + lineHeight)}}" offsetTop="{{statusBarHeight + lineHeight}}">
         <view style="background-color: rgba(234,242,244,1);">
           <TabScroll style="z-index: 3;position: relative;left:25rpx;background-color:rgba(245,245,245,1);oapcity:0.1" type="我的页面标签" tabItem="{{tabitem}}" currentTab="{{currentTab}}" bind:setTab="setCurrentTab" id="TabScroll" class="TabScroll" showTab="true"></TabScroll>
         </view>
@@ -75,5 +78,5 @@
         </swiper-item>
       </swiper>
     </scroll-view>
-  </scroll-view>
-</view>
+  </view>
+</scroll-view>

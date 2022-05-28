@@ -55,6 +55,7 @@
   align-items: center;
   flex: auto;
   padding: 0 20rpx;
+  box-sizing: border-box;
 }
 
 .bodyCard {

@@ -1,2 +1,8 @@
-<!--pages/test/test.wxml-->
-<text>pages/test/test.wxml</text>
+<view class="container">
+  <view class="page-body">
+    <text class="h1">字体API测试案例</text>
+    <view class="demo-box">
+      <view class="title" style="font-family: '行书';">下载的字体</view>
+    </view>
+  </view>
+</view>
