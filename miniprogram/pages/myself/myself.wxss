@@ -85,7 +85,11 @@
 }
 .container {
   position: relative;
-  width:100%;
+  background-image:url("https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=fb2cf293c50aeded56a782362bc9d299&t=1652154031");
+  z-index:0;
+  background-repeat: no-repeat; 
+  background-size:cover;
+  width: 100%;
 }
 .containers{
   width:100%;
@@ -93,7 +97,11 @@
   position: relative;
   z-index:2;
 }
-
+.head {
+  background-image:url("https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=fb2cf293c50aeded56a782362bc9d299&t=1652154031");
+  background-repeat: no-repeat; 
+  background-size:cover;
+}
 
 
 .content{
@@ -110,8 +118,7 @@
   align-items: center;
   padding:0rpx 50rpx;
   padding-right:0rpx ;
-z-index:200
-
+  z-index:200
 }
 
 .li{
