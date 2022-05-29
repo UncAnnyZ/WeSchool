@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isupdate:false,
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
     keyboardHight:0,
@@ -20,7 +21,7 @@ Page({
     //打卡挑战的数据
     dakachalleng:{},
     //该小组的全部数据
-    groupdata:{},
+    groupData:{},
     //缓存
     args:{},
     //需要渲染的数据
@@ -44,12 +45,71 @@ Page({
     challengeid:'',
     challengename:''
   },
-  //判断是否打卡思路
-  // 1、获取自己打卡挑战成员表的数据，for循环遍历一次，判断自己在各个组有没有打卡，一个对象就是一个组的数据，每一个组的数据添加数据isdaka：true/false，然后这个装着对象的数组叫mydaka。
-  // 2、mydaka与拉取的本小组的打卡挑战数组alldakachallenge数组for循环遍历用打卡挑战id做匹配
-  // 3、匹配到的往alldakachallenge的对应的打卡挑战加一个isexist：true和一个对应的isdaka：true/false
-  // 4、alldakachallenge这个数组最后作为基本数据每个对象添加一个报名人数peoplenum存入data里面的challengeArr
-  //上传数据到数据库
+  //还有小组过期逻辑
+  //获取未过期打卡挑战
+  getChallenge(groupid,usernum){ 
+    wx.cloud.callFunction({
+      name:"daka",
+      data:{
+        type:"getChallenge",
+        groupId:groupid,
+        ispastdue:false
+      }
+    }).then(res =>{
+      console.log(res); 
+      let data = res.result.data
+      let challengeArr = []
+      for (let i = 0; i < data.length; i++) {
+          let arr = data[i].challengeMemberArr
+          let isdaka = false
+          let isexist = false 
+          for (let k = 0; k < arr.length; k++) {
+            if (arr[k].memberUsernum == usernum) {
+              isdaka = arr[k].isDaka
+              isexist = true 
+            } 
+          } 
+          let date = data[i].deadlinetime
+          let deadlinetime = this.timeDue(date);
+          let obj = {
+            totalday:data[i].totalday,
+            challengename:data[i].challengename,
+            deadlinetime:deadlinetime,
+            peoplenum:data[i].challengeMemberArr.length,
+            wxurl:data[i].wxurl,
+            isexist:isexist,
+            isdaka:isdaka,
+          }
+          challengeArr.push(obj)
+      }
+      this.setData({
+        challengeArr,
+      })
+    })
+  },
+  timeDue(date){
+    if (date == '长期有效') {
+      let time = '长期有效'
+      return time
+    } else {
+      let time = new Date(date);
+      let deadline ='至' + String(time.getFullYear())+'年'+String(time.getMonth()+1)+'月'+String(time.getDate())+'日'
+      return deadline
+    }
+  },
+  judge(){
+    if (this.data.value == '') {
+      wx.showToast({
+        title: '请输入内容',
+        icon:'error'
+      })
+    } else {
+      wx.showLoading({
+        title: '发送中',
+      })
+      this.send();
+    }
+  },
   send(){
     console.log(this.data.args);
     let args = this.data.args
@@ -57,12 +117,11 @@ Page({
     let wxname = args.nickName
     let usernum = args.username
     let text = this.data.value
-    let time = new Date()//获取现在时间
-    let sendtime = String(time);//要这个发送时间
+    let sendtime = String(new Date())//要这个发送时间
     let mylike = false
     let likenum = 0
     let likename = []
-    let groupuuid = ''//要改
+    let groupuuid = this.data.groupData.uuid//要改
     let comment = []
     let challengeid = this.data.challengeid//选择的打卡挑战的id
     let challengename = this.data.challengename//选择的打卡挑战的名字
@@ -70,6 +129,35 @@ Page({
     let challengeuuid = this.data.challengeid//选择的打卡挑战的id
     let userNum = args.username//学号
     let timelog = new Date()
+    //这三个是更新打卡数据的
+    wx.cloud.database().collection('personalDynamic').add({
+      data:{
+        challengeid,
+        challengename,
+        comment,
+        groupuuid,
+        likename,
+        likenum,
+        mylike,
+        sendtime,
+        text,
+        usernum,
+        wxname,
+        wxurl,
+      }
+    }).then(res =>{
+      this.setData({
+        isupdate:true
+      })
+      console.log(res);
+      wx.hideLoading({
+        success: (res) => {
+          wx.navigateBack({
+            delta: 1,
+          })
+        },
+      })
+    })
     //这个时间要push到打卡成员表的dakalog
     //打卡成员表里面的打卡总次数加一
     //打卡成员表里面的打卡总天数根据isdaka状态来判断能不能加一
@@ -80,7 +168,6 @@ Page({
   checkboxValue(e){
     console.log(e.detail.value);
     console.log();
-    // let bq = 
     this.setData({
       challengeid_excessive:e.detail.value,
     })
@@ -123,8 +210,10 @@ Page({
   },
   //添加打卡挑战的跳转
   addDaka(){
+    let groupData = this.data.groupData
+    var thisGroupData= JSON.stringify(groupData)
     wx.navigateTo({
-      url: '../addDakaChallenge/addDakaChallenge',
+      url: '../addDakaChallenge/addDakaChallenge?thisGroupData=' + thisGroupData,
     })
   },
   //显示打卡弹窗
@@ -187,10 +276,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var groupData = JSON.parse(options.thisGroupData)
+    console.log(groupData);
     let args = wx.getStorageSync('args');
     this.setData({
-        args
+        args,
+        groupData,
+        groupname:groupData.groupName
     })
+    let groupid = groupData.uuid
+    let usernum = args.username
+    this.getChallenge(groupid,usernum);
     wx.onKeyboardHeightChange((res) => {
         console.log('wx.onKeyboardHeightChange的res',res);
         this.setData({
@@ -229,7 +325,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    console.log("监听页面卸载");
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2]
+    prevPage.setData({
+      isupdate:this.data.isupdate
+    })
   },
 
   /**

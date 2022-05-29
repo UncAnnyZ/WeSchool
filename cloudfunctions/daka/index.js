@@ -44,6 +44,8 @@ exports.main = async (event, context) => {
             return await getMyGroupByUserNum(event);
         case "getPostByGroupId":  //获取小组里的所有帖子
             return await getPostByGroupId(event);
+        case "getChallenge":  //获取小组里的打卡挑战 杰
+            return await getChallenge(event);
     }
 }
 
@@ -225,4 +227,11 @@ async function getPostByGroupId(event){
     return await db.collection("personalDynamic").where({
         groupuuid:event.groupId
     }).get()
+}
+
+async function getChallenge(event){
+  return await db.collection("dakaChallenge_information").where({
+    groupid:event.groupId,
+    ispastdue:event.ispastdue
+  }).get()
 }

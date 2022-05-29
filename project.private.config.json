@@ -3,7 +3,26 @@
     "compileHotReLoad": true,
     "urlCheck": false
   },
-  "condition": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "小组打卡",
+          "pathName": "pages/testdaka/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "说说详情页",
+          "pathName": "pages/testdaka/showPost/showPost",
+          "query": "thisPostData=%7B%22wxname%22%3A%22%E5%BE%AE%E4%BF%A1%E5%90%8D%E5%AD%971%22%2C%22wxurl%22%3A%22https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2FicCQr06FJWgFmPP2licWJs92dFEzjyjcPfdiazVplbeDQDDIm1tWIejTD7TiaapnL4SbXXknSZdEmic3aVqff1lT7eg%2F132%22%2C%22text%22%3A%22%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%9D%A1%E5%8A%A8%E6%80%81%22%2C%22sendtime%22%3A%22%E5%88%9A%E5%88%9A%22%2C%22mylike%22%3Afalse%2C%22likenum%22%3A10%2C%22likename%22%3A%5B%22%E5%90%8D%E5%AD%97%E4%B8%80%22%5D%2C%22usernum%22%3A%2220034480214%22%2C%22groupuuid%22%3A%22Vq1aNGjRoUKFCBgQoUKlSpUqVqVKFCB%22%2C%22comment%22%3A%5B%7B%22name%22%3A%22%E5%90%8D%E5%AD%971%22%2C%22text%22%3A%22%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%9D%A1%E8%AF%84%E8%AE%BA%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E5%95%A6%E6%8B%89%E6%8B%89%E6%8B%89%E5%95%8A%E6%8B%89%E5%95%A6%E6%8B%89%E6%8B%89%22%2C%22time%22%3A%22%E5%88%9A%E5%88%9A%22%2C%22url%22%3A%22https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg%2F132%22%7D%2C%7B%22name%22%3A%22%E5%90%8D%E5%AD%972%22%2C%22text%22%3A%22%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%9D%A1%E8%AF%84%E8%AE%BA%22%2C%22time%22%3A%22%E5%88%9A%E5%88%9A%22%2C%22url%22%3A%22https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg%2F132%22%7D%5D%2C%22challengename%22%3A%22123%22%2C%22challengeid%22%3A%22123%22%2C%22_id%22%3A%22ca780ad56290d16a04faaaf63952755e%22%2C%22isleader%22%3Atrue%7D",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "projectname": "WeSchool%20-new"
 }

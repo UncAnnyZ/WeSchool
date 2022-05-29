@@ -18,6 +18,9 @@ Page({
   },
 
   getAllPost(){
+    wx.showLoading({
+      title: '加载中',
+    })
     let groupData = this.data.groupData
     wx.cloud.callFunction({
       name:"daka",
@@ -55,6 +58,7 @@ Page({
       this.setData({
         postarr,
       })
+      wx.hideLoading()
     })
   },
   
@@ -78,8 +82,10 @@ Page({
   },
   
   addPost(){
+    let groupData = this.data.groupData
+    var thisGroupData= JSON.stringify(groupData)
     wx.navigateTo({
-      url: '../addPost/addPost',
+      url: '../addPost/addPost?thisGroupData=' + thisGroupData,
     })
   },
   intoChallenge(){
@@ -115,7 +121,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    if (this.data.isupdate) {
+      this.getAllPost();
+      this.setData({
+        isupdate:false
+      })
+    }
   },
 
   /**

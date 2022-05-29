@@ -31,7 +31,7 @@
         <image class="toolbar_image1" style="margin-top: 20rpx;margin-left: 45rpx;width: 55rpx;height: 55rpx;" src="../images/wenjianjia.png"></image>
         <image class="toolbar_image1" style="margin-top: 25rpx;margin-left: 45rpx;" src="../images/biaoqing.png"></image>
         <image class="toolbar_image1" style="margin-top: 28rpx;margin-left: 45rpx;width: 37rpx;height: 37rpx;" src="../images/jinghao.png" bindtap="tap"></image>
-        <view class="toolbar_send" bindtap="send">发送</view>
+        <view class="toolbar_send" bindtap="judge">发送</view>
     </view>
     <!-- 隐藏的底部功能渲染 -->
     <view class="toolbar_showOther" hidden="{{showOther}}">

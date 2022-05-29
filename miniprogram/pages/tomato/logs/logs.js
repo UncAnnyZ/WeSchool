@@ -126,43 +126,6 @@ Page({
     })
   },
   abc(){
-    //  var sum = []
-    //  let a =[]
-    //  let c= []
-    //  let res=[]
-    //  {id:1,time:1}
-  //   a=[
-  //     {cate: "番茄时钟", date: "2022/03/31 00:39:43", time: 1},
-  //     {cate: "工作", date: "2022/03/31 01:07:16", time: 1},
-  //     {cate: "休息", date: "2022/03/31 01:09:12", time: 1},
-  //     {cate: "休息", date: "2022/03/31 01:13:26", time: 1},
-  //     {cate: "睡觉", date: "2022/03/31 02:53:35", time: 1},
-  //     {cate: "写bug", date: "2022/03/31 02:54:46", time: 1},
-  //     {cate: "修bug", date: "2022/03/31 02:55:59", time: 1},
-  //     {cate: "修bug", date: "2022/03/31 02:57:10", time: 1},
-  // ]
-  //  console.log(a);
-  //  for (var i = 0 ;i<a.length;i++){
-  //       if(res[a[i]["cate"]]==undefined){
-  //           let re = []
-  //           re.push(a[i])
-  //            console.log(i+1)
-  //           console.log(a[i]["cate"])
-  //           res[a[i]["cate"]]=re
-  //           console.log(res)
-  //       }
-  //       else{
-  //           console.log(i+1)
-  //           console.log(a[i]["cate"])
-  //           c= res[a[i]["cate"]]
-  //           var sum = 0
-  //           c.push(a[i])
-  //           console.log(c);
-  //           res[a[i]["cate"]]=c
-  //       }
-  //  }  
-  //     console.log(res);//哈希表
-  //     console.log(res['休息']);
   },
   def(){
     let a = []

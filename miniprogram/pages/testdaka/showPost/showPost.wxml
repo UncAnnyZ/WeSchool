@@ -18,7 +18,7 @@
       <image class="textBox_post_zan_image" src="./image/yidianzan.png"></image>
       <view class="textBox_post_zan_name" wx:for="{{post.likename}}">{{item}}</view>
     </view>
-    <view class="textBox_post_bigZan">
+    <view class="textBox_post_bigZan" bindtap="clickLike">
       <image class="textBox_post_bigZan_image" src="{{post.mylike ? './image/yidianzan.png' : './image/weidianzan.png'}}"></image>
     </view>
     <view style="margin: 20rpx 30rpx;color: gray;font-size: 26rpx;">评论({{post.comment.length}})</view>
@@ -38,5 +38,18 @@
     </view>
     <view class="comment_comment">
       <view>{{item.text}}</view> 
+    </view>
+</view>
+<view style="height: 170rpx;width: 100vw;display: flex;justify-content: center;font-size: 25rpx;letter-spacing: 5rpx;line-height: 60rpx;">无更多评论</view>
+<!-- 工具栏-->
+<view class="toolbar" style="position: fixed;bottom: {{keyboardHight}}px;">
+    <!-- 字数显示和任务显示 -->
+    <!-- <view class="numberShow">
+        <view class="numberShow_text">({{cursor}}/{{maxlength}})</view>
+    </view> -->
+    <!-- 工具栏 -->
+    <view style="width: 100vw;height: {{toolbarHight}}rpx;display: flex;flex-direction: row;border-top: 1rpx solid #f0f0f0;align-items: center;justify-content: center;background-color: white;">
+        <input class="toolbar_input" placeholder-style="margin-left:25rpx" placeholder='"来发句评论吧ヾ(≧▽≦*)o"' value="{{text}}" adjust-position="{{false}}" type="text" bindinput="input" />
+        <view class="toolbar_send" bindtap="addcomment">发送</view>
     </view>
 </view>

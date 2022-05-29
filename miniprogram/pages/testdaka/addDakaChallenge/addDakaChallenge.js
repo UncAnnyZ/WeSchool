@@ -35,21 +35,27 @@ Page({
     DeadLine:'',
     DeadLineValue:'请填写时间',
   },
+
   //发布
   send(e){
     console.log(e);
     let challengename = this.data.titleInput //标题
     let challengeguide = this.data.textInput //规则
-    let totalday = this.data.checkboxValue //累计打卡天数
+    let str = this.data.checkboxValue
+    let lct = str.length-1
+    let afterStr = str.substr(0,lct)
+    let totalday = Number(afterStr) //累计打卡天数
     let deadline = this.data.DeadLine //长期有效还是截止时间
-    let deadlinetime = this.data.DeadLineValue //指定截止时间时要填写
+    let date = this.data.DeadLineValue
+    let deadlinetime = this.change(date);  //指定截止时间时要填写
     let uid = this.guid()
     let challengeid = this.hash(this.data.args.username + uid)//打卡挑战id
     let wxurl = this.data.args.iconUrl//头像
     let wxname = this.data.args.nickName//名字
     let usernum = this.data.args.username//学号
     let ispastdue = false//是否过期
-    // let  = 
+    let groupid = this.data.groupData.uuid//小组id
+    let challengeMemberArr = [{memberName:wxname,memberUrl:wxurl,memberUsernum:usernum}]
     if (challengename == '') {
       wx.showToast({
         title: '请填写标题',
@@ -76,8 +82,89 @@ Page({
         icon:'none'
       })
     } else {
+      wx.showLoading({
+        title: '发布中',
+      })
       console.log("数据填写完成");
-      //上传数据库
+      wx.cloud.database().collection('dakaChallenge_information').add({
+        data:{
+          challengeguide,
+          challengeid,
+          challengename,
+          deadline,
+          deadlinetime,
+          ispastdue,
+          totalday,
+          usernum,
+          wxname,
+          wxurl,
+          groupid,
+          challengeMemberArr
+        }
+      }).then(res =>{
+        wx.cloud.database().collection('dakaChallenge_member').add({
+          data:{
+            challengename:challengename,
+            challengeuuid:challengeid,
+            datalog:[],
+            dayrequire:totalday,
+            iscomplete:false,
+            totalday:0,//累计打卡天数
+            totaldegree:0,//累计打卡次数
+            usernum:usernum,
+            wxname:wxname,
+            wxurl:wxurl,
+          }
+        }).then(res=>{
+          wx.hideLoading({
+            success: (res) => {
+              wx.navigateBack({
+                delta: 1,
+              })
+            },
+          })
+        })
+        //上传数据库
+      })
+    }
+  },
+  change(date){
+    if (date == '长期有效') {
+      let str = '长期有效'
+      return str
+    } else {
+      let str = date
+      let year = str.slice(0,4)
+      let month = str.slice(5,7)
+      let day = str.slice(8,10)
+      if (month == '01') {
+        month = 'Jan'
+      } else if (month == '02') {
+        month = 'Feb'
+      } else if (month == '03') {
+        month = 'Mar'
+      } else if (month == '04') {
+        month = 'Apr'
+      } else if (month == '05') {
+        month = 'May'
+      } else if (month == '07') {
+        month = 'Jul'
+      } else if (month == '08') {
+        month = 'Aug'
+      } else if (month == '09') {
+        month = 'Sep'
+      } else if (month == '10') {
+        month = 'Oct'
+      } else if (month == '11') {
+        month = 'Nov'
+      } else if (month == '12') {
+        month = 'Dec'
+      }
+      // Fri May 25 2022 00:00:00 GMT+0800 (中国标准时间)
+      let deadline = "Mon"+" "+month+" "+day+" "+year+" "+"00:00:00"+" "+"GMT+0800 (中国标准时间)"
+      //使用
+      // let time = new Date(deadline);
+      return deadline;
     }
   },
   guid() {
@@ -248,9 +335,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var groupData = JSON.parse(options.thisGroupData)
+    console.log(groupData);
     let args = wx.getStorageSync('args');
     this.setData({
-        args
+        args,
+        groupData
     })
   },
   /**
