@@ -52,7 +52,8 @@
       "root": "pages/market",
       "pages": [
         "market",
-        "address/address"
+        "address/address",
+        "order/order"
       ]
     },
     {

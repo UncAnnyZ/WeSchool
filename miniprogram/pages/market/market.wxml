@@ -113,7 +113,6 @@
   </swiper>
   <view class="showOrder">
     <view  class="orderNums" bindtap="orderPageJump">
-    <view class="orderIcon">{{allOrders.length}}</view>
       <image src="../../images/order.png"/>
     </view>
   </view>
