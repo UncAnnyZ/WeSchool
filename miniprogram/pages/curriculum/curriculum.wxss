@@ -8,6 +8,7 @@ page {
   position: relative;
   /* overflow: scroll; */
 }
+
 /* 头部 */
 .head_theme {
   background-image: linear-gradient( #bae4f5 , #ffffff);

@@ -14,13 +14,6 @@
   ],
   "subPackages": [
     {
-      "name": "test",
-      "root": "pages/test",
-      "pages": [
-        "test"
-      ]
-    },
-    {
       "name": "myself",
       "root": "pages/myself/pages",
       "pages": [

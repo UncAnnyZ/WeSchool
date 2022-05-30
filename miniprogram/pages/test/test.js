@@ -12,7 +12,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.loadFontFace({
+      family: '行书',
+      source: 'cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/JiZiJingDianXingCaoJianFan-Shan(GEETYPE-XingCaoGBT-Flash)-2.ttf',
+      success: console.log
+    })
   },
 
   /**

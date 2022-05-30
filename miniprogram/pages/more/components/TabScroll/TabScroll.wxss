@@ -56,7 +56,15 @@
     white-space:nowrap;
     justify-content: center;
   }
-
+  .Label_limit_myself{
+    width: auto;
+    padding: 0 15rpx;
+    /* height: 5rpx; */
+    display: flex;
+    align-items: center;
+    white-space:nowrap;
+    justify-content: center;
+  }
   .Label_limit1{
     width: auto;
     padding: 0 15rpx;
@@ -106,9 +114,6 @@
   .Choose_Label{
     filter: invert(100%) !important;
   }
-    scroll-view{
-      filter: invert(100%) !important;
-    }
     
     .Label_limit{
       filter: invert(100%) !important;
@@ -128,5 +133,13 @@
     .choose_First .Choosen {
       color: #fff;
       filter: invert(100%) !important;
+    }
+
+    /* 我的页面标签 */
+    .underLine_myself {
+      filter: invert(1) !important;
+    }
+    .Label_limit_myself {
+      filter: invert(1) !important;
     }
   }

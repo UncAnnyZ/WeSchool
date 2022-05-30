@@ -54,4 +54,7 @@
   .tab-bar-view {
     filter: invert(1);
   }
+  /* .bulge .image{
+    filter: invert(0) !important;
+  } */
 }

@@ -1,50 +1,43 @@
 <!-- 校园圈首页标签 -->
 
 <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" wx:if="{{type == '校友圈标签'  && showTab}}" enhanced="{{true}}" show-scrollbar="{{false}}" style="z-index: 3; position: relative;">
-    <view class="Choose_Label" scroll-x="true">
-        <!-- 下划线 -->
-        <view class="underLineBox" 
-        style="width: {{underLine_width[currentTab]}}rpx; left:{{offset || underLine_left[currentTab]}}rpx;">
-            <view class="underLine" style="width: {{offset_width || underLine_width[currentTab] - 30}}rpx;"></view>
-        </view>
-
-        <view wx:for="{{tabItem}}" wx:key="index" 
-        class="Label-text {{item.type == 1?'activeTab':''}}"
-        id="tabItem{{index+2}}"
-        data-title="{{item.title}}" data-index="{{index}}" 
-        bindtap="setTab">
-            <view class="Label_limit" style="width: {{tabItemLength[index]*18}}rpx;">{{item.title}}</view>
-        </view>
+  <view class="Choose_Label" scroll-x="true">
+    <!-- 下划线 -->
+    <view class="underLineBox" style="width: {{underLine_width[currentTab]}}rpx; left:{{offset || underLine_left[currentTab]}}rpx;">
+      <view class="underLine" style="width: {{offset_width || underLine_width[currentTab] - 30}}rpx;"></view>
     </view>
+
+    <view wx:for="{{tabItem}}" wx:key="index" class="Label-text {{item.type == 1?'activeTab':''}}" id="tabItem{{index+2}}" data-title="{{item.title}}" data-index="{{index}}" bindtap="setTab">
+      <view class="Label_limit" style="width: {{tabItemLength[index]*18}}rpx;">{{item.title}}</view>
+    </view>
+  </view>
 </scroll-view>
+
 <!-- 发布页面标签 -->
 <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" class="choose_First" wx:if="{{type == '发布页面标签' && showTab}}">
-    <view class="Choosen" scroll-x="true" hidden='{{hideHidden}}'>
-        <view wx:for="{{menu}}" wx:key="index" class="Label-text" id="tabItem{{index+3}}" data-index="{{index}}" bindtap="chooseTab">
-            <view class="Label_limit1">{{item}}</view>
-        </view>
+  <view class="Choosen" scroll-x="true" hidden='{{hideHidden}}'>
+    <view wx:for="{{menu}}" wx:key="index" class="Label-text" id="tabItem{{index+3}}" data-index="{{index}}" bindtap="chooseTab">
+      <view class="Label_limit1">{{item}}</view>
     </view>
+  </view>
 </scroll-view>
+
 <!-- 游戏板块标签 -->
-<scroll-view class="Game_Scroll" wx:if="{{type == '游戏标签' && showTab}}" scroll-y scroll-with-animation scroll-into-view="tabItem{{currentTab}}" style="height: {{height}};" >
-    <block wx:for="{{tabItem}}" wx:key="index" class="Game_block">
-        <view class="Game_box" id="tabItem{{index+2}}" data-index="{{index}}" bindtap="Game_setTab">{{item.title}}</view>
-    </block>
+<scroll-view class="Game_Scroll" wx:if="{{type == '游戏标签' && showTab}}" scroll-y scroll-with-animation scroll-into-view="tabItem{{currentTab}}" style="height: {{height}};">
+  <block wx:for="{{tabItem}}" wx:key="index" class="Game_block">
+    <view class="Game_box" id="tabItem{{index+2}}" data-index="{{index}}" bindtap="Game_setTab">{{item.title}}</view>
+  </block>
 </scroll-view>
+
 <!-- 我的页面标签 -->
 <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tabItem{{currentTab}}" wx:if="{{type == '我的页面标签'  && showTab}}" enhanced="{{true}}" show-scrollbar="{{false}}" style="z-index: 3; position: relative;  background-color: rgba(234,242,244,1);right:20rpx">
-    <view class="Choose_Label bgc" scroll-x="true">
-        <!-- 下划线 -->
-        <view class="underLineBox" 
-        style="width: {{underLine_width[currentTab]}}rpx; left:{{offset || underLine_left[currentTab]}}rpx;">
-            <view class="underLine_myself" style="width: {{offset_width || underLine_width[currentTab] - 30}}rpx;"></view>
-        </view>
-        <view wx:for="{{tabItem}}" wx:key="index" 
-        class="Label-text {{item.type == 1?'activeTab_myself':''}}"
-        id="tabItem{{index+2}}"
-        data-title="{{item.title}}" data-index="{{index}}" 
-        bindtap="setTab">
-            <view class="Label_limit " style="width: {{tabItemLength[index]*18}}rpx;">{{item.title}}</view>
-        </view>
+  <view class="Choose_Label bgc" scroll-x="true">
+    <!-- 下划线 -->
+    <view class="underLineBox" style="width: {{underLine_width[currentTab]}}rpx; left:{{offset || underLine_left[currentTab]}}rpx;">
+      <view class="underLine_myself" style="width: {{offset_width || underLine_width[currentTab] - 30}}rpx;"></view>
     </view>
+    <view wx:for="{{tabItem}}" wx:key="index" class="Label-text {{item.type == 1?'activeTab_myself':''}}" id="tabItem{{index+2}}" data-title="{{item.title}}" data-index="{{index}}" bindtap="setTab">
+      <view class="Label_limit_myself " style="width: {{tabItemLength[index]*18}}rpx;">{{item.title}}</view>
+    </view>
+  </view>
 </scroll-view>

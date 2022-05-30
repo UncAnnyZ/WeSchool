@@ -1,4 +1,4 @@
-<scroll-view scroll-x="false" scroll-y="false" style="padding: 25rpx; box-sizing: border-box;">
+<scroll-view scroll-x="false" scroll-y="false" style="padding: 25rpx; box-sizing: border-box;overflow:hidden;white-space:nowrap;">
   <view class="container" style="box-sizing: border-box;">
     <view class="box" style=" z-index: 2;">
       <!-- 头部栏 -->
