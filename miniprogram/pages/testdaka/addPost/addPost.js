@@ -46,6 +46,54 @@ Page({
     challengename:''
   },
   //还有小组过期逻辑
+  judgePastdue(deadline,deadlinetime,challengeid){
+    if (deadline == "longtime") { 
+      console.log("长期有效");
+      return false
+    } else if(deadline == "shorttime") { 
+      let nowTime = new Date();
+      let deadTime = new Date(deadlinetime);
+      let [nowYear,nowMonth,nowDate] = [nowTime.getFullYear(),nowTime.getMonth()+1,nowTime.getDate()]
+      let [deadYear,deadMonth,deadDate] = [deadTime.getFullYear(),deadTime.getMonth()+1,deadTime.getDate()]
+      if (nowYear == deadYear) {
+        //年份判断
+        if (nowMonth == deadMonth) {
+          if (nowDate == deadDate) {
+            console.log("没过期");
+            return false
+          }else if(nowDate > deadDate) {
+            this.upPastdue(challengeid);
+            console.log("过期");
+            return true
+          }else if(nowDate < deadDate) { 
+            console.log("没过期");
+            return false
+          }
+        }else if (nowMonth < deadMonth) {
+          console.log("没有过期");
+          return false
+        }else if (nowMonth > deadMonth) {
+          console.log("过期了");
+          this.upPastdue(challengeid);
+          return true
+        }
+      }else if (nowYear > deadYear ) { 
+        console.log("过期了");
+        this.upPastdue(challengeid);
+        return true
+      }else if (nowYear < deadYear) {
+        console.log("没有过期"); 
+        return false
+      }
+    }
+  }, 
+  upPastdue(challengeid){
+    wx.cloud.database().collection('dakaChallenge_information').where({challengeid:challengeid}).update({
+      data:{
+        ispastdue:true 
+      }
+    })
+  },
   //获取未过期打卡挑战
   getChallenge(groupid,usernum){ 
     wx.cloud.callFunction({
@@ -57,35 +105,69 @@ Page({
       }
     }).then(res =>{
       console.log(res); 
-      let data = res.result.data
+      let data = res.result.data   
       let challengeArr = []
       for (let i = 0; i < data.length; i++) {
           let arr = data[i].challengeMemberArr
           let isdaka = false
           let isexist = false 
-          for (let k = 0; k < arr.length; k++) {
-            if (arr[k].memberUsernum == usernum) {
-              isdaka = arr[k].isDaka
-              isexist = true 
+          let ispastdue = this.judgePastdue(data[i].deadline,data[i].deadlinetime,data[i].challengeid);
+          console.log(ispastdue);
+          if (ispastdue == false) {
+            for (let k = 0; k < arr.length; k++) {
+              if (arr[k].memberUsernum == usernum) {
+                isdaka = arr[k].isDaka
+                isexist = true 
+              } 
             } 
-          } 
-          let date = data[i].deadlinetime
-          let deadlinetime = this.timeDue(date);
-          let obj = {
-            totalday:data[i].totalday,
-            challengename:data[i].challengename,
-            deadlinetime:deadlinetime,
-            peoplenum:data[i].challengeMemberArr.length,
-            wxurl:data[i].wxurl,
-            isexist:isexist,
-            isdaka:isdaka,
+            let myDakaLog = this.judgeIsdaka(data[i].challengeMemberArr);
+            let date = data[i].deadlinetime
+            let deadlinetime = this.timeDue(date);
+            let obj = {
+              totalday:data[i].totalday,
+              challengename:data[i].challengename,
+              deadlinetime:deadlinetime,
+              peoplenum:data[i].challengeMemberArr.length,
+              wxurl:data[i].wxurl,
+              isexist:isexist,  
+              isdaka:myDakaLog.isdaka,
+              challengeid:data[i].challengeid,
+              challengeguide:data[i].challengeguide,
+              dakalog:myDakaLog.myDakaLog
+            }
+            challengeArr.push(obj)
           }
-          challengeArr.push(obj)
       }
       this.setData({
         challengeArr,
       })
     })
+  },
+  judgeIsdaka(challengeMemberArr){
+    let usernum = this.data.args.username
+    let nowTime = new Date()
+    let [nowYear,nowMonth,nowDate] = [nowTime.getFullYear(),nowTime.getMonth()+1,nowTime.getDate()]
+    let isdaka = false
+    let myDakaLog = []
+    for (let i = 0; i < challengeMemberArr.length; i++) {
+      if (usernum == challengeMemberArr[i].memberUsernum) {
+        myDakaLog = challengeMemberArr[i].dakalog
+        // console.log(challengeMemberArr[k]);  
+        for (let k = 0; k < challengeMemberArr[i].dakalog.length; k++) {
+          let dakaTime = new Date(challengeMemberArr[i].dakalog[k])
+          let [dakaYear,dakaMonth,dakaDate] = [dakaTime.getFullYear(),dakaTime.getMonth()+1,dakaTime.getDate()]
+          if (nowYear==dakaYear&&nowMonth==dakaMonth&&nowDate==dakaDate) {
+            isdaka = true
+          }
+        } 
+      }
+    }
+    let mydaka = {
+      myDakaLog:myDakaLog,
+      isdaka:isdaka
+    }
+    // console.log(mydaka);
+    return mydaka
   },
   timeDue(date){
     if (date == '长期有效') {
@@ -212,9 +294,9 @@ Page({
   addDaka(){
     let groupData = this.data.groupData
     var thisGroupData= JSON.stringify(groupData)
-    wx.navigateTo({
-      url: '../addDakaChallenge/addDakaChallenge?thisGroupData=' + thisGroupData,
-    })
+      wx.navigateTo({
+        url: '../addDakaChallenge/addDakaChallenge?thisGroupData=' + thisGroupData ,
+      })
   },
   //显示打卡弹窗
   showPunch(){
@@ -262,14 +344,43 @@ Page({
         showOther:!this.data.showOther
       })
   },
-  applyChallenge(){
+  applyChallenge(e){
+    console.log(e);
+    let challengeid = e.currentTarget.dataset.item.challengeid
+    let challenge = e.currentTarget.dataset.item
+    let postarr = this.data.postarr
+    let thisPostarr = []
+    for (let i = 0; i < postarr.length; i++) {
+      if (challengeid == postarr[i].challengeid) {
+        thisPostarr.push(postarr[i])
+      }
+    }
+    var challengePostarr = JSON.stringify(thisPostarr)
+    var thisChallenge = JSON.stringify(challenge)
+    let groupData = this.data.groupData
+    var thisGroupData= JSON.stringify(groupData)
     wx.navigateTo({
-      url: '../applyChallenge/applyChallenge',
+      url: '../applyChallenge/applyChallenge?challengePostarr='+challengePostarr+'&thisChallenge='+thisChallenge+'&thisGroupData='+thisGroupData, 
     })
   },
-  dakaChallenge(){
+  dakaChallenge(e){
+    console.log(e);
+    let challengeid = e.currentTarget.dataset.item.challengeid
+    let challenge = e.currentTarget.dataset.item
+    let postarr = this.data.postarr
+    let thisPostarr = []
+    for (let i = 0; i < postarr.length; i++) {
+      if (challengeid == postarr[i].challengeid) {
+        thisPostarr.push(postarr[i])
+      }
+    }
+    var challengePostarr = JSON.stringify(thisPostarr)
+    var thisChallenge = JSON.stringify(challenge)
+    let groupData = this.data.groupData
+    var thisGroupData= JSON.stringify(groupData)
+    let isupdate = this.data.isupdate
     wx.navigateTo({
-      url: '../dakaChallenge/dakaChallenge',
+      url: '../dakaChallenge/dakaChallenge?challengePostarr='+challengePostarr+'&thisChallenge='+thisChallenge+'&thisGroupData='+thisGroupData+'&isupdate='+isupdate, 
     })
   },
   /**
@@ -277,12 +388,15 @@ Page({
    */
   onLoad(options) {
     var groupData = JSON.parse(options.thisGroupData)
-    console.log(groupData);
+    var postarr = JSON.parse(options.thispostarr)
+    console.log(postarr);
+    // console.log(groupData);
     let args = wx.getStorageSync('args');
     this.setData({
         args,
         groupData,
-        groupname:groupData.groupName
+        groupname:groupData.groupName,
+        postarr
     })
     let groupid = groupData.uuid
     let usernum = args.username
@@ -311,7 +425,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    console.log(this.data.isupdate);
+    if (this.data.newChallenge != null) {
+      console.log(this.data.newChallenge);
+      let newChallenge = this.data.newChallenge
+      let challengeArr = this.data.challengeArr
+      challengeArr.push(newChallenge)
+      this.setData({
+        challengeArr,
+        newChallenge:null,
+        isupdate:true
+      })
+    }
   },
 
   /**
@@ -328,6 +453,7 @@ Page({
     console.log("监听页面卸载");
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2]
+    console.log(this.data.isupdate);
     prevPage.setData({
       isupdate:this.data.isupdate
     })

@@ -71,8 +71,8 @@
                 <view class="scrollView_card_box4_leftBox">{{item.peoplenum}} 人已报名</view>
                 <view class="scrollView_card_box4_rightBox"><image src="{{item.wxurl}}"></image></view>
               </view>
-              <view wx:if="{{!item.isexist}}" bindtap="applyChallenge" class="scrollView_card_box5">去报名</view>
-              <view wx:if="{{item.isexist}}" bindtap="dakaChallenge"  class="scrollView_card_box5">{{item.isdaka?'今日已打卡':'去打卡'}}</view>
+              <view wx:if="{{!item.isexist}}" data-item="{{item}}" bindtap="applyChallenge" class="scrollView_card_box5">去报名</view>
+              <view wx:if="{{item.isexist}}" data-item="{{item}}" bindtap="dakaChallenge"  class="scrollView_card_box5">{{item.isdaka?'今日已打卡':'去打卡'}}</view>
             </view>
           </scroll-view>
         </view>

@@ -55,7 +55,7 @@ Page({
     let usernum = this.data.args.username//学号
     let ispastdue = false//是否过期
     let groupid = this.data.groupData.uuid//小组id
-    let challengeMemberArr = [{memberName:wxname,memberUrl:wxurl,memberUsernum:usernum}]
+    let challengeMemberArr = [{memberName:wxname,memberUrl:wxurl,memberUsernum:usernum,dakalog:[]}]
     if (challengename == '') {
       wx.showToast({
         title: '请填写标题',
@@ -85,6 +85,25 @@ Page({
       wx.showLoading({
         title: '发布中',
       })
+      let newChallenge = {
+        challengename:challengename,
+        deadlinetime:deadlinetime,
+        isdaka:false,
+        isexist:true,
+        peoplenum:1,
+        totalday:totalday,
+        wxurl:wxurl,
+        challengeid:challengeid,
+        challengeguide:challengeguide,
+        dakalog:[]
+      }
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2]
+      console.log(prevPage);
+      prevPage.setData({
+        isupdate:true,
+        newChallenge,
+      })
       console.log("数据填写完成");
       wx.cloud.database().collection('dakaChallenge_information').add({
         data:{
@@ -106,14 +125,14 @@ Page({
           data:{
             challengename:challengename,
             challengeuuid:challengeid,
-            datalog:[],
+            dakalog:[],
             dayrequire:totalday,
             iscomplete:false,
             totalday:0,//累计打卡天数
             totaldegree:0,//累计打卡次数
             usernum:usernum,
             wxname:wxname,
-            wxurl:wxurl,
+            wxurl:wxurl, 
           }
         }).then(res=>{
           wx.hideLoading({
@@ -336,11 +355,11 @@ Page({
    */
   onLoad(options) {
     var groupData = JSON.parse(options.thisGroupData)
-    console.log(groupData);
+    // console.log(isupdate);
     let args = wx.getStorageSync('args');
-    this.setData({
+      this.setData({
         args,
-        groupData
+        groupData,
     })
   },
   /**

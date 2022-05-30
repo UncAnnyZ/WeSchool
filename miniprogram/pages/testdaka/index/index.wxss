@@ -1094,7 +1094,7 @@ wx-slider .wx-slider-handle-wrapper {
 }
 
 .topbar_true {
-  margin-left: 20rpx;
+  margin-left: 35rpx;
   color: #7c66f5;
   transition: all .7s;
   font-size: 33rpx;

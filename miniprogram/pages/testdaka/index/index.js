@@ -263,6 +263,7 @@ Page({
     async getgroupdata(){
       wx.showLoading({
         title: '加载中',
+        mask:true
       })
       console.log("触发");
 //heng
@@ -277,20 +278,20 @@ Page({
       this.processingData(a);
       this.getmember();
       this.getMyGroupArr();
-      wx.hideLoading();
+      // wx.hideLoading();
 //heng
-      let result1 = await wx.cloud.callFunction({
-        name:"daka",
-        data:{
-          type:"getgroupdata",
-        }
-      })
-      let res1 = result1.result;
-      console.log(res1);
-      let b = res1.data;
-      this.processingData(b);
-      this.getmember();
-      wx.hideLoading();
+      // let result1 = await wx.cloud.callFunction({
+      //   name:"daka",
+      //   data:{
+      //     type:"getgroupdata",
+      //   }
+      // })
+      // let res1 = result1.result;
+      // console.log(res1);
+      // let b = res1.data;
+      // this.processingData(b);
+      // this.getmember();
+      // wx.hideLoading();
       // wx.cloud.database().collection('data_group_information').get().then(res =>{
       //   console.log(res);
       //   let a = res.data;
@@ -917,7 +918,6 @@ Page({
         click_d:true,
         navState
       })
-      this.getgroupdata();
     },
     //日历初始化
     zero: function (i) {
@@ -1790,12 +1790,9 @@ Page({
 
         let username = wx.getStorageSync('args').username;
         console.log(username);
-        wx.showLoading({
-          title: '加载中',
-          mask:true
-        })
         this.today()
-        this.getDaka_record().then(res=>{wx.hideLoading()})
+        this.getDaka_record()
+        this.getgroupdata().then(res=>{wx.hideLoading()})
         wx.setNavigationBarTitle({
             title: 'We打卡',
         });
@@ -1818,7 +1815,6 @@ Page({
        var pages = getCurrentPages();
        var currPage = pages[pages.length - 1]; //当前页面
        let json = currPage.data.mydata;
-       console.log(json);
        if(json){
         this.data.taskdata.push(json);
         console.log(this.data.taskdata);
@@ -1828,7 +1824,13 @@ Page({
         currPage.data.mydata=null;
         console.log(currPage.data.mydata);
         }
-        
+        console.log(this.data.isupdate);
+        if (this.data.isupdate) {
+          this.getgroupdata().then(res=>{wx.hideLoading()})
+          this.setData({
+            isupdate:false
+          })
+        }
     },
 
     /**

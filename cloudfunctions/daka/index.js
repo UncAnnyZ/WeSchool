@@ -36,16 +36,20 @@ exports.main = async (event, context) => {
             return createDakaChallenge(event);
         case "joinDakaChallenge": //加入打卡挑战
             return joinDakaChallenge(event);
-        case "getMyDakaChallenge": //获得成员打卡挑战信息(可以用于 1.判断是否挑战成功 )
+        case "getMyDakaChallenge": //获得成员打卡挑战信息 杰
             return await getMyDakaChallenge(event);
+        case "getMyCompleteDakaChallenge": //获得成员完成打卡挑战信息 杰
+            return await getMyCompleteDakaChallenge(event);
         case "addDakaChallengeCount": //增加挑战打卡次数
             return addDakaChallengeCount(event);
         case "getMyGroupByUserNum": //获取我的小组信息
             return await getMyGroupByUserNum(event);
         case "getPostByGroupId":  //获取小组里的所有帖子
             return await getPostByGroupId(event);
-        case "getChallenge":  //获取小组里的打卡挑战 杰
+        case "getChallenge":  //获取小组未过期的打卡挑战 杰
             return await getChallenge(event);
+        case "getAllChallenge":  //获取小组里的全部打卡挑战 杰
+            return await getAllChallenge(event);
     }
 }
 
@@ -198,12 +202,21 @@ function joinDakaChallenge(event){
     })
 }
 
-async function getMyDakaChallenge(event){
-    return await db.collection("dakaChallenge_member").where({
+async function getMyDakaChallenge(event){ 
+    let mydata = await db.collection("dakaChallenge_member").where({
         usernum:event.usernum,
         challengeuuid:event.challengeuuid,
     }).get()
+    return mydata
 }
+async function getMyCompleteDakaChallenge(event){ 
+  let completeNum = await db.collection("dakaChallenge_member").where({
+      challengeuuid:event.challengeuuid,
+      iscomplete:true
+   }).get()
+   return completeNum
+}
+
 
 function addDakaChallengeCount(event){
     db.collection("dakaChallenge_member").where({
@@ -234,4 +247,11 @@ async function getChallenge(event){
     groupid:event.groupId,
     ispastdue:event.ispastdue
   }).get()
+
+}
+async function getAllChallenge(event){
+  return await db.collection("dakaChallenge_information").where({
+    groupid:event.groupId,
+  }).get()
+
 }

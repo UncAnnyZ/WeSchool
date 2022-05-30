@@ -154,10 +154,10 @@
      <view class="selfstudy">
           <view style="height: {{statusBarHeight}}px;width: 100%;background: white;"></view>
           <view class="selfstudy_bar" style="height: {{lineHeight}}px;background: white;line-height: {{lineHeight}}px;color: white;text-align: center;">
-               <view data-index="8" class="{{studynavState==8?'topbar_true':'topbar' }}" bindtap="navclick">我的任务</view>
+               <!-- <view data-index="8" class="{{studynavState==8?'topbar_true':'topbar' }}" bindtap="navclick">我的任务</view> -->
                <view data-index="5" class="{{studynavState==5?'topbar_true':'topbar' }}" bindtap="navclick">我的小组</view>
                <view data-index="6" class="{{studynavState==6?'topbar_true':'topbar' }}" bindtap="navclick">其他小组</view>
-               <view data-index="7" class="{{studynavState==7?'topbar_true':'topbar' }}" bindtap="navclick">计时</view>
+               <!-- <view data-index="7" class="{{studynavState==7?'topbar_true':'topbar' }}" bindtap="navclick">计时</view> -->
           </view>
      </view>
      <!-- 我的小组 -->
@@ -183,23 +183,19 @@
         <view style="width: 100vw;height: 200rpx;"></view> 
      </view>
      <!-- 我的任务 -->
-     <view class="new_wrap" wx:elif="{{studynavState==8}}">
-     </view>
+     <!-- <view class="new_wrap" wx:elif="{{studynavState==8}}">
+     </view> -->
      <!-- 其他小组 -->
      <view wx:elif="{{studynavState==6}}" class="selfstudy_othergroup">
-          <view class="selfstudy_othergroup_title">
+          <!-- 这个是滑动卡片 -->
+          <!-- <view class="selfstudy_othergroup_title">
                <view bindtouchstart="cardtouchstart" bindtouchmove="cardtouchmove" bindtouchend="cardtouchend" animation="{{id === 0 ? animationData : '' }}" class="selfstudy_othergroup_title_card card{{ id + 1}}" wx:for="{{cardlist}}" wx:key="unique" wx:for-index="id" wx:for-item="item" data-abc="{{ id === 0 }}">
                     <view>{{item.cardname}}让我们一起加入小组吧</view>
                     <view></view>
-                    <!-- 提示滑动的图标 -->
-                    <!-- <span class="change_icon" bindtap="slidethis" wx:if="{{id === 0}}">
-                         <image></image>
-                    </span> -->
                </view>
-               <!-- <view></view> -->
-          </view>
-          <view class="selfstudy_othergroup_longbox">
-               <view class="selfstudy_othergroup_longbox_left" bindtap="getmember"></view>
+          </view> -->
+          <view class="selfstudy_othergroup_longbox" style="box-shadow: 0rpx 10rpx 15rpx 0.1rpx rgb(228, 228, 228);border-radius: 50rpx;" bindtap="more">
+               <view class="selfstudy_othergroup_longbox_left" style="display: flex;align-items: center;"bindtap="getmember"><view style="letter-spacing: 5rpx;font-size: 26rpx;margin-left: 60rpx;">查看全部小组</view></view>
                <view class="selfstudy_othergroup_longbox_right" bindtap="getmember"></view>
           </view>
           <view class="selfstudy_othergroup_mygroup">
@@ -305,11 +301,11 @@
                </view>
           </view>
      </view>
-     <!-- 自习室计时 -->
-     <view wx:elif="{{studynavState==7}}">
+     <!-- 自习室计时 --> 
+     <!-- <view wx:elif="{{studynavState==7}}">
 
 
-     </view>
+     </view> -->
 </view>
 <!-- 生成图片弹窗 -->
 <view class="complete" wx:if="{{showModel2}}">

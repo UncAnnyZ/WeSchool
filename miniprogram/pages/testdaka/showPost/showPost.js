@@ -13,9 +13,8 @@ Page({
     toolbarHight:110,
     keyboardHight:0,
     // 还要小组的信息
-    // groupinfo:{},
-    post:
-      {wxname:'Start from scratch',wxurl:'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132',usernum:"20034480214",text:'第一条个人动态',sendtime:'刚刚',mylike:true,likenum:1,likename:['名字1','名字2'],groupuuid:'小组id',comment:[{name:'微信名',text:'评论内容',time:'刚刚',url:'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132',usernum:'20034480214',isleader:true}],challengename:'打卡挑战的名字',challengeid:'打卡挑战的id',_id:'数据库自动生成的id作为说说id使用',isleader:true},
+    post:'',
+      // {wxname:'Start from scratch',wxurl:'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132',usernum:"20034480214",text:'第一条个人动态',sendtime:'刚刚',mylike:true,likenum:1,likename:['名字1','名字2'],groupuuid:'小组id',comment:[{name:'微信名',text:'评论内容',time:'刚刚',url:'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKKOWAmUxaHaIukl0M80BT6eIw8zW30E3muSOWLmEfhU60syBGHnGx3PJxIFPFt1tn9cwh45ibZ1Qg/132',usernum:'20034480214',isleader:true}],challengename:'打卡挑战的名字',challengeid:'打卡挑战的id',_id:'数据库自动生成的id作为说说id使用',isleader:true},
     text:'',//输入框获取
   },
     //发布评论
@@ -31,20 +30,26 @@ Page({
       let time = new Date()
       let url = this.data.args.iconUrl
       let usernum = this.data.args.username
-      let _id = this.data.post._id//数据库索引
+      let postid = this.data.post.postid//数据库索引
       let addcomment = {name:name,text:text,time:time,url:url,usernum:usernum}
+      //下面是setdata的
       let comment = this.data.post.comment
+      let timeStamp = time.getTime();
+      let whenSend = this.timeShow(timeStamp);
+      let addComment = {name:name,text:text,time:time,url:url,usernum:usernum};
+      addComment.time =whenSend
       wx.showLoading({
         title: '发送中',
+        mask:true
       })
-      comment.push(addcomment)
+      comment.push(addComment)
       this.setData({
         'post.comment':comment,
         text:'',
         isupdate:true
       })
       const _=wx.cloud.database().command
-      wx.cloud.database().collection('personalDynamic').where({_id:_id}).update({
+      wx.cloud.database().collection('personalDynamic').where({postid:postid}).update({
         data:{
           comment:_.push(addcomment),
         }
@@ -64,11 +69,15 @@ Page({
   },
   //点赞
   clickLike(){
+    wx.showLoading({
+      title: '点赞中',
+      mask:true
+    })
     console.log("点赞");
     let myname = this.data.args.nickName
     let likenameArr = this.data.post.likename
     let mylike = this.data.post.mylike
-    let _id = this.data.post._id
+    let postid = this.data.post.postid
     const _=wx.cloud.database().command
     if (mylike) {
       // 已经点赞
@@ -79,12 +88,14 @@ Page({
         'post.likenum':this.data.post.likenum - 1,
         isupdate:true
       })
-      wx.cloud.database().collection('personalDynamic').where({_id:_id}).update({
+      wx.cloud.database().collection('personalDynamic').where({postid:postid}).update({
         data:{
           mylike:false,
           likename:_.pop(myname),
           likenum:_.inc(-1)
         }
+      }).then(res=>{
+        wx.hideLoading()
       })
     } else {
       //未点赞
@@ -95,16 +106,29 @@ Page({
         'post.likenum':this.data.post.likenum + 1,
         isupdate:true
       })
-      wx.cloud.database().collection('personalDynamic').where({_id:_id}).update({
+      wx.cloud.database().collection('personalDynamic').where({postid:postid}).update({
         data:{
           mylike:true,
           likename:_.push(myname),
           likenum:_.inc(+1)
         }
+      }).then(res=>{
+        wx.hideLoading()
       })
     }
   },
   trimPostData(postData){
+    let comment = postData.comment
+    console.log(comment);
+    for (let i = 0; i < comment.length; i++) {
+      //评论发送时间判断
+        let sendtime = comment[i].time
+        let timestamp = new Date(sendtime).getTime();
+        console.log(timestamp);
+        let whenSend = this.timeShow(timestamp);
+        comment[i].time=whenSend
+        console.log(comment[i].time);
+    }
     let post = {
       wxname:postData.wxname,
       wxurl:postData.wxurl,
@@ -120,22 +144,77 @@ Page({
       _id:postData._id,
       isleader:postData.isleader,
       likename:postData.likename,
+      postid:postData.postid
     }
     this.setData({
       post
     })
   },
+  //获取评论/帖子时间 参数：时间戳
+  timeShow(timestamp) {
+    // 保留原始的时间
+    let result = "";
+    
+    //把分，时，天，周，半个月，一个月用毫秒表示
+    let minute = 1000 * 60; 
+    let hour = minute * 60;
+    let day = hour * 24;
+    let week = day * 7;
+    let halfamonth = day * 15;
+    let month = day * 30;
+    
+    //获取当前时间毫秒
+    let now = new Date().getTime(); 
+          
+    //时间差
+    let diffValue = now - timestamp; 
+
+    // 超过当前时间,直接return
+    if (diffValue < 0) {
+      return result;
+    }
+    
+    //计算时间差的分，时，天，周，月
+    let minC = diffValue / minute; 
+    let hourC = diffValue / hour;
+    let dayC = diffValue / day;
+    let weekC = diffValue / week;
+    let monthC = diffValue / month;
+    
+    if (monthC >= 1 && monthC <= 3) {
+      result = parseInt(monthC) + "月前"
+    } else if (weekC >= 1 && weekC <= 3) {
+      result = parseInt(weekC) + "周前"
+    } else if (dayC >= 1 && dayC <= 6) {
+      result = parseInt(dayC) + "天前"
+    } else if (hourC >= 1 && hourC <= 23) {
+      result = parseInt(hourC) + "小时前"
+    } else if (minC >= 1 && minC <= 59) {
+      result = parseInt(minC) + "分钟前"
+    } else if (diffValue >= 0 && diffValue <= minute) {
+      result = "刚刚"
+    } else {
+      // 时间太久
+      result = timestamp;
+    }
+    
+    // 最后return出来
+    return result;
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     var post = JSON.parse(options.thisPostData)
     let args = wx.getStorageSync('args');
+    var index = options.index
     this.trimPostData(post);
     this.setData({
         args,
         myname:args.nickName,
-        myurl:args.iconUrl
+        myurl:args.iconUrl,
+        index
     })
     wx.onKeyboardHeightChange((res) => {
       console.log('wx.onKeyboardHeightChange的res',res);
@@ -175,12 +254,16 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    console.log("监听页面卸载");
+    let updatePost = this.data.post
+    // console.log("监听页面卸载");
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2]
     prevPage.setData({
-      isupdate:this.data.isupdate
+      isupdate:this.data.isupdate,
+      updatePost,
+      postindex:this.data.index
     })
+    //注意主页post和打卡挑战post是否会相互影响
   },
 
   /**

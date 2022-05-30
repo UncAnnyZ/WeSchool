@@ -14,4 +14,4 @@
       </view>
       <textarea class="centerBox_textarea" disabled="true" value="{{guide}}"></textarea>
     </view>
-    <view class="bottomBox" bindtap="confirm">我已准备好</view>
+    <view class="bottomBox" bindtap="apply">我已准备好</view>

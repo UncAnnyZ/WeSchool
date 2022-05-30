@@ -17,6 +17,6 @@
     </view>
     <!-- 工具栏 -->
     <view style="width: 100vw;height: {{toolbarHight}}rpx;display: flex;flex-direction: row;border-top: 1rpx solid #f0f0f0;align-items: center;">
-        <view class="toolbar_send" style="margin:0 auto;"  bindtap="send">发送</view>
+        <view class="toolbar_send" style="margin:0 auto;"  bindtap="judge">发送打卡</view>
     </view>
 </view>

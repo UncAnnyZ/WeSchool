@@ -132,7 +132,6 @@ Page({
                 duration: 1500,
                 mask: false,
                 success: (result) => {
-
                 },
             });
         }
@@ -196,6 +195,11 @@ Page({
                                     creattime:new Date(),
                                 }
                             }).then(res => {
+                                var pages = getCurrentPages()
+                                var prevPage = pages[pages.length - 2]
+                                prevPage.setData({
+                                  isupdate:true
+                                })
                                 wx.showToast({
                                     title: '创建成功',
                                     icon: 'none',
@@ -207,7 +211,7 @@ Page({
                                             wx.navigateBack({
                                                 delta: 1
                                             });
-                                        }, 1200);
+                                        }, 1000);
                                     },
                                 });
                             })
