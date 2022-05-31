@@ -16,7 +16,7 @@ Page({
   },
 
   async onLoad(option)  {
-    let res1 = await db.collection('shop').doc('uncanny').get()     //获取商店信息
+    let res1 = await db.collection('shop').doc('uncanny').get()     //获取商店信息-有分页加载
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -35,6 +35,7 @@ Page({
     }
   },
 
+ 
   /* 读取全部订单 */
   onShow() {
     db.collection('order').orderBy('orderTime', 'desc').where({_openid: app.globalData.openid}).count().then(res => {
@@ -64,6 +65,8 @@ Page({
       shopname: res1.data.name,
       shopid: res1.data.shopid,
     })
+    this.menuRendering()       //进行对菜单进行处理，并进行渲染
+    this.obtainTop('#labelControl')       //获取菜单栏（点菜/评论/商家）盒子的高度
     wx.setStorage({     //将店铺信息读入缓存
       key: "shop",
       data: res1.data
@@ -76,8 +79,6 @@ Page({
       key: "userinfo",
       data: res3.data[0]
     })
-    this.obtainTop('#labelControl')       //获取菜单栏（点菜/评论/商家）盒子的高度
-    this.menuRendering()       //进行对菜单进行处理，并进行渲染
   },
 
   addNewUser(res2){
@@ -150,6 +151,9 @@ Page({
     })
     this.data.menuList[e.currentTarget.id].type=1
     this.scrollTo(this.data.menuList[e.currentTarget.id].changeLabel)
+    this.setData({
+      bottomId:this.data.menuList[e.currentTarget.id].changeLabel
+    })
   },
 
   /* 根据滑动页面的索引，来触发对应的函数，对上面的标签栏（菜单/评价/商家）进行动态渲染 */
@@ -194,12 +198,11 @@ Page({
   },
 
   /* 当商品列表不占据全屏时，点击菜单列表，页面滚动，商品列表总体往上滑，占据全屏 */
-  scrollTo(bottomId) {
+  scrollTo() {
     this.setData({
       choosen:true,
       menuList:this.data.menuList,
       monitorScrolling:true,
-      bottomId
     })
     wx.createSelectorQuery().select('#labelControl').boundingClientRect(res => {
       if(res.top!=0){
@@ -364,7 +367,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    console.log("down");
   },
 
 })
