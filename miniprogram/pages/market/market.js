@@ -1,163 +1,113 @@
 
 const db = wx.cloud.database({env:'mall-7gi19fir46652cb4'})
 var app = getApp()
-let page=0
 Page({
   data: {
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
     goods: [],                  //所有商品的列表
-    mydingdan: [], //订单
-    mydindantotal: 0,
-    skip: 0, //订单跳过前几条
     newuser: true,
     buy: [],                    //购物车内的商品列表
     totalprice: 0.00,           //购物车总价格，不可以删，否则下面的价格栏切换显示出现bug
-    havelocation: false,
     menuList:[],                //菜单列表
     productGroups:[],           //最后用于展示在页面的商品列表
     bottomId:" ",               //用于实现点击菜单，商品列表进行滑动操作的索引
     scrollNum:-1                //用于实现对商品列表滑动，菜单标签出现对应选中的索引
   },
 
-  onLoad: function (option)  {
-    const args = wx.getStorageSync('args')
-    var self = this
-    this.order()
+  async onLoad(option)  {
+    let res1 = await db.collection('shop').doc('uncanny').get()     //获取商店信息-有分页加载
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
-    db.collection('shop').doc('uncanny').get().then(res => {
-      wx.setStorage({
-        key: "shop",
-        data: res.data
+    if(res1.data){
+      await this.renderThePage(res1)      //将商店信息渲染至页面
+      let res2=await wx.cloud.callFunction({        
+        name: 'login',
+        env:'mall-7gi19fir46652cb4',
+        data: {},
       })
-      self.setData({
-        shop_id: 'uncanny',
-        menuList: res.data.caidan,
-        goods: res.data.goods,
-        goprice: res.data.goprice * 1,
-        shopname: res.data.name,
-        shopid: res.data.shopid,
-      })
-    {
-        wx.cloud.callFunction({
-          name: 'login',
-          env:'mall-7gi19fir46652cb4',
-          data: {},
-          success: loginres => {
-            app.globalData.openid = loginres.result.openid
-            db.collection('userinfo').where({
-              _openid: loginres.result.openid
-            }).get().then(userinfores => {
-              if (userinfores.data.length > 0) {
-                wx.setStorage({
-                  key: "userinfo",
-                  data: userinfores.data[0]
-                })
-                self.setData({
-                  newuser: false,
-                  username: userinfores.data[0].username,
-                  usertximg: userinfores.data[0].usertximg,
-                  // userlocation: userinfores.data[0].userlocation,
-                  havelocation: userinfores.data[0].havelocation,
-                })
-                self.obtainTop('#labelControl')
-                self.menuRendering()
-              } else {
-                db.collection('userinfo').add({
-                  data: {
-                    _openid:loginres.result.openid,
-                    username: args.username,
-                    havelocation: false,
-                    userlocation: {},
-                    usertximg: args.iconUrl
-                  }})
-              }
-              self.onShow()
-
-              wx.getSystemInfo({
-                success: function (res) {
-                    //console.log('系统信息:', res);
-                  self.setData({
-                    windowWidth: res.windowWidth
-                  })
-                }
-              });
-            })
-          },
-          fail: err => {
-            console.error('[云函数] [login] 调用失败', err)
-          }
-        })
+      if(res2.result.openid){
+        let res3 = await db.collection('userinfo').where({_openid: res2.result.openid}).get()         //获取用户信息
+        res3.data.length > 0 ? await this.personalInformation(res3) : await this.addNewUser(res2)           //若用户存在，则将用户信息读入缓存；若用户不存在，则在数据库增加新用户
+      }
     }
-    })
-
   },
 
-  onShow(e) {
-    // var self = this
-    // var skip = self.data.skip
-    // this.setData({
-    //   userlocation: self.data.userlocation
-    // })
-    
-    // if(!self.data.newuser){
-    //   db.collection('dindan').where({
-    //     _openid: app.globalData.openid
-    //   }).count().then(totalres => {
-   
-    //     if (totalres.total > 20) {
-    //       skip = totalres.total - 20
-    //     }
-    //     db.collection('dindan')
-    //       .where({
-    //         _openid: app.globalData.openid
-    //       })
-    //       .skip(skip)
-    //       .limit(20)
-    //       .get()
-    //       .then(res => {
-     
-    //         self.setData({
-    //           mydindantotal: totalres.total,
-    //           mydingdan: res.data.reverse()
-    //         })
-    //         wx.hideNavigationBarLoading()
-    //         wx.stopPullDownRefresh()
-    //         console.log(res.data)
-    //       })
-    //       .catch(err => {
-    //         wx.hideNavigationBarLoading()
-    //         wx.stopPullDownRefresh()
-    //         console.error(err)
-    //       })
-    //   })
-    // }
-
-    // wx.hideHomeButton();
-    db.collection('order').orderBy('orderTime', 'desc').where({_openid: app.globalData.openid}).skip(page).limit(15).get().then(res => {
+ 
+  /* 读取全部订单 */
+  onShow() {
+    db.collection('order').orderBy('orderTime', 'desc').where({_openid: app.globalData.openid}).count().then(res => {
+      const countResult=res.total
+      const batchTimes = Math.ceil(countResult / 2)
+      let allOrders=[]
+      for(let i=0;i<batchTimes;i++){
+        db.collection('order').orderBy('orderTime', 'desc').where({_openid: app.globalData.openid}).skip(i * 2).limit(2).get().then(res => {
+          res.data.forEach((item) => {
+            allOrders.push(item)
+          })
+        });
+      }
       this.setData({
-        allOrders:res.data
+        allOrders
       })
     });
   },
 
+  renderThePage(res1){
+    this.order()    //渲染可滑动的菜单栏（点菜/评论/商家）
+    this.setData({      //对页面的店铺信息进行渲染
+      shop_id: 'uncanny',
+      menuList: res1.data.caidan,
+      goods: res1.data.goods,
+      goprice: res1.data.goprice * 1,
+      shopname: res1.data.name,
+      shopid: res1.data.shopid,
+    })
+    this.menuRendering()       //进行对菜单进行处理，并进行渲染
+    this.obtainTop('#labelControl')       //获取菜单栏（点菜/评论/商家）盒子的高度
+    wx.setStorage({     //将店铺信息读入缓存
+      key: "shop",
+      data: res1.data
+    })
+  },
+
+  personalInformation(res3){
+    this.data.newuser=false     //设定是老用户
+    wx.setStorage({         //将用户信息读入缓存
+      key: "userinfo",
+      data: res3.data[0]
+    })
+  },
+
+  addNewUser(res2){
+    const args = wx.getStorageSync('args')
+    db.collection('userinfo').add({       //添加新用户信息
+      data: {
+        _openid:res2.result.openid,
+        username: args.username,
+        userlocation: {},
+        usertximg: args.iconUrl
+      }
+    })
+  },
+
+ 
+
   /* 获取盒子的尺寸：宽度/距离顶部的高/距离左边的长度/... */
   obtainTop(type){
-    var that=this
     const query = wx.createSelectorQuery()
     query.select(type).boundingClientRect()
     query.selectViewport().scrollOffset()
-    query.exec(function(res){
+    query.exec(res=>{
       if(type==='#labelControl'){
-        that.setData({
+        this.setData({
           topH:res[0].height,       // #the-id节点的上边界坐标
           windowHeight:wx.getSystemInfoSync().windowHeight
         })
       }else{
-        that.setData({
+        this.setData({
           leftLength:res[0].left,
           widthLength:res[0].width,
         })
@@ -201,6 +151,9 @@ Page({
     })
     this.data.menuList[e.currentTarget.id].type=1
     this.scrollTo(this.data.menuList[e.currentTarget.id].changeLabel)
+    this.setData({
+      bottomId:this.data.menuList[e.currentTarget.id].changeLabel
+    })
   },
 
   /* 根据滑动页面的索引，来触发对应的函数，对上面的标签栏（菜单/评价/商家）进行动态渲染 */
@@ -215,13 +168,14 @@ Page({
    /* 菜单渲染 */
    menuRendering() {
      let count=0
+     let type=0
      const menuList=this.data.menuList.map((item) => {
       let goodsList=this.data.goods.filter((item2) => {
         return item2.caidan===item.name
       })
       let obj={
         name:item.name,
-        type:0,
+        type,
         changeLabel:'changeLabel' + count ++,
         goodsList
       }
@@ -244,12 +198,11 @@ Page({
   },
 
   /* 当商品列表不占据全屏时，点击菜单列表，页面滚动，商品列表总体往上滑，占据全屏 */
-  scrollTo(bottomId) {
+  scrollTo() {
     this.setData({
       choosen:true,
       menuList:this.data.menuList,
       monitorScrolling:true,
-      bottomId
     })
     wx.createSelectorQuery().select('#labelControl').boundingClientRect(res => {
       if(res.top!=0){
@@ -414,7 +367,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    console.log("down");
   },
 
 })
