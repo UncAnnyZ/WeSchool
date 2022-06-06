@@ -8,7 +8,7 @@ Component({
         pagePath: "/pages/more/more",
         text: "首页",
         iconPath: "/images/tabbar/home.png",
-        selectedIconPath: "/images/tabbar/home_sel1.png"
+        selectedIconPath: "/images/tabbar/home_sel.png"
       },
       {
         pagePath: "/pages/curriculum/curriculum",

@@ -330,13 +330,16 @@ Page({
       }
     }).then()
   },
-  navigate(e) {
-    if (e.currentTarget.dataset.type == "tip") {
+  navigate({currentTarget:{dataset:{type}}}) {
+
+    console.log(type);
+
+    if (type == "tip") {
       wx.navigateTo({
         url: '/pages/more/pages/NewInfo/NewInfo',
       })
     }
-    else if(e.currentTarget.dataset.type == "set"){
+    else if(type == "set"){
       wx.navigateTo({
         url: '/pages/myself/pages/page/page',
       })
