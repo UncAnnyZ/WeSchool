@@ -29,15 +29,19 @@ Component({
  */
 data: {
   loadAll: false,   // 状态标志 - 是否加载完所有内容
-
-  leftList: [],     // 左列表
-  rightList: [],    // 右列表
-  leftH: 0,         // 当前左列表高度
-  rightH: 0,        // 当前右列表高度
 },
 observers: {
-  'list': function(val) {
-    // console.log(val,"lwknekonw");
+
+},
+lifetimes: {
+  
+  ready() {
+    let list = this.data.list;
+    list = list.filter(e => {
+      return e
+    })
+    console.log(list);
+    
   }
 },
 methods: {

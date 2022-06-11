@@ -2,6 +2,11 @@ var app = getApp()
 const args = wx.getStorageSync('args')
 const util = require('../../utils/util')
 
+/**
+ * 长文本内容展开与收起
+ * @param {Boolean} isWater  开启瀑布流/信息流 --- 在调试器的 AppData 中对其进行更改可见效果
+ */
+
 Page({
   data: {
     // 配置
@@ -192,12 +197,12 @@ Page({
       currentTab = data.currentTab,
       currentPage = data.currentPageArr[currentTab],
       ShowId = data.tabitem[currentTab].title, // 当前选择的标签名字
-      School = args.schoolName ? ("空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName) : wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院"),     // 边界处理 - 用户没登录时
+      School = args.schoolName ? ("空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院") : args.schoolName) : wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院"),     // 边界处理 - 用户没登录时
       currComponent = that.selectComponent(`#waterFlowCards${currentTab}`) || that.selectComponent(`#feed${currentTab}`),
       isWater = data.isWater;
 
-    if(!currComponent) return;
-    
+    if (!currComponent) return;
+
     if (currComponent.data.loadAll) {
       console.log("已经拉到底了");
       return;
@@ -232,10 +237,10 @@ Page({
             });
           }
           // 新数据进行左右处理
-          if(isWater) {
+          if (isWater) {
             currComponent.RightLeftSolution();
           }
-          
+
 
         } else { // 不存在数据时
           if (currComponent.data.leftH == 0 && currComponent.data.rightH == 0) {
@@ -250,19 +255,19 @@ Page({
 
         //兼容信息流与瀑布流
         let SelectorQuery;
-        if(isWater) {
+        if (isWater) {
           SelectorQuery = wx.createSelectorQuery().select(`#waterFlowCards${currentTab}`);
-        }else {
+        } else {
           SelectorQuery = wx.createSelectorQuery().select(`#feed${currentTab}`);
         }
 
         SelectorQuery.boundingClientRect(res => {
-            // 避免高度过小
-            res.height < 100 ? res.height = 100 : '';
-            that.setData({
-              currentWaterFlowHeight: res.height
-            })
+          // 避免高度过小
+          res.height < 100 ? res.height = 100 : '';
+          that.setData({
+            currentWaterFlowHeight: res.height
           })
+        })
           .exec();
       },
       fail(res) {
@@ -278,7 +283,7 @@ Page({
         url: "Note_module",
         type: "read",
         username: args.username,
-        School: args.schoolName == "空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName,
+        School: args.schoolName == "空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院") : args.schoolName,
       },
       success(res) {
         if (!res.result) return;
@@ -308,7 +313,7 @@ Page({
             url: "Card",
             username: args.username,
             type: "search",
-            School: args.schoolName == "空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName,
+            School: args.schoolName == "空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院") : args.schoolName,
             searchKey: value
           },
           success: res => {
@@ -358,11 +363,16 @@ Page({
 
   // 滑动选择标签  
   switchTab: function (e) {
-    var currentTab = e;
+    var currentTab = e,
+      that = this,
+      isWater = this.data.isWater;
 
     if (this.data.allList[currentTab].length) {
+      // 选择 瀑布流/信息流
+      var Query = isWater ? `#waterFlowCards${currentTab}` : `#feed${currentTab}`;
+
       wx.createSelectorQuery()
-        .select(`#waterFlowCards${currentTab}`)
+        .select(Query)
         .boundingClientRect(res => {
           // 避免高度过小
           res.height < 100 ? res.height = 100 : '';
@@ -371,6 +381,7 @@ Page({
           })
         })
         .exec();
+
       console.log("页面已经有数据了，不请求数据库");
       return;
     } else {
@@ -390,7 +401,7 @@ Page({
   // 初始化函数
   init() {
 
-   
+
     // 初始化标签
     let data = this.data,
       tabitem = args.tabitem ? args.tabitem.map((e, index) => {
@@ -467,10 +478,10 @@ Page({
   onShow: function () {
     let currentTab = this.data.currentTab;
 
-    if(this.selectComponent(`#waterFlowCards${currentTab}`)) {
+    if (this.selectComponent(`#waterFlowCards${currentTab}`)) {
       this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
     }
-    
+
     //  获取新消息提醒   ------ - 不应每次show该页面时都请求，应每隔一段时间请求一次。
     this.getNewInfo();
 
@@ -486,7 +497,7 @@ Page({
       course = []
 
     var handleCourseTime = (course) => {
- 
+
 
       if (!course) return;
 
@@ -524,7 +535,7 @@ Page({
           break;
         }
       }
- 
+
       console.log(courseTime_today, nowTime, course);
 
     }
@@ -551,12 +562,12 @@ Page({
             let briefSchool = wx.getStorageSync('briefSchool') || (new_args.schoolName && new_args.schoolName != '空') ? new_args.schoolName : undefined
             if (!briefSchool) {
               wx.redirectTo({
-                url: 
-                '/pages/index/guidance/guidance'
+                url:
+                  '/pages/index/guidance/guidance'
                 // '/pages/login/login'
               })
             }
-          } catch(e) {
+          } catch (e) {
             console.log(e)
             that.setData({
               msg: '有超级bug，请联系开发查看函数'
@@ -574,7 +585,7 @@ Page({
 
       }
     })
-    
+
 
     handleCourseTime(course);
 
@@ -593,10 +604,10 @@ Page({
     this.TimeOut = setTimeout(() => {
       console.log("下拉刷新")
       // 清空瀑布流内容，并再次请求数 据库
-      if(this.selectComponent(`#waterFlowCards${currentTab}`)) {
+      if (this.selectComponent(`#waterFlowCards${currentTab}`)) {
         this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
       }
-      
+
       this.getData();
       // 获取小纸条
       this.getNoteData();

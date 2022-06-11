@@ -26,7 +26,7 @@
   box-sizing: border-box;
 }
 
-.avatar {
+.avatar, .avatar image{
   width: 90rpx;
   height: 90rpx;
   border-radius: 50%;
@@ -87,4 +87,10 @@
 .icon {
   width: 35rpx;
   height: 35rpx;
+}
+.DataNull{
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
 }

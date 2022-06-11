@@ -18,6 +18,7 @@
   position: fixed;
   top: 100vh;
   left: -100vw;
+  opacity: 0;
 }
 .text-clamp2 {
   overflow: hidden;
