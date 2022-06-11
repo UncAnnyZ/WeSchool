@@ -1,6 +1,6 @@
-<scroll-view class="container" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="height: {{windowHeight - (statusBarHeight + lineHeight -20)}}px;">
+<scroll-view class="container {{theme=='dark'?'container_dark':''}}" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300" style="height: {{windowHeight - (statusBarHeight + lineHeight -20)}}px;">
   <!-- 头部 -->
-  <view class="head" style="width: 100%; position: fixed; z-index: 999;">
+  <view class=" {{theme=='dark'?'container_dark':'head'}}"  style="width: 100%; position: fixed; z-index: 999;">
     <!-- 状态栏 -->
     <view style="height: {{statusBarHeight}}px;"></view>
     <!-- 导航栏 -->
@@ -26,7 +26,7 @@
     </view>
 
     <view class="containers">
-      <view class="banner bannerbgc" bindtap="toFans">
+      <view class="{{theme=='light'?'bannerbgc':'bannerbgc_dark'}} banner" bindtap="toFans">
         <view class="banner-fri">
           <view class="banner-fri1">
             <image src="{{person_info.iconUrl}}" class="banner-fri-touxiang"></image>
@@ -68,7 +68,7 @@
         </view>
       </weimob-sticky>
     </view>
-    <scroll-view wx:if="{{campus_account!=true}}" class="page">
+    <scroll-view wx:if="{{campus_account!=true}}" class="pages">
       <Loading wx:if="{{showLoading}}" />
       <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight+90}}px;min-height:65vh">
         <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">

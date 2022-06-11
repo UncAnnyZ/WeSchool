@@ -217,7 +217,7 @@
   height: 90rpx;
   position: absolute;
   width: 92%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .settlePrice{
   display: flex;
@@ -244,4 +244,6 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  border-top-right-radius: 43rpx;
+  border-bottom-right-radius: 43rpx;
 }

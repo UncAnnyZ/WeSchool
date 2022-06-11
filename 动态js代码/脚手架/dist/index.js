@@ -126,54 +126,97 @@ function runCode() {
       for (var i in dictData) {
         this.data[i] = dictData[i];
       }
-      var html = "<view class='container' style='align-items: center; background: #FBE9A3; display: flex; flex-direction: column; height: 100%; width: 100%;'>  <view class='labelControl' style='align-items: center; background-color: white; border-bottom: 2rpx solid #94949438; display: flex; flex-direction: row; height: 72rpx; padding: 25rpx 0rpx; position: sticky; top: 0rpx; width: 100%; z-index: 3;'>    <view class='showAllOrders' id='showAllOrders' bindtap='showAllOrders' style='color: #464646de; display: flex; font-size: 25rpx; font-weight: " + (_typeof(this.data.showAllOrdersHeight) === "object" ? JSON.stringify(this.data.showAllOrdersHeight) : this.data.showAllOrdersHeight) + "; margin: 0 28rpx;'>\\u5168\\u90E8\\u8BA2\\u5355</view>    <view class='unpaid' id='unpaid' bindtap='unpaid' style='color: #464646de; display: flex; font-size: 25rpx; font-weight: " + (_typeof(this.data.unpaidHeight) === "object" ? JSON.stringify(this.data.unpaidHeight) : this.data.unpaidHeight) + "; margin: 0 28rpx;'>\\u5F85\\u4ED8\\u6B3E</view>    <view class='paid' id='paid' bindtap='paid' style='color: #464646de; display: flex; font-size: 25rpx; font-weight: " + (_typeof(this.data.paidHeight) === "object" ? JSON.stringify(this.data.paidHeight) : this.data.paidHeight) + "; margin: 0 28rpx;'>\\u5DF2\\u4ED8\\u6B3E</view>    <view class='labelControlLine' style='background-color: #FFD633; bottom: 0; height: 4rpx; left: " + (_typeof(this.data.leftLength) === "object" ? JSON.stringify(this.data.leftLength) : this.data.leftLength) + "px; position: absolute; transition: left .4s; width: " + (_typeof(this.data.widthLength) === "object" ? JSON.stringify(this.data.widthLength) : this.data.widthLength) + "px;'></view>  </view>  <swiper bindchange='bindchange' style='height: 100%;width: 94%;' current='" + (_typeof(this.data.navState) === "object" ? JSON.stringify(this.data.navState) : this.data.navState) + "'>  <swiper-item>  <view style='width: 94%;display: flex;flex-direction: column;padding: 10rpx 0rpx 20rpx 0rpx;'>    " + this.data.allOrders.map(function (item, index) {
-        return " <view style='background-color: white;width: 100%;display: flex;flex-direction: column;border-radius: 15rpx;color: black;margin-top: 15rpx;padding:20rpx;' >      <view style='font-weight: 550;color: black;display: flex;flex-direction: row;align-items: center;padding: 5rpx 0rpx;border-bottom: 1rpx solid #94949438;padding-bottom: 20rpx;'>        <view>" + (_typeof(item.buy["0"].shangpu) === "object" ? JSON.stringify(item.buy["0"].shangpu) : item.buy["0"].shangpu) + "</view>        " + (_typeof(item.paymentStatus) === "object" ? JSON.stringify(item.paymentStatus) : item.paymentStatus ? "<view style='margin-left: auto;font-weight: 400;font-size: 24rpx;' >\\u5DF2\\u4ED8\\u6B3E</view>" : "        <view style='margin-left: auto;color: red;font-weight: 400;font-size: 24rpx;' wx:else>\\u5F85\\u4ED8\\u6B3E</view>") + "      </view>      " + item.buy.map(function (item, index) {
-          return " <view style='display: flex;flex-direction: row;width: 100%;' >        <view style='width: 160rpx;display: flex;flex-direction: column;margin:15rpx 15rpx 0rpx 0rpx;'>          <view style='height: 108rpx;background-color: #e4e4e457;border-radius: 12rpx;overflow: hidden;'>            <image src='" + (_typeof(item.img) === "object" ? JSON.stringify(item.img) : item.img) + "' mode='aspectFill' style='height: 100%;width: 100%;'></image>          </view>          <view style='font-size: 20rpx;color: #464646de;margin:5rpx 0rpx 0rpx 5rpx;'>          " + (_typeof(item.name) === "object" ? JSON.stringify(item.name) : item.name) + "          </view>        </view>      </view>";
-        }) + "      <view style='display: flex;flex-direction: row;height: 40rpx;width: 100%;font-size: 24rpx;color: #464646de;margin:20rpx 0rpx 0rpx 5rpx;align-items: center;'>        <view>        \\u4E0B\\u5355\\u65F6\\u95F4\\uFF1A " + (_typeof(item.orderTime) === "object" ? JSON.stringify(item.orderTime) : item.orderTime) + "        </view>        <view style='margin-left: auto;display: flex;flex-direction: row;margin-right: 5rpx;align-items: center;'>        \\u5408\\u8BA1 <view style='font-weight: 500;font-size: 31rpx;color: black;'> \\uFFE5" + (_typeof(item.totalPrice) === "object" ? JSON.stringify(item.totalPrice) : item.totalPrice) + "</view>        </view>      </view>    </view>";
-      }) + "  </view>  </swiper-item></swiper></view>";
+      var html = "<view class='labelControl' id='labelControl' style='align-items: center; background-color: white; border-bottom: 2rpx solid #94949438; display: flex; flex-direction: row; height: 72rpx; padding: 25rpx 0rpx; position: fixed; top: 0rpx; width: 100%; z-index: 3;'>  <view class='showAllOrders' id='showAllOrders' bindtap='showAllOrders' style='color: #464646de; display: flex; font-size: 25rpx; font-weight: " + (_typeof(this.data.showAllOrdersHeight) === "object" ? JSON.stringify(this.data.showAllOrdersHeight) : this.data.showAllOrdersHeight) + "; margin: 0 28rpx;'>\\u5168\\u90E8\\u8BA2\\u5355</view>  <view class='unpaid' id='unpaid' bindtap='unpaid' style='color: #464646de; display: flex; font-size: 25rpx; font-weight: " + (_typeof(this.data.unpaidHeight) === "object" ? JSON.stringify(this.data.unpaidHeight) : this.data.unpaidHeight) + "; margin: 0 28rpx;'>\\u5F85\\u4ED8\\u6B3E</view>  <view class='paid' id='paid' bindtap='paid' style='color: #464646de; display: flex; font-size: 25rpx; font-weight: " + (_typeof(this.data.paidHeight) === "object" ? JSON.stringify(this.data.paidHeight) : this.data.paidHeight) + "; margin: 0 28rpx;'>\\u5DF2\\u4ED8\\u6B3E</view>  <view class='labelControlLine' style='background-color: #FFD633; bottom: 0; height: 4rpx; left: " + (_typeof(this.data.leftLength) === "object" ? JSON.stringify(this.data.leftLength) : this.data.leftLength) + "px; position: absolute; transition: left .4s; width: " + (_typeof(this.data.widthLength) === "object" ? JSON.stringify(this.data.widthLength) : this.data.widthLength) + "px;'></view></view><swiper style='height: " + (_typeof(this.data.swiperHeight) === "object" ? JSON.stringify(this.data.swiperHeight) : this.data.swiperHeight) + "px;width: 100%;position: relative;top: " + (_typeof(this.data.topH) === "object" ? JSON.stringify(this.data.topH) : this.data.topH) + "px;background: #FBE9A3;' current='" + (_typeof(this.data.navState) === "object" ? JSON.stringify(this.data.navState) : this.data.navState) + "' bindchange='swiperChange'>  <swiper-item style='width:100%;position: absolute;transform: translate(0%, 0px) translateZ(0px);display: flex;justify-content: center;align-items: center;'>    <scroll-view scroll-y='true' style='width: 94%;padding-top: 15rpx;'>      " + this.data.allOrders.map(function (item, index) {
+        return " <view style='background-color: white;width: 100%;display: flex;flex-direction: column;border-radius: 15rpx;color: black;margin-top: 15rpx;padding:20rpx;'  id='scroll'>        <view style='font-weight: 550;color: black;display: flex;flex-direction: row;align-items: center;padding: 5rpx 0rpx;border-bottom: 1rpx solid #94949438;padding-bottom: 20rpx;'>          <view>" + (_typeof(item.buy["0"].shangpu) === "object" ? JSON.stringify(item.buy["0"].shangpu) : item.buy["0"].shangpu) + "</view>          " + (_typeof(item.paymentStatus) === "object" ? JSON.stringify(item.paymentStatus) : item.paymentStatus ? "<view style='margin-left: auto;font-weight: 400;font-size: 24rpx;' >\\u5DF2\\u4ED8\\u6B3E</view>" : "          <view style='margin-left: auto;color: red;font-weight: 400;font-size: 24rpx;' wx:else>\\u5F85\\u4ED8\\u6B3E</view>") + "        </view>        " + item.buy.map(function (item, index) {
+          return " <view style='display: flex;flex-direction: row;width: 100%;' >          <view style='width: 160rpx;display: flex;flex-direction: column;margin:15rpx 15rpx 0rpx 0rpx;'>            <view style='height: 108rpx;background-color: #e4e4e457;border-radius: 12rpx;overflow: hidden;'>              <image src='" + (_typeof(item.img) === "object" ? JSON.stringify(item.img) : item.img) + "' mode='aspectFill' style='height: 100%;width: 100%;'></image>            </view>            <view style='font-size: 20rpx;color: #464646de;margin:5rpx 0rpx 0rpx 5rpx;'>            " + (_typeof(item.name) === "object" ? JSON.stringify(item.name) : item.name) + "            </view>          </view>        </view>";
+        }) + "        <view style='display: flex;flex-direction: row;height: 40rpx;width: 100%;font-size: 24rpx;color: #464646de;margin:20rpx 0rpx 0rpx 5rpx;align-items: center;'>          <view>          \\u4E0B\\u5355\\u65F6\\u95F4\\uFF1A " + (_typeof(item.orderTime) === "object" ? JSON.stringify(item.orderTime) : item.orderTime) + "          </view>          <view style='margin-left: auto;display: flex;flex-direction: row;margin-right: 5rpx;align-items: center;'>          \\u5408\\u8BA1 <view style='font-weight: 500;font-size: 31rpx;color: black;'> \\uFFE5" + (_typeof(item.totalPrice) === "object" ? JSON.stringify(item.totalPrice) : item.totalPrice) + "</view>          </view>        </view>      </view>";
+      }) + "      <view style='width: 100%;display: flex;align-items: center;justify-content: center;font-size: 22rpx;margin-top: 24rpx;color: #464646de;'>- \\u65E0\\u66F4\\u591A\\u5185\\u5BB9 -</view>    </scroll-view>  </swiper-item>  <swiper-item style='width:100%;position: absolute;transform: translate(100%, 0px) translateZ(0px);display: flex;justify-content: center;align-items: center;'>    <scroll-view scroll-y='true' style='width: 94%;padding-top: 15rpx;'>      " + this.data.unpaidList.map(function (item, index) {
+        return " <view style='background-color: white;width: 100%;display: flex;flex-direction: column;border-radius: 15rpx;color: black;margin-top: 15rpx;padding:20rpx;'  id='scroll'>        <view style='font-weight: 550;color: black;display: flex;flex-direction: row;align-items: center;padding: 5rpx 0rpx;border-bottom: 1rpx solid #94949438;padding-bottom: 20rpx;'>          <view>" + (_typeof(item.buy["0"].shangpu) === "object" ? JSON.stringify(item.buy["0"].shangpu) : item.buy["0"].shangpu) + "</view>          <view style='margin-left: auto;color: red;font-weight: 400;font-size: 24rpx;'>\\u5F85\\u4ED8\\u6B3E</view>        </view>        " + item.buy.map(function (item, index) {
+          return " <view style='display: flex;flex-direction: row;width: 100%;' >          <view style='width: 160rpx;display: flex;flex-direction: column;margin:15rpx 15rpx 0rpx 0rpx;'>            <view style='height: 108rpx;background-color: #e4e4e457;border-radius: 12rpx;overflow: hidden;'>              <image src='" + (_typeof(item.img) === "object" ? JSON.stringify(item.img) : item.img) + "' mode='aspectFill' style='height: 100%;width: 100%;'>            </image></view>            <view style='font-size: 20rpx;color: #464646de;margin:5rpx 0rpx 0rpx 5rpx;'>            " + (_typeof(item.name) === "object" ? JSON.stringify(item.name) : item.name) + "            </view>          </view>        </view>";
+        }) + "        <view style='display: flex;flex-direction: row;height: 40rpx;width: 100%;font-size: 24rpx;color: #464646de;margin:20rpx 0rpx 0rpx 5rpx;align-items: center;'>          <view>          \\u4E0B\\u5355\\u65F6\\u95F4\\uFF1A " + (_typeof(item.orderTime) === "object" ? JSON.stringify(item.orderTime) : item.orderTime) + "          </view>          <view style='margin-left: auto;display: flex;flex-direction: row;margin-right: 5rpx;align-items: center;'>          \\u5408\\u8BA1 <view style='font-weight: 500;font-size: 31rpx;color: black;'> \\uFFE5" + (_typeof(item.totalPrice) === "object" ? JSON.stringify(item.totalPrice) : item.totalPrice) + "</view>          </view>        </view>      </view>";
+      }) + "      <view style='width: 100%;display: flex;align-items: center;justify-content: center;font-size: 22rpx;margin-top: 24rpx;color: #464646de;'>- \\u65E0\\u66F4\\u591A\\u5185\\u5BB9 -</view>    </scroll-view>  </swiper-item>  <swiper-item style='width:100%;position: absolute;transform: translate(200%, 0px) translateZ(0px);display: flex;justify-content: center;align-items: center;'>    <scroll-view scroll-y='true' style='width: 94%;padding-top: 15rpx;'>      " + this.data.paidList.map(function (item, index) {
+        return " <view style='background-color: white;width: 100%;display: flex;flex-direction: column;border-radius: 15rpx;color: black;margin-top: 15rpx;padding:20rpx;'  id='scroll'>        <view style='font-weight: 550;color: black;display: flex;flex-direction: row;align-items: center;padding: 5rpx 0rpx;border-bottom: 1rpx solid #94949438;padding-bottom: 20rpx;'>          <view>" + (_typeof(item.buy["0"].shangpu) === "object" ? JSON.stringify(item.buy["0"].shangpu) : item.buy["0"].shangpu) + "</view>          <view style='margin-left: auto;font-weight: 400;font-size: 24rpx;'>\\u5DF2\\u4ED8\\u6B3E</view>        </view>        " + item.buy.map(function (item, index) {
+          return " <view style='display: flex;flex-direction: row;width: 100%;' >          <view style='width: 160rpx;display: flex;flex-direction: column;margin:15rpx 15rpx 0rpx 0rpx;'>            <view style='height: 108rpx;background-color: #e4e4e457;border-radius: 12rpx;overflow: hidden;'>              <image src='" + (_typeof(item.img) === "object" ? JSON.stringify(item.img) : item.img) + "' mode='aspectFill' style='height: 100%;width: 100%;'>            </image></view>            <view style='font-size: 20rpx;color: #464646de;margin:5rpx 0rpx 0rpx 5rpx;'>            " + (_typeof(item.name) === "object" ? JSON.stringify(item.name) : item.name) + "            </view>          </view>        </view>";
+        }) + "        <view style='display: flex;flex-direction: row;height: 40rpx;width: 100%;font-size: 24rpx;color: #464646de;margin:20rpx 0rpx 0rpx 5rpx;align-items: center;'>          <view>          \\u4E0B\\u5355\\u65F6\\u95F4\\uFF1A " + (_typeof(item.orderTime) === "object" ? JSON.stringify(item.orderTime) : item.orderTime) + "          </view>          <view style='margin-left: auto;display: flex;flex-direction: row;margin-right: 5rpx;align-items: center;'>          \\u5408\\u8BA1 <view style='font-weight: 500;font-size: 31rpx;color: black;'> \\uFFE5" + (_typeof(item.totalPrice) === "object" ? JSON.stringify(item.totalPrice) : item.totalPrice) + "</view>          </view>        </view>      </view>";
+      }) + "      <view style='width: 100%;display: flex;align-items: center;justify-content: center;font-size: 22rpx;margin-top: 24rpx;color: #464646de;'>- \\u65E0\\u66F4\\u591A\\u5185\\u5BB9 -</view>    </scroll-view>  </swiper-item></swiper>";
       this.setData({ html: this.parse(html) });
     },
 
     data: {
       allOrders: [],
       widthLength: 0,
-      leftLength: 0
+      leftLength: 0,
+      unpaidList: [],
+      paidList: []
     },
     obtainTop: function obtainTop(type) {
       var that = this;
       var query = wx.createSelectorQuery();
       query.select(type).boundingClientRect();
+      query.select('#scroll').boundingClientRect();
+      query.select('#showAllOrders').boundingClientRect();
       query.selectViewport().scrollOffset();
       query.exec(function (res) {
-        that.setdata({
-          leftLength: res[0].left,
-          widthLength: res[0].width
-        });
+        if (type === '#labelControl') {
+          that.setdata({
+            topH: res[0].height,
+            swiperHeight: res[1].height * that.data.allOrders.length + 100,
+            leftLength: res[2].left,
+            widthLength: res[2].width
+          });
+        } else {
+          that.setdata({
+            leftLength: res[0].left,
+            widthLength: res[0].width
+          });
+        }
       });
     },
     showAllOrders: function showAllOrders() {
       this.obtainTop('#showAllOrders');
       this.setdata({
+        allOrders: this.data.allOrders,
+        navState: 0,
         showAllOrdersHeight: 550,
         unpaidHeight: 400,
         paidHeight: 400
       });
     },
     unpaid: function unpaid() {
+      var unpaidList = this.data.allOrders.filter(function (item) {
+        return item.paymentStatus === false;
+      });
       this.obtainTop('#unpaid');
       this.setdata({
+        unpaidList: unpaidList,
+        navState: 1,
         showAllOrdersHeight: 400,
         unpaidHeight: 550,
         paidHeight: 400
       });
     },
     paid: function paid() {
+      var paidList = this.data.allOrders.filter(function (item) {
+        return item.paymentStatus === true;
+      });
       this.obtainTop('#paid');
       this.setdata({
+        paidList: paidList,
+        navState: 2,
         showAllOrdersHeight: 400,
         unpaidHeight: 400,
         paidHeight: 550
       });
+    },
+    swiperChange: function swiperChange(e) {
+      switch (e.detail.current) {
+        case 0:
+          this.showAllOrders();break;
+        case 1:
+          this.unpaid();break;
+        case 2:
+          this.paid();break;
+      }
     }
   }, "onLoad", function onLoad() {
     var _this = this;
@@ -181,11 +224,9 @@ function runCode() {
     wx.getStorage({
       key: 'allOrders',
       success: function success(res) {
-        console.log(res.data.allOrders);
-        _this.setdata({
-          allOrders: res.data.allOrders
-        });
+        _this.data.allOrders = res.data.allOrders;
         _this.showAllOrders();
+        _this.obtainTop('#labelControl');
       }
     });
   }));

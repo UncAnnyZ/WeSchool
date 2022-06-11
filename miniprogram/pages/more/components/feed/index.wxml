@@ -1,0 +1,39 @@
+<view class="box">
+  <block wx:for="{{list}}" wx:key="*this">
+    <view class="card">
+      <view class="head_">
+        <!-- 头像 -->
+        <view class="avatar">
+          <image src="{{item.iconUrl}}"></image>
+        </view>
+        <!-- 头像右边的盒子 -->
+        <view class="right">
+          <view class="userInfo">
+            <view class="name">{{item.nickName}}</view>
+            <view class="info">{{item.School}}</view>
+          </view>
+          <image class="setting" src="../../../../images/more.png" />
+        </view>
+      </view>
+      <!-- 文本内容 -->
+      <view class="content">
+        <custom-content content="{{item.Text}}" maxline="2" position="left" foldable="true"></custom-content>
+      </view>
+      <!-- 底部的icon盒子 -->
+      <view class="foot">
+        <view class="iconBox">
+          <image src="../../../../images/share.png" class="icon"></image>1
+        </view>
+        <view class="iconBox">
+          <image src="../../../../images/comment.png" class="icon"></image>
+        </view>
+        <view class="iconBox">
+          <image src="../../../../images/1.png" class="icon"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 边界处理 -->
+<view class="DataNull" wx:if="{{loadAll}}">-无更多内容-</view>

@@ -100,6 +100,13 @@
           "pathName": "pages/login/login",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "发布",
+          "pathName": "pages/PublishContent/PublishContent",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

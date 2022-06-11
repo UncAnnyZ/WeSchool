@@ -15,9 +15,6 @@ Page({
       nickName: args.nickName?args.nickName:"游客",
       username: args.username?args.username:"guest",
       School: args.school?args.school:"游客登录",
-      focusNum: 0,
-      fansNum: 0,
-      StarNum: 0
     },
     list: [],
     statusBarHeight: getApp().globalData.statusBarHeight,
@@ -30,7 +27,8 @@ Page({
     NewInfo: 0,
     navigationBar: app.globalData.navigationBarHeight,
     offsetTop: 0,
-    loadAll: false
+    loadAll: false,
+    theme:app.globalData.theme
   },
 
   onScroll(e) {
@@ -191,6 +189,7 @@ Page({
         School,
         username //自己的学号
       }, success(res) {
+        console.log(res)
         console.log(res.result)
         let allList = data.allList,
           currentPageArr = data.currentPageArr;
@@ -314,6 +313,7 @@ Page({
   })
   },
   onLoad: function (e) {
+
     this.init()
     if(args){
     this.getData()
@@ -346,13 +346,16 @@ Page({
       }
     }).then()
   },
-  navigate(e) {
-    if (e.currentTarget.dataset.type == "tip") {
+  navigate({currentTarget:{dataset:{type}}}) {
+
+    console.log(type);
+
+    if (type == "tip") {
       wx.navigateTo({
         url: '/pages/more/pages/NewInfo/NewInfo',
       })
     }
-    else if(e.currentTarget.dataset.type == "set"){
+    else if(type == "set"){
       wx.navigateTo({
         url: '/pages/myself/pages/page/page',
       })

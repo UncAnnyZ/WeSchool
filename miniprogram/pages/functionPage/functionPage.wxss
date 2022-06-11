@@ -33,6 +33,6 @@ page {
     background-color: rgb(25,25,25);
   }
   .body {
-    filter: invert(0.97);
+    filter: invert(0.96);
   }
 }

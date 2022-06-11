@@ -1,10 +1,4 @@
-page {
-  height: 100vh;
-  background: #fff;
-  font-size: 28rpx;
-  color: #333;
-  box-sizing: border-box;
-}
+
 
 .container {
   /* position: absolute; */
@@ -415,5 +409,8 @@ button::after {
   .title .title_img {
     filter: brightness(2) !important;
   }
-
+  .container {
+    /* filter: invert(1) !important; */
+    background-color: rgb(241,241,241);
+  }
 }

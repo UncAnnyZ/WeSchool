@@ -38,7 +38,7 @@
             <view class="null"></view>
           </scroll-view>
         </view>
-        <scroll-view class="rightScroll" style="padding-top: {{topH}}px;" scroll-with-animation scroll-into-view="{{bottomId}}" bindscroll="trackingTag" scroll-y="{{monitorScrolling}}" style="display: inline-block;">
+        <scroll-view class="rightScroll" style="padding-top: {{topH}}px;" scroll-with-animation="true" scroll-into-view="{{bottomId}}" bindscroll="trackingTag" scroll-y="{{monitorScrolling}}" style="display: inline-block;">
           <view wx:for="{{menuList}}" wx:key="id" id="{{item.changeLabel}}">
             <view class="sign">
               <view class="signContent">
@@ -113,7 +113,6 @@
   </swiper>
   <view class="showOrder">
     <view  class="orderNums" bindtap="orderPageJump">
-    <view class="orderIcon">{{allOrders.length}}</view>
       <image src="../../images/order.png"/>
     </view>
   </view>

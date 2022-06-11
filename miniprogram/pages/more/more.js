@@ -1,6 +1,14 @@
 var app = getApp()
-const args = wx.getStorageSync('args'),
-  util = require('../../utils/util')
+const args = wx.getStorageSync('args')
+const util = require('../../utils/util')
+wx.cloud.init()
+const db = wx.cloud.database()
+
+/**
+ * 长文本内容展开与收起
+ * @param {Boolean} isWater  开启瀑布流/信息流 --- 在调试器的 AppData 中对其进行更改可见效果
+ */
+
 Page({
   data: {
     // 配置
@@ -58,6 +66,7 @@ Page({
     offsetTop: 0,
     TabScrollTop: 0,
     layerHeight: 60 + 350 / getApp().globalData.pixelRatio + 30,
+    isWater: false, //信息流/瀑布流开关 --- true:瀑布流，false:信息流
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -192,8 +201,12 @@ Page({
       currentTab = data.currentTab,
       currentPage = data.currentPageArr[currentTab],
       ShowId = data.tabitem[currentTab].title, // 当前选择的标签名字
-      School = args.schoolName ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院",     // 边界处理 - 用户没登录时
-      currComponent = that.selectComponent(`#waterFlowCards${currentTab}`);
+      School = args.schoolName ? ("空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院") : args.schoolName) : wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院"),     // 边界处理 - 用户没登录时
+      currComponent = that.selectComponent(`#waterFlowCards${currentTab}`) || that.selectComponent(`#feed${currentTab}`),
+      isWater = data.isWater;
+
+    if (!currComponent) return;
+
     if (currComponent.data.loadAll) {
       console.log("已经拉到底了");
       return;
@@ -230,7 +243,10 @@ Page({
             });
           }
           // 新数据进行左右处理
-          currComponent.RightLeftSolution();
+          if (isWater) {
+            currComponent.RightLeftSolution();
+          }
+
 
         } else { // 不存在数据时
           if (currComponent.data.leftH == 0 && currComponent.data.rightH == 0) {
@@ -242,15 +258,22 @@ Page({
             })
           }
         }
-        wx.createSelectorQuery()
-          .select(`#waterFlowCards${currentTab}`)
-          .boundingClientRect(res => {
-            // 避免高度过小
-            res.height < 100 ? res.height = 100 : '';
-            that.setData({
-              currentWaterFlowHeight: res.height
-            })
+
+        //兼容信息流与瀑布流
+        let SelectorQuery;
+        if (isWater) {
+          SelectorQuery = wx.createSelectorQuery().select(`#waterFlowCards${currentTab}`);
+        } else {
+          SelectorQuery = wx.createSelectorQuery().select(`#feed${currentTab}`);
+        }
+
+        SelectorQuery.boundingClientRect(res => {
+          // 避免高度过小
+          res.height < 100 ? res.height = 100 : '';
+          that.setData({
+            currentWaterFlowHeight: res.height
           })
+        })
           .exec();
       },
       fail(res) {
@@ -266,7 +289,7 @@ Page({
         url: "Note_module",
         type: "read",
         username: args.username,
-        School: args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName,
+        School: args.schoolName == "空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院") : args.schoolName,
       },
       success(res) {
         if (!res.result) return;
@@ -298,7 +321,7 @@ Page({
             url: "Card",
             username: args.username,
             type: "search",
-            School: args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName,
+            School: args.schoolName == "空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : (wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool") : "广东石油化工学院") : args.schoolName,
             searchKey: value
           },
           success: res => {
@@ -348,11 +371,16 @@ Page({
 
   // 滑动选择标签  
   switchTab: function (e) {
-    var currentTab = e;
+    var currentTab = e,
+      that = this,
+      isWater = this.data.isWater;
 
     if (this.data.allList[currentTab].length) {
+      // 选择 瀑布流/信息流
+      var Query = isWater ? `#waterFlowCards${currentTab}` : `#feed${currentTab}`;
+
       wx.createSelectorQuery()
-        .select(`#waterFlowCards${currentTab}`)
+        .select(Query)
         .boundingClientRect(res => {
           // 避免高度过小
           res.height < 100 ? res.height = 100 : '';
@@ -361,6 +389,7 @@ Page({
           })
         })
         .exec();
+
       console.log("页面已经有数据了，不请求数据库");
       return;
     } else {
@@ -379,8 +408,8 @@ Page({
 
   // 初始化函数
   init() {
-    // 判断登录
-    app.loginState();
+
+
     // 初始化标签
     let data = this.data,
       tabitem = args.tabitem ? args.tabitem.map((e, index) => {
@@ -446,9 +475,18 @@ Page({
       school: args.school,       // 获取学校
     })
     console.log(this.data.allList)
+
+    // 数据库存在字符型和number型需要强制转化，写了个屎---杨子腾 也不影响云资源
+    let user = args.username !="游客登录"? Number(args.username): "游客登录"
+    console.log(user)
+    db.collection("Campus-Circle").where({username:user}).update({data:{
+      username:args.username
+    }}).then((res)=>{
+      console.log(res)
+    })
   },
   onLoad: function () {
-
+    this.handleCourse();
     console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
@@ -456,10 +494,14 @@ Page({
 
   onShow: function () {
     let currentTab = this.data.currentTab;
-    this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
+
+    if (this.selectComponent(`#waterFlowCards${currentTab}`)) {
+      this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
+    }
+
     //  获取新消息提醒   ------ - 不应每次show该页面时都请求，应每隔一段时间请求一次。
     this.getNewInfo();
-    this.handleCourse();
+
 
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
@@ -467,21 +509,18 @@ Page({
       })
     }
   },
-  handleCourse() {
+  handleCourse(options) {
     var that = this,
-      course = [],
-      msg = "",
-      zc = 0,
-      personalInformation = wx.getStorageSync('personalInformation'),
-      configData = wx.getStorageSync('configData'),
-      curriculum = personalInformation.curriculum;
+      course = []
 
     var handleCourseTime = (course) => {
+
+
       if (!course) return;
 
       const args = wx.getStorageSync('args'),
         courseTime_school = args.courseTime,
-        // 遍历 course ，返回形式 {start: 课程开始时间, end: 课程结束时间}
+        // 遍历 course ，数据清洗---返回形式 {start: 课程开始时间, end: 课程结束时间}
         courseTime_today = course.map(item => {
           const index = Number(item.time.replace(/[^\d.]/g, ''));
           return {
@@ -513,36 +552,60 @@ Page({
           break;
         }
       }
+
       console.log(courseTime_today, nowTime, course);
 
     }
 
-    if (!curriculum) {
-      that.setData(Object.assign({ msg: '可能学校服务器关闭', }, configData))
-      return;
-    }
+    wx.cloud.callFunction({
+      name: 'api',
+      data: {
+        url: 'indexLoading',
+        jsVersion: args.jsVersion
+      },
+      success: res => {
+        var new_args = res.result
+        console.log("获取到数据")
+        if ((options?.goin == 'login') || (!(JSON.stringify(new_args) === JSON.stringify(wx.getStorageSync('args'))))) {
+          console.log("进入函数更新")
+          new_args = {
+            ...args,
+            ...new_args
+          }
+          wx.setStorageSync('args', new_args)
+          var onload = app.jsRun(new_args, new_args.jsCode)
+          try {
+            onload(that, options)
+            let briefSchool = wx.getStorageSync('briefSchool') || (new_args.schoolName && new_args.schoolName != '空') ? new_args.schoolName : undefined
+            if (!briefSchool) {
+              wx.redirectTo({
+                url:
+                  '/pages/index/guidance/guidance'
+                // '/pages/login/login'
+              })
+            }
+          } catch (e) {
+            console.log(e)
+            that.setData({
+              msg: '有超级bug，请联系开发查看函数'
+            })
+          }
 
-    var xq = new Date().getDay();
-    if (xq == 0) { xq = 7; };
+        }
+      },
+      fail: res => {
+        console.log(res)
+        wx.showToast({
+          icon: 'none',
+          title: "模版请求错误",
+        })
 
-    for (var y = 0; y < curriculum.length; y++) {
-      zc = curriculum[y].zc
-      if (curriculum[y].xq == "7" || curriculum[y].xq == 7) {
-        zc = String(Number(curriculum[y].zc) - 1)
-        curriculum[y].zc = zc
       }
+    })
 
-      if (zc == util.getweekString() && curriculum[y].xq == xq) {
-        course.push({ day: '今天', time: '第' + curriculum[y].jcdm[1] + '节', name: curriculum[y].kcmc, site: curriculum[y].jxcdmc, isHighlight: false })
-      } course.sort(function (b, a) { return b.time.localeCompare(a.time, 'zh') })
-    }
-
-    personalInformation.curriculum = curriculum;
-    wx.setStorageSync('personalInformation', personalInformation);
-    if (course.length == 0) { msg = "今天没有课哟～" }
 
     handleCourseTime(course);
-    that.setData(Object.assign({ course: course, show: '', msg: msg, }, configData))
+
   },
   // 下拉刷新
   onPullDownRefresh() {
@@ -558,7 +621,10 @@ Page({
     this.TimeOut = setTimeout(() => {
       console.log("下拉刷新")
       // 清空瀑布流内容，并再次请求数 据库
-      this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
+      if (this.selectComponent(`#waterFlowCards${currentTab}`)) {
+        this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
+      }
+
       this.getData();
       // 获取小纸条
       this.getNoteData();

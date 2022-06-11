@@ -40,5 +40,11 @@
   image {
     filter: invert(0) !important;
   }
-
+  .box {
+    filter: invert(0) !important;
+  }
+  .boxright {
+    /* filter: invert(0) !important; */
+    color: black;
+  }
 }

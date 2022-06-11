@@ -1,5 +1,4 @@
-
-<scroll-view class="container" style="height: {{windowHeight}}px;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
+<scroll-view class="container" style="height: {{windowHeight}}px; background-color: {{isWaterFlow ? '#fff' : 'rgb(245, 246, 250)'}} ;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
   <!-- 渐变层 -->
   <view class="gradient-layer" style="height: {{layerHeight}}px; z-index: {{scrollTop > TabScrollTop - 62 ? 2 : ''}};">
     <view class="gradient-layer-white" style="height: {{scrollTop > TabScrollTop - 62 ? 0 : 100}}px;"></view>
@@ -37,12 +36,24 @@
   </weimob-sticky>
 
   <!-- 瀑布流 -->
-  <scroll-view wx:if="{{campus_account!=true}}" class="page" style="z-index: -1;">
+  <scroll-view wx:if="{{campus_account!=true && isWater == true}}" class="page" style="z-index: -1;">
     <Loading wx:if="{{showLoading}}" />
 
     <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight}}px;">
       <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">
         <waterFlowCards height="{{windowHeight - (statusBarHeight + lineHeight) - 28}}px;" id="waterFlowCards{{index}}" list="{{item}}" tabitem="{{tabitem}}" currentTab="{{index}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" bind:setAllList="setAllList" />
+      </swiper-item>
+    </swiper>
+
+  </scroll-view>
+
+  <!-- 信息流 -->
+  <scroll-view wx:if="{{campus_account!=true && isWater==false}}" class="page" style="z-index: -1;">
+    <Loading wx:if="{{showLoading}}" />
+
+    <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight}}px;">
+      <swiper-item wx:for="{{allList}}" wx:key="body" wx:for-index="index">
+        <weimob-feed height="{{windowHeight - (statusBarHeight + lineHeight) - 28}}px;" id="feed{{index}}" list="{{item}}" tabitem="{{tabitem}}" currentTab="{{index}}" bind:getData="getData" bind:onReachBottom="onReachBottom" bind:onPullDownRefresh="onPullDownRefresh" bind:setAllList="setAllList" />
       </swiper-item>
     </swiper>
 
