@@ -26,7 +26,7 @@ Page({
         data: {
           url: 'dynamicJs',
           content: options.content,
-          school: args.school
+          school: args.schoolName
         },
         success: res => {
           wx.hideLoading({

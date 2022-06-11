@@ -16,7 +16,7 @@ Page({
    */
   async onLoad(options) {
     var args = wx.getStorageSync('args')
-    args.otherPageCode[options.content] = null
+
     if(!args.otherPageCode[options.content]){
       wx.showLoading({
         title: '加载动态页面中',
@@ -26,7 +26,7 @@ Page({
         data: {
           url: 'dynamicJs',
           content: options.content,
-          school: args.school
+          school: args.schoolName 
         },
         success: res => {
           wx.hideLoading({
