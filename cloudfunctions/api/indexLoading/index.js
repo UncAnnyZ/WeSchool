@@ -3,7 +3,6 @@ cloud.init();
 const db = cloud.database()
 const _ = db.command
 
-
 exports.main = async (event) => {
   const wxContext = cloud.getWXContext()
   const usernameData = (await db.collection("user").where({

@@ -14,16 +14,50 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad(options) {
     var args = wx.getStorageSync('args')
+    args.otherPageCode[options.content] = null
+    if(!args.otherPageCode[options.content]){
+      wx.showLoading({
+        title: '加载动态页面中',
+      })
+      await wx.cloud.callFunction({
+        name: 'api',
+        data: {
+          url: 'dynamicJs',
+          content: options.content,
+          school: args.school
+        },
+        success: res => {
+          wx.hideLoading({
+            success: (res) => {},
+          })
+          args.otherPageCode = {
+            ...args.otherPageCode,
+            ...res.result.otherPageCode
+          }
+          wx.setStorageSync('args', args)
+
+          this.onLoadJs(args, options)
+        }})
+    }else{
+      this.onLoadJs(args, options)
+    }
+
+
+
+  },
+
+  onLoadJs(args, options){
     if (args) {
+  
       try {
         console.log(options.content)
         console.log( args.otherPageCode)
         // console.log(str);\
         
         var onload1 = app.jsRun(args,args.otherPageCode[options.content].replace(/\\\\/g,"\\"))
-        
+
         const onloadDict = onload1()
         for(let i in onloadDict){
           this[i] = onloadDict[i]
@@ -33,7 +67,5 @@ Page({
         console.log(e)
       }
     }
-
-  },
-
+  }
 })
