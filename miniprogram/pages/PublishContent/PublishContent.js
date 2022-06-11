@@ -265,6 +265,7 @@ Page({
     })
   },
   onLoad: function (options) {
+    app.loginState()
     this.setData({choose:1})
     console.log(this.data.choose)
     let args = wx.getStorageSync('args');
