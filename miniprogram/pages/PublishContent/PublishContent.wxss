@@ -157,7 +157,7 @@
 
 .publishBox {
   position: absolute;
-  bottom: 100rpx;
+  bottom: 0rpx;
   width: 100%;
   /* height: 100rpx; */
   display: flex;
@@ -166,6 +166,10 @@
   align-items: center;
   box-sizing: border-box;
   padding: 20rpx;
+}
+.publishBox_iphone {
+  bottom: calc(50px + constant(safe-area-inset-bottom));/* ios < 11.2*/
+  bottom: calc(50px + env(safe-area-inset-bottom));/* ios >= 11.2*/
 }
 .cancel {
   background-color: rgba(214, 214, 214, 0.37);

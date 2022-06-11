@@ -9,6 +9,7 @@ function setAllList(allList, type) {
   let pages = getCurrentPages();
   // 校园圈首页
   let morePage;
+  console.log(pages);
   // 找到校园圈首页
   pages.forEach(item => {
     if (item.route == "pages/more/more") {

@@ -190,7 +190,7 @@ Page({
       currentTab = data.currentTab,
       currentPage = data.currentPageArr[currentTab],
       ShowId = data.tabitem[currentTab].title, // 当前选择的标签名字
-      School = args.schoolName ? ("游客登录" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName) : wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院"),     // 边界处理 - 用户没登录时
+      School = args.schoolName ? ("游客登录" ? "广东石油化工学院" : args.schoolName) : "广东石油化工学院",     // 边界处理 - 用户没登录时
       currComponent = that.selectComponent(`#waterFlowCards${currentTab}`);
     if (currComponent.data.loadAll) {
       console.log("已经拉到底了");
@@ -262,7 +262,7 @@ Page({
         url: "Note_module",
         type: "read",
         username: args.username,
-        School: args.schoolName == "游客登录" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName,
+        School: args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName,
       },
       success(res) {
         if (!res.result) return;
@@ -292,7 +292,7 @@ Page({
             url: "Card",
             username: args.username,
             type: "search",
-            School: args.schoolName == "游客登录" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName,
+            School: args.schoolName == "游客登录" ? "广东石油化工学院" : args.schoolName,
             searchKey: value
           },
           success: res => {
@@ -373,8 +373,8 @@ Page({
 
   // 初始化函数
   init() {
-
-   
+    // 判断登录
+    app.loginState();
     // 初始化标签
     let data = this.data,
       tabitem = args.tabitem ? args.tabitem.map((e, index) => {
@@ -442,8 +442,6 @@ Page({
     console.log(this.data.allList)
   },
   onLoad: function () {
-    this.handleCourse();
-    console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
   },
@@ -453,7 +451,7 @@ Page({
     this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
     //  获取新消息提醒   ------ - 不应每次show该页面时都请求，应每隔一段时间请求一次。
     this.getNewInfo();
-
+    this.handleCourse();
 
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
@@ -461,13 +459,16 @@ Page({
       })
     }
   },
-  handleCourse(options) {
+  handleCourse() {
     var that = this,
-      course = []
+      course = [],
+      msg = "",
+      zc = 0,
+      personalInformation = wx.getStorageSync('personalInformation'),
+      configData = wx.getStorageSync('configData'),
+      curriculum = personalInformation.curriculum;
 
     var handleCourseTime = (course) => {
- 
-
       if (!course) return;
 
       const args = wx.getStorageSync('args'),
@@ -504,60 +505,36 @@ Page({
           break;
         }
       }
- 
       console.log(courseTime_today, nowTime, course);
 
     }
 
-    wx.cloud.callFunction({
-      name: 'api',
-      data: {
-        url: 'indexLoading',
-        jsVersion: args.jsVersion
-      },
-      success: res => {
-        var new_args = res.result
-        console.log("获取到数据")
-        if ((options?.goin == 'login') || (!(JSON.stringify(new_args) === JSON.stringify(wx.getStorageSync('args'))))) {
-          console.log("进入函数更新")
-          new_args = {
-            ...args,
-            ...new_args
-          }
-          wx.setStorageSync('args', new_args)
-          var onload = app.jsRun(new_args, new_args.jsCode)
-          try {
-            onload(that, options)
-            let briefSchool = wx.getStorageSync('briefSchool') || (new_args.schoolName && new_args.schoolName != '空') ? new_args.schoolName : undefined
-            if (!briefSchool) {
-              wx.redirectTo({
-                url: 
-                '/pages/index/guidance/guidance'
-                // '/pages/login/login'
-              })
-            }
-          } catch(e) {
-            console.log(e)
-            that.setData({
-              msg: '有超级bug，请联系开发查看函数'
-            })
-          }
+    if (!curriculum) {
+      that.setData(Object.assign({ msg: '可能学校服务器关闭', }, configData))
+      return;
+    }
 
-        }
-      },
-      fail: res => {
-        console.log(res)
-        wx.showToast({
-          icon: 'none',
-          title: "模版请求错误",
-        })
+    var xq = new Date().getDay();
+    if (xq == 0) { xq = 7; };
 
+    for (var y = 0; y < curriculum.length; y++) {
+      zc = curriculum[y].zc
+      if (curriculum[y].xq == "7" || curriculum[y].xq == 7) {
+        zc = String(Number(curriculum[y].zc) - 1)
+        curriculum[y].zc = zc
       }
-    })
-    
+
+      if (zc == util.getweekString() && curriculum[y].xq == xq) {
+        course.push({ day: '今天', time: '第' + curriculum[y].jcdm[1] + '节', name: curriculum[y].kcmc, site: curriculum[y].jxcdmc, isHighlight: false })
+      } course.sort(function (b, a) { return b.time.localeCompare(a.time, 'zh') })
+    }
+
+    personalInformation.curriculum = curriculum;
+    wx.setStorageSync('personalInformation', personalInformation);
+    if (course.length == 0) { msg = "今天没有课哟～" }
 
     handleCourseTime(course);
-
+    that.setData(Object.assign({ course: course, show: '', msg: msg, }, configData))
   },
   // 下拉刷新
   onPullDownRefresh() {

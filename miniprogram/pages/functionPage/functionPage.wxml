@@ -29,4 +29,4 @@
   <icon-bar iconList="{{iconList}}"></icon-bar>
 </view>
 
-<view style="background-color: aqua;width: 120rpx;height: 50rpx;" bindtap="goToMarket">商场</view>
+<!-- <view style="background-color: aqua;width: 120rpx;height: 50rpx;" bindtap="goToMarket">商场</view> -->

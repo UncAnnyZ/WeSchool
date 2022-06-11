@@ -70,7 +70,7 @@
       <LosePublish bind:detail="detail"></LosePublish>
     </view>
     <!-- 发布按钮 -->
-    <view class="publishBox">
+    <view class="publishBox {{model == -1 ? '' : 'publishBox_iphone'}}">
       <button class="cancel" hover-class="btn_hover" bindtap="navigationBack">
         <text>取消</text>
       </button>

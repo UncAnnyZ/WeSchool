@@ -415,5 +415,8 @@ button::after {
   .title .title_img {
     filter: brightness(2) !important;
   }
-
+  .container {
+    /* filter: invert(1) !important; */
+    background-color: rgb(241,241,241);
+  }
 }
