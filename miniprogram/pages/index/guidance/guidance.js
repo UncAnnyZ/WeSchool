@@ -50,9 +50,9 @@ Page({
     },
     login: function(e) {
         let schoolName = this.data.schoolArr[e.currentTarget.dataset.index].school_name
-        console.log(schoolName);
-        wx.navigateTo({
-          url: '../../login/login?schoolName='+schoolName,
+        wx.setStorageSync('briefSchool', schoolName)
+        wx.switchTab({
+          url: '../../more/more?schoolName='+schoolName,
         })
     },
     /**

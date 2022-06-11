@@ -23,10 +23,8 @@ App({
         // confirmColor: 'red', //确定文字的颜色
         success: function (res) {
           if (!res.cancel) {
-            wx.redirectTo({
-              url: 
-              '/pages/index/guidance/guidance'
-              // '/pages/login/login'
+            wx.navigateTo({
+              url: '/pages/login/login?schoolName='+ wx.getStorageSync('briefSchool')
             })
           } else {
             wx.navigateBack({})

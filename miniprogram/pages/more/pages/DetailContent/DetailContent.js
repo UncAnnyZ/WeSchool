@@ -163,6 +163,33 @@ Page({
     outIndex = 0
   },
   ReplyComment: function () {       //控制replyComment组件，并向组件传递数据
+      let username = wx.getStorageSync('args').username
+      if (!username) {
+        // wx.redirectTo({
+        //   url: '/pages/index/guidance/guidance'
+        // })
+        wx.showModal({
+          title: '登录提示',
+          showCancel: false, //是否显示取消按钮
+          content: "是否要登录",
+          cancelText: "否", //默认是“取消”
+          // cancelColor: 'skyblue', //取消文字的颜色
+          confirmText: "是", //默认是“确定”
+          // confirmColor: 'red', //确定文字的颜色
+          success: function (res) {
+            if (!res.cancel) {
+              wx.navigateTo({
+                url: '/pages/login/login?schoolName='+ wx.getStorageSync('briefSchool')
+              })
+            } else {
+              wx.navigateBack({})
+            }
+            
+          }
+        })
+        return
+      }
+
       this.popUp()
       this.setData({
         comEdit: false,

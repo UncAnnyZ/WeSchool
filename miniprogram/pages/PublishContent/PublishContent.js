@@ -266,6 +266,7 @@ Page({
     })
   },
   onLoad: function (options) {
+    app.loginState()
     const model = this.data.model;   // 型号
     console.log(model);
     this.setData({choose:1})
