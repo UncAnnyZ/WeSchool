@@ -72,19 +72,27 @@ App({
     })
     wx.getSystemInfo({
       success: res => {
-        this.globalData.windowHeight = res.windowHeight
-        this.globalData.rectHeight = rect.height; // 胶囊高度
-        let windowWidth = res.windowWidth; // 获取屏幕宽度
-        let statusBarHeight = res.statusBarHeight; // 获取状态栏的高度
-
-        this.globalData.statusBarHeight = statusBarHeight;
-        this.globalData.pixelRatio = res.pixelRatio
+        const {
+          windowHeight,
+          windowWidth,  // 获取屏幕宽度
+          statusBarHeight,  // 获取状态栏的高度
+          pixelRatio,
+          model,
+          brand,    // 品牌
+        } = res;
         // 根据胶囊的位置计算文字的行高以及距离状态栏文本的位置
         let lineHeight = (rect.top - statusBarHeight) * 2 + rect.height;
-        this.globalData.lineHeight = lineHeight;
         // 根据胶囊的位置计算距离右侧的宽度，用于设置返回按钮至左侧的距离
         let leftDistance = windowWidth - rect.right;
+
+        this.globalData.windowHeight = windowHeight;
+        this.globalData.rectHeight = rect.height; 
+        this.globalData.statusBarHeight = statusBarHeight;
+        this.globalData.pixelRatio = pixelRatio;
+        this.globalData.lineHeight = lineHeight;
         this.globalData.leftDistance = leftDistance;
+        this.globalData.model = model;
+        // console.log(brand);
         wx.hideLoading()
       },
       fail: err => {

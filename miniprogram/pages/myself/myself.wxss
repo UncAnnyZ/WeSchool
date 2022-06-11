@@ -21,14 +21,7 @@
   margin-top:40rpx;
   font-size:22rpx;
 }
-.bgc{
-  background-image:url("https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=fb2cf293c50aeded56a782362bc9d299&t=1652154031");
-  z-index:0;
-  background-repeat: no-repeat; 
-  background-size:cover;
-  width: 100%;
-  height: 100%;
-}
+
 .naviBar {
   display: flex;
   align-items: center;
@@ -88,7 +81,7 @@
   background-image:url("https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=fb2cf293c50aeded56a782362bc9d299&t=1652154031");
   z-index:0;
   background-repeat: no-repeat; 
-  background-size:cover;
+  background-size: 120%;
   width: 100%;
 }
 .containers{
@@ -100,7 +93,7 @@
 .head {
   background-image:url("https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=fb2cf293c50aeded56a782362bc9d299&t=1652154031");
   background-repeat: no-repeat; 
-  background-size:cover;
+  background-size: 120%;
 }
 
 
@@ -333,7 +326,7 @@
   font-size:16rpx;
   margin-top:20rpx;
   font-weight:200;
-
+  letter-spacing: 1rpx;
 }
 .banner-fri-content-school{
   margin-left:30rpx;

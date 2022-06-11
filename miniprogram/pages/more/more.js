@@ -442,7 +442,6 @@ Page({
     console.log(this.data.allList)
   },
   onLoad: function () {
-    console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
   },

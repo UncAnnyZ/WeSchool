@@ -10,6 +10,7 @@ Page({
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
     rectHeight: getApp().globalData.rectHeight,
+    model: getApp().globalData.model.indexOf('iPhone'),   // 型号
 
     menu: [],                   // 标签
     showTab: false,             // 控制标签显隐
@@ -265,6 +266,8 @@ Page({
     })
   },
   onLoad: function (options) {
+    const model = this.data.model;   // 型号
+    console.log(model);
     this.setData({choose:1})
     console.log(this.data.choose)
     let args = wx.getStorageSync('args');
