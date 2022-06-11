@@ -179,7 +179,7 @@ Page({
             if (res.result.msg == "welcome") {
               console.log(res.result)
               wx.reLaunch({
-                url: '/pages/index/index?goin=login'
+                url: '/pages/more/more'
               })
             } else {
               console.log(res.result)

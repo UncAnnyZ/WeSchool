@@ -7,8 +7,8 @@
     "danmu": "./components/danmu/danmu",
     "MoreModule": "./components/MoreModule/MoreModule",
     "weimob-sticky": "./components/sticky/index",
-    "weimob-curriculum": "./components/curriculum/curriculum"
-
+    "weimob-curriculum": "./components/curriculum/curriculum",
+    "weimob-feed": "./components/feed/index"
   },
   "navigationStyle":"custom"
 }

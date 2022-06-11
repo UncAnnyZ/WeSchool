@@ -1,86 +1,9 @@
-.Choose_Label {
-  position: relative;
-  width: 100%;
-  height: 29px;
-  /* background-color: rgb(255, 255, 255); */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 15rpx;
-}
 
-.Choose_Label .underLineBox {
-  height: 4rpx;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* transition: all 0.1s ease 0s; */
-}
-
-.Choose_Label .underLine {
-  height: 5rpx;
-  background-color: #000;
-  border-radius: 16rpx;
-  /* transition: all 0.3s ease 0s; */
-}
-
-.Label-text {
-  /* margin: 0rpx 45rpx 0rpx 0rpx; */
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: rgba(80, 80, 80, 0.938);
-  font-size: 27rpx;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.activeTab {
-  height: 50rpx;
-  color: rgba(46, 46, 46, 0.938);
-  font-weight: 550;
-  font-size: 30rpx;
-}
-
-.Label-text.activity {
-  height: 50rpx;
-  background-color: rgba(206, 206, 206, 0.267);
-  color: rgba(46, 46, 46, 0.938);
-  font-weight: 550;
-  border-radius: 20rpx;
-}
-
-.Label_limit {
-  width: auto;
-  padding: 0 15rpx;
-  /* height: 5rpx; */
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  justify-content: center;
-}
-
-.Label_limit1 {
-  width: auto;
-  padding: 0 15rpx;
-  /* height: 5rpx; */
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  justify-content: center;
-}
-
-.tabScrollFixed {
-  position: fixed;
-  top: 60px;
-  z-index: 99;
-}
 
 /* wlefmlwmfpwmwmdd */
 .container {
   position: relative;
+  
 }
 
 .gradient-layer {

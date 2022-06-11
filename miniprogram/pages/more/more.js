@@ -1,6 +1,7 @@
 var app = getApp()
-const args = wx.getStorageSync('args'),
-  util = require('../../utils/util')
+const args = wx.getStorageSync('args')
+const util = require('../../utils/util')
+
 Page({
   data: {
     // 配置
@@ -58,6 +59,7 @@ Page({
     offsetTop: 0,
     TabScrollTop: 0,
     layerHeight: 60 + 350 / getApp().globalData.pixelRatio + 30,
+    isWater: false, //信息流/瀑布流开关 --- true:瀑布流，false:信息流
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -191,7 +193,11 @@ Page({
       currentPage = data.currentPageArr[currentTab],
       ShowId = data.tabitem[currentTab].title, // 当前选择的标签名字
       School = args.schoolName ? ("空" ? wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院") : args.schoolName) : wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):(wx.getStorageSync("briefSchool") ? wx.getStorageSync("briefSchool"):"广东石油化工学院"),     // 边界处理 - 用户没登录时
-      currComponent = that.selectComponent(`#waterFlowCards${currentTab}`);
+      currComponent = that.selectComponent(`#waterFlowCards${currentTab}`) || that.selectComponent(`#feed${currentTab}`),
+      isWater = data.isWater;
+
+    if(!currComponent) return;
+    
     if (currComponent.data.loadAll) {
       console.log("已经拉到底了");
       return;
@@ -226,7 +232,10 @@ Page({
             });
           }
           // 新数据进行左右处理
-          currComponent.RightLeftSolution();
+          if(isWater) {
+            currComponent.RightLeftSolution();
+          }
+          
 
         } else { // 不存在数据时
           if (currComponent.data.leftH == 0 && currComponent.data.rightH == 0) {
@@ -238,9 +247,16 @@ Page({
             })
           }
         }
-        wx.createSelectorQuery()
-          .select(`#waterFlowCards${currentTab}`)
-          .boundingClientRect(res => {
+
+        //兼容信息流与瀑布流
+        let SelectorQuery;
+        if(isWater) {
+          SelectorQuery = wx.createSelectorQuery().select(`#waterFlowCards${currentTab}`);
+        }else {
+          SelectorQuery = wx.createSelectorQuery().select(`#feed${currentTab}`);
+        }
+
+        SelectorQuery.boundingClientRect(res => {
             // 避免高度过小
             res.height < 100 ? res.height = 100 : '';
             that.setData({
@@ -450,7 +466,11 @@ Page({
 
   onShow: function () {
     let currentTab = this.data.currentTab;
-    this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
+
+    if(this.selectComponent(`#waterFlowCards${currentTab}`)) {
+      this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution();
+    }
+    
     //  获取新消息提醒   ------ - 不应每次show该页面时都请求，应每隔一段时间请求一次。
     this.getNewInfo();
 
@@ -573,7 +593,10 @@ Page({
     this.TimeOut = setTimeout(() => {
       console.log("下拉刷新")
       // 清空瀑布流内容，并再次请求数 据库
-      this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
+      if(this.selectComponent(`#waterFlowCards${currentTab}`)) {
+        this.selectComponent(`#waterFlowCards${currentTab}`).RightLeftSolution(true);
+      }
+      
       this.getData();
       // 获取小纸条
       this.getNoteData();

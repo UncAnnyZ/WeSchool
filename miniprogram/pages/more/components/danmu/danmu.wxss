@@ -1,10 +1,4 @@
-page {
-  height: 100vh;
-  background: #fff;
-  font-size: 28rpx;
-  color: #333;
-  box-sizing: border-box;
-}
+
 
 .container {
   /* position: absolute; */

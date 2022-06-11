@@ -1,0 +1,90 @@
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20rpx;
+}
+
+.card {
+  width: 94%;
+  min-height: 300rpx;
+  max-height: 900rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 15rpx 0;
+}
+
+.head_ {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 25rpx;
+  box-sizing: border-box;
+}
+
+.avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.right {
+  width: calc(100% - 90rpx);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.info {
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+  color: rgb(124, 122, 122);
+}
+
+.setting {
+  width: 50rpx;
+  height: 50rpx;
+  transform: rotate(90deg);
+  filter: opacity(0.6);
+}
+
+.content {
+  padding: 0 35rpx;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2rpx;
+}
+
+.foot {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20rpx 0;
+}
+
+.iconBox {
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  width: 35rpx;
+  height: 35rpx;
+}
