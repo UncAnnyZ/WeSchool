@@ -473,7 +473,7 @@ Page({
 
       const args = wx.getStorageSync('args'),
         courseTime_school = args.courseTime,
-        // 遍历 course ，返回形式 {start: 课程开始时间, end: 课程结束时间}
+        // 遍历 course ，数据清洗---返回形式 {start: 课程开始时间, end: 课程结束时间}
         courseTime_today = course.map(item => {
           const index = Number(item.time.replace(/[^\d.]/g, ''));
           return {
