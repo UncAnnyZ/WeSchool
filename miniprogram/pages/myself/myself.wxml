@@ -46,15 +46,15 @@
         </view>
         <view class="banner-sec">
           <view class="block">
-            <view>{{StarNum}}</view>
+            <view>{{StarNum?StarNum:0}}</view>
             <view>获赞</view>
           </view>
           <view class="block" data-type="focusNum">
-            <view>{{focusNum.length}}</view>
+            <view>{{focusNum.length?focusNum.length:0}}</view>
             <view>关注</view>
           </view>
           <view class="block" data-type="fansNum">
-            <view>{{fansNum.length}}</view>
+            <view>{{fansNum.length?fansNum.length:0}}</view>
             <view>粉丝数</view>
           </view>
         </view>
@@ -68,7 +68,6 @@
         </view>
       </weimob-sticky>
     </view>
-
     <scroll-view wx:if="{{campus_account!=true}}" class="page">
       <Loading wx:if="{{showLoading}}" />
       <swiper current="{{currentTab}}" bindchange="waterChange" style=" height: {{currentWaterFlowHeight+90}}px;min-height:65vh">

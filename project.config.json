@@ -23,8 +23,8 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": true,
     "useMultiFrameRuntime": true,
-    "useApiHook": false,
-    "useApiHostProcess": false,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -36,12 +36,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "showES6CompileOption": false,
-    "lazyloadPlaceholderEnable": false,
-    "disableUseStrict": false,
-    "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true
+    "showES6CompileOption": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.1",

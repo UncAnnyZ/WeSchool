@@ -103,7 +103,8 @@ Page({
     if (type == "点赞和评论") {
       for (let i in allList) {
         this.selectComponent(`#waterFlowCards${i}`).RightLeftSolution();
-      }
+      }s
+  s
     } else {
       // 新增和删除卡片要刷新瀑布流
       for (let i in allList) {
@@ -185,6 +186,7 @@ Page({
 
   // 2. 操作数据库
   getData(e) { //分页加载数据
+
     let that = this,
       data = this.data,
       currentTab = data.currentTab,
@@ -219,6 +221,8 @@ Page({
           that.setData({
             [`allList[${currentTab}]`]: allList[currentTab]
           });
+          wx.hideLoading()
+ 
           // 数据少于一页时
           if (res.result.data.length < 10) {
             currComponent.setData({
@@ -284,7 +288,9 @@ Page({
       search(value) //发送请求，间隔时间为1s
     }, 500)
     const search = (value) => {
+      //条件判断
       if (value) {
+        //如果输入有值
         wx.hideNavigationBarLoading();
         wx.cloud.callFunction({
           name: "NewCampusCircle",
@@ -442,6 +448,7 @@ Page({
     console.log(this.data.allList)
   },
   onLoad: function () {
+
     console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
