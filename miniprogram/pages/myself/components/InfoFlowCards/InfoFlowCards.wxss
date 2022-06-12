@@ -177,12 +177,18 @@ button{
 }
 @media (prefers-color-scheme: dark) {
   .card-top-left-img {
-    filter: invert(0%) !important;
+    filter: invert(100%) !important;
   }
   .card-end-detail .img1 {
     filter: invert(0%) !important;
   }
-  button {
-    filter: invert(0%) !important;
+  .card-end-detail{
+    filter: invert(100%) !important;
+    
   }
+
+  /* .card{
+    filter: invert(100%) !important;
+  } */
+
 }

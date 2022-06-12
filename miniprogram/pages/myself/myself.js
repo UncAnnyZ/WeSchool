@@ -11,13 +11,10 @@ Page({
    */
   data: {
     person_info: {
-      iconUrl: args.iconUrl,
-      nickName: args.nickName,
-      username: args.username,
-      School: args.school,
-      focusNum: 0,
-      fansNum: 0,
-      StarNum: 0
+      iconUrl: args.iconUrl?args.iconUrl:"cloud://cloud1-6gtqj1v4873bad50.636c-cloud1-6gtqj1v4873bad50-1307814679/myself/个人头像_o (1).png",
+      nickName: args.nickName?args.nickName:"游客",
+      username: args.username?args.username:"guest",
+      School: args.school?args.school:"游客登录",
     },
     list: [],
     statusBarHeight: getApp().globalData.statusBarHeight,
@@ -30,7 +27,8 @@ Page({
     NewInfo: 0,
     navigationBar: app.globalData.navigationBarHeight,
     offsetTop: 0,
-    loadAll: false
+    loadAll: false,
+    theme:app.globalData.theme
   },
 
   onScroll(e) {
@@ -52,36 +50,39 @@ Page({
   },
   load_detail() {
     var that = this
-    wx.cloud.callFunction({
-      name: "NewCampusCircle",
-      data: {
-        url: "myself",
-        type: "get_fans",
-        username: args.username,
-        School: args.School
-      },
-      success(res) {
-        console.log(res)
-        if (!(res.result)) {
-          return -1
+    if(args.username){
+      wx.cloud.callFunction({
+        name: "NewCampusCircle",
+        data: {
+          url: "myself",
+          type: "get_fans",
+          username: args.username,
+          School: args.School
+        },
+        success(res) {
+          console.log(res)
+          if (!(res.result)) {
+            return -1
+          }
+          if (res.result[0].data && res.result[0].data.length > 0 && res.result[1].data && res.result[1].data.length > 0) {
+            let fansNum = res.result[0].data[0].fansNum.length
+            let focusNum = res.result[0].data[0].focusNum.length
+            let person_info = that.data.person_info
+            let StarNum = res.result[1].data.length
+            console.log()
+            person_info["focusNum"] = focusNum
+            person_info["fansNum"] = fansNum
+            person_info["StarNum"] = StarNum
+            that.setData({
+              person_info
+            })
+          }
+  
+          // console.log(res)
         }
-        if (res.result[0].data && res.result[0].data.length > 0 && res.result[1].data && res.result[1].data.length > 0) {
-          let fansNum = res.result[0].data[0].fansNum.length
-          let focusNum = res.result[0].data[0].focusNum.length
-          let person_info = that.data.person_info
-          let StarNum = res.result[1].data.length
-          console.log()
-          person_info["focusNum"] = focusNum
-          person_info["fansNum"] = fansNum
-          person_info["StarNum"] = StarNum
-          that.setData({
-            person_info
-          })
-        }
+      })
+    }
 
-        // console.log(res)
-      }
-    })
   },
   //初始化
   init() {
@@ -89,64 +90,75 @@ Page({
     //判断登录
     let args = wx.getStorageSync("args")
     console.log(args)
-    app.loginState();
+
     //判断标签
     //把标签转化为要的形式
     let data = this.data
-
-    let tabitem = args.tabitem ? args.tabitem.map((e, index) => {
-      if (index == 0) {
-        return {
-          title: e,
-          type: 1
-        }
-      }
-      return {
-        title: e,
-        type: 0
-      }
-    }) : data.tabitem,
-      // 初始化 currentPageArr 和 currentWaterFlowHeight
-      //相当于创建一个数组如果点击到数组中的某一项就可以改变
-      currentPageArr = tabitem.map(item => { return 0; }),
-      // 初始化封号
-      campus_account = args.campus_account ? args.campus_account : false,
-      describe = args.describe ? args.describe : false
-    console.log(data.windowHeight)
-    //测
-    let currentWaterFlowHeight = data.windowHeight + 1200
-    // 初始化 allList
-    let allList = tabitem.map((item, index) => {
-      let allList = [];
-      return allList[index] = []
-    });
-    if (campus_account === true) {
-      wx.showModal({
-        title: "提示",
-        content: describe,
-        showCancel: false,
-        success(res) {
-          if (res.confirm) {
-            wx.reLaunch({
-              url: '/pages/index/index',
-            })
+    if(args){
+      let tabitem = args.tabitem ? args.tabitem.map((e, index) => {
+        if (index == 0) {
+          return {
+            title: e,
+            type: 1
           }
         }
+        return {
+          title: e,
+          type: 0
+        }
+      }) : data.tabitem,
+        // 初始化 currentPageArr 和 currentWaterFlowHeight
+        //相当于创建一个数组如果点击到数组中的某一项就可以改变
+        currentPageArr = tabitem.map(item => { return 0; }),
+        // 初始化封号
+        campus_account = args.campus_account ? args.campus_account : false,
+        describe = args.describe ? args.describe : false
+      console.log(data.windowHeight)
+      //测
+      let currentWaterFlowHeight = data.windowHeight + 1200
+      // 初始化 allList
+      let allList = tabitem.map((item, index) => {
+        let allList = [];
+        return allList[index] = []
+      });
+      if (campus_account === true) {
+        wx.showModal({
+          title: "提示",
+          content: describe,
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/index/index',
+              })
+            }
+          }
+        })
+      }
+      this.setData({
+        currentWaterFlowHeight,
+        currentPageArr,
+        currentTab: 0,            // 返回到第一个标签
+        // showPopUps: false,        // 关闭弹窗
+        tabitem,                  // 初始化标签
+        campus_account,           // 初始化封号
+        allList,                  // 初始化allList
+        iconUrl: args.iconUrl,     // 获取头像
+        school: args.school        // 获取学校
+      })
+      console.log(this.data.allList)
+  
+    }
+    //没有登录的情况下数据写死
+    else{
+      this.setData({
+        tabitem:[{
+          title:"全部",
+          type:1
+        }]
       })
     }
-    this.setData({
-      currentWaterFlowHeight,
-      currentPageArr,
-      currentTab: 0,            // 返回到第一个标签
-      // showPopUps: false,        // 关闭弹窗
-      tabitem,                  // 初始化标签
-      campus_account,           // 初始化封号
-      allList,                  // 初始化allList
-      iconUrl: args.iconUrl,     // 获取头像
-      school: args.school        // 获取学校
-    })
-    console.log(this.data.allList)
-
+    console.log(this.data.tabitem)
   },
   getData() {
     let that = this
@@ -177,6 +189,7 @@ Page({
         School,
         username //自己的学号
       }, success(res) {
+        console.log(res)
         console.log(res.result)
         let allList = data.allList,
           currentPageArr = data.currentPageArr;
@@ -300,8 +313,11 @@ Page({
   })
   },
   onLoad: function (e) {
+
     this.init()
+    if(args){
     this.getData()
+    }
   },
 
   onReachBottom() {
@@ -433,9 +449,13 @@ Page({
         selected: 4
       })
     }
-    this.getNewInfo()
-    this.readFocus()
-    this.readStar()
+    //没有登录的话
+    if(args){
+      this.getNewInfo()
+      this.readFocus()
+      this.readStar()
+    }
+
   },
 
   /**

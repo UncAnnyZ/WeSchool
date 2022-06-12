@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .card-tip{
   justify-content: center;
   margin-top:40rpx;
@@ -76,9 +77,22 @@
   /* align-items: center; */
   /* padding:0rpx 20rpx; */
 }
+.bannerbgc_dark{
+  background-image: url("https://s1.ax1x.com/2022/06/11/Xga726.png");
+  background-repeat: no-repeat; 
+  background-size:cover;
+}
 .container {
   position: relative;
   background-image:url("https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=fb2cf293c50aeded56a782362bc9d299&t=1652154031");
+  z-index:0;
+  background-repeat: no-repeat; 
+  background-size: 120%;
+  width: 100%;
+}
+.container_dark{
+  position: relative;
+  background-image:url("https://s1.ax1x.com/2022/06/11/XgdpGt.jpg");
   z-index:0;
   background-repeat: no-repeat; 
   background-size: 120%;
@@ -95,7 +109,11 @@
   background-repeat: no-repeat; 
   background-size: 120%;
 }
-
+.head_dark {
+  background-image:url("https://s1.ax1x.com/2022/06/11/XgdpGt.jpg");
+  background-repeat: no-repeat; 
+  background-size: 120%;
+}
 
 .content{
   border-radius: 40rpx 40rpx 0rpx 0rpx;
@@ -244,7 +262,7 @@
   height: 36rpx;
   vertical-align: middle;
 }
-.page{
+.pages{
   background-color:rgba(245,245,245);
   opacity: 0.8;
 }
@@ -387,4 +405,18 @@ button{
   .wrap image{
     filter: invert(0) !important;
   }
+  .Tab{
+    filter: invert(95%) !important;
+  }
+ .header-text{
+  color:white
+
+ }
+ .naviBar{
+  color:white
+ }
+ .pages{
+  filter: invert(95%) !important;
+
+ }
 }

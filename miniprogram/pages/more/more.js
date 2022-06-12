@@ -1,6 +1,8 @@
 var app = getApp()
 const args = wx.getStorageSync('args')
 const util = require('../../utils/util')
+wx.cloud.init()
+const db = wx.cloud.database()
 
 /**
  * 长文本内容展开与收起
@@ -111,7 +113,8 @@ Page({
     if (type == "点赞和评论") {
       for (let i in allList) {
         this.selectComponent(`#waterFlowCards${i}`).RightLeftSolution();
-      }
+      }s
+  s
     } else {
       // 新增和删除卡片要刷新瀑布流
       for (let i in allList) {
@@ -193,6 +196,7 @@ Page({
 
   // 2. 操作数据库
   getData(e) { //分页加载数据
+
     let that = this,
       data = this.data,
       currentTab = data.currentTab,
@@ -232,6 +236,8 @@ Page({
           that.setData({
             [`allList[${currentTab}]`]: allList[currentTab]
           });
+          wx.hideLoading()
+ 
           // 数据少于一页时
           if (res.result.data.length < 10) {
             currComponent.setData({
@@ -315,7 +321,9 @@ Page({
       search(value) //发送请求，间隔时间为1s
     }, 500)
     const search = (value) => {
+      //条件判断
       if (value) {
+        //如果输入有值
         wx.hideNavigationBarLoading();
         wx.cloud.callFunction({
           name: "NewCampusCircle",
@@ -480,6 +488,15 @@ Page({
       tabBarHeight
     })
     console.log(this.data.allList)
+
+    // 数据库存在字符型和number型需要强制转化，写了个屎---杨子腾 也不影响云资源
+    let user = args.username !="游客登录"? Number(args.username): "游客登录"
+    console.log(user)
+    db.collection("Campus-Circle").where({username:user}).update({data:{
+      username:args.username
+    }}).then((res)=>{
+      console.log(res)
+    })
   },
   onLoad: function () {
     console.log(this.data.windowHeight);

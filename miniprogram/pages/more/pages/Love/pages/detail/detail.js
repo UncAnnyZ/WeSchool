@@ -69,6 +69,10 @@ Page({
             }
             else{
               console.log(res)
+              wx.removeStorageSync('mathed_time')
+              wx.navigateTo({
+                url: '/pages/more/pages/Love/Love',
+              })
               wx.showToast({
                 title: '匹配有问题，请联系客服',
                 icon:"none"

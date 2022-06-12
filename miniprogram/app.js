@@ -77,6 +77,7 @@ App({
           pixelRatio,
           model,
           brand,    // 品牌
+          theme
         } = res;
         // 根据胶囊的位置计算文字的行高以及距离状态栏文本的位置
         let lineHeight = (rect.top - statusBarHeight) * 2 + rect.height;
@@ -90,6 +91,7 @@ App({
         this.globalData.lineHeight = lineHeight;
         this.globalData.leftDistance = leftDistance;
         this.globalData.model = model;
+        this.globalData.theme = theme
         // console.log(brand);
         wx.hideLoading()
       },
