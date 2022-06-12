@@ -10,8 +10,8 @@ const util = require('../../utils/util')
 Page({
   data: {
     // 配置
-    statusBarHeight: getApp().globalData.statusBarHeight,
-    lineHeight: getApp().globalData.lineHeight,
+    statusBarHeight: getApp().globalData.statusBarHeight, //状态栏
+    lineHeight: getApp().globalData.lineHeight, //头部栏
     rectHeight: getApp().globalData.rectHeight,
     windowHeight: getApp().globalData.windowHeight,
     pixelRatio: getApp().globalData.pixelRatio,     // rpx 与 px 的转换比例
