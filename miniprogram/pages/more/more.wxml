@@ -1,4 +1,4 @@
-<scroll-view class="container" style="height: {{windowHeight}}px; background-color: {{isWaterFlow ? '#fff' : 'rgb(245, 246, 250)'}} ;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
+<scroll-view class="container" style="height: {{windowHeight - tabBarHeight}}px; background-color: {{isWaterFlow ? '#fff' : 'rgb(245, 246, 250)'}} ;" scroll-y bindscroll="onScroll" bindscrolltoupper="onPullDownRefresh" upper-threshold="-50" bindscrolltolower="onReachBottom" lower-threshold="300">
   <!-- 渐变层 -->
   <view class="gradient-layer" style="height: {{layerHeight}}px; z-index: {{scrollTop > TabScrollTop - 62 ? 2 : ''}};">
     <view class="gradient-layer-white" style="height: {{scrollTop > TabScrollTop - 62 ? 0 : 100}}px;"></view>

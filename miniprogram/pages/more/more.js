@@ -65,6 +65,7 @@ Page({
     TabScrollTop: 0,
     layerHeight: 60 + 350 / getApp().globalData.pixelRatio + 30,
     isWater: false, //信息流/瀑布流开关 --- true:瀑布流，false:信息流
+    tabBarHeight: 48, // 底部tabbar高度
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -186,7 +187,7 @@ Page({
       tabitem,
       currentTab
     })
-    console.log(currentTab);
+    console.log(`切换标签：第${currentTab}`);
     this.switchTab(currentTab);
   },
 
@@ -201,6 +202,7 @@ Page({
       currComponent = that.selectComponent(`#waterFlowCards${currentTab}`) || that.selectComponent(`#feed${currentTab}`),
       isWater = data.isWater;
 
+    console.log(currComponent);
     if (!currComponent) return;
 
     if (currComponent.data.loadAll) {
@@ -243,11 +245,19 @@ Page({
 
 
         } else { // 不存在数据时
-          if (currComponent.data.leftH == 0 && currComponent.data.rightH == 0) {
+          if(isWater) {
+            if (currComponent.data.leftH == 0 && currComponent.data.rightH == 0) {
+              currComponent.setData({
+                leftList: [],
+                rightList: [],
+                list: [null],         // 避免显示“玩命加载数据”
+                loadAll: true         // 显示“暂无数据”
+              })
+            }
+          }
+          else {
             currComponent.setData({
-              leftList: [],
-              rightList: [],
-              list: [null],         // 避免显示“玩命加载数据”
+              list: [],         // 避免显示“玩命加载数据”
               loadAll: true         // 显示“暂无数据”
             })
           }
@@ -427,7 +437,9 @@ Page({
       allList = tabitem.map((item, index) => {
         let allList = [];
         return allList[index] = []
-      });
+      }),
+      // 底部tabbar高度
+      tabBarHeight = wx.getStorageSync('tabBarHeight');
     console.log(allList)
     if (campus_account === true) {
       wx.showModal({
@@ -465,14 +477,18 @@ Page({
       allList,                  // 初始化allList
       iconUrl: args.iconUrl,     // 获取头像
       school: args.school,       // 获取学校
+      tabBarHeight
     })
     console.log(this.data.allList)
   },
   onLoad: function () {
+    console.log(this.data.windowHeight);
     this.handleCourse();
     console.log(this.data.pixelRatio);
     this.init()
     this.onPullDownRefresh()
+
+    
   },
 
   onShow: function () {

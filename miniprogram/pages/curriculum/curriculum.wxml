@@ -1,4 +1,4 @@
-<swiper class="container">
+<swiper class="container" style="height: {{windowHeight - tabBarHeight}}px;">
 
   <swiper-item class="curriRight {{isAnimate ? 'curriRight_Animate' : ''}}" animation="{{timetableAnimation}}" catchtouchmove="catchtouchmove" scroll-y="true">
     <!-- 头部 -->
@@ -63,8 +63,8 @@
             <view style="z-index: 1;">
               <!-- 遮罩层 - 为修复 fixed 与 scroll-view 不兼容问题 -->
               <view class="curriLeft_background"></view>
-              <view wx:for="{{scheduleLength}}" wx:key="unique" class="left">
-                <view>{{item}}</view>
+              <view wx:for="{{scheduleLength}}" wx:for-index="itemIndex" wx:key="unique" class="left">
+                <view>{{itemIndex}}</view>
                 <view class="after-left1">{{courseTime[index]}}</view>
               </view>
             </view>

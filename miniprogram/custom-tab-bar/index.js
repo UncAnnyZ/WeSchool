@@ -1,3 +1,4 @@
+
 Component({
   data: {
     color: "#515151",
@@ -36,8 +37,18 @@ Component({
       }
     ]
   },
-  attached() {
+  lifetimes: {
+    ready(e) {
+
+      this.createSelectorQuery()
+        .select('.tab-bar')
+        .boundingClientRect((res) => {
+          wx.setStorageSync('tabBarHeight', res.height)
+        })
+        .exec();
+    }
   },
+  
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset

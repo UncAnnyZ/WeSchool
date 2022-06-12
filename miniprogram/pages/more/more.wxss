@@ -3,7 +3,7 @@
 /* wlefmlwmfpwmwmdd */
 .container {
   position: relative;
-  
+  height: calc(100vh - 48 - env(safe-area-inset-bottom));
 }
 
 .gradient-layer {

@@ -10,6 +10,7 @@ Page({
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
     rectHeight: getApp().globalData.rectHeight,
+    windowHeight: getApp().globalData.windowHeight,
     curWeek: '第 ' + util.getweekString() + ' 周',
     colorArrays: ['#99CCFF',
       '#FFCC99',
@@ -76,6 +77,7 @@ Page({
     // CSS中使用变量
     backgroundUrl: '',
     theme: false,                   // 主题控制
+    tabBarHeight: 48,   //底部tabbar高度
   },
   importCurri() {
     console.log('importCurri');
@@ -141,16 +143,20 @@ Page({
     })
   },
   onLoad: function (options) {
-    let windowHeight = wx.getSystemInfoSync().windowHeight
-    let width = wx.getSystemInfoSync().windowWidth;
-    // 屏幕高度 - (状态栏 + 头部) - 周次 - 自定义tabbar栏高度
-    // +2 是为适配边框
-    let kbHeight = (windowHeight - (this.data.lineHeight + this.data.statusBarHeight) - 80*(width/750) - 48)+2;
+    let windowHeight = this.data.windowHeight,
+      width = wx.getSystemInfoSync().windowWidth,
+      args = wx.getStorageSync('args'),
+      tabBarHeight = wx.getStorageSync('tabBarHeight'),
+      scheduleLength = [],
+      fileUrl = wx.getStorageSync('curriBgc'), // 从本地缓存获取backgroundUrl
+      that = this,
+      // 屏幕高度 - (状态栏 + 头部) - 周次 - 自定义tabbar栏高度
+      // +2 是为适配边框
+      kbHeight = (windowHeight - (this.data.lineHeight + this.data.statusBarHeight) - 80*(width/750) - 48)+2;
 
-    let args = wx.getStorageSync('args');
-    let scheduleLength = [];
-    // 处理课表长度
-    if(args.scheduleLength) {                       
+    // 处理课表时序长度
+    if(args.scheduleLength) {     
+      //将数字转换为对应长度的数组
       for(let i = 1; i <= args.scheduleLength; i++){
         scheduleLength.push(i);
       }
@@ -161,15 +167,12 @@ Page({
       weekNow: util.getweekString(),
       courseTime: args.courseTime ? args.courseTime : this.data.courseTime,
       kbHeight,
-      scheduleLength
+      scheduleLength,
+      tabBarHeight
     })
     console.log(`课表滑动区域高度：${kbHeight}px`);
-
     this.kb(util.getweekString());
-
-    // 从本地缓存获取backgroundUrl
-    let fileUrl = wx.getStorageSync('curriBgc');
-    let that = this;
+    // 定义函数
     const getUrlFromLoad = (fileUrl) => {
       wx.getSavedFileList({
         success(res) {
