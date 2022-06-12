@@ -1,1 +1,38 @@
-/* pages/functionPage/functionPage.wxss */
+page {
+  background-color: rgb(246, 246, 246);
+  box-sizing: border-box;
+  /* padding: 0 20rpx; */
+}
+.head {
+  background-color: rgb(246, 246, 246);
+}
+.body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.lineHeight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  height: 200rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    filter: invert(0) !important;
+  }
+  .head {
+    color: #fff;
+    background-color: rgb(25,25,25);
+  }
+  .body {
+    filter: invert(0.96);
+  }
+}

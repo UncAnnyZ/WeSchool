@@ -1,35 +1,47 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* border-radius: 15rpx; */
   overflow: hidden;
 }
 
 .wrap {
   position: relative;
-  overflow: hidden;
   /* margin-bottom: 2%; */
   height: auto;
-  width: 680rpx;
+  width: 32%;
   /* width: 380rpx; */
-  /* height: 200rpx */
+  margin-left:5rpx;
 
-  /* object-fit: cover; */
+
+  object-fit: cover;
 }
 
 
 .wrap image {
   width: 100%;
+  height: 200rpx;
   background-size: cover;
+}
+.wrap:nth-child(1):nth-last-child(1) 
+ {
+  width: 100%;
+}
+.wrap:nth-child(1):nth-last-child(1) image
+ {
+  width: 100%;
+  height: 400rpx;
 }
 
 /*  3张图片  */
 .wrap:nth-child(1):nth-last-child(3),
 .wrap:nth-child(2):nth-last-child(2),
 .wrap:nth-child(3):nth-last-child(1) {
-  width: 33%;
+  width: 32%;
   height: 200rpx;
+  margin-left:5rpx;
+
 }
 
 .wrap:nth-child(1):nth-last-child(3) image,
@@ -55,8 +67,9 @@
 .wrap:nth-child(2):nth-last-child(3),
 .wrap:nth-child(3):nth-last-child(2),
 .wrap:nth-child(4):nth-last-child(1) {
-  width: 335rpx;
-  height: 335rpx;
+  width: 48%;
+  margin-left:5rpx;
+  /* height: 300rpx; */
 }
 
 /*  2张图片  */
@@ -89,7 +102,7 @@
 .wrap:nth-child(4):nth-last-child(3),
 .wrap:nth-child(5):nth-last-child(2),
 .wrap:nth-child(6):nth-last-child(1) {
-  width: 33%;
+  width: 32%;
   height: 200rpx;
 }
 
@@ -118,4 +131,10 @@
 .wrap:nth-child(5):nth-last-child(2),
 .wrap:nth-child(6):nth-last-child(1) {
   margin-top: 4rpx;
+}
+
+@media (prefers-color-scheme: dark) {
+  .img {
+    filter: invert(80%) !important;
+  }
 }

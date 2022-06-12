@@ -1,0 +1,76 @@
+
+
+.head_second {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  width: 100vw;
+}
+.searchInput {
+  padding-left: 80rpx;
+  margin-left: -200rpx;
+  width: 400rpx;
+  height: 75%;
+  border-radius: 60rpx;
+  background-color: rgb(248, 248, 248);
+}
+.head_second image {
+  position: absolute;
+  left: 55rpx;
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.head_second .title {
+  letter-spacing: 5rpx;
+}
+
+.historySearch_title {
+    margin-top: 60rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.historySearch_content_item {
+    margin: 30rpx 30rpx ;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.historySearch_content_item view {
+    height: 50rpx;
+    margin: 10rpx;
+    text-align: center; 
+    line-height: 50rpx;
+    background-color: rgb(240,240,240);
+    border-radius: 60rpx;
+    color: rgb(33,33,33);
+}
+.hotSearch_title {
+  margin-top: 60rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hotSearch_content_item {
+  margin: 30rpx 30rpx ;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotSearch_content_item view {
+  height: 50rpx;
+  margin: 10rpx;
+  text-align: center; 
+  line-height: 50rpx;
+  background-color: rgb(240,240,240);
+  border-radius: 60rpx;
+  color: rgb(33,33,33);
+}

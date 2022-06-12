@@ -1542,3 +1542,151 @@
         <text></text>{{item.text}}
     </textarea>
 </template>
+
+<template name="test-swiper1">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper2">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper3">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper4">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper5">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper6">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper7">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper8">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+<template name="test-swiper9">
+    <swiper bindchange="{{item.bindchange}}" style="{{item.style}}" current="{{item.current}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper>
+</template>
+
+<template name="test-swiper-item1">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item2">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item3">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item4">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item5">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item6">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item7">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item8">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+<template name="test-swiper-item9">
+    <swiper-item style="{{item.style}}">
+      <text></text>{{item.text}}
+        <block wx:for="{{item.children}}" wx:for-item="childrenItem">
+            <template is="{{ 'test-'+childrenItem.type1+(deep+1) }}" data="{{ item:childrenItem, deep:deep+1 }}"></template>
+        </block>
+    </swiper-item>
+</template>
+
+

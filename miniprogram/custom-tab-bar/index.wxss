@@ -30,7 +30,7 @@
   position: absolute;
   z-index: -1;
   top: -10px;
-  width: 80px;
+  /* width: 80px; */
   height: 80px;
   border-radius: 50%;
   border-top: 1px solid #e6e6e6;
@@ -40,10 +40,21 @@
   position: absolute;
   width: 45px;
   height: 45px;
-  top: -12px;
+  top: -10px;
   padding-top: 10px;
 }
 
 .tab-bar-item .tab-bar-view {
   font-size: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  .tab-bar {
+    filter: invert(0.9);
+  }
+  .tab-bar-view {
+    filter: invert(1);
+  }
+  /* .bulge .image{
+    filter: invert(0) !important;
+  } */
 }

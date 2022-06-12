@@ -1,0 +1,249 @@
+.container{
+  background: linear-gradient(#ffe16b 0%,#F5F5F5 32%);
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.allContent{
+  width: 93%;
+  background-color: white;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding:37rpx 26rpx;
+}
+.locateInformation{
+  font-size: 38rpx;
+  font-weight: 550;
+  display: flex;
+  flex-direction: row;
+}
+.addressLabel{
+  width: 80rpx;
+  height: 38rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFF8E4;
+  color: #9DD061;
+  border-radius: 5rpx;
+  margin: 9rpx 15rpx 0rpx 0rpx;
+}
+.userInformation{
+  font-size: 26rpx;
+  color: #6f6f6fe5;
+  margin-top: 15rpx;
+}
+.addAddress{
+  font-weight: 600;
+  font-size: 36rpx;
+}
+.deliveryTips{
+  color: #ff9429;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+}
+.deliveryTime{
+  font-size: 26rpx;
+  margin-top: 25rpx;
+  height: 90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.sendOutTime{
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+}
+.sendOut{
+  margin-right: auto;
+  font-weight: 550;
+}
+.timeTips{
+  color:#ff9429;
+  font-size: 25rpx;
+  margin-top: 6rpx;
+}
+.productContent{
+  width: 93%;
+  background-color: white;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding:35rpx 26rpx;
+  margin-top: 17rpx;
+}
+.businessName{
+  border-bottom: 1rpx solid #e8e8e8a8;
+  height: 65rpx;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+}
+.dedicatedIcon{
+  margin-left: auto;
+  height: 32rpx;
+  width: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  border: 1rpx solid #ff9429;
+  color: #ff9429;
+  font-size: 20rpx;
+}
+.productDetails{
+  padding: 40rpx 3rpx 0rpx 3rpx;
+  display: flex;
+  flex-direction: row;
+}
+.productImg{
+  background-color: rgba(236, 236, 236, 0.116);
+  width: 110rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+  height: 95rpx;
+}
+.productImg image{
+  width: 100%;
+  height: 100%;
+}
+.detailContent{
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  line-height: 33rpx;
+  margin-left: 17rpx;
+}
+.productTitle{
+  display: flex;
+  flex-direction: row;
+  font-size: 27rpx;
+  font-weight: 550;
+}
+.productName{
+  margin-bottom: 5rpx;
+}
+.productPrice{
+  margin-left: auto;
+}
+.productSpecifications,
+.productNumber{
+  font-size: 21rpx;
+  color: #6f6f6fe5;
+}
+.deliveryFee{
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  margin-top: 35rpx;
+}
+.fee{
+  margin-left: auto;
+  font-weight: 550;
+}
+.deliveryFeeActivity{
+  color: #6f6f6fe5;
+  font-size: 20rpx;
+}
+.productDiscounts{
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  margin-top: 35rpx;
+  border-bottom: 1rpx solid #e8e8e8a8;
+  height: 80rpx;
+}
+.discountsDetail{
+  color: tomato;
+  margin-left: auto;
+  font-weight: 550;
+}
+.totalPrice{
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  align-items: flex-end;
+  color: #6f6f6fe5;
+  font-size: 26rpx;
+}
+.subtotal{
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+.subtotalNumber{
+  font-weight: 550;
+  font-size: 30rpx;
+  margin-left: 15rpx;
+}
+.remarkers{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20rpx;
+  margin-top: 17rpx;
+  width: 93%;
+  padding:35rpx 26rpx;
+}
+.remarkersTitle{
+  font-weight: 550;
+  font-size: 28rpx;
+}
+.remarkersInput{
+  margin-top: 20rpx;
+}
+.settle{
+  position:fixed;
+  bottom:0;
+  z-index:4;
+  flex-direction: column;
+  width: 100%;
+  height: 154rpx;
+  background-color: #F7F7F7;
+  display: flex;
+  align-items: center;
+}
+.settleAll{
+  align-items: center;
+  background-color: #0E0D0C;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: row;
+  height: 90rpx;
+  position: absolute;
+  width: 92%;
+  /* overflow: hidden; */
+}
+.settlePrice{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-right: auto;
+  margin-left: 65rpx;
+  font-size: 27rpx;
+}
+.settlePriceNumber{
+  font-size: 38rpx;
+}
+.settleDiscounds{
+  font-size: 20rpx;
+  color: #b1b1b191;
+  margin-left: 7rpx;
+}
+.goSettle{
+  width: 170rpx;
+  background: #FECC53;
+  font-size: 30rpx;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-top-right-radius: 43rpx;
+  border-bottom-right-radius: 43rpx;
+}

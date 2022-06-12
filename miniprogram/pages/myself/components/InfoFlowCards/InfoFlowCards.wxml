@@ -16,7 +16,7 @@
   module.exports.getStar = getStar;
 </wxs>
 
-<view  style="background-color: {{list.length!=0? rgba(230,230,230,0.5):rgba(240,240,240,1)}};" wx:if="{{list.length>0}}">
+<view wx:if="{{list.length>0}}">
   <view class="card" style="z-index:3" wx:for="{{list}}" wx:for-index="idd" catchtap="navigate" data-index="{{idd}}" >
     <view class="card-row">
       <view class="card-top">
@@ -43,16 +43,19 @@
           <view wx:elif="{{item.Star_User.length==0&&item.Label!='寻物发布'}}">
             <view class="card-end-start-person-text">暂无点赞 </view>
           </view>
+          <view wx:elif="{{!item.Star_User&&item.Label!='寻物发布'}}">
+            <view class="card-end-start-person-text">暂无点赞 </view>
+          </view>
           <view wx:elif="{{item.Label=='寻物发布'}}">
             <view class="card-end-start-person-text">{{item.LoseState?'已找到':'未找到'}} </view>
           </view>
         </view>
 
         <view class="card-end-detail">
-          <image style="display:{{item.Label!='寻物发布'? '':'none'}};width:39rpx" data-index="{{idd}}" catchtap="star_tap" src="{{m1.getStar(item,character)}}"></image>
-          <image catchtap="Reply" data-index="{{idd}}" src="../../images/img/icon_comment.png"> </image>
+          <image class="img1" style="display:{{item.Label!='寻物发布'? '':'none'}};width:39rpx" data-index="{{idd}}" catchtap="star_tap" src="{{m1.getStar(item,character)}}"></image>
+          <!-- <image catchtap="Reply" data-index="{{idd}}" src="../../images/img/icon_comment.png"> </image> -->
           <button style="padding:0rpx;margin-left:40rpx;margin-right:0rpx;height:40rpx;width:40rpx;position:relative;" size="mini" data-index="{{idd}}" open-type="share" data-type="{{currentTab}}" catchtap="share">
-            <image class="share" src="../../images/img/icon_share.png"></image>
+            <image class="img1" class="share" src="../../images/img/icon_share.png"></image>
           </button>
         </view>
       </view>
@@ -65,8 +68,8 @@
   <replyComment wx:if="{{comReply}}" comReply="{{comReply}}" edit_style="{{edit_style}}" CommentList="{{CommentList}}" content="{{content}}" bind:sendEvent="xx" bind:sendCom="hh"></replyComment>
 </view>
 <view wx:if="{{NoData}}" >
-  <view class="public_text ">第一条动态分享点什么呢~</view>
-  <view class="public">
+  <view class="public_text">第一条动态分享点什么呢~</view>
+  <view class="public"  bindtap="topost">
     发布动态
   </view>
 </view>

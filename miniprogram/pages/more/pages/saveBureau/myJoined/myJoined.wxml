@@ -1,0 +1,37 @@
+<!--pages/more/pages/saveBureau/myJoined/myJoined.wxml-->
+<view class="head">
+  <view style="height: {{statusBarHeight}}px;" />
+  <view class="head_second" style="height: {{lineHeight}}px;">
+    <view class="arrow" bindtap="back">
+      <image src="../../../../../images/arrow.png"/>
+    </view>
+  </view>
+  <scroll-view scroll-x="true" class="categories"> 
+    <view class="categoriesContent" wx:for="{{arry}}" bindtap="chooseLabel" id="{{index}}">
+      <view class="circle background-color_{{index%2}} circle{{index}}"></view>
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+</view>
+<view style="height: {{(statusBarHeight + lineHeight+50)}}px;"></view>
+<scroll-view>
+<view class="All">
+  <view class="cards" wx:for="{{copyList}}" wx:key="id" id="{{index}}" bindtap="toLookcontent">
+    <view class="cardsType">
+      <image src="../../../../../images/{{item.showLabel}}.png" />
+    </view>
+    <view class="cardsContent">
+      <view class="title">{{item.text}}</view>
+      <view class="bottom">
+        <view class="leader">局长： {{item.nickName}}</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+      <view class="progress">
+        <progress percent="{{item.process}}" stroke-width="5" backgroundColor="#E29E8F" color="#94D3AE" border-radius="30rpx" active />
+      </view>
+    </view>
+  </view>
+  <view class="loading" wx:if="{{loading}}">玩命加载中...</view>
+  <view class="none" wx:if="{{none}}">- 无更多内容 -</view>
+</view>
+</scroll-view>

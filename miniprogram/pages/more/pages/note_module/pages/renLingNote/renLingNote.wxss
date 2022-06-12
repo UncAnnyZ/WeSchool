@@ -1,122 +1,256 @@
 .container {
-    width: 100%;
-    height: 100%;
-    padding: 0 30rpx;
-    box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
 }
-
+.head {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  margin-left: -30rpx;
+  background-color: #fff;
+}
+.head .imgBox {
+  position: absolute;
+  top: 48%;
+  left: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50rpx;
+  height: 50rpx;
+}
+.head .backImg {
+  /* position: absolute; */
+  /* top: 60%; */
+  /* left: 30rpx; */
+  width: 18rpx;
+  height: 25rpx;
+}
+.head .lineHeight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .inform {
-    width: 100%;
-    padding: 20rpx;
-    font-size: 25rpx;
-    background-color: rgb(240, 238, 238);
-    border-radius: 15rpx;
-    color: rgb(133, 131, 131);
-    box-sizing: border-box;
-    letter-spacing: 2rpx;
-    line-height: 35rpx;
-    margin-top: 20rpx;
+  width: 100%;
+  padding: 20rpx;
+  font-size: 25rpx;
+  background-color: rgb(240, 238, 238);
+  border-radius: 15rpx;
+  color: rgb(133, 131, 131);
+  box-sizing: border-box;
+  letter-spacing: 2rpx;
+  line-height: 35rpx;
+  margin-top: 20rpx;
 }
 
 .placeholder_class {
-    color: rgb(165, 165, 165);
-    letter-spacing: 2rpx;
-    font-size: 26rpx;
+  color: rgb(165, 165, 165);
+  letter-spacing: 2rpx;
+  font-size: 26rpx;
 }
 
 /* 暗号 */
 .signal .text {
-    font-size: 28rpx;
-    font-weight: 550;
-    margin: 30rpx 0;
+  font-size: 28rpx;
+  font-weight: 550;
+  margin: 30rpx 0;
 }
 
 .signal input {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 100rpx;
-    border: 1rpx solid #ccc;
-    border-radius: 15rpx;
-    padding: 0 20rpx;
-    box-sizing: border-box;
-    color: rgb(80,80,80)
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 15rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: rgb(80, 80, 80)
 }
 
 .signal input .text_length {
-    color: rgb(165, 165, 165);
-    position: absolute;
-    top: 25rpx;
-    right: 20rpx;
+  color: rgb(165, 165, 165);
+  position: absolute;
+  top: 25rpx;
+  right: 20rpx;
 }
 
 /* 留言 */
 .content .text {
-    font-size: 28rpx;
-    font-weight: 550;
-    margin: 30rpx 0;
+  font-size: 28rpx;
+  font-weight: 550;
+  margin: 30rpx 0;
 }
 
 .content textarea {
-    width: 100%;
-    margin: 30rpx 0;
-    color: rgb(80,80,80);
-    font-size: 28rpx;
-    
+  width: 100%;
+  margin: 30rpx 0;
+  color: rgb(80, 80, 80);
+  font-size: 28rpx;
+
 }
 
 .content .Line {
-    background: #9b9b9b48;
-    width: 100%;
-    height: 1rpx;
+  background: #9b9b9b48;
+  width: 100%;
+  height: 1rpx;
 }
 
 /* 规范 */
 .main image {
-    width: 35rpx;
-    height: 35rpx;
-    margin-right: 10rpx;
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
 }
 
 .main .safe {
-    margin-top: 15rpx;
-    font-size: 25rpx;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    letter-spacing: 3rpx;
-    color: #3883c2;
+  margin-top: 15rpx;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  letter-spacing: 3rpx;
+  color: #3883c2;
 }
 
 /* 匿名/发送 */
 .send {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 150rpx;
-    /* background-color: green; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150rpx;
+  /* background-color: green; */
 }
 
 button {
-    font-size: 30rpx;
-    letter-spacing: 2rpx;
-    color: #fff;
-    background: transparent;
-    border-radius: 0;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  color: #fff;
+  background: transparent;
+  border-radius: 0;
 }
 
 button::after {
-    border-color: transparent;
+  border-color: transparent;
 }
 
 .send button {
-    width: 90% !important;
-    border-radius: 60rpx;
-    /* background-color: #fff; */
-    background: #9ef5c1;
+  width: 90% !important;
+  border-radius: 60rpx;
+  /* background-color: #fff; */
+  background: #9ef5c1;
+}
+
+.container .main_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.popScroll {
+  position: absolute;
+  top: 100rpx;
+  /* left: -15rpx; */
+  height: 100%;
+  z-index: 999;
+  background-color: #fff;
+  margin-left: -30rpx;
+}
+/* 小纸条 */
+.container .noteBox {
+  width: 92vw;
+  min-height: 200rpx;
+  /* background-color: pink; */
+  border-radius: 15rpx;
+  margin: 15rpx 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow: rgb(223, 223, 223) 0 2rpx 7rpx;
+  /* background-image: linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%); */
+}
+
+.noteBox_active {
+  transform: scale(0.99);
+}
+
+/* 时间和举报 */
+.container .noteBox .first_line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 29rpx;
+  margin-bottom: 10rpx;
+}
+
+.first_line .time {
+  font-size: 25rpx;
+  font-weight: 550;
+}
+
+.first_line .jubao {
+  padding: 3rpx 15rpx;
+  font-size: 25rpx;
+  letter-spacing: 1rpx;
+  border: 1rpx solid #9b9b9b48;
+  color: rgb(82, 81, 81);
+  border-radius: 20rpx;
+}
+
+.container .noteBox .Line {
+  background: #9b9b9b48;
+  width: 100%;
+  height: 1rpx;
+}
+
+/* 第二列 */
+.container .noteBox .second_line {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+
+}
+
+/* 头像 */
+.container .noteBox .second_line .userInfo_avatar {
+  border: 5rpx solid rgba(171, 199, 233, 0.6);
+}
+
+.userInfo_avatar,
+.userInfo_avatar image {
+  overflow: hidden;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+/* 昵称和内容 */
+.container .noteBox .second_line .userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  width: 80%;
+}
+
+
+.container .noteBox .second_line .userInfo .nickName {
+  font-size: 26rpx;
+  color: rgb(133, 131, 131);
+}
+
+.container .DataNull {
+  font-size: 26rpx;
+  color: #2c2c2cb4;
+  display: flex;
+  justify-content: center;
 }

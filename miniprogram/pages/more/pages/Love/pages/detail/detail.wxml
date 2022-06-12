@@ -1,0 +1,61 @@
+<view wx:if="{{state==1}}">
+  <view class="containers">
+    <image class="bgc" src="../../images/bgc.png"></image>
+  </view>
+  <view class="box">
+    <image class="img" src="./images/Match.png"></image>
+    <view class="match-text">正在匹配中，匹配时间为1小时~</view>
+  </view>
+  <view class="btn btn1" bindtap="return">
+    返回首页
+ </view>
+</view>
+<view wx:elif="{{state==2}}">
+  <view class="containers">
+    <image class="bgc" src="../images/bgc.png"></image>
+  </view>
+</view>
+<view wx:elif="{{state==3}}">
+  <view class="containers">
+    <image class="bgc" src="../../images/bgc.png"></image>
+  </view>
+  <view class="matched-model">
+    <view class="matched">
+      <view class="matched-top">为您匹配如下</view>
+      <view class="mathed-detail">
+        <view class="matched-detail-touxiang ">
+          <image src="{{content.photo}}"></image>
+        </view>    
+        <view class="matched-detail-touxiang-text">
+          <view>{{content.name}}</view>
+        </view>
+
+        <view class="matched-detail-touxiang-text type">
+          <text style="font-weight:800">身高：</text> <text>{{content.height}}</text>
+        </view>
+        <view class="matched-detail-touxiang-text type">
+          <text style="font-weight:800">MBTI类型：</text> <text>{{content.mbit}}</text>
+        </view>
+        <view class="matched-detail-touxiang-text type">
+          <text style="font-weight:800">所在学校：</text> <text>{{content.school}}</text>
+        </view>
+        <view class="matched-detail-touxiang-text type ">
+          <text style="font-weight:800；">自我介绍:{{content.introduce?'':'暂无'}}</text>
+        </view>
+        <view style="display:{{content.introduce?'block':'none'}}" class="matched-detail-touxiang-text type " >
+          <text>{{content.introduce}}</text>
+        </view>
+        <view class="btn" bindtap="copy">
+          获得微信号
+        </view>
+        <view class="btn" bindtap="rewrite">
+          重新填写
+        </view>
+        <view class="btn" bindtap="return">
+          返回首页
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

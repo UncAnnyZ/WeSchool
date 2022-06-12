@@ -3,8 +3,8 @@
 }
 
 .ReplyCom_contain {
-  position: absolute;
-  bottom: -10rpx;
+  position: fixed;
+  bottom: 0rpx;
   display: flex;
   justify-content: center;
   align-items: center;

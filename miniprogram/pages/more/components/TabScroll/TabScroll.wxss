@@ -56,7 +56,15 @@
     white-space:nowrap;
     justify-content: center;
   }
-
+  .Label_limit_myself{
+    width: auto;
+    padding: 0 15rpx;
+    /* height: 5rpx; */
+    display: flex;
+    align-items: center;
+    white-space:nowrap;
+    justify-content: center;
+  }
   .Label_limit1{
     width: auto;
     padding: 0 15rpx;
@@ -98,7 +106,6 @@
   color:rgba(116,213,211)
 }
 .bgc{
-  background-color: rgba(240,240,240,1);
   border-radius: 16rpx 16rpx 0rpx 0rpx;
   z-index:3
 }
@@ -107,9 +114,6 @@
   .Choose_Label{
     filter: invert(100%) !important;
   }
-    scroll-view{
-      filter: invert(100%) !important;
-    }
     
     .Label_limit{
       filter: invert(100%) !important;
@@ -130,4 +134,23 @@
       color: #fff;
       filter: invert(100%) !important;
     }
+
+    /* 我的页面标签 */
+    .underLine_myself {
+      filter: invert(1) !important;
+    }
+    .Label_limit_myself {
+      filter: invert(1) !important;
+    }
+    .underLine_myself{
+      filter: invert(1) !important;
+    }
+    .Choose_Label{
+      filter: invert(0) !important;
+
+    }
+    /* .Label_limit_myself{
+      filter: invert(80%) !important;
+  
+    } */
   }

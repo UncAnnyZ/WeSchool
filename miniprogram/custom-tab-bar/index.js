@@ -1,38 +1,38 @@
 Component({
   data: {
     color: "#515151",
-    selectedColor: "#DAA520",
+    selectedColor: "#B8B896",
     backgroundColor: "#ffffff",
     list: [
       {
-        pagePath: "/pages/index/index",
+        pagePath: "/pages/more/more",
         text: "首页",
-        iconPath: "/images/tabbar/主页.png",
-        selectedIconPath: "/images/tabbar/主页_sel.png"
+        iconPath: "/images/tabbar/home.png",
+        selectedIconPath: "/images/tabbar/home_sel.png"
       },
       {
         pagePath: "/pages/curriculum/curriculum",
         text: "课表",
-        iconPath: "/images/tabbar/课程表.png",
-        selectedIconPath: "/images/tabbar/课程表_sel.png"
+        iconPath: "/images/tabbar/schedule.png",
+        selectedIconPath: "/images/tabbar/schedule_sel.png"
       },
       {
-        pagePath: "/pages/record/record",
+        pagePath: "/pages/PublishContent/PublishContent",
         bulge:true,
-        iconPath: "/images/tabbar/发布.png",
-        selectedIconPath: "/images/tabbar/发布.png"
+        iconPath: "/images/tabbar/pub.png",
+        selectedIconPath: "/images/tabbar/pub_sel.png"
       },
       {
         pagePath: "/pages/functionPage/functionPage",
         text: "功能",
-        iconPath: "/images/tabbar/功能.png",
-        selectedIconPath: "/img/message-select.png"
+        iconPath: "/images/tabbar/fuc.png",
+        selectedIconPath: "/images/tabbar/fuc_sel.png"
       },
       {
         pagePath: "/pages/myself/myself",
         text: "我的",
-        iconPath: "/images/tabbar/作者.png",
-        selectedIconPath: "/images/tabbar/作者_sel.png"
+        iconPath: "/images/tabbar/Author.png",
+        selectedIconPath: "/images/tabbar/Author_sel.png"
       }
     ]
   },

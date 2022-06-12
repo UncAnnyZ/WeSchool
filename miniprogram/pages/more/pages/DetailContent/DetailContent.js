@@ -163,6 +163,33 @@ Page({
     outIndex = 0
   },
   ReplyComment: function () {       //控制replyComment组件，并向组件传递数据
+      let username = wx.getStorageSync('args').username
+      if (!username) {
+        // wx.redirectTo({
+        //   url: '/pages/index/guidance/guidance'
+        // })
+        wx.showModal({
+          title: '登录提示',
+          showCancel: false, //是否显示取消按钮
+          content: "是否要登录",
+          cancelText: "否", //默认是“取消”
+          // cancelColor: 'skyblue', //取消文字的颜色
+          confirmText: "是", //默认是“确定”
+          // confirmColor: 'red', //确定文字的颜色
+          success: function (res) {
+            if (!res.cancel) {
+              wx.navigateTo({
+                url: '/pages/login/login?schoolName='+ wx.getStorageSync('briefSchool')
+              })
+            } else {
+              wx.navigateBack({})
+            }
+            
+          }
+        })
+        return
+      }
+
       this.popUp()
       this.setData({
         comEdit: false,
@@ -609,27 +636,46 @@ Page({
     const args = wx.getStorageSync('args')
     let jsonStr = JSON.stringify(this.data.content);
     let content_ = encodeURIComponent(jsonStr)
-    console.log(content_)
+    let title = this.data.content.Title? this.data.content.Title: this.data.content.Text
     if(args.username== this.data.content.username){
+   
       return {
-        title:"我发布了一个" + this.data.content.Label + this.data.content.Title,
-        imageUrl:this.data.content.Cover,
-        query:`pages/more/pages/DetailContent/DetailContent?content=${content_}`
+        title:"我发布了一个" + this.data.content.Label + '“'+this.data.content.Title+title+'”',
+        path:`/pages/more/pages/DetailContent/DetailContent?content=${content_}`
       }
     } 
    else{
      return {
       title:this.data.content.Title?this.data.content.Title:this.data.content.Text,
       imageUrl:this.data.content.Cover,
-      query:`pages/more/pages/DetailContent/DetailContent?content=${content_}`
+      path:`pages/more/pages/DetailContent/DetailContent?content=${content_}`
      }
    }
+  
+
   },
   onShareAppMessage(e){
-    return {
-      title:"",
-      imageUrl:"",
-      path:""
-    }
+    const args = wx.getStorageSync('args')
+    let jsonStr = JSON.stringify(this.data.content);
+    let content_ = encodeURIComponent(jsonStr)
+    let title = this.data.content.Title? this.data.content.Title: this.data.content.Text
+    console.log(title)
+    if(args.username== this.data.content.username){
+      console.log(this.data.content.Label)
+      return {
+        title:"我发布了一个" + this.data.content.Label + '“'+this.data.content.Title+title+'”',
+        imageUrl:this.data.content.Cover,
+        path:`/pages/more/pages/DetailContent/DetailContent?content=${content_}`
+      }
+    } 
+   else{
+     return {
+      title:this.data.content.Title?this.data.content.Title:this.data.content.Text,
+      imageUrl:this.data.content.Cover,
+      path:`pages/more/pages/DetailContent/DetailContent?content=${content_}`
+     }
+   }
+  
+
   }
 })

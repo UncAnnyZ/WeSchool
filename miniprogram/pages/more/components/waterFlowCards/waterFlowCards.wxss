@@ -27,3 +27,8 @@
     display: flex;
     justify-content: center;
 }
+@media (prefers-color-scheme: dark) {
+  .content {
+    filter: invert(1);
+  }
+}

@@ -1,0 +1,36 @@
+.container{
+  background: #FBE9A3;
+  width:100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.labelControl{
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  height: 72rpx;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  top: 0rpx;
+  z-index: 3;
+  border-bottom: 2rpx solid #94949438;
+  padding: 25rpx 0rpx;
+}
+.showAllOrders,
+.unpaid,
+.paid{
+  margin: 0 28rpx;
+  font-size: 25rpx;
+  color: #464646de;
+  display: flex;
+}
+.labelControlLine{
+  background-color: #FFD633;
+  height: 4rpx;
+  position: absolute;
+  bottom: 0;
+  transition: left .4s;
+}

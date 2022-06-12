@@ -13,20 +13,20 @@
 
 .first {
   position: relative;
-  display: flex;
+  /* display: flex; */
   flex-shrink: 0;
-  width: 200rpx;
+  width: 214rpx;
   height: 230rpx;
   /* background-color: pink; */
   border-radius: 15rpx;
-  background-image: linear-gradient(#E0D3FB, rgb(252, 251, 254));
+  background-image: linear-gradient(to right,rgb(157, 220, 250), rgb(184, 233, 230));
 }
 .first text {
   display: block;
   margin: 10rpx;
   font-size: 30rpx;
   font-weight: bold;
-  color: rgb(110, 110, 112);
+  color: rgb(31, 41, 44);
 }
 .first image {
   position: absolute;
@@ -46,7 +46,7 @@
 
 .second .second_box {
   position: relative;
-  width: 237rpx;
+  width: 230rpx;
   height: 107rpx;
   background-color: pink;
   border-radius: 15rpx;
@@ -58,7 +58,7 @@
   margin: 10rpx;
   font-size: 26rpx;
   font-weight: bold;
-  color: rgb(110, 110, 112);
+  color: rgb(31, 41, 44);
 }
 .second_box image {
   position: absolute;
@@ -67,20 +67,31 @@
   width: 90rpx;
 }
 .second .note {
-  background-image: linear-gradient(#D7DAFC, rgb(239, 239, 251));
+  background-image: linear-gradient(to right,rgb(246, 192, 230), rgb(252, 210, 222));
 }
 
 .second .game {
-  background-image: linear-gradient(#DEF1F6, rgb(241, 245, 250));
+  background-image: linear-gradient(to right,rgb(217, 188, 246), rgb(199, 206, 242));
 }
 
 .second .zanju {
   margin: 0;
-  background-image: linear-gradient(#EAEAF9, rgb(245, 248, 251));
+  background-image: linear-gradient(to right,rgb(155, 203, 245), rgb(177, 239, 253));
 }
 
 .second .secondeHand {
   margin: 0;
-  background-image: linear-gradient(#C0DFF6, rgb(238, 246, 249));
+  background-image: linear-gradient(to right,rgb(248, 213, 221), rgb(177, 241, 252));
 
+}
+/* 小文字 */
+.first .produce {
+  display: block;
+  font-size: 21rpx;
+  font-weight: 300;
+}
+.second .produce {
+  display: block;
+  font-size: 21rpx;
+  font-weight: 300;
 }

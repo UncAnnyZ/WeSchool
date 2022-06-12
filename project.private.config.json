@@ -69,6 +69,42 @@
           "name": "我的-更多",
           "pathName": "pages/myself/page/page",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "应用中心",
+          "pathName": "pages/functionPage/functionPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索页",
+          "pathName": "pages/more/pages/searchPage/searchPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "searchContent",
+          "pathName": "pages/more/pages/searchContent/searchContent",
+          "query": "query=ceshi",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布",
+          "pathName": "pages/PublishContent/PublishContent",
+          "query": "",
           "launchMode": "default",
           "scene": null
         },

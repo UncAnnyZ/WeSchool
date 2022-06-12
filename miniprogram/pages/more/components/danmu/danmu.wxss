@@ -1,403 +1,416 @@
-page {
-    height: 100vh;
-    background: #fff;
-    font-size: 28rpx;
-    color: #333;
-    box-sizing: border-box;
-}
+
 
 .container {
   /* position: absolute; */
-    width: 100%;
-    height: 310rpx;
-    background-color: #fff;
+  width: 100%;
+  height: 330rpx;
+  background-color: #fff;
 }
 
 .container .title {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 60rpx;
-    margin-left: 10rpx;
-    font-size: 40rpx;
-    font-style: italic;
-    letter-spacing: 8rpx;
-    color: mediumaquamarine;
-    font-weight: 550;
-    text-shadow: mediumaquamarine 5rpx 5rpx 10rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60rpx;
+  margin-left: 10rpx;
+  font-size: 40rpx;
+  font-style: italic;
+  letter-spacing: 8rpx;
+  color: mediumaquamarine;
+  font-weight: 550;
+  text-shadow: mediumaquamarine 5rpx 5rpx 10rpx;
 }
+
+.title .title_img {
+  margin-left: 20rpx;
+  opacity: 0.85;
+  height: 60rpx;
+  width: 250rpx;
+}
+
 .container .logo {
   position: absolute;
   right: 40rpx;
 }
+
 .logo image {
   width: 110rpx;
   opacity: 0.3;
 }
+
 .clearfix {
-    zoom: 1;
-    clear: both;
+  zoom: 1;
+  clear: both;
 }
 
 .clearfix:after {
-    clear: both;
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden;
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
 }
 
 .ellipsis {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 button::after {
-    border: 0;
+  border: 0;
 }
 
 .mt10 {
-    margin-top: 10rpx;
+  margin-top: 10rpx;
 }
 
 .mt20 {
-    margin-top: 20rpx;
+  margin-top: 20rpx;
 }
 
 .mt40 {
-    margin-top: 40rpx;
+  margin-top: 40rpx;
 }
 
 .btnGroup {
-    padding: 10rpx 0;
-    overflow: hidden;
-    display: flex;
+  padding: 10rpx 0;
+  overflow: hidden;
+  display: flex;
 }
 
 .btnGroup.mb10 {
-    margin-bottom: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .btnGroup.mb20 {
-    margin-bottom: 40rpx;
+  margin-bottom: 40rpx;
 }
 
 .btnGroup .item {
-    display: flex;
-    width: 100%;
-    padding: 0 15rpx;
+  display: flex;
+  width: 100%;
+  padding: 0 15rpx;
 }
 
 .btnGroup .item.w50 {
-    width: 50%;
+  width: 50%;
 }
 
 .btnGroup .btn {
-    background: #ff5a5f;
-    color: #fff;
-    width: 100%;
-    padding: 0 30rpx;
-    text-align: center;
-    border-radius: 8rpx;
-    line-height: 80rpx;
-    height: 80rpx;
-    overflow: hidden;
-    font-size: 32rpx;
+  background: #ff5a5f;
+  color: #fff;
+  width: 100%;
+  padding: 0 30rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  overflow: hidden;
+  font-size: 32rpx;
 }
 
 .btnGroup .btn.default {
-    background: #fff;
-    color: #999;
+  background: #fff;
+  color: #999;
 }
 
 .btnGroup .btn.gray {
-    background: #f4f4f4;
-    color: #999;
+  background: #f4f4f4;
+  color: #999;
 }
 
 .btnGroup .btn.blue {
-    background: #5988fe;
+  background: #5988fe;
 }
 
 .btnGroup .btn.orange {
-    background: #fea233;
+  background: #fea233;
 }
 
 .btnGroup .btn.disabled {
-    opacity: .8;
+  opacity: .8;
 }
 
 
 .icon {
-    width: 28rpx;
-    height: 28rpx;
-    overflow: hidden;
-    margin-right: 15rpx;
+  width: 28rpx;
+  height: 28rpx;
+  overflow: hidden;
+  margin-right: 15rpx;
 }
 
 .icon.fire {
-    width: 28rpx;
-    height: 28rpx;
+  width: 28rpx;
+  height: 28rpx;
 }
 
 .icon.good {
-    width: 20rpx;
-    height: 20rpx;
-    margin-right: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
 }
 
 .img {
-    width: 100%;
-    height: 100%;
-    border: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .copyRight {
-    text-align: center;
-    margin: 80rpx 0 10rpx;
-    color: #999;
-    padding-top: 30rpx;
-    border-top: 1rpx dotted #eee;
-    font-size: 20rpx;
-    line-height: 24rpx;
+  text-align: center;
+  margin: 80rpx 0 10rpx;
+  color: #999;
+  padding-top: 30rpx;
+  border-top: 1rpx dotted #eee;
+  font-size: 20rpx;
+  line-height: 24rpx;
 }
 
 .launchGird {
-    padding: 20rpx;
-    position: relative;
-    height: 100%;
+  padding: 20rpx;
+  position: relative;
+  height: 100%;
 }
 
 .focus {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    border-radius: 10rpx;
-    overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
 }
 
 .shadowOverlay {
-    /* position: absolute; */
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .1) 100%); */
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* background-image: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .1) 100%); */
 }
 
 .displayGroup {
-    background: #eee;
-    border: 20rpx solid #fff;
-    box-shadow: 0 0 10rpx #eee;
-    border-radius: 10rpx;
-    margin-bottom: 40rpx;
-    height: 420rpx;
-    position: relative;
-    overflow: hidden;
+  background: #eee;
+  border: 20rpx solid #fff;
+  box-shadow: 0 0 10rpx #eee;
+  border-radius: 10rpx;
+  margin-bottom: 40rpx;
+  height: 420rpx;
+  position: relative;
+  overflow: hidden;
 }
 
 .dmGroup {
-    /* position: absolute; */
-    left: 100%;
-    z-index: 10;
-    width: 100%;
-    animation-timing-function: linear;
-    animation-fill-mode: none;
-    transform: translateZ(0);
-    white-space: nowrap;
-    height: 60rpx;
+  position: absolute;
+  left: 100%;
+  z-index: 10;
+  width: 100%;
+  animation-timing-function: linear;
+  animation-fill-mode: none;
+  transform: translateZ(0);
+  white-space: nowrap;
+  height: 60rpx;
 }
 
 .dmGroup.top {
   margin-top: 20rpx;
-    /* position: absolute; */
-    height: 60rpx;
-    top: 90rpx;
+  /* position: absolute; */
+  height: 60rpx;
 }
 
 .dmGroup.mid {
-    height: 60rpx;
-    top: 150rpx;
+  height: 60rpx;
+  margin-top: 95rpx;
 }
 
 .dmGroup.btm {
-    height: 60rpx;
-    top: 210rpx;
+  height: 60rpx;
+  margin-top: 165rpx;
 }
 
 .dmItem {
-    display: inline-flex;
-    margin-right: 160rpx;
-    white-space: nowrap;
+  display: inline-flex;
+  margin-right: 160rpx;
+  white-space: nowrap;
 }
 
 .dmItem .dm {
-    display: inline-flex;
-    vertical-align: middle;
-    align-items: center;
-    position: relative;
-    height: 50rpx;
-    line-height: 50rpx;
-    padding: 0 15rpx 0 5rpx;
-    background: #fff;
-    border-radius: 14rpx;
-    /* overflow: hidden; */
-    font-size: 24rpx;
- 
-    border-bottom: 1px solid #dcdcdc;
-    /* color: #fff; */
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  position: relative;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 15rpx 0 5rpx;
+  background: #fff;
+  border-radius: 14rpx;
+  /* overflow: hidden; */
+  font-size: 24rpx;
+
+  border-bottom: 1px solid #dcdcdc;
+  /* color: #fff; */
 }
 
 .dm::before {
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    bottom: -11rpx;
-    left: 40rpx;
-    border-left: 20rpx solid #dcdcdc;
-    border-bottom: 10rpx solid transparent;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -11rpx;
+  left: 40rpx;
+  border-left: 20rpx solid #dcdcdc;
+  border-bottom: 10rpx solid transparent;
 }
 
 .dm::after {
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    bottom: -9rpx;
-    left: 40rpx;
-    border-left: 20rpx solid #fff;
-    border-bottom: 10rpx solid transparent;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -9rpx;
+  left: 40rpx;
+  border-left: 20rpx solid #fff;
+  border-bottom: 10rpx solid transparent;
 }
 
 
 
 .dmItem .avatarBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 40rpx;
-    height: 40rpx;
-    /* margin-left: 10rpx; */
-    margin-right: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  /* margin-left: 10rpx; */
+  margin-right: 10rpx;
 }
 
 .dmItem .avatarBox .avatar {
-    width: 25rpx;
-    height: 25rpx;
-    border: 0;
-    border-radius: 50%;
-    overflow: hidden;
+  width: 25rpx;
+  height: 25rpx;
+  border: 0;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .dmItem .dm .sex {
-    position: absolute;
-    left: 25rpx;
-    top: 18rpx;
-    width: 22rpx;
-    height: 22rpx;
-    overflow: hidden;
+  position: absolute;
+  left: 25rpx;
+  top: 18rpx;
+  width: 22rpx;
+  height: 22rpx;
+  overflow: hidden;
 }
 
 .dmItem .dm .content {
-    display: inline-block;
-    max-width: 400rpx;
-    height: 50rpx;
-    line-height: 50rpx;
-    margin-right: 10rpx;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  display: inline-block;
+  max-width: 400rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-right: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .dmItem .dm .user {
-    display: inline-block;
-    max-width: 100rpx;
-    height: 53rpx;
-    color: #a8a6a7;
-    font-size: 23rpx;
-    line-height: 50rpx;
-    margin-right: 10rpx;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  display: inline-block;
+  max-width: 100rpx;
+  height: 53rpx;
+  color: #a8a6a7;
+  font-size: 23rpx;
+  line-height: 50rpx;
+  margin-right: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .detailGroup {
-    margin: 40rpx 0;
-    padding: 50rpx 40rpx;
-    overflow: hidden;
-    font-size: 24rpx;
-    line-height: 28rpx;
-    color: #5c5c5c;
-    background: #fff;
+  margin: 40rpx 0;
+  padding: 50rpx 40rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #5c5c5c;
+  background: #fff;
 }
 
 .detailGroup .title {
-    margin-bottom: 20rpx;
-    font-size: 28rpx;
-    padding-bottom: 20rpx;
-    border-bottom: 1rpx solid #eee;
-    line-height: 32rpx;
-    color: #454545;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  line-height: 32rpx;
+  color: #454545;
 }
 
 .detailGroup .title.small {
-    font-size: 26rpx;
-    line-height: 28rpx;
+  font-size: 26rpx;
+  line-height: 28rpx;
 }
 
 .detailGroup .tips {
-    border-left: 8rpx solid #e7e9ed;
-    padding: 15rpx 15rpx 15rpx 30rpx;
-    margin-bottom: 20rpx;
-    font-size: 24rpx;
-    line-height: 28rpx;
-    color: #7f8fa4;
-    background: #f6f6f6;
+  border-left: 8rpx solid #e7e9ed;
+  padding: 15rpx 15rpx 15rpx 30rpx;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #7f8fa4;
+  background: #f6f6f6;
 }
 
 .detailGroup .detail {
-    font-size: 24rpx;
-    line-height: 28rpx;
-    color: #5c5c5c;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #5c5c5c;
 }
 
 .detailGroup .cfRed {
-    color: #f30;
+  color: #f30;
 }
 
 .detailGroup .cfBlue {
-    color: #5988fe;
+  color: #5988fe;
 }
 
 .detailGroup .cfOrange {
-    color: #fea233;
+  color: #fea233;
 }
 
 @keyframes dmAnimation2 {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(-130%);
-    }
+  100% {
+    transform: translateX(-400%);
+  }
 }
 
 @keyframes dmAnimation {
-    from {
-        left: 100%;
-    }
+  from {
+    left: 100%;
+  }
 
-    to {
-        left: -100%;
-    }
+  to {
+    left: -100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .title .title_img {
+    filter: brightness(2) !important;
+  }
+  .container {
+    /* filter: invert(1) !important; */
+    background-color: rgb(241,241,241);
+  }
 }

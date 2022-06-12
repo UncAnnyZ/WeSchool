@@ -1,0 +1,79 @@
+<!--pages/more/pages/saveBureau/saveBureau.wxml-->
+<view class="head">
+  <view style="height: {{statusBarHeight}}px;" />
+  <view class="head_second" style="height: {{lineHeight}}px;">
+    <view class="savedNumber" style="top: {{lineHeight}}px;">
+      <image src="../../../../images/arrow.png" class="backImg" bindtap="back"/>
+      <image src="../../../../images/people.png" class="peopleImg"></image>
+      <!-- 已攒<text>  99117 </text>人 -->
+      <text>  {{peopleList}} </text>
+    </view>
+  </view>
+</view>
+<view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+
+<!-- <scroll-view> -->
+<view class="All">
+  <scroll-view style="position: relative;left: 47rpx;">
+  <view class="manual">
+    <!-- <view class="manualText">攒局速成手册</view>
+    <view class="manualText">萌新必看</view> -->
+    <view class="topTitle">
+      <image src="../../../../images/title.png"></image>
+    </view>
+    <view class="manualImg">
+      <image src="../../../../images/saveBureau.png"/>
+    </view>
+    
+    <view class="manualBotton">
+      <view class="myJoining" bindtap="toMyjoined">
+        <image src="../../../../images/join.png"/>
+      </view>
+      <view class="myLaunch" bindtap="toSavepublish">
+        <image src="../../../../images/publish.png"/>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+  <view class="categories" style="top: {{statusBarHeight + 40}}px">
+    <view wx:for="{{arry}}" wx:key="id">
+      <view class="categoriesContent" bindtap="chooseLabel" id="{{index}}">
+        <view class="circle background-color_{{index%2}} circle{{index}}"></view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <scroll-view style="position: relative;left: 47rpx;">
+  <view class="cards" wx:for="{{copyList}}" wx:key="id" id="{{index}}" bindtap="toLookcontent">
+    <view class="cardsType">
+      <image src="../../../../images/{{item.showLabel}}.png" />
+    </view>
+    <view class="cardsContent">
+      <view class="title">{{item.text}}</view>
+      <view class="bottom">
+        <view class="leader">局长： {{item.nickName}}</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+      <view class="progress">
+        <progress percent="{{item.process}}" stroke-width="5" backgroundColor="#E29E8F" color="#94D3AE" border-radius="30rpx" active />
+      </view>
+    </view>
+  </view>
+  <view class="loading" wx:if="{{loading}}" style="margin-left: 250rpx;">玩命加载中...</view>
+  <view class="none" wx:if="{{none}}" style="margin-left: 250rpx;">- 无更多内容 -</view>
+</scroll-view>
+ 
+ 
+</view>
+
+<!-- <scroll-view>
+<view class="head">
+  <view style="height: {{statusBarHeight}}px;" />
+  <view class="head_second" style="height: {{lineHeight}}px;">
+    <view class="savedNumber" style="top: {{lineHeight}}px;">
+      已攒<text>  99117 </text>人
+    </view>
+  </view>
+</view>
+<view style="height: {{(statusBarHeight + lineHeight)}}px;"></view>
+</scroll-view> -->

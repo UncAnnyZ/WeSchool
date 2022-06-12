@@ -59,18 +59,23 @@ const getStorageImage = (web_image) => {
 
 // 计算周数
 const getweekString = () => {
-  var Date1 = new Date();
+  
   if(!wx.getStorageSync('configData')){
     return 1;
   }
+
+  // 当前时间
+  var Date1 = new Date();
+  // 学年开始时间
   var Date2 = new Date(wx.getStorageSync('configData').timeYear);
+  // 今天星期几
   var dayOfWeek = Date1.getDay();
-  //如果把周日算在一周的最后一天，请加上下面这句
-  // dayOfWeek = dayOfWeek == 0 ? 7 : dayOfWeek
-  //如果把周日算在一周的第一天，请删除上面这句
+
+  dayOfWeek == 0 ? 7 : dayOfWeek;
+
   var num = (Date1 - Date2) / 1000 / 3600 / 24;
-  var whichWeek = Math.ceil((num + dayOfWeek) / 7);
-  // var whichWeek = Math.ceil((num) / 7);
+  var whichWeek = Math.floor((num + dayOfWeek + 1) / 7);
+
   return whichWeek;
 }
 

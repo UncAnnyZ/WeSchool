@@ -8,6 +8,7 @@ page {
   position: relative;
   /* overflow: scroll; */
 }
+
 /* 头部 */
 .head_theme {
   background-image: linear-gradient( #bae4f5 , #ffffff);
@@ -537,7 +538,7 @@ button {
 
   100% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(50%);
   }
 }
 
