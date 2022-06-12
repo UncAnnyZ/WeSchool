@@ -2,7 +2,7 @@
 <view class="box1" style="height: {{statusBarHeight}}px;background-color: #dd8079;width: 100vw;" />
 <view class="box2" style="height: {{lineHeight}}px;background-color: #dd8079;width: 100vw;"/>
 <view class="tittlebox">
-    <image src="./wetitle.png" style="height: 100%;width: 100%;"></image>
+    <image src="./素材_画板 1.png" style="height: 100%;width: 100%;"></image>
 </view>
 <view class="topbox">
     <view class="topbox_right_ring"></view>

@@ -71,6 +71,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "引导页",
+          "pathName": "pages/index/guidance/guidance",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
