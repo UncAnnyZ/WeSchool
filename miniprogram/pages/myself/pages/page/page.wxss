@@ -3,14 +3,14 @@
   width: 166.62rpx;
   height: 129.62rpx;
   margin-top:0rpx;
-  margin-left: -10rpx;
+  margin-left: -30rpx;
   margin-bottom: -25rpx;
 }
 .image2{
   width: 166.62rpx;
   height: 129.62rpx;
   margin-top:30rpx;
-  margin-left: -10rpx;
+  margin-left: -30rpx;
   margin-bottom: -25rpx;
 } 
 .box{
@@ -33,7 +33,32 @@
   margin-left: 30rpx; 
   font-size: 29rpx;
 }
+.bg{
+  background-image: url(https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/bg.jpg?sign=7499d5e999aa94ce703ee00e0bff696b&t=1652196740);
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+.card{
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 30rpx;
+}
+/* https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/11414080da75b9069ec57367d07eca5.jpg?sign=caac46c8557cdbfe2fdfde791aa6085e&t=1655035998 */
 @media (prefers-color-scheme: dark) {
+  .bg{
+    background-image: url(https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/11414080da75b9069ec57367d07eca5.jpg?sign=caac46c8557cdbfe2fdfde791aa6085e&t=1655035998);
+    background-size: 100% 100%;
+    filter: invert(0) !important;
+  }
+  .card{
+    background: rgba(58, 58, 58, 0.288);
+    /* background-image: url(https://636c-cloud1-6gtqj1v4873bad50-1307814679.tcb.qcloud.la/myself/11414080da75b9069ec57367d07eca5.jpg?sign=caac46c8557cdbfe2fdfde791aa6085e&t=1655035998);
+    background-size: 135% 135%; */
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 30rpx;
+  }
   page {
     filter: invert(0) !important;
   }
