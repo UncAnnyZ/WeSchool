@@ -10,6 +10,8 @@ Page({
     statusBarHeight: getApp().globalData.statusBarHeight,
     lineHeight: getApp().globalData.lineHeight,
     rectHeight: getApp().globalData.rectHeight,
+    tabBarHeight: wx.getStorageSync('tabBarHeight'),
+    windowHeight: getApp().globalData.windowHeight,
     model: getApp().globalData.model.indexOf('iPhone'),   // 型号
 
     menu: [],                   // 标签

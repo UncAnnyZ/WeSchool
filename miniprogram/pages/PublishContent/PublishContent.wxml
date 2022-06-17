@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" style="height: {{windowHeight - tabBarHeight}}px;">
   <!-- 头部 -->
   <view class="head" style="background-image: {{theme ? 'linear-gradient( #a5e6ff , #fff) ':  'linear-gradient( #f6f6f6 , #f6f6f6)'}};">
     <!-- 状态栏 -->
@@ -70,7 +70,7 @@
       <LosePublish bind:detail="detail"></LosePublish>
     </view>
     <!-- 发布按钮 -->
-    <view class="publishBox {{model == -1 ? '' : 'publishBox_iphone'}}">
+    <view class="publishBox">
       <button class="cancel" hover-class="btn_hover" bindtap="navigationBack">
         <text>取消</text>
       </button>

@@ -17,6 +17,7 @@ Page({
     rectHeight: getApp().globalData.rectHeight,
     windowHeight: getApp().globalData.windowHeight,
     pixelRatio: getApp().globalData.pixelRatio,     // rpx 与 px 的转换比例
+    tabBarHeight: wx.getStorageSync('tabBarHeight'), // 底部tabbar高度
     // 标签兜底
     tabitem: [
       {
@@ -67,7 +68,6 @@ Page({
     TabScrollTop: 0,
     layerHeight: 60 + 350 / getApp().globalData.pixelRatio + 30,
     isWater: false, //信息流/瀑布流开关 --- true:瀑布流，false:信息流
-    tabBarHeight: 48, // 底部tabbar高度
     // 控制动画
     showLoading: false,   // 动画显隐
     showPopUps: false, // 弹窗显隐
@@ -419,7 +419,6 @@ Page({
   // 初始化函数
   init() {
 
-
     // 初始化标签
     let data = this.data,
       tabitem = args.tabitem ? args.tabitem.map((e, index) => {
@@ -445,10 +444,8 @@ Page({
       allList = tabitem.map((item, index) => {
         let allList = [];
         return allList[index] = []
-      }),
-      // 底部tabbar高度
-      tabBarHeight = wx.getStorageSync('tabBarHeight');
-    console.log(allList)
+      });
+
     if (campus_account === true) {
       wx.showModal({
         title: "提示",
@@ -485,7 +482,6 @@ Page({
       allList,                  // 初始化allList
       iconUrl: args.iconUrl,     // 获取头像
       school: args.school,       // 获取学校
-      tabBarHeight
     })
     console.log(this.data.allList)
 
